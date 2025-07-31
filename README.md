@@ -10,6 +10,27 @@ Basically, working through boxes of decades old stuff/notes. 0.1/1.0 are self-co
 
 So the branches are idiosyncratic WRT time, and 0.1/1.0 are the most useful at the moment (2.0's got the most lapses at the moment).
 
-After it all gets sorted out, look for ".x" branch which will deal with the "going forward" stuff (from a second box!). 
+After it all gets sorted out, look for ".x" branch which will deal with the "going forward" stuff (from a second box!).
 
 William Jolitz.
+
+## Symbolic Links
+
+All symlinks that originally referenced absolute system paths have been rewritten
+using the helper script `scripts/relativize_symlinks.py`. The script redirects
+those targets into the repository's `placeholder` directory so the tree remains
+self contained. Existing relative links were left untouched. To recreate the
+original layout or adjust the placeholders, run:
+
+```bash
+python3 scripts/relativize_symlinks.py
+```
+
+To enumerate the links in this tree, run one of:
+
+```bash
+git ls-files -s | awk '$1 == "120000" {print $4 " -> " $3}'
+find . -type l -print
+```
+
+Any external locations that must be preserved are noted in `placeholder/README.md`.
