@@ -19,7 +19,7 @@ William Jolitz.
 All symlinks that originally referenced absolute system paths have been rewritten
 using the helper script `scripts/relativize_symlinks.py`. The script redirects
 those targets into the repository's `placeholder` directory so the tree remains
-self contained. Existing relative links were left untouched. To recreate the
+self-contained. Existing relative links were left untouched. To recreate the
 original layout or adjust the placeholders, run:
 
 ```bash
