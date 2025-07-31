@@ -1,3 +1,16 @@
-*.o
-*.a
+# Build artifacts
+*.o          # compiled object files
+*.a          # static libraries
+*.out        # binary outputs
+*/obj/       # intermediate build directories
+
+# Runtime data
+*.log        # log files
+/tmp/        # temporary scratch directory
+core*        # core dumps from crashes
+
+# Miscellaneous OS or editor artifacts
+.DS_Store    # macOS Finder metadata
+*~           # editor backup files
+*.swp        # editor swap files
 
