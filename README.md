@@ -2,6 +2,12 @@
 
 386bsd - First open source BSD operating system, by [William](https://www.linkedin.com/in/williamjolitz/) and Lynne Jolitz.
 
+This repository contains historical source and binaries used to build the early
+386BSD distributions. Modern hosts need extra tooling such as `bmake`, `bcc`,
+and `groff` (for the `nroff` command used to format manual pages).
+See [INSTALL.md](INSTALL.md) for package lists, environment variables and a
+demonstration of building the `echo` utility.
+
 [William Jolitz's 386bsd Notebook](https://386bsd.github.io/)
 
 All release's are currently inconsistent due to media failures and composing from undated partial copies as I'm able to extract them from drives, tapes, and floppies.
