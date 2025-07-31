@@ -1,0 +1,56 @@
+name: Build UnixV6_BSD2
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential bmake flex bison qemu-system-i386
+
+    - name: Build legacy userland
+      run: |
+        cd usr/src
+        bmake clean depend all > ../build_userland.log 2>&1
+
+    - name: Build legacy kernel
+      run: |
+        cd usr/src/kernel
+        bmake clean depend all > ../../build_kernel.log 2>&1
+
+    - name: Build compat utilities & run tests
+      # assumes top‐level Makefile supports 'build' and 'test' targets
+      run: |
+        make build      # builds tiny compat utils into build/
+        make test       # runs tests/run_tests.sh
+
+    - name: Archive build logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-logs
+        path: |
+          build_userland.log
+          build_kernel.log
+
+    - name: Archive disk images
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: disk-images
+        path: |
+          fs.img
+          xv6.img

@@ -42,7 +42,7 @@
 .Nd write arguments to the standard output
 .Sh SYNOPSIS
 .Nm echo
-.Op Fl n
+.Op Fl n | Fl e
 .Op "string ..."
 .Sh DESCRIPTION
 The
@@ -51,8 +51,10 @@ utility writes any specified operands, separated by single blank (`` '')
 characters) and followed by a newline (``\en'') character, to the standard
 output.
 .Pp
-The following option is available:
+The following options are available:
 .Bl -tag -width flag
+.It Fl e
+Enable interpretation of backslash escape sequences.
 .It Fl n
 Do not print the trailing newline character.
 .El
