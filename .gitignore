@@ -1,3 +1,7 @@
 *.o
 *.a
+386bsd*
+usr/local/**
+bin/*
+sbin/*
 
