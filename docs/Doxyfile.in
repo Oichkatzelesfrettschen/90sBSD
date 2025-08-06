@@ -1,0 +1,10 @@
+# Doxygen configuration template processed by CMake
+# It concentrates on kernel sources to keep build times reasonable.
+
+PROJECT_NAME      = "386BSD"
+OUTPUT_DIRECTORY  = @CMAKE_CURRENT_BINARY_DIR@/doxygen
+GENERATE_HTML     = NO
+GENERATE_XML      = YES
+INPUT             = @CMAKE_SOURCE_DIR@/usr/src/kernel/kern/proc.c
+RECURSIVE         = YES
+QUIET             = YES
