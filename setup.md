@@ -61,8 +61,32 @@ The command currently warns about the deprecated `http-proxy` environment config
 - `doxygen-latex` – PDF outputs.
 - `sphinx-autobuild` – live-reloading docs during authoring.
 - `clang-format` – consistent C/C++ formatting.
-- `cppcheck` – static analysis for C.
 - `qemu-system-i386` – emulate the 386BSD kernel image.
+
+## Code analysis tooling
+
+Install language and static analysis helpers:
+
+```bash
+sudo apt-get install -y \
+  cloc \
+  cppcheck \
+  clang-tidy \
+  bear
+
+# version checks
+cloc --version
+cppcheck --version
+clang-tidy --version
+bear --version
+```
+
+- **cloc** – reports which languages and file counts are present.
+- **clang-tidy** – checks dialect compliance (e.g., K&R vs C89) and style issues.
+- **cppcheck** – finds common bugs and sources of technical debt.
+- **bear** – generates `compile_commands.json` to enable project-wide `clang-tidy` runs.
+
+A convenience script `scripts/analyze_code.sh` demonstrates these tools.
 
 ## Running tests
 
