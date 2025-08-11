@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 25, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "clang-elf",
+      "displayName": "Clang i386-ELF",
+      "generator": "Ninja",
+      "binaryDir": "build/clang-elf",
+      "toolchainFile": "cmake/toolchains/clang-i386-elf.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_DOCS": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {"name": "clang-elf", "configurePreset": "clang-elf"}
+  ],
+  "testPresets": [
+    {"name": "clang-elf", "configurePreset": "clang-elf"}
+  ]
+}
