@@ -22,20 +22,44 @@ sudo apt-get install -y clang lld llvm cmake ninja-build \
   doxygen graphviz pandoc
 ```
 
-## Sysroot Builder
+## Manual Sysroot Construction
 
-The script `scripts/make-sysroot.sh` copies the repository's header sources into
-`sysroots/386bsd-elf` and constructs a bootstrap `libc.a`.  Header installation
-filters out broken `nonstd/` symlinks and verifies the presence of
-`sys/cdefs.h` and `machine/ansi.h` to guarantee a minimal, freestanding
-environment for Clang.
-
-Invoke the script as:
+With the prerequisites installed, the sysroot can be produced using standard
+shell commands – no helper script is required.  The following sequence mirrors
+the historical `make-sysroot.sh` behaviour while remaining transparent and easy
+to modify.
 
 ```bash
-SYSROOT=$PWD/sysroots/386bsd-elf ./scripts/make-sysroot.sh
+# 1. choose a destination
+export SYSROOT=$PWD/sysroots/386bsd-elf
+mkdir -p "$SYSROOT/usr/include" "$SYSROOT/usr/lib"
+
+# 2. install headers
+rsync -aL --exclude 'nonstd/**' usr/include/ "$SYSROOT/usr/include/"
+rsync -aL --exclude 'nonstd/**' usr/src/include/ "$SYSROOT/usr/include/"
+rsync -aL --exclude 'nonstd/**' usr/src/lib/libc/include/ "$SYSROOT/usr/include/"
+
+# 3. compile a freestanding libc
+cd usr/src/lib/libc
+find . -name '*.c' -print0 | while IFS= read -r -d '' f; do
+  clang --target=i386-unknown-elf \
+    -ffreestanding -fno-builtin -m32 -march=i386 \
+    -mno-sse -mno-sse2 -mno-mmx -msoft-float \
+    -nostdinc -isystem "$SYSROOT/usr/include" \
+    -O2 -fno-omit-frame-pointer -fno-stack-protector \
+    -c "$f" -o "${f##*/}.o"
+done
+llvm-ar rcs "$SYSROOT/usr/lib/libc.a" *.o
+llvm-ranlib "$SYSROOT/usr/lib/libc.a"
+rm *.o
+cd -
+
+# 4. sanity checks
+test -f "$SYSROOT/usr/include/sys/cdefs.h"
+test -f "$SYSROOT/usr/include/machine/ansi.h"
 ```
 
-On success a static `libc.a` will be produced at `$SYSROOT/usr/lib/` and the
-full header tree will reside under `$SYSROOT/usr/include/`.
+After these steps the directory referenced by `SYSROOT` holds headers under
+`usr/include` and a minimal `libc.a` under `usr/lib` suitable for passing to
+Clang via `--sysroot=$SYSROOT`.
 
