@@ -64,3 +64,7 @@ tmp/
 # Miscellaneous
 # -----------------------------
 tags       # ctags/etags index files
+# Cross-compilation sysroot skeleton
+!sysroots/
+!sysroots/386bsd-elf/
+!sysroots/386bsd-elf/.gitkeep

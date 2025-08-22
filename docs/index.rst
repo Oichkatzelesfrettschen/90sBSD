@@ -2,8 +2,11 @@
 ====================
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   tooling
+    tooling
+    codebase-segmentation
+    include-audit
+    reproducible-build
 
 .. doxygenfile:: proc.c
