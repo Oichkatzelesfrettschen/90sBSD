@@ -16,7 +16,7 @@ printf '%s\n' '== Language statistics (cloc) =='
 cloc usr/src | head -n 20
 
 printf '%s\n' '\n== cppcheck (C89 dialect) =='
-CPPCHECK_TARGET="${CPPCHECK_TARGET:-usr/src}"
+CPPCHECK_TARGET="${CPPCHECK_TARGET:-usr/src/kernel}"
 cppcheck --std=c89 "$CPPCHECK_TARGET" 2> cppcheck.log
 # Display tail of log for brevity
 if [ -s cppcheck.log ]; then
