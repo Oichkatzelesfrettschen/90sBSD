@@ -16,14 +16,16 @@ printf '%s\n' '== Language statistics (cloc) =='
 cloc usr/src | head -n 20
 
 printf '%s\n' '\n== cppcheck (C89 dialect) =='
-cppcheck --std=c89 usr/src/kernel/route/radix.c 2> cppcheck.log
+CPPCHECK_TARGET="${CPPCHECK_TARGET:-usr/src/kernel}"
+cppcheck --std=c89 "$CPPCHECK_TARGET" 2> cppcheck.log
 # Display tail of log for brevity
 if [ -s cppcheck.log ]; then
   tail -n 20 cppcheck.log
 fi
 
 printf '%s\n' '\n== clang-tidy (C89 dialect) =='
-clang-tidy usr/src/kernel/route/radix.c -- -std=c89 > clang_tidy.log || true
+CLANG_TIDY_TARGET="${CLANG_TIDY_TARGET:-usr/src/kernel/route/radix.c}"
+clang-tidy "$CLANG_TIDY_TARGET" -- -std=c89 > clang_tidy.log || true
 if [ -s clang_tidy.log ]; then
   tail -n 20 clang_tidy.log
 fi

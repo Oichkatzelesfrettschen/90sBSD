@@ -1,3 +1,31 @@
-BasedOnStyle: LLVM
-IndentWidth: 2
+# 386BSD/K&R Style Configuration
+# Based on traditional BSD/K&R C coding style used in 386BSD kernel
+BasedOnStyle: GNU
+IndentWidth: 8
+UseTab: Always
+TabWidth: 8
 ColumnLimit: 80
+
+# K&R brace style - opening brace on same line for control structures
+BreakBeforeBraces: Linux
+BraceWrapping:
+  AfterFunction: true
+  AfterControlStatement: false
+
+# Function parameters and declarations  
+AllowAllParametersOfDeclarationOnNextLine: true
+BinPackParameters: false
+AlignAfterOpenBracket: AlwaysBreak
+
+# Spacing and alignment
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+AlignConsecutiveDeclarations: false
+
+# Pointer alignment (right-aligned for traditional style)
+PointerAlignment: Right
+
+# Traditional BSD formatting preferences
+AlwaysBreakAfterReturnType: TopLevel
+AlwaysBreakAfterDefinitionReturnType: TopLevel
