@@ -7,63 +7,8 @@ on:
     branches: [ main, '2.0' ]
 
 jobs:
-  build-modern:
-    name: "Modern Build System (CMake)"
-    runs-on: ubuntu-24.04
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Install modern dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          build-essential \
-          cmake \
-          doxygen \
-          graphviz \
-          python3-sphinx \
-          python3-pip \
-          flex \
-          bison \
-          git
-
-    - name: Install Python dependencies
-      run: |
-        python3 -m pip install --user breathe sphinx-rtd-theme
-
-    - name: Configure CMake build
-      run: |
-        mkdir -p build
-        cd build
-        cmake .. \
-          -DBUILD_DOCS=ON \
-          -DBUILD_TESTS=ON \
-          -DEXPORT_COMPILE_COMMANDS=ON
-
-    - name: Build with CMake
-      run: |
-        cd build
-        make -j$(nproc)
-
-    - name: Run include audit
-      run: |
-        cd build
-        make include-audit || echo "Include audit completed with findings"
-
-    - name: Archive build artifacts
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: cmake-build-artifacts
-        path: |
-          build/
-          !build/_CPack_Packages/
-          !build/CMakeFiles/
-
   build-legacy:
-    name: "Legacy Build System (BMake)"
+    name: "Legacy 386BSD Build System (BMake)"
     runs-on: ubuntu-24.04
 
     steps:
@@ -110,23 +55,6 @@ jobs:
           usr/build_userland.log
           usr/build_kernel.log
 
-  build-container:
-    name: "Container Build Test"
-    runs-on: ubuntu-24.04
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Build development container
-      run: |
-        docker build -f .github/containers/Dockerfile.dev -t 386bsd-dev .
-
-    - name: Test container build
-      run: |
-        docker run --rm -v $PWD:/workspace 386bsd-dev \
-          bash -c "cd /workspace && mkdir -p build && cd build && cmake .. -DBUILD_DOCS=OFF && make -j$(nproc)"
-
   troubleshooting:
     name: "Build Troubleshooting"
     runs-on: ubuntu-24.04
@@ -146,11 +74,11 @@ jobs:
         echo "=== Build tool versions ==="
         make --version || echo "make not found"
         bmake -V _BMAKE_VERSION || echo "bmake not found"
-        cmake --version || echo "cmake not found"
-        doxygen --version || echo "doxygen not found"
         echo "=== File system check ==="
         ls -la usr/src/
         ls -la usr/src/kernel/ | head -5
+        echo "=== Kernel config check ==="
+        ls -la usr/src/kernel/config/
 
     - name: Upload diagnostic logs
       if: always()
