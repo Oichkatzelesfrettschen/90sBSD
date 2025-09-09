@@ -189,6 +189,11 @@ struct slpque {
 int safepri;
 
 /*
+ * Forward declarations
+ */
+static void endtsleep(struct proc *p);
+
+/*
  * Timed sleep call.
  * Suspends current process until a wakeup is made on chan.
  * The process will then be made runnable with priority pri.
@@ -209,7 +214,6 @@ tsleep(caddr_t chan, int pri, char *wmesg, int timo)
 	int s;
 	int sig, catch = pri & PCATCH;
 	extern int cold;
-	static void endtsleep(struct proc *p);
 
 	s = splhigh();
 	if (cold || panicstr) {
