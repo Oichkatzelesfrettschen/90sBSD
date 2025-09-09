@@ -28,6 +28,7 @@ a.out
 # Intermediate build directories
 obj/
 build/
+build-*/
 */obj/
 
 # Legacy Pascal assembler outputs & headers
@@ -52,6 +53,9 @@ core*
 *.core
 tests/tmp/
 tmp/
+
+# Build troubleshooting reports
+build-troubleshoot-report.md
 
 # -----------------------------
 # Editor & IDE artifacts

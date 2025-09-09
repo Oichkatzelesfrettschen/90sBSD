@@ -1,0 +1,73 @@
+# Development container for 386BSD repository
+# Provides all tools needed for building legacy and modern components
+FROM ubuntu:24.04
+
+LABEL description="386BSD development environment with legacy and modern build tools"
+LABEL version="1.0"
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install base system and build dependencies
+RUN apt-get update && apt-get install -y \
+    # Core system
+    build-essential \
+    git \
+    curl \
+    wget \
+    # Legacy build system
+    bmake \
+    flex \
+    bison \
+    # Modern build system
+    cmake \
+    ninja-build \
+    # Documentation tools
+    doxygen \
+    graphviz \
+    python3 \
+    python3-pip \
+    python3-sphinx \
+    python3-venv \
+    # Cross-compilation tools (for i386-elf targets)
+    gcc-multilib \
+    libc6-dev-i386 \
+    # Analysis tools
+    clang \
+    clang-tools \
+    clang-tidy \
+    clang-format \
+    cppcheck \
+    # Debugging and testing
+    gdb \
+    valgrind \
+    qemu-system-i386 \
+    # Text processing
+    texinfo \
+    # Cleanup
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python documentation dependencies
+RUN python3 -m pip install --no-cache-dir \
+    breathe \
+    sphinx-rtd-theme \
+    recommonmark
+
+# Create a non-root user for development
+RUN useradd -m -s /bin/bash -u 1000 dev && \
+    echo 'dev ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Set up environment
+ENV CC=gcc
+ENV CXX=g++
+ENV PATH="/usr/local/bin:$PATH"
+
+# Set working directory
+WORKDIR /workspace
+
+# Switch to non-root user
+USER dev
+
+# Default command
+CMD ["/bin/bash"]
