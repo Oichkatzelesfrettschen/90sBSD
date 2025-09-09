@@ -1,0 +1,35 @@
+{
+  "kernel_dependencies": {
+    "core_headers": [
+      "include/sys/param.h",
+      "include/sys/types.h", 
+      "include/sys/cdefs.h",
+      "include/machine/endian.h"
+    ],
+    "vm_subsystem": [
+      "include/vm.h",
+      "include/vm_object.h",
+      "include/vm_page.h",
+      "include/vm_prot.h"
+    ],
+    "network_subsystem": [
+      "include/domain/mbuf.h",
+      "include/domain/route.h",
+      "include/socketvar.h"
+    ],
+    "critical_order": [
+      "genassym",
+      "kernel_core",
+      "machine_specific", 
+      "device_drivers",
+      "filesystems",
+      "network_stack"
+    ]
+  },
+  "build_phases": {
+    "phase1": ["genassym", "kernel_headers"],
+    "phase2": ["kernel_core", "machine_code"],
+    "phase3": ["device_drivers", "filesystems"],
+    "phase4": ["network_stack", "final_link"]
+  }
+}
