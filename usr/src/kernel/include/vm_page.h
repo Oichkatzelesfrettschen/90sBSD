@@ -67,6 +67,10 @@
 #ifndef	_VM_PAGE_
 #define	_VM_PAGE_
 
+#include "queue.h"
+#include "vm_prot.h"
+#include "vm_param.h"
+
 /*
  * An array of logical memory page abstraction structures indexed by
  * the corresponding page frame number of the managed page of RAM. Thus,

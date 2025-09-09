@@ -4,6 +4,49 @@
 
 ---
 
+## 🚀 Quick Start (Ubuntu 24.04)
+
+### Automated Setup
+```bash
+# Clone and install dependencies
+git clone https://github.com/Oichkatzelesfrettschen/386bsd.git
+cd 386bsd
+./scripts/build-troubleshoot.sh --install-deps
+
+# Test your setup
+./scripts/build-troubleshoot.sh --full-check
+```
+
+### Build Options
+
+**Modern Development (Recommended)**:
+```bash
+mkdir build && cd build
+cmake .. -DBUILD_DOCS=ON -DBUILD_TESTS=ON
+make -j$(nproc)
+```
+
+**Container Development**:
+```bash
+# Build and run development container
+docker build -f .github/containers/Dockerfile.dev -t 386bsd-dev .
+docker run -it --rm -v $PWD:/workspace 386bsd-dev
+
+# Or use Docker Compose
+docker-compose up dev
+```
+
+**Legacy Compatibility**:
+```bash
+cd usr/src
+bmake clean
+bmake -n  # dry run
+```
+
+> **Having build issues?** See [BUILD_ISSUES.md](BUILD_ISSUES.md) for troubleshooting.
+
+---
+
 ## 📖 Project Overview
 
 This repository contains:

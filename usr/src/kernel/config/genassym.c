@@ -39,6 +39,7 @@
  */
 
 #include "sys/param.h"
+#include "vm_param.h"
 #include "sys/user.h"
 #include "buf.h"
 #include "vmmeter.h"

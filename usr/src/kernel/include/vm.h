@@ -36,10 +36,10 @@
 #ifndef VM_H
 #define VM_H
 #include "vm_param.h"
-#include "lock.h"
 #include "queue.h"
 #include "vm_prot.h"
 #include "vm_inherit.h"
+#include "lock.h"
 #include "vm_object.h"
 #include "vm_page.h"
 #include "vm_pager.h"

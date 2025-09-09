@@ -59,15 +59,15 @@ all: ${_KERNS}	${ALLMAN}
 
 assym.s: $S/include/sys/param.h $S/include/buf.h $S/include/vmmeter.h \
 	$S/include/proc.h $S/include/msgbuf.h machine/vmparam.h \
-	$S/config/genassym.c
-	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} \
-		 $S/config/genassym.c -o genassym
+	$S/config/genassym.c $S/config/genassym_stubs.c
+	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} -m32 \
+		 $S/config/genassym.c $S/config/genassym_stubs.c -o genassym
 	./genassym >assym.s
 
 isym.o: $S/config/isym.c
 	find $S/include -name "*.h" -a -type f -exec grep -h "^__ISYM__" {} \; > isym
 	cp $S/config/isym.c isym.c
-	${CC} -c -DKERNEL ${IDENT} ${PARAM} ${BASE} isym.c -o isym.o
+	${CC} -c -DKERNEL ${IDENT} ${PARAM} ${BASE} -m32 isym.c -o isym.o
 	rm isym isym.c
 
 .include "$S/config/kernel.kern.mk"

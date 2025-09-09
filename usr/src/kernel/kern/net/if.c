@@ -499,7 +499,7 @@ extern inline int
 arpioctl(int cmd, caddr_t data) {
 	int (*f)(int, caddr_t);
 
-	(const void *) f = esym_fetch(arpioctl);
+	f = (int (*)(int, caddr_t))esym_fetch(arpioctl);
 	if (f == 0)
 		return(0);
 	return ((*f)(cmd, data));
