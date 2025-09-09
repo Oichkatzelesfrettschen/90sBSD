@@ -67,6 +67,9 @@
 #ifndef	_VM_OBJECT_
 #define	_VM_OBJECT_
 
+#include "queue.h"
+#include "vm_param.h"
+
 struct pager_struct;
 
 /*

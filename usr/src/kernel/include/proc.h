@@ -37,6 +37,8 @@
 #define	_PROC_H_
 
 #include <sys/time.h>
+#include <sys/param.h>
+#include <sys/signal.h>
 #include "ucred.h"
 #include <machine/proc.h>		/* machine-dependent proc substruct */
 
