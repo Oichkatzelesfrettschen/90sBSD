@@ -57,6 +57,9 @@ tmp/
 # Build troubleshooting reports
 build-troubleshoot-report.md
 
+# Kernel build analysis logs
+kernel-build-analysis.log.*
+
 # -----------------------------
 # Editor & IDE artifacts
 # -----------------------------
