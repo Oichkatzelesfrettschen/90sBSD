@@ -8,6 +8,7 @@ _avail_start
 _averunnable
 _boottime
 _ccpu
+_cnt
 _cp_time
 _dk_busy
 _dk_seek
@@ -34,6 +35,8 @@ _nswap
 _panicstr
 _rate
 _rawcb
+_rt_tables
+_rtree
 _sum
 _swapmap
 _time

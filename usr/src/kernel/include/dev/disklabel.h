@@ -342,12 +342,12 @@ int dkcksum(struct disklabel *);
 int setdisklabel(struct disklabel *, struct disklabel *, u_long,
 	struct dos_partition *);
 
-char *readdisklabel(int, int (*)(), struct disklabel *,
+char *readdisklabel(dev_t, int (*)(), struct disklabel *,
 	struct dos_partition *, struct dkbad *, struct buf **);
 
 void disksort(struct buf *, struct buf *);
 
-int writedisklabel(int, int (*)(), struct disklabel *,
+int writedisklabel(dev_t, int (*)(), struct disklabel *,
 		struct dos_partition *);
 
 int bounds_check_with_label(struct buf *, struct disklabel *, int);

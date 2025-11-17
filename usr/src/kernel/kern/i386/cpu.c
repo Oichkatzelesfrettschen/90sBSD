@@ -54,7 +54,7 @@
 
 #include "sys/param.h"
 #include "sys/user.h"
-#include "signalvar.h"
+#include <sys/signalvar.h>
 /* #include "malloc.h" */
 #include "proc.h"
 #include "kmem.h"

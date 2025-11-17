@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1980, 1986 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1980, 1986, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,33 +30,30 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raw_usrreq.c,v 1.1 94/10/20 00:01:36 bill Exp Locker: bill $
+ *	@(#)raw_usrreq.c	8.1 (Berkeley) 6/10/93
  */
 
-#include "sys/param.h"
-/*#include "sys/file.h"*/
-#include "sys/errno.h"
-#include "mbuf.h"
-#include "domain.h"
-#include "socketvar.h"
-#include "protosw.h"
-#include "prototypes.h"
+#include <sys/param.h>
+#include <sys/mbuf.h>
+#include <sys/domain.h>
+#include <sys/protosw.h>
+#include <sys/socket.h>
+#include <sys/socketvar.h>
+#include <sys/errno.h>
 
-#include "if.h"
-#include "route.h"
-#include "netisr.h"
-#include "raw_cb.h"
-
-struct ifqueue rawintrq;	/* raw protocol input queue */
+#include <net/if.h>
+#include <net/route.h>
+#include <net/netisr.h>
+#include <net/raw_cb.h>
 
 /*
  * Initialize raw connection block q.
  */
+void
 raw_init()
 {
 
 	rawcb.rcb_next = rawcb.rcb_prev = &rawcb;
-	rawintrq.ifq_maxlen = IFQ_MAXLEN;
 }
 
 
@@ -68,6 +65,7 @@ raw_init()
 /*
  * Raw protocol interface.
  */
+void
 raw_input(m0, proto, src, dst)
 	struct mbuf *m0;
 	register struct sockproto *proto;
@@ -94,7 +92,7 @@ raw_input(m0, proto, src, dst)
 		 * the comparison will fail at the first byte.
 		 */
 #define	equal(a1, a2) \
-  (memcmp((caddr_t)(a1), (caddr_t)(a2), a1->sa_len) == 0)
+  (bcmp((caddr_t)(a1), (caddr_t)(a2), a1->sa_len) == 0)
 		if (rp->rcb_laddr && !equal(rp->rcb_laddr, dst))
 			continue;
 		if (rp->rcb_faddr && !equal(rp->rcb_faddr, src))
@@ -124,10 +122,10 @@ raw_input(m0, proto, src, dst)
 		}
 	} else
 		m_freem(m);
-	return (sockets);
 }
 
 /*ARGSUSED*/
+void
 raw_ctlinput(cmd, arg)
 	int cmd;
 	struct sockaddr *arg;
@@ -139,6 +137,7 @@ raw_ctlinput(cmd, arg)
 }
 
 /*ARGSUSED*/
+int
 raw_usrreq(so, req, m, nam, control)
 	struct socket *so;
 	int req;
@@ -283,8 +282,7 @@ raw_usrreq(so, req, m, nam, control)
 			break;
 		}
 		len = rp->rcb_laddr->sa_len;
-		memcpy(mtod(nam, caddr_t), (caddr_t)rp->rcb_laddr,
-		      (unsigned)len);
+		bcopy((caddr_t)rp->rcb_laddr, mtod(nam, caddr_t), (unsigned)len);
 		nam->m_len = len;
 		break;
 
@@ -294,8 +292,7 @@ raw_usrreq(so, req, m, nam, control)
 			break;
 		}
 		len = rp->rcb_faddr->sa_len;
-		memcpy(mtod(nam, caddr_t), (caddr_t)rp->rcb_faddr,
-		      (unsigned)len);
+		bcopy((caddr_t)rp->rcb_faddr, mtod(nam, caddr_t), (unsigned)len);
 		nam->m_len = len;
 		break;
 

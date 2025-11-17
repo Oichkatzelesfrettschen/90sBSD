@@ -1,21 +1,19 @@
-#	$Id: vm.symbols,v 1.1 94/10/19 17:37:25 bill Exp $
+# vm.symbols - virtual memory subsystem symbols for userspace tools
+# Updated for 4.4BSD-Lite2 vm/
 
 #ps
 	_nswap
 	_maxslp
 
 #pstat
-#	_cons
 	_nswap
 	_swapmap
 
 #vmstat
+	_cnt
 	_rate
 	_total
 	_sum
-#	_rectime
-#	_pgintime
 
 #w
-#	_swapdev
 	_nswap

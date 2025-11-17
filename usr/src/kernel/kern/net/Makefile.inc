@@ -1,13 +1,13 @@
 #
-# Makefile for the network interface subsystem of the kernel. -wfj
-# $Id: Makefile.inc,v 1.1 94/10/20 00:01:28 bill Exp $
+# Makefile for the networking subsystem. -wfj  
+# Updated for 4.4BSD-Lite2 net files
 #
 
 .PATH:	$S/kern/net
 KERN_SRCS+= \
-	if.c ethersubr.c raw_cb.c raw_usrreq.c rt.c
+	bpf.c bpf_filter.c if.c if_ethersubr.c if_loop.c \
+	if_sl.c radix.c raw_cb.c raw_usrreq.c \
+	route.c rtsock.c slcompress.c
 
 SYMBOLS+= net.symbols
-
-# MAN9+=	if.0 raw.0 ethersubr.0
-MAN4+= netintro.0
+MAN4+=	netintro.0
