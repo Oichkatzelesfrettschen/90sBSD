@@ -34,7 +34,6 @@ _nswap
 _panicstr
 _rate
 _rawcb
-_rthashsize
 _sum
 _swapmap
 _time

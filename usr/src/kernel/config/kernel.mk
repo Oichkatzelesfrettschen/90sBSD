@@ -14,16 +14,16 @@ CPP?=	cpp
 # XXX overkill, revise include scheme
 INCLUDES= -I$S/include
 
-COPTS+=	${INCLUDES} ${IDENT} -DKERNEL -Di386
+COPTS+=	${INCLUDES} ${IDENT} -DKERNEL -Di386 -DDIAGNOSTIC
 DEPEND= depend_mk
 
 ASFLAGS= ${DEBUG}
 .if defined(GDB)
 # CFLAGS=	-m486 -O ${COPTS} -g
-CFLAGS=	-O ${COPTS} -g
+CFLAGS=	-O ${COPTS} -g -fno-builtin
 .else
 # CFLAGS=	-m486 -O ${COPTS}
-CFLAGS=	-O ${COPTS}
+CFLAGS=	-O ${COPTS} -fno-builtin
 .endif
 DBGCFLAGS= -O ${COPTS}
 
