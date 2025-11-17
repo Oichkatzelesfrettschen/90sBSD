@@ -36,6 +36,7 @@
 #include "sys/param.h"
 #include "sys/mount.h"
 #include "sys/file.h"
+#include "sys/kernel.h"
 #include "uio.h"
 #include "sys/errno.h"
 #include "proc.h"

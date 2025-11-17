@@ -46,7 +46,7 @@ struct dinode {
 	short	di_nlink;	/*  2: number of links to file */
 	uid_t	di_uid;		/*  4: owner's user id */
 	gid_t	di_gid;		/*  6: owner's group id */
-	u_quad	di_qsize;	/*  8: number of bytes in file */
+	u_quad_t	di_qsize;	/*  8: number of bytes in file */
 	time_t	di_atime;	/* 16: time last accessed */
 	long	di_atspare;
 	time_t	di_mtime;	/* 24: time last modified */
@@ -61,11 +61,8 @@ struct dinode {
 	long	di_spare[4];	/* 112: reserved, currently unused */
 };
 
-#if BYTE_ORDER == LITTLE_ENDIAN || defined(tahoe) /* ugh! -- must be fixed */
-#define	di_size		di_qsize.val[0]
-#else /* BYTE_ORDER == BIG_ENDIAN */
-#define	di_size		di_qsize.val[1]
-#endif
+/* u_quad_t is now a plain 64-bit type, no .val member */
+#define	di_size		di_qsize
 #define	di_rdev		di_db[0]
 
 /* file modes */
