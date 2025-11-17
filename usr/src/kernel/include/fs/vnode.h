@@ -127,7 +127,7 @@ struct vattr {
 	gid_t		va_gid;		/* owner group id */
 	long		va_fsid;	/* file system id (dev for now) */
 	long		va_fileid;	/* file id */
-	u_quad		va_qsize;	/* file size in bytes */
+	u_quad_t	va_qsize;	/* file size in bytes */
 	long		va_blocksize;	/* blocksize preferred for i/o */
 	struct timeval	va_atime;	/* time of last access */
 	struct timeval	va_mtime;	/* time of last modification */
@@ -135,7 +135,7 @@ struct vattr {
 	u_long		va_gen;		/* generation number of file */
 	u_long		va_flags;	/* flags defined for file */
 	dev_t		va_rdev;	/* device the special file represents */
-	u_quad		va_qbytes;	/* bytes of disk space held by file */
+	u_quad_t	va_qbytes;	/* bytes of disk space held by file */
 };
 #if BYTE_ORDER == LITTLE_ENDIAN
 #define	va_size		va_qsize.val[0]

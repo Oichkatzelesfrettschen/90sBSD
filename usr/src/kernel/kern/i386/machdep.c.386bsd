@@ -478,7 +478,7 @@ boot(arghowto)
 	register long dummy;		/* r12 is reserved */
 	register int howto;		/* r11 == how to boot */
 	register int devtype;		/* r10 == major of root dev */
-	extern const char *panicstr;
+	/* extern char *panicstr; */ /* Already declared in systm.h as const char * */
 extern int cold;
 
 	howto = arghowto;
@@ -863,7 +863,7 @@ extern	IDTVEC(div), IDTVEC(dbg), IDTVEC(nmi), IDTVEC(bpt), IDTVEC(ofl),
 int lcr0(), lcr3(), rcr0(), rcr2();
 int _udatasel, _ucodesel, _gsel_tss;
 
-init386(first) { extern char etext; 
+init386(first) { extern lgdt(), lidt(), lldt(), etext; /* ssdtosd already declared in segments.h */ 
 	int x, *pi;
 	unsigned biosbasemem, biosextmem;
 	struct gate_descriptor *gdp;

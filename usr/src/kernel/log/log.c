@@ -47,7 +47,7 @@ static char *log_config =
 #include "uio.h"
 #include "proc.h"
 #include "msgbuf.h"
-#include "signalvar.h"
+#include <sys/signalvar.h>
 #include "modconfig.h"
 
 #include "vnode.h"	/* IO_NDELAY */

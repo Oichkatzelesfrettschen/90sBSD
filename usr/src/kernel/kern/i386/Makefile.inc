@@ -4,7 +4,7 @@
 #
 
 .PATH:		$S/kern/i386
-MACH_SRCS+=	cpu.c machdep.c pmap.c trap.c
+MACH_SRCS+=	machdep.c pmap.c trap.c vm_machdep.c
 FIRSTOBJ=	locore.o
 
 I386?=		$S/kern/i386
