@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1982, 1986 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1993, 1994
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,28 +30,31 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id$
+ *	@(#)uio.h	8.5 (Berkeley) 2/22/94
  */
 
-#ifndef _UIO_H_
-#define	_UIO_H_
+#ifndef _SYS_UIO_H_
+#define	_SYS_UIO_H_
 
+/*
+ * XXX
+ * iov_base should be a void *.
+ */
 struct iovec {
-	caddr_t	iov_base;
-	int	iov_len;
+	char	*iov_base;	/* Base address. */
+	size_t	 iov_len;	/* Length. */
 };
 
 enum	uio_rw { UIO_READ, UIO_WRITE };
 
-/*
- * Segment flag values.
- */
-enum	uio_seg {
+/* Segment flag values. */
+enum uio_seg {
 	UIO_USERSPACE,		/* from user data space */
 	UIO_SYSSPACE,		/* from system space */
-	/* UIO_USERISPACE	/* from user I space */
+	UIO_USERISPACE		/* from user I space */
 };
 
+#ifdef KERNEL
 struct uio {
 	struct	iovec *uio_iov;
 	int	uio_iovcnt;
@@ -62,48 +65,19 @@ struct uio {
 	struct	proc *uio_procp;
 };
 
- /*
-  * Limits
-  */
+/*
+ * Limits
+ */
 #define UIO_MAXIOV	1024		/* max 1K of iov's */
 #define UIO_SMALLIOV	8		/* 8 on stack, else malloc */
+#endif /* KERNEL */
 
 #ifndef	KERNEL
-
 #include <sys/cdefs.h>
 
 __BEGIN_DECLS
-int	readv __P((int, const struct iovec *, int));
-int	writev __P((int, const struct iovec *, int));
+ssize_t	readv __P((int, const struct iovec *, int));
+ssize_t	writev __P((int, const struct iovec *, int));
 __END_DECLS
-
-#else
-struct iovec *uio_advance(struct uio *uio, struct iovec *iov, int cnt);
-int uiomove(caddr_t cp, int len, struct uio *uio);
-
-/*
- * Advance a uio and its iov by cnt bytes, returning next iov.
- */
-extern inline struct iovec *
-uio_advance(struct uio *uio, struct iovec *iov, int cnt) {
-
-	/* consume an iov, possibly fetching the next one */
-	iov->iov_base += cnt;
-	iov->iov_len -= cnt;
-	if (iov->iov_len == 0) {
-		iov = ++uio->uio_iov;
-		uio->uio_iovcnt--;
-	}
-
-	uio->uio_resid -= cnt;
-	uio->uio_offset += cnt;
-
-	return (iov);
-}
-
-#define	uio_base(uio)	(uio)->uio_iov->iov_base
-#define	uio_len(uio)	(uio)->uio_iov->iov_len
-
-#endif	/* !KERNEL */
-
-#endif /* !_UIO_H_ */
+#endif /* !KERNEL */
+#endif /* !_SYS_UIO_H_ */

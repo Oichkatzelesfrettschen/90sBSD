@@ -1,6 +1,11 @@
 /*
- * Copyright (c) 1982, 1986, 1989, 1991 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1989, 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,18 +35,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	from:		@(#)signal.h	7.16 (Berkeley) 3/17/91
- *	386BSD:		$Id: signal.h,v 1.2 93/02/05 17:30:10 bill Exp $
+ *	@(#)signal.h	8.4 (Berkeley) 5/4/95
  */
 
-#ifndef	_SIGNAL_H_
-#define	_SIGNAL_H_
+#ifndef	_SYS_SIGNAL_H_
+#define	_SYS_SIGNAL_H_
 
+#if !defined(_ANSI_SOURCE) && !defined(_POSIX_SOURCE)
 #define NSIG	32		/* counting 0; could be 33 (mask is 1-32) */
+#endif
 
-#ifndef _POSIX_SOURCE
-#include <machine/trap.h>	/* codes for SIGILL, SIGFPE */
-#endif /* _POSIX_SOURCE */
+#include <machine/signal.h>	/* sigcontext; codes for SIGILL, SIGFPE */
 
 #define	SIGHUP	1	/* hangup */
 #define	SIGINT	2	/* interrupt */
@@ -88,39 +92,40 @@
 #define SIGUSR1 30	/* user defined signal 1 */
 #define SIGUSR2 31	/* user defined signal 2 */
 
-#include <sys/cdefs.h>
-
-#ifndef _POSIX_SOURCE
-typedef	void (*sig_t) __P((int));
+#if defined(_ANSI_SOURCE) || defined(__cplusplus)
+/*
+ * Language spec sez we must list exactly one parameter, even though we
+ * actually supply three.  Ugh!
+ */
+#define	SIG_DFL		(void (*)(int))0
+#define	SIG_IGN		(void (*)(int))1
+#define	SIG_ERR		(void (*)(int))-1
+#else
+#define	SIG_DFL		(void (*)())0
+#define	SIG_IGN		(void (*)())1
+#define	SIG_ERR		(void (*)())-1
 #endif
 
-typedef void (*__sighandler_t) __P((int));
+#ifndef _ANSI_SOURCE
 typedef unsigned int sigset_t;
-
-__BEGIN_DECLS
-int	sigaddset __P((sigset_t *, int));
-int	sigdelset __P((sigset_t *, int));
-int	sigemptyset __P((sigset_t *));
-int	sigfillset __P((sigset_t *));
-int	sigismember __P((const sigset_t *, int));
-__END_DECLS
-
-#define sigemptyset(set)	( *(set) = 0 )
-#define sigfillset(set)		( *(set) = ~(sigset_t)0, 0 )
 
 /*
  * Signal vector "template" used in sigaction call.
  */
 struct	sigaction {
-	__sighandler_t  sa_handler;     /* signal handler */
+	void	(*sa_handler)(int);	/* signal handler */
 	sigset_t sa_mask;		/* signal mask to apply */
 	int	sa_flags;		/* see signal options below */
 };
 #ifndef _POSIX_SOURCE
 #define SA_ONSTACK	0x0001	/* take signal on signal stack */
-#define SA_RESTART	0x0002	/* do not restart system on signal return */
+#define SA_RESTART	0x0002	/* restart system on signal return */
+#define	SA_DISABLE	0x0004	/* disable taking signals on alternate stack */
+#ifdef COMPAT_SUNOS
+#define	SA_USERTRAMP	0x0100	/* do not bounce off kernel's sigtramp */
 #endif
-#define SA_NOCLDSTOP	0x0004	/* do not generate SIGCHLD on child stop */
+#endif
+#define SA_NOCLDSTOP	0x0008	/* do not generate SIGCHLD on child stop */
 
 /*
  * Flags for sigprocmask:
@@ -129,28 +134,36 @@ struct	sigaction {
 #define	SIG_UNBLOCK	2	/* unblock specified signal set */
 #define	SIG_SETMASK	3	/* set specified signal set */
 
-#if /* !defined(KERNEL) && */ !defined(_POSIX_SOURCE)
-/*
- * 4.3 compatibility:
- * Signal vector "template" used in sigvec call.
- */
-struct	sigvec {
-	void	(*sv_handler)();	/* signal handler */
-	int	sv_mask;		/* signal mask to apply */
-	int	sv_flags;		/* see signal options below */
-};
-#define SV_ONSTACK	SA_ONSTACK
-#define SV_INTERRUPT	SA_RESTART	/* same bit, opposite sense */
-#define sv_onstack sv_flags	/* isn't compatibility wonderful! */
+#if !defined(_ANSI_SOURCE) && !defined(_POSIX_SOURCE)
+#ifndef KERNEL
+#include <sys/cdefs.h>
+#endif
+typedef	void (*sig_t) __P((int));	/* type of signal function */
 
 /*
  * Structure used in sigaltstack call.
  */
 struct	sigaltstack {
 	char	*ss_base;		/* signal stack base */
-	int	ss_len;			/* signal stack length */
-	int	ss_onstack;		/* current status */
+	int	ss_size;		/* signal stack length */
+	int	ss_flags;		/* SA_DISABLE and/or SA_ONSTACK */
 };
+#define	MINSIGSTKSZ	8192			/* minimum allowable stack */
+#define	SIGSTKSZ	(MINSIGSTKSZ + 32768)	/* recommended stack size */
+
+/*
+ * 4.3 compatibility:
+ * Signal vector "template" used in sigvec call.
+ */
+struct	sigvec {
+	void	(*sv_handler)(int);	/* signal handler */
+	int	sv_mask;		/* signal mask to apply */
+	int	sv_flags;		/* see signal options below */
+};
+
+#define SV_ONSTACK	SA_ONSTACK
+#define SV_INTERRUPT	SA_RESTART	/* same bit, opposite sense */
+#define sv_onstack sv_flags	/* isn't compatibility wonderful! */
 
 /*
  * Structure used in sigstack call.
@@ -161,60 +174,21 @@ struct	sigstack {
 };
 
 /*
- * Information pushed on stack when a signal is delivered.
- * This is used by the kernel to restore state following
- * execution of the signal handler.  It is also made available
- * to the handler to allow it to restore state properly if
- * a non-standard exit is performed.
- */
-struct	sigcontext {
-	int	sc_onstack;		/* sigstack state to restore */
-	int	sc_mask;		/* signal mask to restore */
-	int	sc_sp;			/* sp to restore */
-	int	sc_fp;			/* fp to restore */
-	int	sc_ap;			/* ap to restore */
-	int	sc_pc;			/* pc to restore */
-	int	sc_ps;			/* psl to restore */
-};
-
-/*
  * Macro for converting signal number to a mask suitable for
  * sigblock().
  */
 #define sigmask(m)	(1 << ((m)-1))
 
-#define	BADSIG		((__sighandler_t) -1)
-#endif	/* _POSIX_SOURCE */
-  
-#define	SIG_DFL		((__sighandler_t) 0)
-#define	SIG_IGN		((__sighandler_t) 1)
+#define	BADSIG		SIG_ERR
 
-#ifndef KERNEL
-#include <sys/types.h>
-
-__BEGIN_DECLS
-/*void	(*signal __P((int, void (*) __P((int))))) __P((int));*/
-__sighandler_t signal __P((int, __sighandler_t));
-int	raise __P((int));
-#ifndef	_ANSI_SOURCE
-int	kill __P((pid_t, int));
-int	sigaction __P((int, const struct sigaction *, struct sigaction *));
-int	sigpending __P((sigset_t *));
-int	sigprocmask __P((int, const sigset_t *, sigset_t *));
-int	sigsuspend __P((const sigset_t *));
+#endif	/* !_POSIX_SOURCE */
 #endif	/* !_ANSI_SOURCE */
-#if !defined(_ANSI_SOURCE) && !defined(_POSIX_SOURCE)
-int	killpg __P((pid_t, int));
-void	psignal __P((unsigned, const char *));
-int	sigblock __P((int));
-int	siginterrupt __P((int, int));
-int	sigpause __P((int));
-int	sigreturn __P((struct sigcontext *));
-int	sigsetmask __P((int));
-int	sigstack __P((const struct sigstack *, struct sigstack *));
-int	sigvec __P((int, struct sigvec *, struct sigvec *));
-#endif /* !_ANSI_SOURCE && !_POSIX_SOURCE */
-__END_DECLS
 
-#endif	/* !KERNEL */
-#endif	/* !_SIGNAL_H_ */
+/*
+ * For historical reasons; programs expect signal's return value to be
+ * defined by <sys/signal.h>.
+ */
+__BEGIN_DECLS
+void	(*signal __P((int, void (*) __P((int))))) __P((int));
+__END_DECLS
+#endif	/* !_SYS_SIGNAL_H_ */

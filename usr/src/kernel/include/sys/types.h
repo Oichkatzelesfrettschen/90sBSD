@@ -1,6 +1,11 @@
 /*-
- * Copyright (c) 1982, 1986, 1991 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1991, 1993, 1994
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,69 +35,83 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)types.h	7.17 (Berkeley) 5/6/91
+ *	@(#)types.h	8.6 (Berkeley) 2/19/95
  */
 
-#ifndef _TYPES_H_
-#define	_TYPES_H_
+#ifndef _SYS_TYPES_H_
+#define	_SYS_TYPES_H_
 
+/* Machine type dependent parameters. */
+#include <machine/ansi.h>
+#include <machine/types.h>
+
+#ifndef _POSIX_SOURCE
 typedef	unsigned char	u_char;
 typedef	unsigned short	u_short;
 typedef	unsigned int	u_int;
 typedef	unsigned long	u_long;
 typedef	unsigned short	ushort;		/* Sys V compatibility */
-
-typedef	char *	caddr_t;		/* core address */
-typedef	long	daddr_t;		/* disk address */
-typedef	short	dev_t;			/* device number */
-typedef	u_long	ino_t;			/* inode number */
-typedef	long	off_t;			/* file offset (should be a quad) */
-typedef	u_short	nlink_t;		/* link count */
-typedef	long	swblk_t;		/* swap offset */
-typedef	long	segsz_t;		/* segment size */
-typedef	u_short	uid_t;			/* user id */
-typedef	u_short	gid_t;			/* group id */
-typedef	short	pid_t;			/* process id */
-typedef	u_short	mode_t;			/* permissions */
-typedef u_long	fixpt_t;		/* fixed point number */
-
-#ifndef _POSIX_SOURCE
-typedef	struct	_uquad	{ u_long val[2]; } u_quad;
-typedef	struct	_quad	{   long val[2]; } quad;
-typedef	long *	qaddr_t;	/* should be typedef quad * qaddr_t; */
-
-#define	major(x)	((int)(((u_int)(x) >> 8)&0xff))	/* major number */
-#define	minor(x)	((int)((x)&0xff))		/* minor number */
-#define	makedev(x,y)	((dev_t)(((x)<<8) | (y)))	/* create dev_t */
+typedef	unsigned int	uint;		/* Sys V compatibility */
 #endif
+
+typedef	u_int64_t	u_quad_t;	/* quads */
+typedef	int64_t		quad_t;
+typedef	quad_t *	qaddr_t;
+
+typedef	char *		caddr_t;	/* core address */
+typedef	int32_t		daddr_t;	/* disk address */
+typedef	u_int32_t	dev_t;		/* device number */
+typedef u_int32_t	fixpt_t;	/* fixed point number */
+typedef	u_int32_t	gid_t;		/* group id */
+typedef	u_int32_t	ino_t;		/* inode number */
+typedef	long		key_t;		/* IPC key (for Sys V IPC) */
+typedef	u_int16_t	mode_t;		/* permissions */
+typedef	u_int16_t	nlink_t;	/* link count */
+typedef	quad_t		off_t;		/* file offset */
+typedef	int32_t		pid_t;		/* process id */
+typedef	int32_t		segsz_t;	/* segment size */
+typedef	int32_t		swblk_t;	/* swap offset */
+typedef	u_int32_t	uid_t;		/* user id */
 
 /*
- * Definitions for byte order, according to byte significance from low
- * address to high.
+ * This belongs in unistd.h, but is placed here to ensure that programs
+ * casting the second parameter of lseek to off_t will get the correct
+ * version of lseek.
  */
+#ifndef KERNEL
+#include <sys/cdefs.h>
+__BEGIN_DECLS
+off_t	 lseek __P((int, off_t, int));
+__END_DECLS
+#endif
+
 #ifndef _POSIX_SOURCE
-#define	LITTLE_ENDIAN	1234	/* LSB first: i386, vax */
-#define	BIG_ENDIAN	4321	/* MSB first: 68000, ibm, net */
+							/* major number */
+#define	major(x)	((int32_t)(((u_int32_t)(x) >> 8) & 0xff))
+#define	minor(x)	((int32_t)((x) & 0xff))		/* minor number */
+#define	makedev(x,y)	((dev_t)(((x) << 8) | (y)))	/* create dev_t */
 #endif
 
-#include <machine/ansi.h>
-#if !defined(_ANSI_SOURCE) && !defined(_POSIX_SOURCE)
-#include <machine/types.h>
+#include <machine/endian.h>
+
+#ifdef	_BSD_CLOCK_T_
+typedef	_BSD_CLOCK_T_	clock_t;
+#undef	_BSD_CLOCK_T_
 #endif
 
-#ifdef	_CLOCK_T_
-typedef	_CLOCK_T_	clock_t;
-#undef	_CLOCK_T_
+#ifdef	_BSD_SIZE_T_
+typedef	_BSD_SIZE_T_	size_t;
+#undef	_BSD_SIZE_T_
 #endif
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
+#ifdef	_BSD_SSIZE_T_
+typedef	_BSD_SSIZE_T_	ssize_t;
+#undef	_BSD_SSIZE_T_
 #endif
 
-#ifdef	_TIME_T_
-typedef	_TIME_T_	time_t;
-#undef	_TIME_T_
+#ifdef	_BSD_TIME_T_
+typedef	_BSD_TIME_T_	time_t;
+#undef	_BSD_TIME_T_
 #endif
 
 #ifndef _POSIX_SOURCE
@@ -108,11 +127,11 @@ typedef	_TIME_T_	time_t;
 #define	FD_SETSIZE	256
 #endif
 
-typedef long	fd_mask;
+typedef int32_t	fd_mask;
 #define NFDBITS	(sizeof(fd_mask) * NBBY)	/* bits per mask */
 
 #ifndef howmany
-#define	howmany(x, y)	(((x)+((y)-1))/(y))
+#define	howmany(x, y)	(((x) + ((y) - 1)) / (y))
 #endif
 
 typedef	struct fd_set {
@@ -122,23 +141,24 @@ typedef	struct fd_set {
 #define	FD_SET(n, p)	((p)->fds_bits[(n)/NFDBITS] |= (1 << ((n) % NFDBITS)))
 #define	FD_CLR(n, p)	((p)->fds_bits[(n)/NFDBITS] &= ~(1 << ((n) % NFDBITS)))
 #define	FD_ISSET(n, p)	((p)->fds_bits[(n)/NFDBITS] & (1 << ((n) % NFDBITS)))
-#define	FD_ZERO(p)	memset((char *)(p), 0, sizeof(*(p)))
+#define	FD_COPY(f, t)	bcopy(f, t, sizeof(*(f)))
+#define	FD_ZERO(p)	bzero(p, sizeof(*(p)))
 
 #if defined(__STDC__) && defined(KERNEL)
 /*
- * Forward structure declarations for function prototypes.
- * We include the common structures that cross subsystem boundaries here;
- * others are mostly used in the same place that the structure is defined.
+ * Forward structure declarations for function prototypes.  We include the
+ * common structures that cross subsystem boundaries here; others are mostly
+ * used in the same place that the structure is defined.
  */
 struct	proc;
 struct	pgrp;
 struct	ucred;
 struct	rusage;
-/* struct	file; */
+struct	file;
 struct	buf;
 struct	tty;
 struct	uio;
 #endif
 
 #endif /* !_POSIX_SOURCE */
-#endif /* !_TYPES_H_ */
+#endif /* !_SYS_TYPES_H_ */

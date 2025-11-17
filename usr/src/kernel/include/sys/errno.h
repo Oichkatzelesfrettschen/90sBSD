@@ -1,6 +1,11 @@
 /*
- * Copyright (c) 1982, 1986, 1989 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,7 +35,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)errno.h	7.13 (Berkeley) 2/19/91
+ *	@(#)errno.h	8.5 (Berkeley) 1/21/94
  */
 
 #ifndef KERNEL
@@ -54,8 +59,8 @@ extern int errno;			/* global error number */
 #define	EFAULT		14		/* Bad address */
 #ifndef _POSIX_SOURCE
 #define	ENOTBLK		15		/* Block device required */
-#define	EBUSY		16		/* Device busy */
 #endif
+#define	EBUSY		16		/* Device busy */
 #define	EEXIST		17		/* File exists */
 #define	EXDEV		18		/* Cross-device link */
 #define	ENODEV		19		/* Operation not supported by device */
@@ -94,7 +99,7 @@ extern int errno;			/* global error number */
 #define	ENOPROTOOPT	42		/* Protocol not available */
 #define	EPROTONOSUPPORT	43		/* Protocol not supported */
 #define	ESOCKTNOSUPPORT	44		/* Socket type not supported */
-#define	EOPNOTSUPP	45		/* Operation not supported on socket */
+#define	EOPNOTSUPP	45		/* Operation not supported */
 #define	EPFNOSUPPORT	46		/* Protocol family not supported */
 #define	EAFNOSUPPORT	47		/* Address family not supported by protocol family */
 #define	EADDRINUSE	48		/* Address already in use */
@@ -111,7 +116,7 @@ extern int errno;			/* global error number */
 #define	ENOTCONN	57		/* Socket is not connected */
 #define	ESHUTDOWN	58		/* Can't send after socket shutdown */
 #define	ETOOMANYREFS	59		/* Too many references: can't splice */
-#define	ETIMEDOUT	60		/* Connection timed out */
+#define	ETIMEDOUT	60		/* Operation timed out */
 #define	ECONNREFUSED	61		/* Connection refused */
 
 #define	ELOOP		62		/* Too many levels of symbolic links */
@@ -144,7 +149,12 @@ extern int errno;			/* global error number */
 #define	ENOLCK		77		/* No locks available */
 #define	ENOSYS		78		/* Function not implemented */
 
+#ifndef _POSIX_SOURCE
 #define	EFTYPE		79		/* Inappropriate file type or format */
+#define	EAUTH		80		/* Authentication error */
+#define	ENEEDAUTH	81		/* Need authenticator */
+#define	ELAST		81		/* Must be equal largest errno */
+#endif /* _POSIX_SOURCE */
 
 #ifdef KERNEL
 /* pseudo-errors returned inside kernel to modify return to process */

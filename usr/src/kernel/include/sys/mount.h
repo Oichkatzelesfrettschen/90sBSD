@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1989 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1989, 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,10 +30,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id$
+ *	@(#)mount.h	8.21 (Berkeley) 5/20/95
  */
 
-typedef quad fsid_t;			/* file system id type */
+#ifndef KERNEL
+#include <sys/ucred.h>
+#endif
+#include <sys/queue.h>
+#include <sys/lock.h>
+#include <net/radix.h>
+#include <sys/socket.h>		/* XXX for AF_MAX */
+
+typedef struct { int32_t val[2]; } fsid_t;	/* file system id type */
 
 /*
  * File identifier.
@@ -51,74 +59,75 @@ struct fid {
  * file system statistics
  */
 
-#define MNAMELEN 90	/* length of buffer for returned name */
+#define MFSNAMELEN	16	/* length of fs type name, including null */
+#define	MNAMELEN	90	/* length of buffer for returned name */
 
 struct statfs {
-	short	f_type;			/* type of filesystem (see below) */
+	short	f_type;			/* filesystem type number */
 	short	f_flags;		/* copy of mount flags */
-	long	f_fsize;		/* fundamental file system block size */
-	long	f_bsize;		/* optimal transfer block size */
+	long	f_bsize;		/* fundamental file system block size */
+	long	f_iosize;		/* optimal transfer block size */
 	long	f_blocks;		/* total data blocks in file system */
 	long	f_bfree;		/* free blocks in fs */
 	long	f_bavail;		/* free blocks avail to non-superuser */
 	long	f_files;		/* total file nodes in file system */
 	long	f_ffree;		/* free file nodes in fs */
 	fsid_t	f_fsid;			/* file system id */
-	long	f_spare[9];		/* spare for later */
+	uid_t	f_owner;		/* user that mounted the filesystem */
+	long	f_spare[4];		/* spare for later */
+	char	f_fstypename[MFSNAMELEN]; /* fs type name */
 	char	f_mntonname[MNAMELEN];	/* directory on which mounted */
 	char	f_mntfromname[MNAMELEN];/* mounted filesystem */
 };
 
 /*
- * File system types.
+ * Structure per mounted file system.  Each mounted file system has an
+ * array of operations and an instance record.  The file systems are
+ * put on a doubly linked list.
  */
-#define	MOUNT_NONE	0
-#define	MOUNT_UFS	1		/* UNIX "Fast" Filesystem */
-#define	MOUNT_NFS	2		/* Network Filesystem */
-#define	MOUNT_MFS	3		/* Memory Filesystem */
-#define	MOUNT_MSDOS	4		/* MSDOS Filesystem */
-#define MOUNT_ISOFS	5		/* iso9660 cdrom */
-/*#define	MOUNT_MAXTYPE	5*/
+LIST_HEAD(vnodelst, vnode);
 
-/*
- * Structure per mounted file system.
- * Each mounted file system has an array of
- * operations and an instance record.
- * The file systems are put on a doubly linked list.
- */
 struct mount {
-	struct mount	*mnt_next;		/* next in mount list */
-	struct mount	*mnt_prev;		/* prev in mount list */
+	CIRCLEQ_ENTRY(mount) mnt_list;		/* mount list */
 	struct vfsops	*mnt_op;		/* operations on fs */
+	struct vfsconf	*mnt_vfc;		/* configuration info */
 	struct vnode	*mnt_vnodecovered;	/* vnode we mounted on */
-	struct vnode	*mnt_mounth;		/* list of vnodes this mount */
+	struct vnodelst	mnt_vnodelist;		/* list of vnodes this mount */
+	struct lock	mnt_lock;		/* mount structure lock */
 	int		mnt_flag;		/* flags */
-	uid_t		mnt_exroot;		/* exported mapping for uid 0 */
+	int		mnt_maxsymlinklen;	/* max size of short symlink */
 	struct statfs	mnt_stat;		/* cache of filesystem stats */
 	qaddr_t		mnt_data;		/* private data */
 };
 
 /*
  * Mount flags.
+ *
+ * Unmount uses MNT_FORCE flag.
  */
 #define	MNT_RDONLY	0x00000001	/* read only filesystem */
 #define	MNT_SYNCHRONOUS	0x00000002	/* file system written synchronously */
 #define	MNT_NOEXEC	0x00000004	/* can't exec from filesystem */
 #define	MNT_NOSUID	0x00000008	/* don't honor setuid bits on fs */
 #define	MNT_NODEV	0x00000010	/* don't interpret special files */
-#define	MNT_WCHR	0x00000020	/* use wide characters instead */
+#define	MNT_UNION	0x00000020	/* union with underlying filesystem */
+#define	MNT_ASYNC	0x00000040	/* file system written asynchronously */
 
 /*
  * exported mount flags.
  */
+#define	MNT_EXRDONLY	0x00000080	/* exported read only */
 #define	MNT_EXPORTED	0x00000100	/* file system is exported */
-#define	MNT_EXRDONLY	0x00000200	/* exported read only */
+#define	MNT_DEFEXPORTED	0x00000200	/* exported to the world */
+#define	MNT_EXPORTANON	0x00000400	/* use anon uid mapping for everyone */
+#define	MNT_EXKERB	0x00000800	/* exported with Kerberos uid mapping */
 
 /*
  * Flags set by internal operations.
  */
 #define	MNT_LOCAL	0x00001000	/* filesystem is stored locally */
 #define	MNT_QUOTA	0x00002000	/* quotas are enabled on filesystem */
+#define	MNT_ROOTFS	0x00004000	/* identifies the root filesystem */
 
 /*
  * Mask of flags that are visible to statfs()
@@ -126,44 +135,120 @@ struct mount {
 #define	MNT_VISFLAGMASK	0x0000ffff
 
 /*
- * filesystem control flags.
+ * External filesystem control flags.
+ */
+#define	MNT_UPDATE	0x00010000	/* not a real mount, just an update */
+#define	MNT_DELEXPORT	0x00020000	/* delete export host lists */
+#define	MNT_RELOAD	0x00040000	/* reload filesystem data */
+#define	MNT_FORCE	0x00080000	/* force unmount or readonly change */
+/*
+ * Internal filesystem control flags.
  *
- * MNT_MLOCK lock the mount entry so that name lookup cannot proceed
+ * MNT_UNMOUNT locks the mount entry so that name lookup cannot proceed
  * past the mount point.  This keeps the subtree stable during mounts
  * and unmounts.
  */
-#define	MNT_UPDATE	0x00010000	/* not a real mount, just an update */
-#define	MNT_MLOCK	0x00100000	/* lock so that subtree is stable */
-#define	MNT_MWAIT	0x00200000	/* someone is waiting for lock */
-#define MNT_MPBUSY	0x00400000	/* scan of mount point in progress */
-#define MNT_MPWANT	0x00800000	/* waiting for mount point */
 #define MNT_UNMOUNT	0x01000000	/* unmount in progress */
+#define	MNT_MWAIT	0x02000000	/* waiting for unmount to finish */
+#define MNT_WANTRDWR	0x04000000	/* upgrade to read/write requested */
+
+/*
+ * Sysctl CTL_VFS definitions.
+ *
+ * Second level identifier specifies which filesystem. Second level
+ * identifier VFS_GENERIC returns information about all filesystems.
+ */
+#define	VFS_GENERIC		0	/* generic filesystem information */
+/*
+ * Third level identifiers for VFS_GENERIC are given below; third
+ * level identifiers for specific filesystems are given in their
+ * mount specific header files.
+ */
+#define VFS_MAXTYPENUM	1	/* int: highest defined filesystem type */
+#define VFS_CONF	2	/* struct: vfsconf for filesystem given
+				   as next argument */
+
+/*
+ * Flags for various system call interfaces.
+ *
+ * waitfor flags to vfs_sync() and getfsstat()
+ */
+#define MNT_WAIT	1
+#define MNT_NOWAIT	2
+
+/*
+ * Generic file handle
+ */
+struct fhandle {
+	fsid_t	fh_fsid;	/* File system id of mount point */
+	struct	fid fh_fid;	/* File sys specific id */
+};
+typedef struct fhandle	fhandle_t;
+
+/*
+ * Export arguments for local filesystem mount calls.
+ */
+struct export_args {
+	int	ex_flags;		/* export related flags */
+	uid_t	ex_root;		/* mapping for root uid */
+	struct	ucred ex_anon;		/* mapping for anonymous user */
+	struct	sockaddr *ex_addr;	/* net address to which exported */
+	int	ex_addrlen;		/* and the net address length */
+	struct	sockaddr *ex_mask;	/* mask of valid bits in saddr */
+	int	ex_masklen;		/* and the smask length */
+};
+
+/*
+ * Filesystem configuration information. One of these exists for each
+ * type of filesystem supported by the kernel. These are searched at
+ * mount time to identify the requested filesystem.
+ */
+struct vfsconf {
+	struct	vfsops *vfc_vfsops;	/* filesystem operations vector */
+	char	vfc_name[MFSNAMELEN];	/* filesystem type name */
+	int	vfc_typenum;		/* historic filesystem type number */
+	int	vfc_refcount;		/* number mounted of this type */
+	int	vfc_flags;		/* permanent flags */
+	int	(*vfc_mountroot)(void);	/* if != NULL, routine to mount root */
+	struct	vfsconf *vfc_next;	/* next in list */
+};
+
+#ifdef KERNEL
+
+extern int maxvfsconf;		/* highest defined filesystem type */
+extern struct vfsconf *vfsconf;	/* head of list of filesystem types */
 
 /*
  * Operations supported on mounted file system.
  */
-#ifdef KERNEL
 #ifdef __STDC__
 struct nameidata;
+struct mbuf;
 #endif
 
-/* XXX should be struct vfs */
 struct vfsops {
-	char *vfs_name; 	/* virtual filesystem module type name */
-	int vfs_type; 		/* virtual filesystem module type */
-	struct vfsops *vfs_next;	/* next filesystem type */
-
-	int (*vfs_mount)(struct mount *, char *, caddr_t, struct nameidata *, struct proc *);
-	int (*vfs_start)(struct mount *, int, struct proc *);
-	int (*vfs_unmount)(struct mount *, int, struct proc *);
-	int (*vfs_root)(struct mount *, struct vnode **);
-	int (*vfs_quotactl)(struct mount *, int, uid_t, caddr_t, struct proc *);
-	int (*vfs_statfs)(struct mount *, struct statfs *, struct proc *);
-	int (*vfs_sync)(struct mount *, int);
-	int (*vfs_fhtovp)(struct mount *, struct fid *, struct vnode **);
-	int (*vfs_vptofh)(struct vnode *, struct fid *);
-	int (*vfs_init)	(void);
-	int (*vfs_mountroot)(void);
+	int	(*vfs_mount)	__P((struct mount *mp, char *path, caddr_t data,
+				    struct nameidata *ndp, struct proc *p));
+	int	(*vfs_start)	__P((struct mount *mp, int flags,
+				    struct proc *p));
+	int	(*vfs_unmount)	__P((struct mount *mp, int mntflags,
+				    struct proc *p));
+	int	(*vfs_root)	__P((struct mount *mp, struct vnode **vpp));
+	int	(*vfs_quotactl)	__P((struct mount *mp, int cmds, uid_t uid,
+				    caddr_t arg, struct proc *p));
+	int	(*vfs_statfs)	__P((struct mount *mp, struct statfs *sbp,
+				    struct proc *p));
+	int	(*vfs_sync)	__P((struct mount *mp, int waitfor,
+				    struct ucred *cred, struct proc *p));
+	int	(*vfs_vget)	__P((struct mount *mp, ino_t ino,
+				    struct vnode **vpp));
+	int	(*vfs_fhtovp)	__P((struct mount *mp, struct fid *fhp,
+				    struct mbuf *nam, struct vnode **vpp,
+				    int *exflagsp, struct ucred **credanonp));
+	int	(*vfs_vptofh)	__P((struct vnode *vp, struct fid *fhp));
+	int	(*vfs_init)	__P((struct vfsconf *));
+	int	(*vfs_sysctl)	__P((int *, u_int, void *, size_t *, void *,
+				    size_t, struct proc *));
 };
 
 #define VFS_MOUNT(MP, PATH, DATA, NDP, P) \
@@ -173,134 +258,48 @@ struct vfsops {
 #define VFS_ROOT(MP, VPP)	  (*(MP)->mnt_op->vfs_root)(MP, VPP)
 #define VFS_QUOTACTL(MP,C,U,A,P)  (*(MP)->mnt_op->vfs_quotactl)(MP, C, U, A, P)
 #define VFS_STATFS(MP, SBP, P)	  (*(MP)->mnt_op->vfs_statfs)(MP, SBP, P)
-#define VFS_SYNC(MP, WAITFOR)	  (*(MP)->mnt_op->vfs_sync)(MP, WAITFOR)
-#define VFS_FHTOVP(MP, FIDP, VPP) (*(MP)->mnt_op->vfs_fhtovp)(MP, FIDP, VPP)
+#define VFS_SYNC(MP, WAIT, C, P)  (*(MP)->mnt_op->vfs_sync)(MP, WAIT, C, P)
+#define VFS_VGET(MP, INO, VPP)	  (*(MP)->mnt_op->vfs_vget)(MP, INO, VPP)
+#define VFS_FHTOVP(MP, FIDP, NAM, VPP, EXFLG, CRED) \
+	(*(MP)->mnt_op->vfs_fhtovp)(MP, FIDP, NAM, VPP, EXFLG, CRED)
 #define	VFS_VPTOFH(VP, FIDP)	  (*(VP)->v_mount->mnt_op->vfs_vptofh)(VP, FIDP)
-#endif /* KERNEL */
 
 /*
- * Flags for various system call interfaces.
- *
- * forcibly flags for vfs_umount().
- * waitfor flags to vfs_sync() and getfsstat()
+ * Network address lookup element
  */
-#define MNT_FORCE	1
-#define MNT_NOFORCE	2
-#define MNT_WAIT	1
-#define MNT_NOWAIT	2
-
-/*
- * Generic file handle
- */
-struct fhandle {
-	fsid_t	fh_fsid;	/* File system id of mount point */
-	struct	fid fh_fid;	/* Id of file */
-};
-typedef struct fhandle	fhandle_t;
-
-/*
- * Arguments to mount UFS
- */
-struct ufs_args {
-	char	*fspec;		/* block special device to mount */
-	int	exflags;	/* export related flags */
-	uid_t	exroot;		/* mapping for root uid */
+struct netcred {
+	struct	radix_node netc_rnodes[2];
+	int	netc_exflags;
+	struct	ucred netc_anon;
 };
 
-#ifdef MFS
 /*
- * Arguments to mount MFS
+ * Network export information
  */
-struct mfs_args {
-	char	*name;		/* name to export for statfs */
-	caddr_t	base;		/* base address of file system in memory */
-	u_long size;		/* size of file system */
+struct netexport {
+	struct	netcred ne_defexported;		      /* Default export */
+	struct	radix_node_head *ne_rtable[AF_MAX+1]; /* Individual exports */
 };
-#endif MFS
 
-#ifdef NFS
-/*
- * File Handle (32 bytes for version 2), variable up to 1024 for version 3
- */
-union nfsv2fh {
-	fhandle_t	fh_generic;
-	u_char		fh_bytes[32];
-};
-typedef union nfsv2fh nfsv2fh_t;
-
-/*
- * Arguments to mount NFS
- */
-struct nfs_args {
-	struct sockaddr	*addr;		/* file server address */
-	int		sotype;		/* Socket type */
-	int		proto;		/* and Protocol */
-	nfsv2fh_t	*fh;		/* File handle to be mounted */
-	int		flags;		/* flags */
-	int		wsize;		/* write size in bytes */
-	int		rsize;		/* read size in bytes */
-	int		timeo;		/* initial timeout in .1 secs */
-	int		retrans;	/* times to retry send */
-	char		*hostname;	/* server's name */
-};
-/*
- * NFS mount option flags
- */
-#define	NFSMNT_SOFT	0x0001	/* soft mount (hard is default) */
-#define	NFSMNT_WSIZE	0x0002	/* set write size */
-#define	NFSMNT_RSIZE	0x0004	/* set read size */
-#define	NFSMNT_TIMEO	0x0008	/* set initial timeout */
-#define	NFSMNT_RETRANS	0x0010	/* set number of request retrys */
-#define	NFSMNT_HOSTNAME	0x0020	/* set hostname for error printf */
-#define	NFSMNT_INT	0x0040	/* allow interrupts on hard mount */
-#define	NFSMNT_NOCONN	0x0080	/* Don't Connect the socket */
-#define	NFSMNT_SCKLOCK	0x0100	/* Lock socket against others */
-#define	NFSMNT_WANTSCK	0x0200	/* Want a socket lock */
-#define	NFSMNT_SPONGY	0x0400	/* spongy mount (soft for stat and lookup) */
-#define	NFSMNT_COMPRESS	0x0800	/* Compress nfs rpc xdr */
-#define	NFSMNT_LOCKBITS	(NFSMNT_SCKLOCK | NFSMNT_WANTSCK)
-#endif NFS
-
-#ifdef KERNEL
 /*
  * exported vnode operations
  */
-void	vfs_remove __P((struct mount *mp)); /* remove a vfs from mount list */
+int	vfs_busy __P((struct mount *, int, struct simplelock *, struct proc *));
+int	vfs_export __P((struct mount *, struct netexport *,
+	    struct export_args *));
+struct	netcred *vfs_export_lookup __P((struct mount *, struct netexport *,
+	    struct mbuf *));
+void	vfs_getnewfsid __P((struct mount *));
+struct	mount *vfs_getvfs __P((fsid_t *));
+int	vfs_mountedon __P((struct vnode *));
+int	vfs_mountroot __P((void));
+int	vfs_rootmountalloc __P((char *, char *, struct mount **));
+void	vfs_unbusy __P((struct mount *, struct proc *));
+void	vfs_unmountall __P((void));
+extern	CIRCLEQ_HEAD(mntlist, mount) mountlist;
+extern	struct simplelock mountlist_slock;
 
-/* interface symbols */
-#define	__ISYM_VERSION__ "1"	/* XXX RCS major revision number of hdr file */
-#include "isym.h"		/* this header has interface symbols */
-
-/* global variables used in core kernel and other modules */
-__ISYM__(struct	mount *, rootfs,)	/* ptr to root mount structure */
-
-/* functions used in modules */
-__ISYM__(int, vfs_lock, (struct mount *mp))   /* lock a vfs */
-__ISYM__(void, vfs_unlock, (struct mount *mp)) /* unlock a vfs */
-__ISYM__(int, vfs_busy, (struct mount *mp))   /* busy a vfs */
-__ISYM__(void, vfs_unbusy, (struct mount *mp)) /* unbusy a vfs */
-__ISYM__(struct	mount *, getvfs, (fsid_t *fsid)) /* return vfs given fsid */
-__ISYM__(void, mntflushbuf, (struct mount *mountp, int flags))
-__ISYM__(int, mntinvalbuf, (struct mount *mountp))
-__ISYM__(int, vflush, (struct mount *mp, struct vnode *skipvp, int flags))
-__ISYM__(void, addvfs, (struct vfsops *))	/* insert filesystem into vfslist */
-__ISYM__(void, cache_purgevfs, (struct mount *mp))
-
-#undef __ISYM__
-#undef __ISYM_ALIAS__
-#undef __ISYM_VERSION__
-
-/* XXX temp vm interface */
-void vnode_pager_umount(struct mount *mp);
-
-/* struct	vfsops *vfssw[];	/* mount filesystem type table */
-extern struct	vfsops *vfs;		/* head of vfs list */
-struct	vfsops *findvfs(int type);	/* return vfs associated with type */
-/* use another filesystem to complete a different filesystem */
-void incoporatefs(struct vfsops *, struct vfsops *);
-/*int	(*mountroot)();		/* perform mount of root filesystem */
-
-#else /* KERNEL */
+#else /* !KERNEL */
 
 #include <sys/cdefs.h>
 
@@ -309,7 +308,7 @@ int	fstatfs __P((int, struct statfs *));
 int	getfh __P((const char *, fhandle_t *));
 int	getfsstat __P((struct statfs *, long, int));
 int	getmntinfo __P((struct statfs **, int));
-int	mount __P((int, const char *, int, void *));
+int	mount __P((const char *, const char *, int, void *));
 int	statfs __P((const char *, struct statfs *));
 int	unmount __P((const char *, int));
 __END_DECLS

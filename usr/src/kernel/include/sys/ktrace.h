@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1988 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1988, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,7 +30,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ktrace.h	7.4 (Berkeley) 5/7/91
+ *	@(#)ktrace.h	8.2 (Berkeley) 2/19/95
  */
 
 /*
@@ -60,7 +60,8 @@ struct ktr_header {
 /*
  * Test for kernel trace point
  */
-#define KTRPOINT(p, type)	((p)->p_traceflag & (1<<(type)))
+#define KTRPOINT(p, type)	\
+	(((p)->p_traceflag & ((1<<(type))|KTRFAC_ACTIVE)) == (1<<(type)))
 
 /*
  * ktrace record types
@@ -71,10 +72,10 @@ struct ktr_header {
  */
 #define KTR_SYSCALL	1
 struct ktr_syscall {
-	short	ktr_code;		/* syscall number */
-	short	ktr_narg;		/* number of arguments */
+	int	ktr_code;		/* syscall number */
+	int	ktr_argsize;		/* size of arguments */
 	/*
-	 * followed by ktr_narg ints
+	 * followed by ktr_argsize/sizeof(register_t) 'register_t's
 	 */
 };
 
@@ -119,41 +120,12 @@ struct ktr_psig {
 };
 
 /*
- * KTR_VM - trace virtual memory operations
+ * KTR_CSW - trace context switches
  */
-#define	KTR_VM		6
-struct ktr_vm {
-	int	func;
-#define KTVM_MMAP	0	/* vm_mmap() */
-#define KTVM_ALLOC	1	/* vm_allocate() */
-#define KTVM_REMOVE	2	/* vm_map_remove() */
-#define KTVM_FAULT	3	/* vm_fault() */
-#define KTVM_PAGER	4	/* vm_pager_xxx() */
-#define KTVM_PAGE	5	/* vm_page_alloc/free() */
-	int args[4];
-};
-
-/*
- * KTR_BIO - trace buffer operations
- */
-#define	KTR_BIO		7
-struct ktr_bio {
-	int	func;
-#define KTBIO_READ	0	/* bread() */
-#define KTBIO_READA1	1	/* breada:1() */
-#define KTBIO_READA2	2	/* breada:2() */
-#define KTBIO_WRITE	3	/* bwrite() */
-#define KTBIO_AWRITE	4	/* bawrite() */
-#define KTBIO_WAIT	5	/* biowait() */
-/* #define KTBIO_DONE	6	/* biodone() */
-#define KTBIO_DTOA	7	/* bdwrite becoming bawrite() */
-#define KTBIO_RECYCLE	8	/* free buffer recycled */
-#define KTBIO_INVALID	9	/* buffer invalidated and freed */
-#define KTBIO_RELEASE	10	/* buffer released */
-#define KTBIO_REFERENCE	11	/* buffer referenced (cache hit) */
-#define KTBIO_MODIFY	12	/* buffer modified (bdwrite) */
-#define KTBIO_BUSY	13	/* buffer busy when requested */
-	int args[2];
+#define KTR_CSW		6
+struct ktr_csw {
+	int	out;	/* 1 if switch out, 0 if switch in */
+	int	user;	/* 1 if usermode (ivcsw), 0 if kernel (vcsw) */
 };
 
 /*
@@ -165,14 +137,13 @@ struct ktr_bio {
 #define KTRFAC_NAMEI	(1<<KTR_NAMEI)
 #define KTRFAC_GENIO	(1<<KTR_GENIO)
 #define	KTRFAC_PSIG	(1<<KTR_PSIG)
-#define	KTRFAC_VM	(1<<KTR_VM)
-#define	KTRFAC_BIO	(1<<KTR_BIO)
-
+#define KTRFAC_CSW	(1<<KTR_CSW)
 /*
  * trace flags (also in p_traceflags)
  */
 #define KTRFAC_ROOT	0x80000000	/* root set this trace */
 #define KTRFAC_INHERIT	0x40000000	/* pass trace flags to children */
+#define KTRFAC_ACTIVE	0x20000000	/* ktrace logging in progress, ignore */
 
 #ifndef	KERNEL
 

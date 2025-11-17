@@ -1,6 +1,11 @@
 /*-
- * Copyright (c) 1982, 1986, 1989 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,11 +35,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: param.h,v 1.2 94/07/26 19:14:36 bill Exp Locker: bill $
+ *	@(#)param.h	8.3 (Berkeley) 4/4/95
  */
 
-#define	__386BSDREL__	1	/* Release 1 */
-#define	__386BSDREV__	0	/* Revision 0 (e.g. 1.0) */
+#define	BSD	199506		/* System version (year & month). */
+#define BSD4_3	1
+#define BSD4_4	1
 
 #ifndef NULL
 #define	NULL	0
@@ -44,49 +50,68 @@
 #include <sys/types.h>
 #endif
 
-#include <sys/syslimits.h>
-
-#ifndef _POSIX_SOURCE
 /*
- * BSD compatibility: machine-independent constants (some used in
- * following include files).
+ * Machine-independent constants (some used in following include files).
+ * Redefined constants are from POSIX 1003.1 limits file.
  *
+ * MAXCOMLEN should be >= sizeof(ac_comm) (see <acct.h>)
  * MAXLOGNAME should be >= UT_NAMESIZE (see <utmp.h>)
  */
+#include <sys/syslimits.h>
 
 #define	MAXCOMLEN	16		/* max command name remembered */
+#define	MAXINTERP	32		/* max interpreter file name length */
 #define	MAXLOGNAME	12		/* max login name length */
+#define	MAXUPRC		CHILD_MAX	/* max simultaneous processes */
+#define	NCARGS		ARG_MAX		/* max bytes for an exec function */
+#define	NGROUPS		NGROUPS_MAX	/* max number groups */
+#define	NOFILE		OPEN_MAX	/* max open files per process */
 #define	NOGROUP		65535		/* marker for empty group set member */
 #define MAXHOSTNAMELEN	256		/* max hostname size */
 
-#ifdef nope
-#if defined(_386BSD_ONLY) || defined(KERNEL)
-/*
- * iBCS2 compatibility: Many of these define obselete portions of the
- * archaic UNIX implementation. Unfortunately, to be compliant the
- * standard calls them out, however, nothing in 386BSD depends on
- * them; the sole presence here is for minimal standards conformance.
- * See Intel iBCS 2 spec, Figure 6-23, page 6-44.
- */
-
-#define MAXPID		30000		/* PID_MAX from proc.h */
-#define MAXUID		SHRT_MAX
-#define HZ		CLK_TCK
-#define TICK		1000000		/* one microsecond resolution */
-#define	NCARGS		ARG_MAX
-#define NOFILES_MIN	20		/* thank you V7 */
-#define NOFILES_MAX	OPEN_MAX
-#endif	/* !_386BSD_ONLY */
+/* More types and definitions used throughout the kernel. */
+#ifdef KERNEL
+#include <sys/cdefs.h>
+#include <sys/errno.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <sys/ucred.h>
+#include <sys/uio.h>
 #endif
-#endif	/* !_POSIX_SOURCE */
 
-/* default inclusion of signal definitions */
+/* Signals. */
 #include <sys/signal.h>
 
 /* Machine type dependent parameters. */
 #include <machine/param.h>
-#include <machine/endian.h>
 #include <machine/limits.h>
+
+/*
+ * Priorities.  Note that with 32 run queues, differences less than 4 are
+ * insignificant.
+ */
+#define	PSWP	0
+#define	PVM	4
+#define	PINOD	8
+#define	PRIBIO	16
+#define	PVFS	20
+#define	PZERO	22		/* No longer magic, shouldn't be here.  XXX */
+#define	PSOCK	24
+#define	PWAIT	32
+#define	PLOCK	36
+#define	PPAUSE	40
+#define	PUSER	50
+#define	MAXPRI	127		/* Priorities range from 0 through MAXPRI. */
+
+#define	PRIMASK	0x0ff
+#define	PCATCH	0x100		/* OR'd with pri for tsleep to check signals */
+
+#define	NZERO	0		/* default "nice" */
+
+#define	NBPW	sizeof(int)	/* number of bytes per word (integer) */
+
+#define	CMASK	022		/* default file mask: S_IWGRP|S_IWOTH */
+#define	NODEV	(dev_t)(-1)	/* non-existent device */
 
 /*
  * Clustering of hardware pages on machines with ridiculously small
@@ -109,6 +134,12 @@
 #define	clrnd(i)	(((i) + (CLSIZE-1)) &~ (CLSIZE-1))
 #endif
 
+#define	CBLOCK	64		/* Clist block size, must be a power of 2. */
+#define CBQSIZE	(CBLOCK/NBBY)	/* Quote bytes/cblock - can do better. */
+				/* Data chars/clist. */
+#define	CBSIZE	(CBLOCK - sizeof(struct cblock *) - CBQSIZE)
+#define	CROUND	(CBLOCK - 1)	/* Clist rounding. */
+
 /*
  * File system parameters and macros.
  *
@@ -118,15 +149,26 @@
  * made larger without any effect on existing file systems; however making
  * it smaller make make some file systems unmountable.
  */
-#define	MAXBSIZE	8192
+#define	MAXBSIZE	MAXPHYS
 #define MAXFRAG 	8
 
 /*
- * MAXSYMLINKS defines the maximum number of symbolic links that may be
- * expanded in a path name. It should be set high enough to allow all
- * legitimate uses, but halt infinite loops reasonably quickly.
+ * MAXPATHLEN defines the longest permissable path length after expanding
+ * symbolic links. It is used to allocate a temporary buffer from the buffer
+ * pool in which to do the name expansion, hence should be a power of two,
+ * and must be less than or equal to MAXBSIZE.  MAXSYMLINKS defines the
+ * maximum number of symbolic links that may be expanded in a path name.
+ * It should be set high enough to allow all legitimate uses, but halt
+ * infinite loops reasonably quickly.
  */
+#define	MAXPATHLEN	PATH_MAX
 #define MAXSYMLINKS	8
+
+/* Bit map related macros. */
+#define	setbit(a,i)	((a)[(i)/NBBY] |= 1<<((i)%NBBY))
+#define	clrbit(a,i)	((a)[(i)/NBBY] &= ~(1<<((i)%NBBY)))
+#define	isset(a,i)	((a)[(i)/NBBY] & (1<<((i)%NBBY)))
+#define	isclr(a,i)	(((a)[(i)/NBBY] & (1<<((i)%NBBY))) == 0)
 
 /* Macros for counting and rounding. */
 #ifndef howmany
@@ -135,11 +177,8 @@
 #define	roundup(x, y)	((((x)+((y)-1))/(y))*(y))
 #define powerof2(x)	((((x)-1)&(x))==0)
 
-/* Macros for fast min/max: with inline expansion, the "function" is faster. */
-#ifdef KERNEL
-/*#define	MIN(a,b) min((a), (b))
-#define	MAX(a,b) max((a), (b))*/
-#else
+/* Macros for min/max. */
+#ifndef KERNEL
 #define	MIN(a,b) (((a)<(b))?(a):(b))
 #define	MAX(a,b) (((a)>(b))?(a):(b))
 #endif
