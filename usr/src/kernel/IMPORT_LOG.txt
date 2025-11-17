@@ -1,0 +1,17 @@
+=== Import: 2025-11-17 02:35:00 UTC ===
+Source: 4.4BSD-Lite2/usr/src/sys/i386/include
+Destination: usr/src/kernel/include/i386
+Files: 34 machine-specific headers (cpu.h, signal.h, frame.h, etc)
+Method: cp -r, fixed broken symlinks
+Notes: Replaced broken cross-architecture symlinks with real files
+
+=== Fix: 2025-11-17 02:35:30 UTC ===
+File: usr/src/kernel/include/machine/types.h
+Change: Added int32_t, u_int32_t, int64_t, u_int64_t type definitions
+Reason: Missing stdint types causing compilation failures
+
+=== Fix: 2025-11-17 02:36:00 UTC ===
+File: usr/src/kernel/include/machine/endian.h
+Change: Removed `#ifndef KERNEL` guard around `#include <sys/cdefs.h>`
+Reason: __BEGIN_DECLS and __P() macros not available during kernel compile
+

@@ -1,52 +1,88 @@
+/*-
+ * Copyright (c) 1989, 1990 William F. Jolitz
+ * Copyright (c) 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * William Jolitz.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *	This product includes software developed by the University of
+ *	California, Berkeley and its contributors.
+ * 4. Neither the name of the University nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ *	@(#)segments.h	8.1 (Berkeley) 6/11/93
+ */
+
 /*
- * Copyright (c) 1994 William F. Jolitz.
- * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
- *
- * $Id: segments.h,v 1.1 94/10/19 17:40:05 bill Exp $
- *
- * 386 Segmentation Data Structures and definitions.
+ * 386 Segmentation Data Structures and definitions
+ *	William F. Jolitz (william@ernie.berkeley.edu) 6/20/1989
  */
 
 /*
  * Selectors
  */
-typedef	u_short sel_t;
-#include "sel.h"
 
-#define	ISLDT(s)	((s) & SEL_LDT)		/* is it local or global */
-#define	SEL_LDT	4				/* local descriptor table */	
-#define	IDXSEL(s)	(((s)>>3) & 0x1fff)	/* index of selector */
-#define	LSEL(s, r)	(((s)<<3) | SEL_LDT | r) /* a local selector */
-#define	GSEL(s, r)	(((s)<<3) | r)		/* a global selector */
+#define	ISPL(s)	((s)&3)		/* what is the priority level of a selector */
+#define	SEL_KPL	0		/* kernel priority level */	
+#define	SEL_UPL	3		/* user priority level */	
+#define	ISLDT(s)	((s)&SEL_LDT)	/* is it local or global */
+#define	SEL_LDT	4		/* local descriptor table */	
+#define	IDXSEL(s)	(((s)>>3) & 0x1fff)		/* index of selector */
+#define	LSEL(s,r)	(((s)<<3) | SEL_LDT | r)	/* a local selector */
+#define	GSEL(s,r)	(((s)<<3) | r)			/* a global selector */
 
 /*
  * Memory and System segment descriptors
  */
 struct	segment_descriptor	{
-	unsigned __PACK(sd_lolimit:16);	/* segment extent (lsb) */
-	unsigned __PACK(sd_lobase:24);	/* segment base address (lsb) */
-	unsigned __PACK(sd_type:5);	/* segment type */
-	unsigned __PACK(sd_dpl:2);	/* segment descriptor priority level */
-	unsigned __PACK(sd_p:1);	/* segment descriptor present */
-	unsigned __PACK(sd_hilimit:4);	/* segment extent (msb) */
-	unsigned __PACK(sd_xx:2);	/* unused */
-	unsigned __PACK(sd_def32:1);	/* default 32 vs 16 bit size */
-	unsigned __PACK(sd_gran:1);	/* limit granularity (byte/page units)*/
-	unsigned __PACK(sd_hibase:8);	/* segment base address  (msb) */
+	unsigned sd_lolimit:16 ;	/* segment extent (lsb) */
+	unsigned sd_lobase:24 ;		/* segment base address (lsb) */
+	unsigned sd_type:5 ;		/* segment type */
+	unsigned sd_dpl:2 ;		/* segment descriptor priority level */
+	unsigned sd_p:1 ;		/* segment descriptor present */
+	unsigned sd_hilimit:4 ;		/* segment extent (msb) */
+	unsigned sd_xx:2 ;		/* unused */
+	unsigned sd_def32:1 ;		/* default 32 vs 16 bit size */
+	unsigned sd_gran:1 ;		/* limit granularity (byte/page units)*/
+	unsigned sd_hibase:8 ;		/* segment base address  (msb) */
 } ;
 
 /*
  * Gate descriptors (e.g. indirect descriptors)
  */
 struct	gate_descriptor	{
-	unsigned __PACK(gd_looffset:16); /* gate offset (lsb) */
-	unsigned __PACK(gd_selector:16); /* gate segment selector */
-	unsigned __PACK(gd_stkcpy:5);	/* number of stack wds to cpy */
-	unsigned __PACK(gd_xx:3);	/* unused */
-	unsigned __PACK(gd_type:5);	/* segment type */
-	unsigned __PACK(gd_dpl:2);	/* segment descriptor priority level */
-	unsigned __PACK(gd_p:1);	/* segment descriptor present */
-	unsigned __PACK(gd_hioffset:16); /* gate offset (msb) */
+	unsigned gd_looffset:16 ;	/* gate offset (lsb) */
+	unsigned gd_selector:16 ;	/* gate segment selector */
+	unsigned gd_stkcpy:5 ;		/* number of stack wds to cpy */
+	unsigned gd_xx:3 ;		/* unused */
+	unsigned gd_type:5 ;		/* segment type */
+	unsigned gd_dpl:2 ;		/* segment descriptor priority level */
+	unsigned gd_p:1 ;		/* segment descriptor present */
+	unsigned gd_hioffset:16 ;	/* gate offset (msb) */
 } ;
 
 /*
@@ -56,6 +92,7 @@ union	descriptor	{
 	struct	segment_descriptor sd;
 	struct	gate_descriptor gd;
 };
+#define	d_type	gd.gd_type
 
 	/* system segments and gate types */
 #define	SDT_SYSNULL	 0	/* system null */
@@ -131,47 +168,16 @@ struct	soft_segment_descriptor	{
 	unsigned ssd_gran:1 ;		/* limit granularity (byte/page units)*/
 };
 
-void ssdtosd(struct soft_segment_descriptor *, union descriptor *);
+extern ssdtosd() ;	/* to decode a ssd */
+extern sdtossd() ;	/* to encode a sd */
 
 /*
- * region descriptors, used to load gdt/idt tables before segments yet exist.
+ * region descriptors, used to load gdt/idt tables before segments yet exist
  */
 struct region_descriptor {
-	unsigned __PACK(rd_limit:16);	/* segment extent */
-	unsigned __PACK(rd_base:32);		/* base address  */
+	unsigned rd_limit:16 ;		/* segment extent */
+	char *rd_base;			/* base address  */
 };
-
-/* load global descriptor table */
-#define	lgdt(s) ({ \
-	struct region_descriptor rd = s; \
-	asm volatile (" \
-	lgdt %0 ; \
-	/* flush prefetch queue */ \
-	jmp 1f ; nop ; 1:  \
-	/* reload stale selectors */ \
-	movw %w1, %%ds ; movw %w1, %%es ; movw %w1, %%ss ; \
-	/* reload code selector by using an intersegmental return */ \
-	pushl %2 ; pushl $1f ; lret ; 1: " \
-	 : : "m"(rd), "r"(KDSEL), "r"(KCSEL)); \
-})
-
-/* load interrupt descriptor table */
-#define	lidt(s) ({ \
-	struct region_descriptor rd = s; \
-	asm volatile ("lidt %0 " : : "m"(rd)); \
-})
-
-/* load local descriptor table */
-#define	lldt(s) ({ \
-	sel_t sel = s; \
-	asm volatile ("lldt %w0 " : : "r"(sel)); \
-})
-
-/* load current task state */
-#define	ltr(s) ({ \
-	sel_t sel = s; \
-	asm volatile ("ltr %w0 " : : "r"(sel)); \
-})
 
 /*
  * Segment Protection Exception code bits
@@ -182,121 +188,3 @@ struct region_descriptor {
 #define	SEGEX_TI	0x04	/* local descriptor table */
 				/* other bits are affected descriptor index */
 #define SEGEX_IDX(s)	((s)>>3)&0x1fff)
-
-/*
- * Size of IDT table
- */
-
-#define	NIDT	256
-#define	NRSVIDT	32		/* reserved entries for cpu exceptions */
-
-/* special selectors in the kernel */
-extern sel_t _udatasel, _ucodesel, _exit_tss_sel;
-
-/* global descriptor table */
-extern union descriptor *gdt, gdt_bootstrap[];
-
-/* global descriptor table allocation pointers/counters */
-extern struct segment_descriptor *sdfirstp_gdesc, *sdlast_gdesc,
-    *sdlastfree_gdesc;
-extern int sdngd_gdesc, sdnfree_gdesc;
-
-void expanddesctable(void);
-
-/*
- * Allocate a global descriptor to the kernel. If no free descriptors,
- * expand the table.
- */
-extern inline struct segment_descriptor *
-allocdesc(void)
-{
-	struct segment_descriptor *sdp;
-	int fullsearch = 1;
-	
-tryagain:
-	/* out of global descriptors? then, make more */
-	if (sdnfree_gdesc == 0)
-		expanddesctable();
-
-	/* find a free descriptor, starting with last freed descriptor */
-	for (sdp = sdlastfree_gdesc; sdp <= sdlast_gdesc && sdp->sd_p ; sdp++)
-		;
-
-	/* if did not find a descriptor, start at beginning of table again */
-	if (sdp > sdlast_gdesc && fullsearch) {
-		sdlastfree_gdesc = sdfirstp_gdesc;
-		fullsearch = 0;
-		goto tryagain;
-	}
-
-#ifdef DIAGNOSTIC
-	if(sdp->sd_p)
-		panic("allocdesc: no free descriptor");
-#endif
-
-	/* next place to try? */
-	if (sdp < sdlast_gdesc)
-		sdlastfree_gdesc = sdp + 1;
-	sdnfree_gdesc--;
-
-	/* fill in the blanks */
-	/* memset(sdp, 0, sizeof(*sdp));		/* XXX overkill */
-	*(int *) sdp = 0; /* clear lower word */
-	*(((int *) sdp) + 1) = 0; /* clear upper word */
-	sdp->sd_p = 1;
-	return (sdp);
-}
-
-/*
- * Return a Global descriptor to free status, so it may be reused.
- */
-extern inline void
-freedesc(struct segment_descriptor *sdp)
-{
-	sdp->sd_p = 0;		/* will generate an invalid tss if used */
-	sdnfree_gdesc++;
-	if (sdlastfree_gdesc > sdp)
-		sdlastfree_gdesc = sdp;
-	/* XXX reduce table size if nfreedesc grows to larger than half of
-	   total table side, and if we can compact the table. when we have
-	   a surplus of descriptors, restrict allocation to first half, and
-	   keep seperate counts on still allocated upper/lower halfs. We can
-	   shrink the table by half when the outstanding allocated descriptors
-	   in the top half drops to zero -- too hard for now. */
-}
-
-
-#ifdef _PROC_H_
-/*
- * Allocate a TSS descriptor to a kernel thread, in the course of
- * creating a new thread. Special version of allocdesc().
- */
-extern inline
-alloctss(struct proc *p) {
-	struct segment_descriptor *sdp = allocdesc();
-	sdp->sd_lolimit = sizeof(struct i386tss) - 1;
-	sdp->sd_lobase = (int)p->p_addr;
-	sdp->sd_hibase = ((int)p->p_addr) >> 24;
-	sdp->sd_type = SDT_SYS386TSS;
-	
-	/* construct selector for new tss */
-	p->p_md.md_tsel = GSEL((sdp - &gdt[0].sd), SEL_KPL);
-}
-#endif
-
-/*
- * Return to the free pool the TSS descriptor of a thread being
- * deallocated. Special case of freedesc().
- */
-extern inline void
-freetss(sel_t tss_sel) {
-	
-	/*
-	 * if running on this thread, change to a interim
-         * tss until we swtch()
-	 */
-	/* if (tss_sel == str()) */
-		ltr(_exit_tss_sel); /* busy until final ljmp */
-
-	freedesc(&gdt[IDXSEL(tss_sel)].sd);
-}

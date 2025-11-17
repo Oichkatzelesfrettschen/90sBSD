@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1991 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1992, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,27 +30,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)proc.h	7.1 (Berkeley) 5/15/91
+ *	@(#)proc.h	8.1 (Berkeley) 6/11/93
  */
 
 /*
- * Machine-dependent part of the proc structure for i386.
+ * Machine-dependent part of the proc structure for hp300.
  */
 struct mdproc {
 	int	md_flags;		/* machine-dependent flags */
 	int	*md_regs;		/* registers on current frame */
-	int	md_tsel;		/* TSS selector */
-	caddr_t	md_onfault;		/* kernel fault catcher */
 };
 
 /* md_flags */
 #define	MDP_AST		0x0001	/* async trap pending */
-#define	MDP_RESCHED	0x0002	/* resched pending */
-#define	MDP_SIGPROC	0x0004	/* signal being processed -- see npx and trap */
-#define	MDP_NPXCOLL	0x0008	/* npx error during signal -- see npx */
-
-#define	MDP_FMTRAP	0x0010	/* process entered kernel on a trap frame */
-#define	MDP_FPWASUSED	0x0020	/* process has used fltng pnt hardware */
-#define	MDP_FPRESTPND	0x0080	/* ... that needs restore on next DNA fault */
-#define	MDP_FPSOFTFP	0x0100	/* process using software fltng pnt emulator */
-#define	MDP_SSTEP	0x0200	/* restore single stepping on exit from kernel*/

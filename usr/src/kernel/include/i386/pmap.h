@@ -1,6 +1,6 @@
 /* 
- * Copyright (c) 1991 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * the Systems Programming Group of the University of Utah Computer
@@ -34,8 +34,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	from:	@(#)pmap.h	7.4 (Berkeley) 5/12/91
- *	386BSD:	$Id: pmap.h,v 1.2 93/08/05 17:03:26 bill Exp Locker: root $
+ *	@(#)pmap.h	8.1 (Berkeley) 6/11/93
  */
 
 /*
@@ -49,14 +48,13 @@
  */
 
 #ifndef	_PMAP_MACHINE_
-#define	_PMAP_MACHINE_
+#define	_PMAP_MACHINE_	1
 
 /*
  * 386 page table entry and page table directory
  * W.Jolitz, 8/89
  */
 
-#ifndef LOCORE
 struct pde
 {
 unsigned int	
@@ -69,33 +67,26 @@ unsigned int
 		:3,			/* reserved for software */
 		pd_pfnum:20;		/* physical page frame number of pte's*/
 };
-#endif
 
 #define	PD_MASK		0xffc00000	/* page directory address bits */
 #define	PT_MASK		0x003ff000	/* page table address bits */
 #define	PD_SHIFT	22		/* page directory address shift */
 #define	PG_SHIFT	12		/* page table address shift */
 
-#ifndef LOCORE
 struct pte
 {
 unsigned int	
 		pg_v:1,			/* valid bit */
 		pg_prot:2,		/* access control */
-		/*pg_mbz1:1,		/* reserved, must be zero */
-		pg_wt:1,		/* 'write thru' bit */
-		pg_cd:1,		/* 'uncacheable page' bit */
-		/*pg_mbz1:2,		/* reserved, must be zero */
+		pg_mbz1:2,		/* reserved, must be zero */
 		pg_u:1,			/* hardware maintained 'used' bit */
 		pg_m:1,			/* hardware maintained modified bit */
 		pg_mbz2:2,		/* reserved, must be zero */
 		pg_w:1,			/* software, wired down page */
 		:1,			/* software (unused) */
-		/* pg_nc:1,		/* 'uncacheable page' bit */
-		:1,			/* software (unused) */
+		pg_nc:1,		/* 'uncacheable page' bit */
 		pg_pfnum:20;		/* physical page frame number */
 };
-#endif
 
 #define	PG_V		0x00000001
 #define	PG_RO		0x00000000
@@ -103,9 +94,7 @@ unsigned int
 #define	PG_u		0x00000004
 #define	PG_PROT		0x00000006 /* all protection bits . */
 #define	PG_W		0x00000200
-/*#define PG_N		0x00000800 /* Non-cacheable */
-#define PG_CD		0x00000010 /* Non-cacheable */
-#define PG_WT		0x00000008 /* write thru */
+#define PG_N		0x00000800 /* Non-cacheable */
 #define	PG_M		0x00000040
 #define PG_U		0x00000020
 #define	PG_FRAME	0xfffff000
@@ -128,10 +117,8 @@ unsigned int
 #define PGEX_W		0x02	/* during a Write cycle */
 #define PGEX_U		0x04	/* access from User mode (UPL) */
 
-#ifndef LOCORE
 typedef struct pde	pd_entry_t;	/* page directory entry */
-typedef struct pte	pt_entry_t;	/* page table entry */
-#endif
+typedef struct pte	pt_entry_t;	/* Mach page table entry */
 
 /*
  * One page directory, shared between
@@ -140,80 +127,93 @@ typedef struct pte	pt_entry_t;	/* page table entry */
 #define I386_PAGE_SIZE	NBPG
 #define I386_PDR_SIZE	NBPDR
 
-#define	KPTDI_LAST	0x3ff		/* last of kernel virtual pde's */
-#define	KPTDI_FIRST	(KERNBASE >> PD_SHIFT) /* start of kernel virtual pde's */
-#define	PTDPTDI		(KPTDI_FIRST - 1) /* ptd entry that points to ptd! */
+#define I386_KPDES	8 /* KPT page directory size */
+#define I386_UPDES	NBPDR/sizeof(struct pde)-8 /* UPT page directory size */
+
+#define	UPTDI		0x3f6		/* ptd entry for u./kernel&user stack */
+#define	PTDPTDI		0x3f7		/* ptd entry that points to ptd! */
+#define	KPTDI_FIRST	0x3f8		/* start of kernel virtual pde's */
+#define	KPTDI_LAST	0x3fA		/* last of kernel virtual pde's */
 
 /*
- * Current and alternate address space page table maps
- * and directories. These are defined as absolute addresses in locore.
+ * Address of current and alternate address space page table maps
+ * and directories.
  */
-#ifndef LOCORE
 #ifdef KERNEL
-extern struct pte	PTmap[], APTmap[];
-extern struct pde	PTD[], APTD[], PTDpde, APTDpde;
+extern struct pte	PTmap[], APTmap[], Upte;
+extern struct pde	PTD[], APTD[], PTDpde, APTDpde, Upde;
+extern	pt_entry_t	*Sysmap;
 
-extern int	KernelPTD;	/* physical address of "Idle" state directory */
+extern int	IdlePTD;	/* physical address of "Idle" state directory */
 #endif
 
 /*
- * Virtual address to page table entry and to physical address.
- * Likewise for alternate address space.
- * N.B.: these work recursively, thus vtopte of a pte will give
+ * virtual address to page table entry and
+ * to physical address. Likewise for alternate address space.
+ * Note: these work recursively, thus vtopte of a pte will give
  * the corresponding pde that in turn maps it.
  */
 #define	vtopte(va)	(PTmap + i386_btop(va))
 #define	kvtopte(va)	vtopte(va)
 #define	ptetov(pt)	(i386_ptob(pt - PTmap)) 
 #define	vtophys(va)  (i386_ptob(vtopte(va)->pg_pfnum) | ((int)(va) & PGOFSET))
+#define ispt(va)	((va) >= UPT_MIN_ADDRESS && (va) <= KPT_MAX_ADDRESS)
 
 #define	avtopte(va)	(APTmap + i386_btop(va))
 #define	ptetoav(pt)	(i386_ptob(pt - APTmap)) 
 #define	avtophys(va)  (i386_ptob(avtopte(va)->pg_pfnum) | ((int)(va) & PGOFSET))
 
 /*
- * Macros to generate page directory/table indicies
+ * macros to generate page directory/table indicies
  */
 
 #define	pdei(va)	(((va)&PD_MASK)>>PD_SHIFT)
-#define	ptei(va)	(((va)&PT_MASK)>>PG_SHIFT)
+#define	ptei(va)	(((va)&PT_MASK)>>PT_SHIFT)
 
 /*
- * Pmap instance definition.
+ * Pmap stuff
  */
 
 struct pmap {
 	pd_entry_t		*pm_pdir;	/* KVA of page directory */
-	boolean_t		pm_ptchanged;	/* page tables changed */
+	boolean_t		pm_pdchanged;	/* pdir changed */
 	short			pm_dref;	/* page directory ref count */
 	short			pm_count;	/* pmap reference count */
+	simple_lock_data_t	pm_lock;	/* lock on pmap */
 	struct pmap_statistics	pm_stats;	/* pmap statistics */
 	long			pm_ptpages;	/* more stats: PT pages */
-	vm_object_t		pm_ptobject;	/* pagetable pages in here */
-	struct proc		*pm_proc;	/* associated process XXX */
 };
 
 typedef struct pmap	*pmap_t;
 
 #ifdef KERNEL
-extern pmap_t		kernel_pmap;
+extern struct pmap	kernel_pmap_store;
+#define kernel_pmap (&kernel_pmap_store)
 #endif
 
 /*
- * Each logical page (vm_page_t) has an entry in the physical to virtual table,
- * pv_table, even if the page is not mapped to a virtual address. If mapped to
- * more than one virtual address or in other virtual address space(s), the
- * entry is the head of a list of address spaces and virtual addresses to
- * which the page is mapped. This is used to locate all instances of address
- * translation mappings of a page so that the can be altered if the state of
- * the page changes (i.e. if reclaimed, or if contents are affected).
+ * Macros for speed
+ */
+#define PMAP_ACTIVATE(pmapp, pcbp) \
+	if ((pmapp) != NULL /*&& (pmapp)->pm_pdchanged */) {  \
+		(pcbp)->pcb_cr3 = \
+		    pmap_extract(kernel_pmap, (pmapp)->pm_pdir); \
+		if ((pmapp) == &curproc->p_vmspace->vm_pmap) \
+			load_cr3((pcbp)->pcb_cr3); \
+		(pmapp)->pm_pdchanged = FALSE; \
+	}
+
+#define PMAP_DEACTIVATE(pmapp, pcbp)
+
+/*
+ * For each vm_page_t, there is a list of all currently valid virtual
+ * mappings of that page.  An entry is a pv_entry_t, the list is pv_table.
  */
 typedef struct pv_entry {
 	struct pv_entry	*pv_next;	/* next pv_entry */
 	pmap_t		pv_pmap;	/* pmap where mapping lies */
 	vm_offset_t	pv_va;		/* virtual address for mapping */
 	int		pv_flags;	/* flags */
-	int		pv_am;		/* address mapping class */
 } *pv_entry_t;
 
 #define	PV_ENTRY_NULL	((pv_entry_t) 0)
@@ -229,8 +229,8 @@ pv_entry_t	pv_table;		/* array of entries, one per page */
 #define pa_to_pvh(pa)		(&pv_table[pa_index(pa)])
 
 #define	pmap_resident_count(pmap)	((pmap)->pm_stats.resident_count)
+#define	pmap_wired_count(pmap)		((pmap)->pm_stats.wired_count)
 
 #endif	KERNEL
-#endif	LOCORE
 
 #endif	_PMAP_MACHINE_

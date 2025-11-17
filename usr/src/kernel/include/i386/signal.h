@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1989, 1993
+ * Copyright (c) 1986, 1989, 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,38 +30,32 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)float.h	8.1 (Berkeley) 6/10/93
+ *	@(#)signal.h	8.2 (Berkeley) 5/3/95
  */
 
-#define FLT_RADIX	2		/* b */
-#define FLT_ROUNDS	1		/* FP addition rounds to nearest */
+/*
+ * Machine-dependent signal definitions
+ */
 
-#define FLT_MANT_DIG	24		/* p */
-#define FLT_EPSILON	1.19209290E-07F	/* b**(1-p) */
-#define FLT_DIG		6		/* floor((p-1)*log10(b))+(b == 10) */
-#define FLT_MIN_EXP	-125		/* emin */
-#define FLT_MIN		1.17549435E-38F	/* b**(emin-1) */
-#define FLT_MIN_10_EXP	-37		/* ceil(log10(b**(emin-1))) */
-#define FLT_MAX_EXP	128		/* emax */
-#define FLT_MAX		3.40282347E+38F	/* (1-b**(-p))*b**emax */
-#define FLT_MAX_10_EXP	38		/* floor(log10((1-b**(-p))*b**emax)) */
+typedef int sig_atomic_t;
 
-#define DBL_MANT_DIG	53
-#define DBL_EPSILON	2.2204460492503131E-16
-#define DBL_DIG		15
-#define DBL_MIN_EXP	-1021
-#define DBL_MIN		2.225073858507201E-308
-#define DBL_MIN_10_EXP	-307
-#define DBL_MAX_EXP	1024
-#define DBL_MAX		1.797693134862316E+308
-#define DBL_MAX_10_EXP	308
+#if !defined(_POSIX_SOURCE) && !defined(_ANSI_SOURCE)
+#include <machine/trap.h>	/* codes for SIGILL, SIGFPE */
 
-#define LDBL_MANT_DIG	DBL_MANT_DIG
-#define LDBL_EPSILON	DBL_EPSILON
-#define LDBL_DIG	DBL_DIG
-#define LDBL_MIN_EXP	DBL_MIN_EXP
-#define LDBL_MIN	DBL_MIN
-#define LDBL_MIN_10_EXP	DBL_MIN_10_EXP
-#define LDBL_MAX_EXP	DBL_MAX_EXP
-#define LDBL_MAX	DBL_MAX
-#define LDBL_MAX_10_EXP	DBL_MAX_10_EXP
+/*
+ * Information pushed on stack when a signal is delivered.
+ * This is used by the kernel to restore state following
+ * execution of the signal handler.  It is also made available
+ * to the handler to allow it to restore state properly if
+ * a non-standard exit is performed.
+ */
+struct	sigcontext {
+	int	sc_onstack;	/* sigstack state to restore */
+	int	sc_mask;	/* signal mask to restore */
+	int	sc_sp;		/* sp to restore */
+	int	sc_fp;		/* fp to restore */
+	int	sc_ap;		/* ap to restore */
+	int	sc_pc;		/* pc to restore */
+	int	sc_ps;		/* psl to restore */
+};
+#endif

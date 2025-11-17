@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 1989, 1993
+/*-
+ * Copyright (c) 1992, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,38 +30,54 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)float.h	8.1 (Berkeley) 6/10/93
+ *	@(#)exec.h	8.1 (Berkeley) 6/11/93
  */
 
-#define FLT_RADIX	2		/* b */
-#define FLT_ROUNDS	1		/* FP addition rounds to nearest */
+/* Size of a page in an object file. */
+#define	__LDPGSZ	4096
 
-#define FLT_MANT_DIG	24		/* p */
-#define FLT_EPSILON	1.19209290E-07F	/* b**(1-p) */
-#define FLT_DIG		6		/* floor((p-1)*log10(b))+(b == 10) */
-#define FLT_MIN_EXP	-125		/* emin */
-#define FLT_MIN		1.17549435E-38F	/* b**(emin-1) */
-#define FLT_MIN_10_EXP	-37		/* ceil(log10(b**(emin-1))) */
-#define FLT_MAX_EXP	128		/* emax */
-#define FLT_MAX		3.40282347E+38F	/* (1-b**(-p))*b**emax */
-#define FLT_MAX_10_EXP	38		/* floor(log10((1-b**(-p))*b**emax)) */
+/* Valid magic number check. */
+#define	N_BADMAG(ex) \
+	((ex).a_magic != NMAGIC && (ex).a_magic != OMAGIC && \
+	    (ex).a_magic != ZMAGIC)
 
-#define DBL_MANT_DIG	53
-#define DBL_EPSILON	2.2204460492503131E-16
-#define DBL_DIG		15
-#define DBL_MIN_EXP	-1021
-#define DBL_MIN		2.225073858507201E-308
-#define DBL_MIN_10_EXP	-307
-#define DBL_MAX_EXP	1024
-#define DBL_MAX		1.797693134862316E+308
-#define DBL_MAX_10_EXP	308
+/* Address of the bottom of the text segment. */
+#define N_TXTADDR(X)	0
 
-#define LDBL_MANT_DIG	DBL_MANT_DIG
-#define LDBL_EPSILON	DBL_EPSILON
-#define LDBL_DIG	DBL_DIG
-#define LDBL_MIN_EXP	DBL_MIN_EXP
-#define LDBL_MIN	DBL_MIN
-#define LDBL_MIN_10_EXP	DBL_MIN_10_EXP
-#define LDBL_MAX_EXP	DBL_MAX_EXP
-#define LDBL_MAX	DBL_MAX
-#define LDBL_MAX_10_EXP	DBL_MAX_10_EXP
+/* Address of the bottom of the data segment. */
+#define N_DATADDR(ex) \
+	(N_TXTADDR(ex) + ((ex).a_magic == OMAGIC ? (ex).a_text \
+	: __LDPGSZ + ((ex).a_text - 1 & ~(__LDPGSZ - 1))))
+
+/* Text segment offset. */
+#define	N_TXTOFF(ex) \
+	((ex).a_magic == ZMAGIC ? __LDPGSZ : sizeof(struct exec))
+
+/* Data segment offset. */
+#define	N_DATOFF(ex) \
+	(N_TXTOFF(ex) + ((ex).a_magic != ZMAGIC ? (ex).a_text : \
+	__LDPGSZ + ((ex).a_text - 1 & ~(__LDPGSZ - 1))))
+
+/* Symbol table offset. */
+#define N_SYMOFF(ex) \
+	(N_TXTOFF(ex) + (ex).a_text + (ex).a_data + (ex).a_trsize + \
+	    (ex).a_drsize)
+
+/* String table offset. */
+#define	N_STROFF(ex) 	(N_SYMOFF(ex) + (ex).a_syms)
+
+/* Description of the object file header (a.out format). */
+struct exec {
+#define	OMAGIC	0407		/* old impure format */
+#define	NMAGIC	0410		/* read-only text */
+#define	ZMAGIC	0413		/* demand load format */
+	long	a_magic;	/* magic number */
+
+	u_long	a_text;		/* text segment size */
+	u_long	a_data;		/* initialized data size */
+	u_long	a_bss;		/* uninitialized data size */
+	u_long	a_syms;		/* symbol table size */
+	u_long	a_entry;	/* entry point */
+	u_long	a_trsize;	/* text relocation size */
+	u_long	a_drsize;	/* data relocation size */
+};

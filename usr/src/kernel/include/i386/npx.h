@@ -1,6 +1,6 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * William Jolitz.
@@ -33,7 +33,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)npx.h	5.3 (Berkeley) 1/18/91
+ *	@(#)npx.h	8.1 (Berkeley) 6/11/93
  */
 
 /*
@@ -58,10 +58,10 @@ struct	env87 {
 
 /* Contents of each floating point accumulator */
 struct	fpacc87 {
-	u_long	__PACK(fp_mantlo);	/* mantissa low (31:0) */
-	u_long	__PACK(fp_manthi);	/* mantissa high (63:32) */
-	int	__PACK(fp_exp:15);	/* exponent */
-	int	__PACK(fp_sgn:1);	/* mantissa sign */
+	u_long	fp_mantlo;	/* mantissa low (31:0) */
+	u_long	fp_manthi;	/* mantissa high (63:32) */
+	int	fp_exp:15;	/* exponent */
+	int	fp_sgn:1;	/* mantissa sign */
 };
 
 /* Floating point context */
@@ -76,16 +76,4 @@ struct	emcsts {
 	long	em_tar;		/* memory mapped temp A register when swtched */
 	long	em_dl;		/* memory mapped D low register when swtched */
 };
-
-/* Intel prefer's long real (53 bit) precision */
-#define	__iBCS_NPXCW__		0x262
-/* wfj prefer's temporary real (64 bit) precision */
-#define	__386BSD_NPXCW__	0x362
-
-#ifdef __386BSD__
-#define	__INITIAL_NPXCW__	__386BSD_NPXCW__
-#else
-#define	__INITIAL_NPXCW__	__iBCS_NPXCW__
-#endif
-
 #endif	___NPX87___
