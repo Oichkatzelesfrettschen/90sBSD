@@ -1,34 +1,39 @@
 /*
- * 386BSD Kernel Linker Script for i386
+ * 386BSD Kernel Linker Script for i386 (Multiboot-compliant)
  * Based on traditional BSD kernel memory layout
  *
- * Kernel loads at physical address 0x100000 (1MB) - standard for i386
- * Virtual address 0xFE000000 (high memory mapping)
+ * Kernel loads at physical address 0x100000 (1MB) - standard for Multiboot
+ * Using flat memory model for Phase 6/7 boot testing
  */
 
 OUTPUT_FORMAT("elf32-i386")
 OUTPUT_ARCH(i386)
 ENTRY(_start)
 
-/* Kernel load address - physical 1MB, virtual high memory */
-KERNEL_PHYS = 0x00100000;
-KERNEL_VIRT = 0xFE000000;
+/* Kernel load address - 1MB physical (Multiboot standard) */
+KERNEL_BASE = 0x00100000;
 
 SECTIONS
 {
-    /* Kernel starts at 1MB physical (for bootloader compatibility) */
-    . = KERNEL_VIRT + KERNEL_PHYS;
+    /* Kernel starts at 1MB physical (for Multiboot bootloader) */
+    . = KERNEL_BASE;
 
-    /* Read-only sections */
-    .text ALIGN(4K) : AT(ADDR(.text) - KERNEL_VIRT)
+    /* Multiboot header MUST be in first 8KB */
+    .multiboot ALIGN(4) :
     {
-        *(.multiboot)  /* Multiboot header (if present) */
+        *(.multiboot)  /* Multiboot header from boot.S */
+    }
+
+    /* Code section */
+    .text ALIGN(4K) :
+    {
         *(.text)       /* Code */
         *(.text.*)
         *(.gnu.linkonce.t.*)
     }
 
-    .rodata ALIGN(4K) : AT(ADDR(.rodata) - KERNEL_VIRT)
+    /* Read-only data */
+    .rodata ALIGN(4K) :
     {
         *(.rodata)     /* Read-only data */
         *(.rodata.*)
@@ -36,14 +41,15 @@ SECTIONS
     }
 
     /* Read-write data sections */
-    .data ALIGN(4K) : AT(ADDR(.data) - KERNEL_VIRT)
+    .data ALIGN(4K) :
     {
         *(.data)       /* Initialized data */
         *(.data.*)
         *(.gnu.linkonce.d.*)
     }
 
-    .bss ALIGN(4K) : AT(ADDR(.bss) - KERNEL_VIRT)
+    /* BSS (uninitialized data) */
+    .bss ALIGN(4K) :
     {
         *(COMMON)      /* Common symbols */
         *(.bss)        /* Uninitialized data */
@@ -52,7 +58,7 @@ SECTIONS
     }
 
     /* End of kernel marker */
-    .end ALIGN(4K) : AT(ADDR(.end) - KERNEL_VIRT)
+    .end ALIGN(4K) :
     {
         end = .;
         _end = .;
