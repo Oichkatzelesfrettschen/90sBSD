@@ -137,6 +137,11 @@ struct vattr {
 	dev_t		va_rdev;	/* device the special file represents */
 	u_quad_t	va_qbytes;	/* bytes of disk space held by file */
 };
+/* u_quad_t is now a plain 64-bit type, no .val member */
+#define	va_size		va_qsize
+#define	va_bytes	va_qbytes
+/* va_size_rsv and va_bytes_rsv removed - not used in 64-bit quad */
+#if 0  /* Old code with .val[] member access - disabled */
 #if BYTE_ORDER == LITTLE_ENDIAN
 #define	va_size		va_qsize.val[0]
 #define	va_size_rsv	va_qsize.val[1]
@@ -148,6 +153,7 @@ struct vattr {
 #define	va_bytes	va_qbytes.val[1]
 #define	va_bytes_rsv	va_qbytes.val[0]
 #endif
+#endif  /* End of old code block */
 
 /*
  * Operations on vnodes.
