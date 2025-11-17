@@ -72,7 +72,7 @@
 #undef	__NO_INLINES
 
 #include "vm.h"
-#include "kmem.h"
+/* #include "kmem.h" */ /* Commented out - using vm_extern.h from vm.h instead */
 
 extern vm_offset_t avail_end;
 

@@ -42,6 +42,9 @@
  *	William F. Jolitz (william@ernie.berkeley.edu) 6/20/1989
  */
 
+#ifndef _MACHINE_SEGMENTS_H_
+#define _MACHINE_SEGMENTS_H_
+
 /*
  * Selectors
  */
@@ -190,3 +193,5 @@ struct region_descriptor {
 #define	SEGEX_TI	0x04	/* local descriptor table */
 				/* other bits are affected descriptor index */
 #define SEGEX_IDX(s)	((s)>>3)&0x1fff)
+
+#endif /* _MACHINE_SEGMENTS_H_ */
