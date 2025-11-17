@@ -22,11 +22,19 @@ CFLAGS="$CFLAGS -nostdinc -Wall"
 # Create build directory
 mkdir -p "$BUILD_DIR"
 
-# Known compilable files (0 errors)
+# Known compilable files (0 errors) - Phase 5 Day 3: 11 files!
 GOOD_FILES=(
     "kern/config.c"
     "kern/lock.c"
     "kern/malloc.c"
+    "kern/host.c"
+    "kern/reboot.c"
+    "vm/vm_init.c"
+    "kern/subr/disksort.c"
+    "kern/subr/nullop.c"
+    "kern/subr/ring.c"
+    "kern/subr/rlist.c"
+    "kern/subr/ffs.c"
 )
 
 # Files with minor issues but may be useful
