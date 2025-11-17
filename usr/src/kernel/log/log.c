@@ -61,7 +61,7 @@ static char *log_config =
 
 struct logsoftc {
 	int	sc_state;		/* see above for possibilities */
-	pid_t	sc_selp;		/* process waiting on select call */
+	struct selinfo sc_selp;		/* select info for 4.4BSD-Lite2 */
 	int	sc_pgid;		/* process/group for async I/O */
 } logsoftc;
 
@@ -97,7 +97,7 @@ logclose(dev_t dev, int flags, int mode, struct proc *p)
 {
 	log_open = 0;
 	logsoftc.sc_state = 0;
-	logsoftc.sc_selp = 0;
+	logsoftc.sc_selp.si_pid = 0;
 }
 
 int
@@ -154,7 +154,7 @@ logselect(dev_t dev, int rw, struct proc *p)
 			splx(s);
 			return (1);
 		}
-		logsoftc.sc_selp = p->p_pid;
+		logsoftc.sc_selp.si_pid = p->p_pid;
 		break;
 	}
 	splx(s);
@@ -167,9 +167,9 @@ logwakeup()
 
 	if (!log_open)
 		return;
-	if (logsoftc.sc_selp) {
-		selwakeup(logsoftc.sc_selp, 0);
-		logsoftc.sc_selp = 0;
+	if (logsoftc.sc_selp.si_pid) {
+		selwakeup(&logsoftc.sc_selp);
+		logsoftc.sc_selp.si_pid = 0;
 	}
 	if (logsoftc.sc_state & LOG_ASYNC) {
 #ifdef nope
