@@ -57,10 +57,10 @@ _KERNS+=	${KERNEL}.kgdb
 
 all: ${_KERNS}	${ALLMAN}
 
-assym.s: $S/include/sys/param.h $S/include/buf.h $S/include/vmmeter.h \
+assym.s: $S/include/sys/param.h $S/include/buf.h $S/include/sys/vmmeter.h \
 	$S/include/proc.h $S/include/msgbuf.h machine/vmparam.h \
 	$S/config/genassym.c $S/config/genassym_stubs.c
-	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} -m32 \
+	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} \
 		 $S/config/genassym.c $S/config/genassym_stubs.c -o genassym
 	./genassym >assym.s
 
