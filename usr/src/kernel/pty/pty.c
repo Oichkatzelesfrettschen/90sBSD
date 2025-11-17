@@ -150,7 +150,7 @@ again:
 			if ((p->p_sigignore & sigmask(SIGTTIN)) ||
 			    (p->p_sigmask & sigmask(SIGTTIN)) ||
 			    p->p_pgrp->pg_jobc == 0 ||
-			    p->p_flag&SPPWAIT)
+			    p->p_flag&P_PPWAIT)
 				return (EIO);
 			pgsignal(p->p_pgrp, SIGTTIN, 1);
 			if (error = ttysleep(tp, (caddr_t)&lbolt, 
@@ -387,9 +387,9 @@ ptcread(dev_t dev, struct uio *uio, int flag)
 			tp->t_state &= ~TS_ASLEEP;
 			wakeup((caddr_t)&tp->t_out);
 		}
-		if (tp->t_wsel) {
-			selwakeup(tp->t_wsel, tp->t_state & TS_WCOLL);
-			tp->t_wsel = 0;
+		if (tp->t_wsel.si_pid) {
+			selwakeup(&tp->t_wsel);
+			tp->t_wsel.si_pid = 0;
 			tp->t_state &= ~TS_WCOLL;
 		}
 	}

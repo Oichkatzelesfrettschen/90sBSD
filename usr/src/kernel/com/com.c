@@ -566,9 +566,9 @@ comstart(tp)
 			tp->t_state &= ~TS_ASLEEP;
 			wakeup((caddr_t)&tp->t_out);
 		}
-		if (tp->t_wsel) {
-			selwakeup(tp->t_wsel, tp->t_state & TS_WCOLL);
-			tp->t_wsel = 0;
+		if (tp->t_wsel.si_pid) {
+			selwakeup(&tp->t_wsel);
+			tp->t_wsel.si_pid = 0;
 			tp->t_state &= ~TS_WCOLL;
 		}
 	}

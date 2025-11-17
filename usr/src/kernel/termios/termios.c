@@ -150,8 +150,8 @@ loop:
 	/*
 	 * Hang the process if it's in the background.
 	 */
-	if (isbackground(p, tp) && 
-	    tp->t_lflag&TOSTOP && (p->p_flag&SPPWAIT) == 0 &&
+	if (isbackground(p, tp) &&
+	    tp->t_lflag&TOSTOP && (p->p_flag&P_PPWAIT) == 0 &&
 	    (p->p_sigignore & sigmask(SIGTTOU)) == 0 &&
 	    (p->p_sigmask & sigmask(SIGTTOU)) == 0 &&
 	     p->p_pgrp->pg_jobc) {
@@ -931,7 +931,7 @@ loop:
 	if (isbackground(p, tp)) {
 		if ((p->p_sigignore & sigmask(SIGTTIN)) ||
 		   (p->p_sigmask & sigmask(SIGTTIN)) ||
-		    p->p_flag&SPPWAIT || p->p_pgrp->pg_jobc == 0)
+		    p->p_flag&P_PPWAIT || p->p_pgrp->pg_jobc == 0)
 			return (EIO);
 		pgsignal(p->p_pgrp, SIGTTIN, 1);
 		if (error = ttysleep(tp, (caddr_t)&lbolt, TTIPRI | PCATCH, 
@@ -999,9 +999,7 @@ loop:
 		/*
 		 * Give user character.
 		 */
-		error = copyout_(p, &c, uio_base(uio), 1);
-		(void)uio_advance(uio, uio->uio_iov, 1);
- 		/* error = ureadc(c, uio); */
+ 		error = ureadc(c, uio);
 		if (error)
 			break;
  		if (uio->uio_resid == 0)

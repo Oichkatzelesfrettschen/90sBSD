@@ -34,6 +34,7 @@
  */
 
 #include <sys/termios.h>
+#include <sys/select.h>
 
 #include "ringbuf.h"
 
@@ -49,8 +50,8 @@ struct tty {
 	int	(*t_param)();		/* device */
 	int	(*t_stop)();		/* device */
 	void	*t_ldiscif;		/* ldisc */
-	pid_t	t_rsel;			/* tty */
-	pid_t	t_wsel;
+	struct selinfo	t_rsel;		/* tty - 4.4BSD-Lite2 select */
+	struct selinfo	t_wsel;
 	caddr_t	T_LINEP; 		/* XXX */
 	caddr_t	t_addr;			/* ??? */
 	dev_t	t_dev;			/* device */
@@ -151,7 +152,7 @@ struct speedtab {
  * Is tp controlling terminal for p
  */
 #define isctty(p, tp)	((p)->p_session == (tp)->t_session && \
-			 (p)->p_flag&SCTTY)
+			 (p)->p_flag&P_CONTROLT)
 /*
  * Is p in background of tp
  */
