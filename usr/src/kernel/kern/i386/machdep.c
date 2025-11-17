@@ -1,6 +1,9 @@
-/*
- * Copyright (c) 1989, 1990, 1991, 1994 William F. Jolitz, TeleMuse
- * All rights reserved.
+/*-
+ * Copyright (c) 1982, 1987, 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * William Jolitz.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -12,32 +15,16 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This software is a component of "386BSD" developed by 
- *	William F. Jolitz, TeleMuse.
- * 4. Neither the name of the developer nor the name "386BSD"
+ *	This product includes software developed by the University of
+ *	California, Berkeley and its contributors.
+ * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
- * 5. Non-commercial distribution of this complete file in either source and/or
- *    binary form at no charge to the user (such as from an official Internet 
- *    archive site) is permitted. 
- * 6. Commercial distribution and sale of this complete file in either source
- *    and/or binary form on any media, including that of floppies, tape, or 
- *    CD-ROM, or through a per-charge download such as that of a BBS, is not 
- *    permitted without specific prior written permission.
- * 7. Non-commercial and/or commercial distribution of an incomplete, altered, 
- *    or otherwise modified file in either source and/or binary form is not 
- *    permitted.
  *
- * THIS SOFTWARE IS A COMPONENT OF 386BSD DEVELOPED BY WILLIAM F. JOLITZ 
- * AND IS INTENDED FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY. THIS 
- * SOFTWARE SHOULD NOT BE CONSIDERED TO BE A COMMERCIAL PRODUCT. 
- * THE DEVELOPER URGES THAT USERS WHO REQUIRE A COMMERCIAL PRODUCT 
- * NOT MAKE USE OF THIS WORK.
- *
- * THIS SOFTWARE IS PROVIDED BY THE DEVELOPER ``AS IS'' AND
+ * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE DEVELOPER BE LIABLE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
@@ -46,57 +33,44 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: machdep.c,v 1.1 94/10/19 17:40:00 bill Exp $
- *
- * Machine dependant initialization XXX.
+ *	@(#)machdep.c	8.3 (Berkeley) 5/9/95
  */
 
+#include <sys/param.h>
+#include <sys/systm.h>
+#include <sys/signalvar.h>
+#include <sys/kernel.h>
+#include <sys/map.h>
+#include <sys/proc.h>
+#include <sys/user.h>
+#include <sys/buf.h>
+#include <sys/reboot.h>
+#include <sys/conf.h>
+#include <sys/file.h>
+#include <sys/clist.h>
+#include <sys/callout.h>
+#include <sys/malloc.h>
+#include <sys/mbuf.h>
+#include <sys/msgbuf.h>
+#include <sys/ioctl.h>
+#include <sys/tty.h>
+#include <sys/sysctl.h>
 
-#include "sys/param.h"
-#include "sys/file.h"
-#include "sys/user.h"
-#include "sys/reboot.h"
-#include "systm.h"
-#include "kernel.h"
-#include "proc.h"
-#include "signalvar.h"
-#include "buf.h"
-#include "callout.h"
-#include "malloc.h"
-#include "mbuf.h"
-#include "msgbuf.h"
-#include "modconfig.h"
-#include "netisr.h"
-#define	__NO_INLINES
-#include "prototypes.h"
-#undef	__NO_INLINES
+#include <net/netisr.h>
 
-#include "vm.h"
-/* #include "kmem.h" */ /* Commented out - using vm_extern.h from vm.h instead */
+#include <vm/vm.h>
+#include <vm/vm_kern.h>
+#include <vm/vm_page.h>
 
+vm_map_t buffer_map;
 extern vm_offset_t avail_end;
 
-#include "machine/cpu.h"
-#include "machine/reg.h"
-#include "machine/psl.h"
-#include "segments.h"
-#include "specialreg.h"
-#include "rtc.h"
-#ifdef SYSVSHMx
-#include "sys/shm.h"
-#endif
-
-/*
- * If no inlines, define the code for inclusion singularly in this module.
- */
-/*#ifdef __NO_INLINES*/
-#define	__NO_INLINES_BUT_EMIT_CODE
-/*#undef __NO_INLINES*/
-#include "prototypes.h"
-#include "machine/inline/io.h"
-#include "machine/inline/inet.h"
-#undef	__NO_INLINES_BUT_EMIT_CODE
-/* #endif */
+#include <machine/cpu.h>
+#include <machine/reg.h>
+#include <machine/psl.h>
+#include <machine/specialreg.h>
+#include <i386/isa/rtc.h>
+#include <i386/i386/cons.h>
 
 /*
  * Declare these as initialized data so we can patch them.
@@ -113,24 +87,33 @@ int	bufpages = BUFPAGES;
 int	bufpages = 0;
 #endif
 int	msgbufmapped;		/* set when safe to use msgbuf */
-extern int freebufspace;
-extern char copyright1[], copyright2[];
 
 /*
  * Machine-dependent startup code
  */
-extern int boothowto;
+int boothowto = 0, Maxmem = 0;
 long dumplo;
 int physmem, maxmem;
+extern int bootdev;
+#ifdef SMALL
+extern int forcemaxmem;
+#endif
+int biosmem;
 
-void
-cpu_startup(void)
+extern cyloffset;
+
+cpu_startup(firstaddr)
+	int firstaddr;
 {
+	register int unixsize;
 	register unsigned i;
+	register struct pte *pte;
+	int mapaddr, j;
 	register caddr_t v;
 	int maxbufs, base, residual;
+	extern long Usrptsize;
+	vm_offset_t minaddr, maxaddr;
 	vm_size_t size;
-	int firstaddr;
 
 	/*
 	 * Initialize error message buffer (at end of core).
@@ -138,8 +121,8 @@ cpu_startup(void)
 
 	/* avail_end was pre-decremented in pmap_bootstrap to compensate */
 	for (i = 0; i < btoc(sizeof (struct msgbuf)); i++)
-		pmap_enter(pmap_kernel(), (vm_offset_t)msgbufp,
-			avail_end + (i+1) * NBPG, VM_PROT_ALL, TRUE, AM_NONE);
+		pmap_enter(kernel_pmap, msgbufp, avail_end + i * NBPG,
+			   VM_PROT_ALL, TRUE);
 	msgbufmapped = 1;
 
 #ifdef KDB
@@ -148,15 +131,18 @@ cpu_startup(void)
 	/*
 	 * Good {morning,afternoon,evening,night}.
 	 */
-	printf("%s [1.0.%s]\n", copyright1, version+9);
-	printf(copyright2);
+	printf(version);
+	printf("real mem  = %d\n", ctob(physmem));
 
 	/*
 	 * Allocate space for system data structures.
+	 * The first available real memory address is in "firstaddr".
 	 * The first available kernel virtual address is in "v".
 	 * As pages of kernel virtual memory are allocated, "v" is incremented.
 	 * As pages of memory are allocated and cleared,
 	 * "firstaddr" is incremented.
+	 * An index into the kernel page table corresponding to the
+	 * virtual memory address maintained in "v" is kept in "mapaddr".
 	 */
 
 	/*
@@ -172,8 +158,12 @@ again:
 	    (name) = (type *)v; v = (caddr_t)((name)+(num))
 #define	valloclim(name, type, num, lim) \
 	    (name) = (type *)v; v = (caddr_t)((lim) = ((name)+(num)))
+	valloc(cfree, struct cblock, nclist);
 	valloc(callout, struct callout, ncallout);
-
+	valloc(swapmap, struct map, nswapmap = maxproc * 2);
+#ifdef SYSVSHM
+	valloc(shmsegs, struct shmid_ds, shminfo.shmmni);
+#endif
 	/*
 	 * Determine how many buffers to allocate.
 	 * Use 10% of memory for the first 2 Meg, 5% of the remaining
@@ -184,15 +174,18 @@ again:
 		if (physmem < (2 * 1024 * 1024))
 			bufpages = physmem / 10 / CLSIZE;
 		else
-			bufpages = ((2 * 1024 * 1024 + physmem) / 10) / CLSIZE;
-
+			bufpages = ((2 * 1024 * 1024 + physmem) / 20) / CLSIZE;
 	if (nbuf == 0) {
 		nbuf = bufpages / 2;
 		if (nbuf < 16)
 			nbuf = 16;
 	}
-	freebufspace = bufpages * NBPG;
-
+	if (nswbuf == 0) {
+		nswbuf = (nbuf / 2) &~ 1;	/* force even */
+		if (nswbuf > 256)
+			nswbuf = 256;		/* sanity */
+	}
+	valloc(swbuf, struct buf, nswbuf);
 	valloc(buf, struct buf, nbuf);
 
 	/*
@@ -200,118 +193,488 @@ again:
 	 */
 	if (firstaddr == 0) {
 		size = (vm_size_t)(v - firstaddr);
-		firstaddr = (int)kmem_alloc(kernel_map, round_page(size),
-			M_ZERO_IT);
+		firstaddr = (int)kmem_alloc(kernel_map, round_page(size));
 		if (firstaddr == 0)
 			panic("startup: no room for tables");
-		/* (void) memset((void *)firstaddr, 0, size); /* paranoia, sheer */
 		goto again;
 	}
-
 	/*
 	 * End of second pass, addresses have been assigned
 	 */
 	if ((vm_size_t)(v - firstaddr) != size)
 		panic("startup: table size inconsistency");
+	/*
+	 * Now allocate buffers proper.  They are different than the above
+	 * in that they usually occupy more virtual memory than physical.
+	 */
+	size = MAXBSIZE * nbuf;
+	buffer_map = kmem_suballoc(kernel_map, (vm_offset_t)&buffers,
+				   &maxaddr, size, TRUE);
+	minaddr = (vm_offset_t)buffers;
+	if (vm_map_find(buffer_map, vm_object_allocate(size), (vm_offset_t)0,
+			&minaddr, size, FALSE) != KERN_SUCCESS)
+		panic("startup: cannot allocate buffers");
+	base = bufpages / nbuf;
+	residual = bufpages % nbuf;
+	for (i = 0; i < nbuf; i++) {
+		vm_size_t curbufsize;
+		vm_offset_t curbuf;
 
+		/*
+		 * First <residual> buffers get (base+1) physical pages
+		 * allocated for them.  The rest get (base) physical pages.
+		 *
+		 * The rest of each buffer occupies virtual space,
+		 * but has no physical memory allocated for it.
+		 */
+		curbuf = (vm_offset_t)buffers + i * MAXBSIZE;
+		curbufsize = CLBYTES * (i < residual ? base+1 : base);
+		vm_map_pageable(buffer_map, curbuf, curbuf+curbufsize, FALSE);
+		vm_map_simplify(buffer_map, curbuf);
+	}
+	/*
+	 * Allocate a submap for exec arguments.  This map effectively
+	 * limits the number of processes exec'ing at any time.
+	 */
+	exec_map = kmem_suballoc(kernel_map, &minaddr, &maxaddr,
+				 16*NCARGS, TRUE);
 	/*
 	 * Allocate a submap for physio
 	 */
-#define USRIOSIZE  300	/*XXX*/
-	phys_map = kmem_suballoc(VM_PHYS_SIZE, TRUE);
+	phys_map = kmem_suballoc(kernel_map, &minaddr, &maxaddr,
+				 VM_PHYS_SIZE, TRUE);
 
 	/*
 	 * Finally, allocate mbuf pool.  Since mclrefcnt is an off-size
 	 * we use the more space efficient malloc in place of kmem_alloc.
 	 */
 	mclrefcnt = (char *)malloc(NMBCLUSTERS+CLBYTES/MCLBYTES,
-		M_MBUF, M_NOWAIT);
-	(void) memset(mclrefcnt, 0, NMBCLUSTERS+CLBYTES/MCLBYTES);
-	mb_map = kmem_suballoc(VM_MBUF_SIZE, FALSE);
-	mbutl = (struct mbuf *) vm_map_min(mb_map);
-
+				   M_MBUF, M_NOWAIT);
+	bzero(mclrefcnt, NMBCLUSTERS+CLBYTES/MCLBYTES);
+	mb_map = kmem_suballoc(kernel_map, (vm_offset_t)&mbutl, &maxaddr,
+			       VM_MBUF_SIZE, FALSE);
 	/*
 	 * Initialize callouts
 	 */
 	callfree = callout;
 	for (i = 1; i < ncallout; i++)
 		callout[i-1].c_next = &callout[i];
+	callout[i-1].c_next = NULL;
+
+	/*printf("avail mem = %d\n", ptoa(vm_page_free_count));*/
+	printf("using %d buffers containing %d bytes of memory\n",
+		nbuf, bufpages * CLBYTES);
+
+	/*
+	 * Set up CPU-specific registers, cache, etc.
+	 */
+	initcpu();
 
 	/*
 	 * Set up buffers, so they can be used to read disk labels.
 	 */
 	bufinit();
+
+	/*
+	 * Configure the system.
+	 */
+	configure();
 }
 
-extern int bootdev, bootsp;	/* XXX */
-
-extern struct pcb dumppcb;
-
-extern int	dumpsize;
+#ifdef PGINPROF
 /*
- * Attempt to dump the system's memory image to disk, so
- * that the /sbin/savecore program can recover it after reboot.
+ * Return the difference (in microseconds)
+ * between the  current time and a previous
+ * time as represented  by the arguments.
+ * If there is a pending clock interrupt
+ * which has not been serviced due to high
+ * ipl, return error code.
+ */
+/*ARGSUSED*/
+vmtime(otime, olbolt, oicr)
+	register int otime, olbolt, oicr;
+{
+
+	return (((time.tv_sec-otime)*60 + lbolt-olbolt)*16667);
+}
+#endif
+
+struct sigframe {
+	int	sf_signum;
+	int	sf_code;
+	struct	sigcontext *sf_scp;
+	sig_t	sf_handler;
+	int	sf_eax;	
+	int	sf_edx;	
+	int	sf_ecx;	
+	struct	sigcontext sf_sc;
+} ;
+
+extern int kstack[];
+
+/*
+ * Send an interrupt to process.
+ *
+ * Stack is set up to allow sigcode stored
+ * in u. to call routine, followed by kcall
+ * to sigreturn routine below.  After sigreturn
+ * resets the signal mask, the stack, and the
+ * frame pointer, it returns to the user
+ * specified pc, psl.
+ */
+void
+sendsig(catcher, sig, mask, code)
+	sig_t catcher;
+	int sig, mask;
+	u_long code;
+{
+	register struct proc *p = curproc;
+	register int *regs;
+	register struct sigframe *fp;
+	struct sigacts *psp = p->p_sigacts;
+	int oonstack, frmtrap;
+
+	regs = p->p_md.md_regs;
+        oonstack = psp->ps_sigstk.ss_flags & SA_ONSTACK;
+	frmtrap = curpcb->pcb_flags & FM_TRAP;
+	/*
+	 * Allocate and validate space for the signal handler
+	 * context. Note that if the stack is in P0 space, the
+	 * call to grow() is a nop, and the useracc() check
+	 * will fail if the process has not already allocated
+	 * the space with a `brk'.
+	 */
+	if ((psp->ps_flags & SAS_ALTSTACK) &&
+	    (psp->ps_sigstk.ss_flags & SA_ONSTACK) == 0 &&
+	    (psp->ps_sigonstack & sigmask(sig))) {
+		fp = (struct sigframe *)(psp->ps_sigstk.ss_base +
+		    psp->ps_sigstk.ss_size - sizeof(struct sigframe));
+		psp->ps_sigstk.ss_flags |= SA_ONSTACK;
+	} else {
+		if (frmtrap)
+			fp = (struct sigframe *)(regs[tESP]
+				- sizeof(struct sigframe));
+		else
+			fp = (struct sigframe *)(regs[sESP]
+				- sizeof(struct sigframe));
+	}
+
+	if ((unsigned)fp <= USRSTACK - ctob(p->p_vmspace->vm_ssize)) 
+		(void)grow(p, (unsigned)fp);
+
+	if (useracc((caddr_t)fp, sizeof (struct sigframe), B_WRITE) == 0) {
+		/*
+		 * Process has trashed its stack; give it an illegal
+		 * instruction to halt it in its tracks.
+		 */
+		SIGACTION(p, SIGILL) = SIG_DFL;
+		sig = sigmask(SIGILL);
+		p->p_sigignore &= ~sig;
+		p->p_sigcatch &= ~sig;
+		p->p_sigmask &= ~sig;
+		psignal(p, SIGILL);
+		return;
+	}
+
+	/* 
+	 * Build the argument list for the signal handler.
+	 */
+	fp->sf_signum = sig;
+	fp->sf_code = code;
+	fp->sf_scp = &fp->sf_sc;
+	fp->sf_handler = catcher;
+
+	/* save scratch registers */
+	if(frmtrap) {
+		fp->sf_eax = regs[tEAX];
+		fp->sf_edx = regs[tEDX];
+		fp->sf_ecx = regs[tECX];
+	} else {
+		fp->sf_eax = regs[sEAX];
+		fp->sf_edx = regs[sEDX];
+		fp->sf_ecx = regs[sECX];
+	}
+	/*
+	 * Build the signal context to be used by sigreturn.
+	 */
+	fp->sf_sc.sc_onstack = oonstack;
+	fp->sf_sc.sc_mask = mask;
+	if(frmtrap) {
+		fp->sf_sc.sc_sp = regs[tESP];
+		fp->sf_sc.sc_fp = regs[tEBP];
+		fp->sf_sc.sc_pc = regs[tEIP];
+		fp->sf_sc.sc_ps = regs[tEFLAGS];
+		regs[tESP] = (int)fp;
+		regs[tEIP] = (int)((struct pcb *)kstack)->pcb_sigc;
+	} else {
+		fp->sf_sc.sc_sp = regs[sESP];
+		fp->sf_sc.sc_fp = regs[sEBP];
+		fp->sf_sc.sc_pc = regs[sEIP];
+		fp->sf_sc.sc_ps = regs[sEFLAGS];
+		regs[sESP] = (int)fp;
+		regs[sEIP] = (int)((struct pcb *)kstack)->pcb_sigc;
+	}
+}
+
+/*
+ * System call to cleanup state after a signal
+ * has been taken.  Reset signal mask and
+ * stack state from context left by sendsig (above).
+ * Return to previous pc and psl as specified by
+ * context left by sendsig. Check carefully to
+ * make sure that the user has not modified the
+ * psl to gain improper priviledges or to cause
+ * a machine fault.
+ */
+struct sigreturn_args {
+	struct sigcontext *sigcntxp;
+};
+sigreturn(p, uap, retval)
+	struct proc *p;
+	struct sigreturn_args *uap;
+	int *retval;
+{
+	register struct sigcontext *scp;
+	register struct sigframe *fp;
+	register int *regs = p->p_md.md_regs;
+
+
+	fp = (struct sigframe *) regs[sESP] ;
+
+	if (useracc((caddr_t)fp, sizeof (*fp), 0) == 0)
+		return(EINVAL);
+
+	/* restore scratch registers */
+	regs[sEAX] = fp->sf_eax ;
+	regs[sEDX] = fp->sf_edx ;
+	regs[sECX] = fp->sf_ecx ;
+
+	scp = fp->sf_scp;
+	if (useracc((caddr_t)scp, sizeof (*scp), 0) == 0)
+		return(EINVAL);
+#ifdef notyet
+	if ((scp->sc_ps & PSL_MBZ) != 0 || (scp->sc_ps & PSL_MBO) != PSL_MBO) {
+		return(EINVAL);
+	}
+#endif
+	if (scp->sc_onstack & 01)
+		p->p_sigacts->ps_sigstk.ss_flags |= SA_ONSTACK;
+	else
+		p->p_sigacts->ps_sigstk.ss_flags &= ~SA_ONSTACK;
+	p->p_sigmask = scp->sc_mask &~
+	    (sigmask(SIGKILL)|sigmask(SIGCONT)|sigmask(SIGSTOP));
+	regs[sEBP] = scp->sc_fp;
+	regs[sESP] = scp->sc_sp;
+	regs[sEIP] = scp->sc_pc;
+	regs[sEFLAGS] = scp->sc_ps;
+	return(EJUSTRETURN);
+}
+
+int	waittime = -1;
+
+boot(arghowto)
+	int arghowto;
+{
+	register long dummy;		/* r12 is reserved */
+	register int howto;		/* r11 == how to boot */
+	register int devtype;		/* r10 == major of root dev */
+	/* extern char *panicstr; */ /* Already declared in systm.h as const char * */
+extern int cold;
+
+	howto = arghowto;
+	if ((howto&RB_NOSYNC) == 0 && waittime < 0) {
+		register struct buf *bp;
+		int iter, nbusy;
+
+		waittime = 0;
+		(void) splnet();
+		printf("syncing disks... ");
+		/*
+		 * Release inodes held by texts before update.
+		 */
+		if (panicstr == 0)
+			vnode_pager_umount(NULL);
+		sync((struct sigcontext *)0);
+		/*
+		 * Unmount filesystems
+		 */
+		if (panicstr == 0)
+			vfs_unmountall();
+
+		for (iter = 0; iter < 20; iter++) {
+			nbusy = 0;
+			for (bp = &buf[nbuf]; --bp >= buf; )
+				if ((bp->b_flags & (B_BUSY|B_INVAL)) == B_BUSY)
+					nbusy++;
+			if (nbusy == 0)
+				break;
+			printf("%d ", nbusy);
+			DELAY(40000 * iter);
+		}
+		if (nbusy)
+			printf("giving up\n");
+		else
+			printf("done\n");
+		DELAY(10000);			/* wait for printf to finish */
+	}
+	splhigh();
+	devtype = major(rootdev);
+	if (howto&RB_HALT) {
+		printf("halting (in tight loop); hit reset\n\n");
+		splx(0xfffd);	/* all but keyboard XXX */
+		for (;;) ;
+	} else {
+		if (howto & RB_DUMP) {
+			dumpsys();	
+			/*NOTREACHED*/
+		}
+	}
+#ifdef lint
+	dummy = 0; dummy = dummy;
+	printf("howto %d, devtype %d\n", arghowto, devtype);
+#endif
+#ifdef	notdef
+	pg("pausing (hit any key to reset)");
+#endif
+	reset_cpu();
+	for(;;) ;
+	/*NOTREACHED*/
+}
+
+int	dumpmag = 0x8fca0101;	/* magic number for savecore */
+int	dumpsize = 0;		/* also for savecore */
+/*
+ * Doadump comes here after turning off memory management and
+ * getting on the dump stack, either when called above, or by
+ * the auto-restart code.
  */
 dumpsys()
 {
 
-	/* no dump device at all? */
-	if (dumpdev == BLK_NODEV)
+	if (dumpdev == NODEV)
 		return;
-
-	/* XXX don't dump in case of running off cdrom */
-	/* if ((minor(bootdev)&07) != 3)
-		return; */
-
-	/* dump to a non-swap partition? */
 	if ((minor(dumpdev)&07) != 1)
 		return;
-
-	/* save current state in pcb so that debugger can reconstruct the stack */
-	asm ("movl %%ebx, %0" : "=m" (dumppcb.pcb_tss.tss_ebx));
-	asm ("movl %%esi, %0" : "=m" (dumppcb.pcb_tss.tss_esi));
-	asm ("movl %%edi, %0" : "=m" (dumppcb.pcb_tss.tss_edi));
-	asm ("movl %%esp, %0" : "=m" (dumppcb.pcb_tss.tss_esp));
-	asm ("movl %%ebp, %0" : "=m" (dumppcb.pcb_tss.tss_ebp));
-	asm ("movl $1f, %0; 1:" : "=m" (dumppcb.pcb_tss.tss_eip));
-	dumppcb.pcb_ptd = rcr(3);
-
-	printf("\nThe operating system is saving a copy of RAM memory to device %x, offset %d\n\
-(hit any key to abort): [ amount left to save (MB) ] ", dumpdev, dumplo);
-
-	/* give a second for operator to abort dump */
-	DELAY(1000000);
-
 	dumpsize = physmem;
-	switch (devif_dump(dumpdev, BLKDEV)) {
-	/* switch ((*bdevsw[major(dumpdev)].d_dump)(dumpdev)) {*/
+	printf("\ndumping to dev %x, offset %d\n", dumpdev, dumplo);
+	printf("dump ");
+	switch ((*bdevsw[major(dumpdev)].d_dump)(dumpdev)) {
 
 	case ENXIO:
-		printf("-- device bad\n");
+		printf("device bad\n");
 		break;
 
 	case EFAULT:
-		printf("-- device not ready\n");
+		printf("device not ready\n");
 		break;
 
 	case EINVAL:
-		printf("-- area improper\n");
+		printf("area improper\n");
 		break;
 
 	case EIO:
-		printf("-- i/o error\n");
-		break;
-
-	case EINTR:
-		printf("-- aborted from console\n");
+		printf("i/o error\n");
 		break;
 
 	default:
-		printf(" succeeded\n");
+		printf("succeeded\n");
 		break;
 	}
-	printf("system rebooting.\n\n");
-	DELAY(10000);
+	printf("\n\n");
+	DELAY(1000);
+}
+
+microtime(tvp)
+	register struct timeval *tvp;
+{
+	int s = splhigh();
+
+	*tvp = time;
+	tvp->tv_usec += tick;
+	while (tvp->tv_usec > 1000000) {
+		tvp->tv_sec++;
+		tvp->tv_usec -= 1000000;
+	}
+	splx(s);
+}
+
+physstrat(bp, strat, prio)
+	struct buf *bp;
+	int (*strat)(), prio;
+{
+	register int s;
+	caddr_t baddr;
+
+	/*
+	 * vmapbuf clobbers b_addr so we must remember it so that it
+	 * can be restored after vunmapbuf.  This is truely rude, we
+	 * should really be storing this in a field in the buf struct
+	 * but none are available and I didn't want to add one at
+	 * this time.  Note that b_addr for dirty page pushes is 
+	 * restored in vunmapbuf. (ugh!)
+	 */
+	baddr = bp->b_un.b_addr;
+	vmapbuf(bp);
+	(*strat)(bp);
+	/* pageout daemon doesn't wait for pushed pages */
+	if (bp->b_flags & B_DIRTY)
+		return;
+	s = splbio();
+	while ((bp->b_flags & B_DONE) == 0)
+		sleep((caddr_t)bp, prio);
+	splx(s);
+	vunmapbuf(bp);
+	bp->b_un.b_addr = baddr;
+}
+
+initcpu()
+{
+}
+
+/*
+ * Clear registers on exec
+ */
+setregs(p, entry, retval)
+	register struct proc *p;
+	u_long entry;
+	int retval[2];
+{
+	p->p_md.md_regs[sEBP] = 0;	/* bottom of the fp chain */
+	p->p_md.md_regs[sEIP] = entry;
+
+	p->p_addr->u_pcb.pcb_flags = 0;	/* no fp at all */
+	load_cr0(rcr0() | CR0_EM);	/* start emulating */
+#include "npx.h"
+#if NNPX > 0
+	npxinit(0x262);
+#endif
+}
+
+/*
+ * machine dependent system variables.
+ */
+cpu_sysctl(name, namelen, oldp, oldlenp, newp, newlen, p)
+	int *name;
+	u_int namelen;
+	void *oldp;
+	size_t *oldlenp;
+	void *newp;
+	size_t newlen;
+	struct proc *p;
+{
+
+	/* all sysctl names at this level are terminal */
+	if (namelen != 1)
+		return (ENOTDIR);		/* overloaded */
+
+	switch (name[0]) {
+	case CPU_CONSDEV:
+		return (sysctl_rdstruct(oldp, oldlenp, newp, &cn_tty->t_dev,
+		    sizeof cn_tty->t_dev));
+	default:
+		return (EOPNOTSUPP);
+	}
+	/* NOTREACHED */
 }
 
 /*
@@ -328,23 +691,14 @@ dumpsys()
 #define	GDATA_SEL	2	/* Kernel Data Descriptor */
 #define	GLDT_SEL	3	/* LDT - eventually one per process */
 #define	GTGATE_SEL	4	/* Process task switch gate */
-#define	GINVTSS_SEL	5	/* Task state to take invalid tss on */
-#define	GDBLFLT_SEL	6	/* Task state to take double fault on */
-#define	GEXIT_SEL	7	/* Task state to process cpu_texit() on */
-#define	GPROC0_SEL	8	/* Task state process slot zero and up */
-#define NGDT 		16	/* round to next power of two */
+#define	GPANIC_SEL	5	/* Task state to consider panic from */
+#define	GPROC0_SEL	6	/* Task state process slot zero and up */
+#define NGDT 	GPROC0_SEL+1
 
-sel_t	_udatasel, _ucodesel, _exit_tss_sel;
-
-union descriptor gdt_bootstrap[NGDT], *gdt = gdt_bootstrap;
-
-struct segment_descriptor *sdfirstp_gdesc = &gdt_bootstrap[GPROC0_SEL].sd,
-	*sdlast_gdesc = &gdt_bootstrap[NGDT - 1].sd,
-	*sdlastfree_gdesc = &gdt_bootstrap[GPROC0_SEL].sd;
-int sdngd_gdesc = NGDT, sdnfree_gdesc = NGDT - GPROC0_SEL;
+union descriptor gdt[GPROC0_SEL+1];
 
 /* interrupt descriptor table */
-struct gate_descriptor idt[NIDT];
+struct gate_descriptor idt[32+16];
 
 /* local descriptor table */
 union descriptor ldt[5];
@@ -357,8 +711,7 @@ union descriptor ldt[5];
 /* seperate stack, es,fs,gs sels ? */
 /* #define	LPOSIXCALLS_SEL	5	/* notyet */
 
-struct	i386tss	inv_tss, dbl_tss, exit_tss;
-char alt_stack[1024];
+struct	i386tss	tss, panic_tss;
 
 extern  struct user *proc0paddr;
 
@@ -375,7 +728,7 @@ struct soft_segment_descriptor gdt_segs[] = {
 	0  			/* limit granularity (byte/page units)*/ },
 	/* Code Descriptor for kernel */
 {	0x0,			/* segment base address  */
-	0xffffe,		/* length - all address space */
+	0xfffff,		/* length - all address space */
 	SDT_MEMERA,		/* segment type */
 	0,			/* segment descriptor priority level */
 	1,			/* segment descriptor present */
@@ -384,7 +737,7 @@ struct soft_segment_descriptor gdt_segs[] = {
 	1  			/* limit granularity (byte/page units)*/ },
 	/* Data Descriptor for kernel */
 {	0x0,			/* segment base address  */
-	0xffffe,		/* length - all address space */
+	0xfffff,		/* length - all address space */
 	SDT_MEMRWA,		/* segment type */
 	0,			/* segment descriptor priority level */
 	1,			/* segment descriptor present */
@@ -409,27 +762,18 @@ struct soft_segment_descriptor gdt_segs[] = {
 	0,0,
 	0,			/* default 32 vs 16 bit size */
 	0  			/* limit granularity (byte/page units)*/ },
-	/* Invalid Tss fault Tss Descriptor */
-{	(int) &inv_tss,		/* segment base address  */
-	sizeof(struct i386tss)-1,		/* length - all address space */
+	/* Panic Tss Descriptor */
+{	(int) &panic_tss,		/* segment base address  */
+	sizeof(tss)-1,		/* length - all address space */
 	SDT_SYS386TSS,		/* segment type */
 	0,			/* segment descriptor priority level */
 	1,			/* segment descriptor present */
 	0,0,
 	0,			/* unused - default 32 vs 16 bit size */
 	0  			/* limit granularity (byte/page units)*/ },
-	/* Double fault Tss Descriptor */
-{	(int) &dbl_tss,		/* segment base address  */
-	sizeof(struct i386tss)-1,		/* length - all address space */
-	SDT_SYS386TSS,		/* segment type */
-	0,			/* segment descriptor priority level */
-	1,			/* segment descriptor present */
-	0,0,
-	0,			/* unused - default 32 vs 16 bit size */
-	0  			/* limit granularity (byte/page units)*/ },
-	/* Exit Tss Descriptor */
-{	(int) &exit_tss,	/* segment base address  */
-	sizeof(struct i386tss)-1,		/* length - all address space */
+	/* Proc 0 Tss Descriptor */
+{	(int) kstack,			/* segment base address  */
+	sizeof(tss)-1,		/* length - all address space */
 	SDT_SYS386TSS,		/* segment type */
 	0,			/* segment descriptor priority level */
 	1,			/* segment descriptor present */
@@ -467,7 +811,7 @@ struct soft_segment_descriptor ldt_segs[] = {
 	0  			/* limit granularity (byte/page units)*/ },
 	/* Code Descriptor for user */
 {	0x0,			/* segment base address  */
-	0xffffe,		/* length - all address space */
+	0xfffff,		/* length - all address space */
 	SDT_MEMERA,		/* segment type */
 	SEL_UPL,		/* segment descriptor priority level */
 	1,			/* segment descriptor present */
@@ -476,7 +820,7 @@ struct soft_segment_descriptor ldt_segs[] = {
 	1  			/* limit granularity (byte/page units)*/ },
 	/* Data Descriptor for user */
 {	0x0,			/* segment base address  */
-	0xffffe,		/* length - all address space */
+	0xfffff,		/* length - all address space */
 	SDT_MEMRWA,		/* segment type */
 	SEL_UPL,		/* segment descriptor priority level */
 	1,			/* segment descriptor present */
@@ -484,13 +828,20 @@ struct soft_segment_descriptor ldt_segs[] = {
 	1,			/* default 32 vs 16 bit size */
 	1  			/* limit granularity (byte/page units)*/ } };
 
-void
-setidt(int idx, void *func, int typ, int dpl, sel_t sel)
-{
+/* table descriptors - used to load tables by microp */
+struct region_descriptor r_gdt = {
+	sizeof(gdt)-1,(char *)gdt
+};
+
+struct region_descriptor r_idt = {
+	sizeof(idt)-1,(char *)idt
+};
+
+setidt(idx, func, typ, dpl) char *func; {
 	struct gate_descriptor *ip = idt + idx;
 
 	ip->gd_looffset = (int)func;
-	ip->gd_selector = sel;
+	ip->gd_selector = 8;
 	ip->gd_stkcpy = 0;
 	ip->gd_xx = 0;
 	ip->gd_type = typ;
@@ -498,91 +849,6 @@ setidt(int idx, void *func, int typ, int dpl, sel_t sel)
 	ip->gd_p = 1;
 	ip->gd_hioffset = ((int)func)>>16 ;
 }
-
-void
-setirq(int idx, void *func) {
-
-	setidt(idx, func, SDT_SYS386IGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-}
-
-/*
- * Expand the Global descriptor table (GDT) in the case of increased
- * demand for descriptors (currently, just TSS's). Since the tables
- * are densly allocated out of linear address space, which is known
- * to be mapped 1:1 with kernel virtual address space, growth is
- * accomplished by allocating a new portion of virtual address space
- * and building a new GDT out of the old one, prior to discarding it.
- * This is a costly operation, but we do this rather than maximally
- * allocating the 64KB GDT when we will infrequently use more than a
- * few hundred descriptors. We grow exponentially as a concession to
- * potential demand for threads, and also to allow for the use of a
- * "buddy" allocator scheme to provide for a future shrinking scheme
- * on deallocation (see freedesc()).
- */
-void
-expanddesctable(void)
-{
-	union descriptor *gd;
-	struct region_descriptor r_gdt;
-
-	/* obtain a twice larger table for our "new" gdt. */
-	gd = (union descriptor *) malloc(2 * sdngd_gdesc
-	    * sizeof(union descriptor), M_TEMP, M_WAITOK);
-
-	/* create new one out of "old" table. */
-	(void) splhigh();
-	sdlast_gdesc = (struct segment_descriptor *)gd + (2 * sdngd_gdesc - 1);
-	sdfirstp_gdesc = (struct segment_descriptor *)gd + GPROC0_SEL;
-	sdlastfree_gdesc = (struct segment_descriptor *)gd + sdngd_gdesc;
-	memcpy(gd, gdt, sdngd_gdesc * sizeof(union descriptor));
-	(void)memset(sdlastfree_gdesc, 0,
-	    sdngd_gdesc * sizeof(union descriptor));
-	sdnfree_gdesc = sdngd_gdesc;
-	sdngd_gdesc *= 2;
-
-	/* reload descriptor table */
-	r_gdt.rd_limit = sdngd_gdesc * sizeof(union descriptor) - 1;
-	r_gdt.rd_base = (int) gd;
-	lgdt(r_gdt);
-
-	/* free old descriptor table */
-	if (gdt != gdt_bootstrap)
-		free((void *)gdt, M_TEMP);
-
-	/* place new descriptor table in place */
-	gdt = gd;
-	(void) splnone();
-}
-
-/* called from debugger*/
-struct i386tss *
-panictss(){
-	int sel;
-	struct segment_descriptor *sdp;
-	struct i386tss *tsp;
-
-	asm(" cli ; str %w0" : "=q"(sel));
-	printf("\nTask Exception\n current context: ");
-
-again:
-	printf("selector %x ", sel);
-	sdp = &gdt[IDXSEL(sel)].sd;
-	tsp = (struct i386tss *) (sdp->sd_lobase + (sdp->sd_hibase<<24));
-
-	printf(" type %d ", sdp->sd_type);
-	printf("cs %x eip %x esp %x ebp %x", tsp->tss_cs,
-		tsp->tss_eip, tsp->tss_esp, tsp->tss_ebp);
-
-	sel = tsp->tss_link;
-	if (sel) {
-		printf("\nprevious context: ");
-		goto again;
-	}
-	printf("\n");
-	DELAY(100000);
-	return (tsp);
-}
-
 
 #define	IDTVEC(name)	__CONCAT(X, name)
 extern	IDTVEC(div), IDTVEC(dbg), IDTVEC(nmi), IDTVEC(bpt), IDTVEC(ofl),
@@ -594,184 +860,104 @@ extern	IDTVEC(div), IDTVEC(dbg), IDTVEC(nmi), IDTVEC(bpt), IDTVEC(ofl),
 	IDTVEC(rsvd9), IDTVEC(rsvd10), IDTVEC(rsvd11), IDTVEC(rsvd12),
 	IDTVEC(rsvd13), IDTVEC(rsvd14), IDTVEC(rsvd14), IDTVEC(syscall);
 
-int	cpu_option;
+int lcr0(), lcr3(), rcr0(), rcr2();
+int _udatasel, _ucodesel, _gsel_tss;
 
-
-invtss() {
-	struct i386tss *tsp = panictss();
-	struct trapframe tf;
-
-	tf.tf_err = *(int *) (alt_stack + 1020);
-	tf.tf_trapno = T_TSSFLT;
-	tf.tf_cs = tsp->tss_cs;
-	tf.tf_eax = tsp->tss_eax;
-	tf.tf_ebx = tsp->tss_ebx;
-	tf.tf_ecx = tsp->tss_ecx;
-	tf.tf_edx = tsp->tss_edx;
-	tf.tf_esp = tsp->tss_esp;
-	tf.tf_ebp = tsp->tss_ebp;
-	tf.tf_eip = tsp->tss_eip;
-	tf.tf_eflags = tsp->tss_eflags;
-	trap(tf);
-	panic("inval tss");
-}
-
-dbl() {
-	struct i386tss *tsp = panictss();
-	struct trapframe tf;
-
-	tf.tf_err = 0;
-	tf.tf_trapno = T_DOUBLEFLT;
-	tf.tf_cs = tsp->tss_cs;
-	tf.tf_eax = tsp->tss_eax;
-	tf.tf_ebx = tsp->tss_ebx;
-	tf.tf_ecx = tsp->tss_ecx;
-	tf.tf_edx = tsp->tss_edx;
-	tf.tf_esp = tsp->tss_esp;
-	tf.tf_ebp = tsp->tss_ebp;
-	tf.tf_eip = tsp->tss_eip;
-	tf.tf_eflags = tsp->tss_eflags;
-	trap(tf);
-	panic("double fault");
-}
-
-
-init386(first) {
-	int x;
+init386(first) { extern lgdt(), lidt(), lldt(), etext; /* ssdtosd already declared in segments.h */ 
+	int x, *pi;
 	unsigned biosbasemem, biosextmem;
 	struct gate_descriptor *gdp;
-	/* table descriptors - used to load tables by microp */
-	struct region_descriptor r_gdt, r_idt;
+	extern int sigcode,szsigcode;
 
 	proc0.p_addr = proc0paddr;
 
 	/*
 	 * Initialize the console before we print anything out.
-	 * Initialize any busses that the console might be on.
 	 */
-	modscaninit(MODT_BUS);
-	modscaninit(MODT_CONSOLE);
+
+	cninit (KERNBASE+0xa0000);
 
 	/* make gdt memory segments */
-	for (x=0; x < sizeof(gdt_segs)/sizeof(struct soft_segment_descriptor);
-	    x++)
-		ssdtosd(gdt_segs+x, gdt+x);
-
+	gdt_segs[GCODE_SEL].ssd_limit = btoc((int) &etext + NBPG);
+	for (x=0; x < NGDT; x++) ssdtosd(gdt_segs+x, gdt+x);
 	/* make ldt memory segments */
-	ldt_segs[LUCODE_SEL].ssd_limit = btoc(VM_MAX_ADDRESS);
-	ldt_segs[LUDATA_SEL].ssd_limit = btoc(VM_MAX_ADDRESS);
-
+	ldt_segs[LUCODE_SEL].ssd_limit = btoc(UPT_MIN_ADDRESS);
+	ldt_segs[LUDATA_SEL].ssd_limit = btoc(UPT_MIN_ADDRESS);
 	/* Note. eventually want private ldts per process */
-	for (x=0; x < 5; x++)
-		ssdtosd(ldt_segs+x, ldt+x);
+	for (x=0; x < 5; x++) ssdtosd(ldt_segs+x, ldt+x);
 
 	/* exceptions */
-	setidt(0, &IDTVEC(div),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(1, &IDTVEC(dbg),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(2, &IDTVEC(nmi),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
- 	setidt(3, &IDTVEC(bpt),  SDT_SYS386TGT, SEL_UPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(4, &IDTVEC(ofl),  SDT_SYS386TGT, SEL_UPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(5, &IDTVEC(bnd),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(6, &IDTVEC(ill),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(7, &IDTVEC(dna),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(8, &IDTVEC(dble),  SDT_SYSTASKGT, SEL_KPL, GSEL(GDBLFLT_SEL, SEL_KPL));
-	setidt(9, &IDTVEC(fpusegm),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(10, &IDTVEC(tss),  SDT_SYSTASKGT, SEL_KPL, GSEL(GINVTSS_SEL, SEL_KPL));
-	setidt(11, &IDTVEC(missing),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(12, &IDTVEC(stk),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(13, &IDTVEC(prot),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(14, &IDTVEC(page),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(15, &IDTVEC(rsvd),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(16, &IDTVEC(fpu),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(17, &IDTVEC(rsvd0),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(18, &IDTVEC(rsvd1),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(19, &IDTVEC(rsvd2),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(20, &IDTVEC(rsvd3),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(21, &IDTVEC(rsvd4),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(22, &IDTVEC(rsvd5),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(23, &IDTVEC(rsvd6),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(24, &IDTVEC(rsvd7),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(25, &IDTVEC(rsvd8),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(26, &IDTVEC(rsvd9),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(27, &IDTVEC(rsvd10),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(28, &IDTVEC(rsvd11),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(29, &IDTVEC(rsvd12),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(30, &IDTVEC(rsvd13),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
-	setidt(31, &IDTVEC(rsvd14),  SDT_SYS386TGT, SEL_KPL, GSEL(GCODE_SEL, SEL_KPL));
+	setidt(0, &IDTVEC(div),  SDT_SYS386TGT, SEL_KPL);
+	setidt(1, &IDTVEC(dbg),  SDT_SYS386TGT, SEL_KPL);
+	setidt(2, &IDTVEC(nmi),  SDT_SYS386TGT, SEL_KPL);
+ 	setidt(3, &IDTVEC(bpt),  SDT_SYS386TGT, SEL_UPL);
+	setidt(4, &IDTVEC(ofl),  SDT_SYS386TGT, SEL_KPL);
+	setidt(5, &IDTVEC(bnd),  SDT_SYS386TGT, SEL_KPL);
+	setidt(6, &IDTVEC(ill),  SDT_SYS386TGT, SEL_KPL);
+	setidt(7, &IDTVEC(dna),  SDT_SYS386TGT, SEL_KPL);
+	setidt(8, &IDTVEC(dble),  SDT_SYS386TGT, SEL_KPL);
+	setidt(9, &IDTVEC(fpusegm),  SDT_SYS386TGT, SEL_KPL);
+	setidt(10, &IDTVEC(tss),  SDT_SYS386TGT, SEL_KPL);
+	setidt(11, &IDTVEC(missing),  SDT_SYS386TGT, SEL_KPL);
+	setidt(12, &IDTVEC(stk),  SDT_SYS386TGT, SEL_KPL);
+	setidt(13, &IDTVEC(prot),  SDT_SYS386TGT, SEL_KPL);
+	setidt(14, &IDTVEC(page),  SDT_SYS386TGT, SEL_KPL);
+	setidt(15, &IDTVEC(rsvd),  SDT_SYS386TGT, SEL_KPL);
+	setidt(16, &IDTVEC(fpu),  SDT_SYS386TGT, SEL_KPL);
+	setidt(17, &IDTVEC(rsvd0),  SDT_SYS386TGT, SEL_KPL);
+	setidt(18, &IDTVEC(rsvd1),  SDT_SYS386TGT, SEL_KPL);
+	setidt(19, &IDTVEC(rsvd2),  SDT_SYS386TGT, SEL_KPL);
+	setidt(20, &IDTVEC(rsvd3),  SDT_SYS386TGT, SEL_KPL);
+	setidt(21, &IDTVEC(rsvd4),  SDT_SYS386TGT, SEL_KPL);
+	setidt(22, &IDTVEC(rsvd5),  SDT_SYS386TGT, SEL_KPL);
+	setidt(23, &IDTVEC(rsvd6),  SDT_SYS386TGT, SEL_KPL);
+	setidt(24, &IDTVEC(rsvd7),  SDT_SYS386TGT, SEL_KPL);
+	setidt(25, &IDTVEC(rsvd8),  SDT_SYS386TGT, SEL_KPL);
+	setidt(26, &IDTVEC(rsvd9),  SDT_SYS386TGT, SEL_KPL);
+	setidt(27, &IDTVEC(rsvd10),  SDT_SYS386TGT, SEL_KPL);
+	setidt(28, &IDTVEC(rsvd11),  SDT_SYS386TGT, SEL_KPL);
+	setidt(29, &IDTVEC(rsvd12),  SDT_SYS386TGT, SEL_KPL);
+	setidt(30, &IDTVEC(rsvd13),  SDT_SYS386TGT, SEL_KPL);
+	setidt(31, &IDTVEC(rsvd14),  SDT_SYS386TGT, SEL_KPL);
 
-	r_gdt.rd_limit = NGDT * sizeof(union descriptor) - 1;
-	r_gdt.rd_base = (int) gdt;
-	lgdt(r_gdt);
+#include "isa.h"
+#if	NISA >0
+	isa_defaultirq();
+#endif
 
-	r_idt.rd_limit = sizeof(idt) - 1;
-	r_idt.rd_base = (int) idt;
-	lidt(r_idt);
+	lgdt(gdt, sizeof(gdt)-1);
+	lidt(idt, sizeof(idt)-1);
 	lldt(GSEL(GLDT_SEL, SEL_KPL));
 
 	/*
-	 * Use BIOS values stored in RTC CMOS RAM, since probing
-	 * breaks certain 386 AT relics.
+	 * This memory size stuff is a real mess.  Here is a simple
+	 * setup that just believes the BIOS.  After the rest of
+	 * the system is a little more stable, we'll come back to
+	 * this and deal with issues if incorrect BIOS information,
+	 * and when physical memory is > 16 megabytes.
 	 */
 	biosbasemem = rtcin(RTC_BASELO)+ (rtcin(RTC_BASEHI)<<8);
 	biosextmem = rtcin(RTC_EXTLO)+ (rtcin(RTC_EXTHI)<<8);
+	Maxmem = btoc ((biosextmem + 1024) * 1024);
+	maxmem = Maxmem - 1;
+	physmem = btoc (biosbasemem * 1024 + (biosextmem - 1) * 1024);
+	printf ("bios %dK+%dK. maxmem %x, physmem %x\n",
+		biosbasemem, biosextmem, ctob (maxmem), ctob (physmem));
 
-	/* if either bad, just assume base memory */
-	if (biosbasemem == 0xffff || biosextmem == 0xffff) {
-		maxmem = min (maxmem, 640/4);
-	} else if (biosextmem > 0 /* && biosbasemem == 640 */) {
-		int pagesinbase, pagesinext;
-
-		pagesinbase = biosbasemem/4 - first/NBPG;
-		pagesinext = biosextmem/4;
-
-		/*
-		 * use greater of either base or extended memory. do this
-		 * until I reinstitue discontiguous allocation of vm_page
-		 * array.
-		 */
-		if (pagesinbase > pagesinext)
-			maxmem = 640/4;
-		else {
-			if (maxmem < pagesinext + 0x100000/NBPG)
-				maxmem = pagesinext + 0x100000/NBPG;
-			if (first < 0x100000)
-				first = 0x100000; /* skip hole */
-		}
-	} else
-		maxmem = biosbasemem/4;
-
-
-	maxmem -=  1;	/* highest page of usable memory */
-	physmem = maxmem;	/* number of pages of physmem addr space */
-
-	if (maxmem < 2048/4) {
-		printf("Warning: Too little RAM memory, running in degraded mode.\n");
-		DELAY(500*1000);
-	}
-
-	vm_set_page_size(NBPG);			/* XXX */
+	vm_set_page_size();
 	/* call pmap initialization to make new kernel address space */
 	pmap_bootstrap (first, 0);
+	/* now running on new page tables, configured,and u/iom is accessible */
 
 	/* make a initial tss so microp can get interrupt stack on syscall! */
-	memset(&proc0.p_addr->u_pcb, 0, sizeof(struct pcb));
-	proc0.p_addr->u_pcb.pcb_tss.tss_esp0 = (int) proc0paddr + UPAGES*NBPG - 4;
+	proc0.p_addr->u_pcb.pcb_tss.tss_esp0 = (int) kstack + UPAGES*NBPG;
 	proc0.p_addr->u_pcb.pcb_tss.tss_ss0 = GSEL(GDATA_SEL, SEL_KPL) ;
-	proc0.p_addr->u_pcb.pcb_tss.tss_esp = (int) proc0paddr + UPAGES*NBPG - 4;
-	proc0.p_addr->u_pcb.pcb_tss.tss_ss = GSEL(GDATA_SEL, SEL_KPL) ;
-	alloctss(&proc0);
-	ltr(proc0.p_md.md_tsel);
-
-	proc0.p_addr->u_pcb.pcb_tss.tss_ldt =  GSEL(GLDT_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_cs =  GSEL(GCODE_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_ds =  GSEL(GDATA_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_es =  GSEL(GDATA_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_ss =  GSEL(GDATA_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_fs =  GSEL(GDATA_SEL, SEL_KPL);
-	proc0.p_addr->u_pcb.pcb_tss.tss_gs =  GSEL(GDATA_SEL, SEL_KPL);
+	_gsel_tss = GSEL(GPROC0_SEL, SEL_KPL);
+	ltr(_gsel_tss);
 
 	/* make a call gate to reenter kernel with */
 	gdp = &ldt[LSYS5CALLS_SEL].gd;
+	
 	x = (int) &IDTVEC(syscall);
 	gdp->gd_looffset = x++;
 	gdp->gd_selector = GSEL(GCODE_SEL,SEL_KPL);
@@ -781,83 +967,146 @@ init386(first) {
 	gdp->gd_p = 1;
 	gdp->gd_hioffset = ((int) &IDTVEC(syscall)) >>16;
 
-	/* make a call gate for iBCS signal return gate 
-	ldt[LSYS5SIGR_SEL] = ldt[LSYS5CALLS_SEL];
-	x = (int) &IDTVEC(i386_sigret);
-	gdp->gd_looffset = x++;
-	gdp->gd_hioffset = ((int) &IDTVEC(i386_sigret)) >>16; */
-
 	/* transfer to user mode */
+
 	_ucodesel = LSEL(LUCODE_SEL, SEL_UPL);
 	_udatasel = LSEL(LUDATA_SEL, SEL_UPL);
 
 	/* setup proc 0's pcb */
+	bcopy(&sigcode, proc0.p_addr->u_pcb.pcb_sigc, szsigcode);
 	proc0.p_addr->u_pcb.pcb_flags = 0;
-	proc0.p_addr->u_pcb.pcb_ptd = KernelPTD;
+	proc0.p_addr->u_pcb.pcb_ptd = IdlePTD;
+}
 
-	/* setup fault tss's */
-	inv_tss = proc0.p_addr->u_pcb.pcb_tss;
-	inv_tss.tss_esp0 = (int) (alt_stack + 1020);
-	inv_tss.tss_esp = (int) (alt_stack + 1020);
-	inv_tss.tss_ss =  GSEL(GDATA_SEL, SEL_KPL);
-	inv_tss.tss_cs =  GSEL(GCODE_SEL, SEL_KPL);
-	inv_tss.tss_eip =  (int) &invtss;
-	exit_tss = dbl_tss = inv_tss;
-	dbl_tss.tss_eip =  (int) &dbl;
-	_exit_tss_sel =  GSEL(GEXIT_SEL, SEL_KPL);
+extern struct pte	*CMAP1, *CMAP2;
+extern caddr_t		CADDR1, CADDR2;
+/*
+ * zero out physical memory
+ * specified in relocation units (NBPG bytes)
+ */
+clearseg(n) {
 
-	/* are we a 386 or at least a 486? */
-	x = rcr(0);
-		lcr(0, x | CR0_WP);
+	*(int *)CMAP2 = PG_V | PG_KW | ctob(n);
+	load_cr3(rcr3());
+	bzero(CADDR2,NBPG);
+	*(int *) CADDR2 = 0;
+}
 
-	lcr(0, x & ~ CR0_WP);
-	x = rcr(0);
-	if (x & CR0_WP) {
-/* if compiled for 486 instructions, which will emulate slowly on 386, hint */
-#if defined(i486)
-		printf("486 optimization mode\n");
-#endif
-		cpu_option = CPU_386_DEFAULT;
-	} else {
-		/* put back on write protection */
-		lcr(0, x | CR0_WP);
-		cpu_option = CPU_486_DEFAULT;
-		lcr(0, x | 0x20);
-		/* really, truely, a 486 */
-		x = rcr(0);
-		if(x & 0x20) {
-			cpu_option |= CPU_486_INVTLB;
+/*
+ * copy a page of physical memory
+ * specified in relocation units (NBPG bytes)
+ */
+copyseg(frm, n) {
+
+	*(int *)CMAP2 = PG_V | PG_KW | ctob(n);
+	load_cr3(rcr3());
+	bcopy((void *)frm, (void *)CADDR2, NBPG);
+}
+
+/*
+ * copy a page of physical memory
+ * specified in relocation units (NBPG bytes)
+ */
+physcopyseg(frm, to) {
+
+	*(int *)CMAP1 = PG_V | PG_KW | ctob(frm);
+	*(int *)CMAP2 = PG_V | PG_KW | ctob(to);
+	load_cr3(rcr3());
+	bcopy(CADDR1, CADDR2, NBPG);
+}
+
+/*aston() {
+	schednetisr(NETISR_AST);
+}*/
+
+setsoftclock() {
+	schednetisr(NETISR_SCLK);
+}
+
+/*
+ * insert an element into a queue 
+ */
+#undef insque
+_insque(element, head)
+	register struct prochd *element, *head;
+{
+	element->ph_link = head->ph_link;
+	head->ph_link = (struct proc *)element;
+	element->ph_rlink = (struct proc *)head;
+	((struct prochd *)(element->ph_link))->ph_rlink=(struct proc *)element;
+}
+
+/*
+ * remove an element from a queue
+ */
+#undef remque
+_remque(element)
+	register struct prochd *element;
+{
+	((struct prochd *)(element->ph_link))->ph_rlink = element->ph_rlink;
+	((struct prochd *)(element->ph_rlink))->ph_link = element->ph_link;
+	element->ph_rlink = (struct proc *)0;
+}
+
+vmunaccess() {}
+
+/*
+ * Below written in C to allow access to debugging code
+ */
+copyinstr(fromaddr, toaddr, maxlength, lencopied) u_int *lencopied, maxlength;
+	void *toaddr, *fromaddr; {
+	int c,tally;
+
+	tally = 0;
+	while (maxlength--) {
+		c = fubyte(fromaddr++);
+		if (c == -1) {
+			if(lencopied) *lencopied = tally;
+			return(EFAULT);
+		}
+		tally++;
+		*(char *)toaddr++ = (char) c;
+		if (c == 0){
+			if(lencopied) *lencopied = tally;
+			return(0);
 		}
 	}
-
-#ifdef DDB
-	kdb_init();
-	if (boothowto & RB_KDB)
-		Debugger();
-#endif
+	if(lencopied) *lencopied = tally;
+	return(ENAMETOOLONG);
 }
 
-/* output a byte, allowing for recovery time */
-void
-__outb(u_short port, u_char val) {
+copyoutstr(fromaddr, toaddr, maxlength, lencopied) u_int *lencopied, maxlength;
+	void *fromaddr, *toaddr; {
+	int c;
+	int tally;
 
-	(void) inb_(0x84);
-	(void) inb_(0x84);
-	outb(port, val);
-	(void) inb_(0x84);
-	(void) inb_(0x84);
+	tally = 0;
+	while (maxlength--) {
+		c = subyte(toaddr++, *(char *)fromaddr);
+		if (c == -1) return(EFAULT);
+		tally++;
+		if (*(char *)fromaddr++ == 0){
+			if(lencopied) *lencopied = tally;
+			return(0);
+		}
+	}
+	if(lencopied) *lencopied = tally;
+	return(ENAMETOOLONG);
 }
 
-/* input a byte, allowing for recovery time */
-u_char
-__inb(u_short port) {
-	u_char rv;
+copystr(fromaddr, toaddr, maxlength, lencopied) u_int *lencopied, maxlength;
+	void *fromaddr, *toaddr; {
+	u_int tally;
 
-	(void) inb_(0x84);
-	(void) inb_(0x84);
-	rv = inb(port);
-	(void) inb_(0x84);
-	(void) inb_(0x84);
-
-	return (rv);
+	tally = 0;
+	while (maxlength--) {
+		*(u_char *)toaddr = *(u_char *)fromaddr++;
+		tally++;
+		if (*(u_char *)toaddr++ == 0) {
+			if(lencopied) *lencopied = tally;
+			return(0);
+		}
+	}
+	if(lencopied) *lencopied = tally;
+	return(ENAMETOOLONG);
 }
