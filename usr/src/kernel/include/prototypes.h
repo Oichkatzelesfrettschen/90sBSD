@@ -31,7 +31,7 @@ int	_ENOTTY_ (void);
 int	_ENXIO_ (void);
 int	_EOPNOTSUPP_ (void);
 __ISYM__(int, seltrue, (dev_t dev, int which, struct proc *p))
-void	selwakeup(pid_t pid, int coll);
+/* selwakeup() is declared in sys/select.h */
 
 __ISYM__(void, panic, (const char *))
 __ISYM__(void, tablefull, (char *))

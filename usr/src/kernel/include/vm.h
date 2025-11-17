@@ -38,6 +38,11 @@
 #include "vm_param.h"
 #include "queue.h"
 #include "vm_prot.h"
+
+/* MACH VM locking type mappings (from 4.4BSD-Lite2) */
+/* struct simplelock is defined in i386/param.h */
+typedef struct simplelock	simple_lock_data_t;
+typedef struct simplelock	*simple_lock_t;
 #include "vm_inherit.h"
 #include "lock.h"
 #include "vm_object.h"

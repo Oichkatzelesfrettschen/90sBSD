@@ -91,7 +91,7 @@
  * we run through the statistics gathering routine as well.
  */
 void
-hardclock(clockframe frame)
+hardclock(struct clockframe frame)
 {
 	struct callout *p1;
 	struct proc *p = curproc;
@@ -248,7 +248,7 @@ int	dk_ndrive = DK_NDRIVE;
  * update statistics accordingly.
  */
 void
-gatherstats(clockframe frame)
+gatherstats(struct clockframe frame)
 {
 	register int cpstate, s;
 
@@ -300,7 +300,7 @@ gatherstats(clockframe frame)
  * Run periodic events from timeout queue.
  */
 void
-softclock(clockframe frame)
+softclock(struct clockframe frame)
 {
 
 	for (;;) {

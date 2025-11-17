@@ -11,6 +11,7 @@ __ISYM__(int, splx, (int))
 __ISYM__(int, splimp, (void))
 __ISYM__(int, splnet, (void))
 __ISYM__(int, splhigh, (void))
+__ISYM__(int, splclock, (void))
 
 #undef __ISYM__
 #undef __ISYM_ALIAS__

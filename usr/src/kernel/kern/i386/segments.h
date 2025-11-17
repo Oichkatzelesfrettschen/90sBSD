@@ -168,8 +168,10 @@ struct	soft_segment_descriptor	{
 	unsigned ssd_gran:1 ;		/* limit granularity (byte/page units)*/
 };
 
-extern ssdtosd() ;	/* to decode a ssd */
-extern sdtossd() ;	/* to encode a sd */
+/* Convert software segment descriptor to hardware format */
+void ssdtosd(struct soft_segment_descriptor *ssdp, struct segment_descriptor *sdp);
+/* Convert hardware segment descriptor to software format */
+void sdtossd(struct segment_descriptor *sdp, struct soft_segment_descriptor *ssdp);
 
 /*
  * region descriptors, used to load gdt/idt tables before segments yet exist
