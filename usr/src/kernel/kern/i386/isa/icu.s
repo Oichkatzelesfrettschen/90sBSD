@@ -38,6 +38,11 @@
  */
 
 	.data
+/*
+ * These globals are now defined in vector.s to avoid duplicates
+ * Commented out for modern x86-32 compatibility
+ */
+#if 0
 	.globl	_imen
 	.globl	_cpl
 _cpl:	.long	0xffff			# current priority level (all off)
@@ -50,6 +55,7 @@ _ttymask:	.long	0
 _biomask:	.long	0
 	.globl	_netmask
 _netmask:	.long	0
+#endif
 	.globl	_isa_intr
 _isa_intr:	.space	16*4
 
@@ -342,6 +348,12 @@ _splx:
 	sti				# enable interrupts
 	ret
 
+/*
+ * Hardware interrupt vectors (IDT 32 - 47) are now defined in vector.s
+ * Commented out to avoid conflicts with modern interrupt handling
+ * The doreti function below is still used by vector.s
+ */
+#if 0
 	/* hardware interrupt catcher (IDT 32 - 47) */
 	.globl	_isa_strayintr
 
@@ -393,3 +405,4 @@ IDTVEC(intr14)
 
 IDTVEC(intr15)
 	INTR2(15, _highmask, 15) ; call	_isa_strayintr ; INTREXIT2
+#endif

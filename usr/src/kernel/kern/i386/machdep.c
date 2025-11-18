@@ -65,6 +65,11 @@
 vm_map_t buffer_map;
 extern vm_offset_t avail_end;
 
+/* i386-specific global variables - actual definitions */
+struct pcb *curpcb;		/* Current process control block */
+int astpending;			/* AST pending flag */
+int want_resched;		/* Reschedule requested flag */
+
 #include <machine/cpu.h>
 #include <machine/reg.h>
 #include <machine/psl.h>

@@ -84,6 +84,10 @@ struct	vmspace vmspace0;
 struct	proc *curproc = &proc0;
 struct	proc *initproc, *pageproc;
 
+/* Process scheduler run queues - actual definitions */
+int	whichqs;		/* Bit mask summary of non-empty queues */
+struct	prochd qs[NQS];		/* Run queues array */
+
 int	cmask = CMASK;
 extern	struct user *proc0paddr;
 

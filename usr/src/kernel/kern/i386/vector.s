@@ -4,6 +4,26 @@
  */
 
 /*
+ * Assembly macros for x86-32 compatibility
+ * Based on Agner Fog's optimization guidelines and legacy 386BSD code
+ * Note: IDTVEC and ALIGN32 are defined in locore.s
+ */
+
+/*
+ * NOP: I/O delay for old ISA bus timing
+ * Modern systems don't need this, but kept for compatibility
+ * Port 0x84 is the POST diagnostic port - reading it is a safe no-op
+ */
+#define	NOP	inb $0x84, %al ; inb $0x84, %al
+
+/*
+ * WRPOST: Write posting flush for ISA bus
+ * Forces completion of any pending write operations
+ * On modern systems with PCI/PCIe, this is unnecessary but harmless
+ */
+#define	WRPOST	inb $0x84, %al
+
+/*
  * Interrupt vector interface.
  */
 
@@ -35,7 +55,7 @@
 	WRPOST ; /* do write post */ \
 	sti; \
 	call	*(_isa_vec+(offst*4)); \
-	jmp	common_int_return
+	jmp	doreti			/* use doreti from icu.s for common return path */
 
 /* Mask a group of interrupts atomically */
 #define	INTR2(offst) \
@@ -58,7 +78,7 @@
 	pushl	%eax; \
 	pushl	_isa_unit+offst*4; \
 	orw	_isa_mask+offst*2, %ax; \
-	movl	%ax, _cpl; \
+	movl	%eax, _cpl; \
 	orw	_imen, %ax; \
 	outb	%al, $IO_ICU1+1; \
 	NOP ; \
@@ -67,7 +87,7 @@
 	WRPOST ; /* do write post */ \
 	sti; \
 	call	*(_isa_vec+offst*4); \
-	jmp	common_int_return
+	jmp	doreti			/* use doreti from icu.s for common return path */
 
 /*
  * Interrupt vector table:

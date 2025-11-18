@@ -395,7 +395,7 @@ _szicode:
 	.globl	_sigcode,_szsigcode
 _sigcode:
 	movl	12(%esp),%eax	# unsure if call will dec stack 1st
-	call	%eax
+	call	*%eax		# indirect call requires '*' in modern gas
 	xorl	%eax,%eax	# smaller movl $103,%eax
 	movb	$103,%al	# sigreturn()
 	LCALL(0x7,0)		# enter kernel with args on stack
@@ -1350,7 +1350,7 @@ ENTRY(switch_to_inactive)
 	movl	%ecx,%cr3		# good bye address space
  #write buffer?
 	movl	$tmpstk-4,%esp		# temporary stack, compensated for call
-	jmp	%edx			# return, execute remainder of cleanup
+	jmp	*%edx			# indirect jmp requires '*' in modern gas
 
 /*
  * savectx(pcb, altreturn)
@@ -1701,4 +1701,4 @@ ENTRY(ntohs)
 	ret
 
 #include "vector.s"
-#include "i386/isa/icu.s"
+#include "isa/icu.s"
