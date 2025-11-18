@@ -137,12 +137,12 @@ struct sockaddr_inarp {
 #define RTF_ANNOUNCE	RTF_PROTO2	/* announce new arp entry */
 
 #ifdef	KERNEL
-u_char	etherbroadcastaddr[6];
-u_char	ether_ipmulticast_min[6];
-u_char	ether_ipmulticast_max[6];
-struct	ifqueue arpintrq;
+extern u_char	etherbroadcastaddr[6];
+extern u_char	ether_ipmulticast_min[6];
+extern u_char	ether_ipmulticast_max[6];
+extern struct	ifqueue arpintrq;
 
-struct	llinfo_arp llinfo_arp;		/* head of the llinfo queue */
+extern struct	llinfo_arp llinfo_arp;		/* head of the llinfo queue */
 
 void	arp_rtrequest __P((int, struct rtentry *, struct sockaddr *));
 void	arpintr __P((void));

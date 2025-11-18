@@ -71,7 +71,7 @@ struct	in_aliasreq {
 #define	IA_SIN(ia) (&(((struct in_ifaddr *)(ia))->ia_addr))
 
 #ifdef	KERNEL
-struct	in_ifaddr *in_ifaddr;
+extern struct	in_ifaddr *in_ifaddr;
 struct	in_ifaddr *in_iaonnetof();
 /* extern struct	ifqueue	ipintrq;		/* ip packet input queue */
 
