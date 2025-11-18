@@ -5,8 +5,13 @@
 
 .PATH:	$S/kern/subr
 KERN_SRCS+= \
-	disklabel.c disksort.c esym.c nullop.c subr_prf.c ring.c rlist.c uio.c \
+	disklabel.c disksort.c esym.c subr_prf.c rlist.c \
 	strcat.c strcpy.c strncpy.c strcmp.c
+
+# Removed duplicates that conflict with kern/Makefile.inc functions:
+# - nullop.c (conflicts with nullop() in subr_xxx.c)
+# - ring.c (conflicts with getc/putc in tty_subr.c)
+# - uio.c (conflicts with uiomove() in kern_subr.c)
 
 # Assembly machine-dependent subroutines handled by i386/Makefile.inc
 
