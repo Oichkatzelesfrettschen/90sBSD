@@ -64,7 +64,7 @@ static	char *clk_config =
 
 #define DAYST 119
 #define DAYEN 303
-unsigned long it_ticks, it_ticksperintr;
+extern unsigned long it_ticks, it_ticksperintr;
 
 
 startrtclock() {

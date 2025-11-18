@@ -62,8 +62,8 @@
 #include <machine/dbg.h>
 
 
-struct	sysent sysent[];
-int	nsysent;
+extern struct	sysent sysent[];
+extern int	nsysent;
 unsigned rcr2();
 extern short cpl;
 

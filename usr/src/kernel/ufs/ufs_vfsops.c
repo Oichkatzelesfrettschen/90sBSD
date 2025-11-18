@@ -560,7 +560,7 @@ ufs_statfs(struct mount *mp, struct statfs *sbp, struct proc *p)
 	return (0);
 }
 
-int	syncprt = 0;
+extern int	syncprt;
 
 /*
  * Go through the disk queues to initiate sandbagged IO;
