@@ -116,17 +116,17 @@ typedef struct vm_object_hash_entry	*vm_object_hash_entry_t;
 #ifdef	KERNEL
 TAILQ_HEAD(object_q, vm_object);
 
-struct object_q	vm_object_cached_list;	/* list of objects persisting */
-int		vm_object_cached;	/* size of cached list */
-simple_lock_data_t	vm_cache_lock;	/* lock for object cache */
+extern struct object_q	vm_object_cached_list;	/* list of objects persisting */
+extern int		vm_object_cached;	/* size of cached list */
+extern simple_lock_data_t	vm_cache_lock;	/* lock for object cache */
 
-struct object_q	vm_object_list;		/* list of allocated objects */
-long		vm_object_count;	/* count of all objects */
-simple_lock_data_t	vm_object_list_lock;
+extern struct object_q	vm_object_list;		/* list of allocated objects */
+extern long		vm_object_count;	/* count of all objects */
+extern simple_lock_data_t	vm_object_list_lock;
 					/* lock for object list and count */
 
-vm_object_t	kernel_object;		/* the single kernel object */
-vm_object_t	kmem_object;
+extern vm_object_t	kernel_object;		/* the single kernel object */
+extern vm_object_t	kmem_object;
 
 #define	vm_object_cache_lock()		simple_lock(&vm_cache_lock)
 #define	vm_object_cache_unlock()	simple_unlock(&vm_cache_lock)

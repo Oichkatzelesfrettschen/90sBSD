@@ -251,11 +251,11 @@ extern int nprocs, maxproc;		/* Current and max number of procs. */
 LIST_HEAD(proclist, proc);
 extern struct proclist allproc;		/* List of all processes. */
 extern struct proclist zombproc;	/* List of zombie processes. */
-struct proc *initproc, *pageproc;	/* Process slots for init, pager. */
+extern struct proc *initproc, *pageproc;	/* Process slots for init, pager. */
 
 #define	NQS	32			/* 32 run queues. */
-int	whichqs;			/* Bit mask summary of non-empty Q's. */
-struct	prochd {
+extern int	whichqs;			/* Bit mask summary of non-empty Q's. */
+extern struct	prochd {
 	struct	proc *ph_link;		/* Linked list of running processes. */
 	struct	proc *ph_rlink;
 } qs[NQS];

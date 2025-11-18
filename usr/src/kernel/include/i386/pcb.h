@@ -80,5 +80,5 @@ struct md_coredump {
 };
 
 #ifdef KERNEL
-struct pcb *curpcb;		/* our current running pcb */
+extern struct pcb *curpcb;		/* our current running pcb */
 #endif

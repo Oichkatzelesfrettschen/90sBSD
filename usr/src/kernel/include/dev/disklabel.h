@@ -308,7 +308,8 @@ struct dos_partition {
 	unsigned char	dp_ecyl;	/* end cylinder */
 	unsigned long	dp_start;	/* absolute starting sector number */
 	unsigned long	dp_size;	/* partition size in sectors */
-} dos_partitions[NDOSPART];
+};
+extern struct dos_partition dos_partitions[NDOSPART];
 
 #define	DPSECT(s) ((s) & 0x3f)		/* isolate relevant bits of sector */
 #define	DPCYL(c, s) ((c) + (((s) & 0xc0)<<2)) /* and those that are cylinder */

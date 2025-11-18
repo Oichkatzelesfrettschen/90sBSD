@@ -83,7 +83,7 @@ struct vmmeter {
 	u_int v_inactive_count;  /* number of pages inactive */
 };
 #ifdef KERNEL
-struct	vmmeter cnt;
+extern struct	vmmeter cnt;
 #endif
 
 /* systemwide totals computed every five seconds */
@@ -105,7 +105,7 @@ struct vmtotal
 	int32_t	t_free;		/* free memory pages */
 };
 #ifdef KERNEL
-struct	vmtotal total;
+extern struct	vmtotal total;
 #endif
 
 /*

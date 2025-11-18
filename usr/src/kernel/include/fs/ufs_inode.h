@@ -107,18 +107,9 @@ struct inode {
 #define VTTOIF(indx)	(vttoif_tab[(int)(indx)])
 #define MAKEIMODE(indx, mode)	(int)(VTTOIF(indx) | (mode))
 
-#ifdef INODE_TYPE_TABLE
-enum vtype iftovt_tab[16] = {
-	VNON, VFIFO, VCHR, VNON, VDIR, VNON, VBLK, VNON,
-	VREG, VNON, VLNK, VNON, VSOCK, VNON, VNON, VBAD,
-};
-int	vttoif_tab[9] = {
-	0, IFREG, IFDIR, IFBLK, IFCHR, IFLNK, IFSOCK, IFIFO, IFMT,
-};
-#else
+/* Tables defined in kern/vfs_subr.c */
 extern enum vtype	iftovt_tab[];
 extern int		vttoif_tab[];
-#endif
 
 extern u_long	nextgennumber;		/* next generation number to assign */
 

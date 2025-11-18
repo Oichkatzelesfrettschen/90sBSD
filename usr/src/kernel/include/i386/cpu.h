@@ -90,8 +90,8 @@ struct clockframe {
 
 #define aston() (astpending++)
 
-int	astpending;		/* need to trap before returning to user mode */
-int	want_resched;		/* resched() was called */
+extern int	astpending;		/* need to trap before returning to user mode */
+extern int	want_resched;		/* resched() was called */
 
 /*
  * Kinds of processor

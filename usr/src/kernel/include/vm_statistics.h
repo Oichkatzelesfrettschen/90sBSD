@@ -90,7 +90,7 @@ typedef struct vm_statistics	*vm_statistics_t;
 typedef struct vm_statistics	vm_statistics_data_t;
 
 #ifdef	KERNEL
-vm_statistics_data_t	vm_stat;
+extern vm_statistics_data_t	vm_stat;
 #endif	KERNEL
 
 /*
