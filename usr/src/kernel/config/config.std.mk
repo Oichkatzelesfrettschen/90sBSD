@@ -14,9 +14,10 @@
 
 # standard pseudo devices
 .include "$S/mem/Makefile.inc"
-.include "$S/log/Makefile.inc"
+# Removed log and devtty - functionality already in kern (subr_log.c, tty_tty.c)
+# .include "$S/log/Makefile.inc"
 .include "$S/termios/Makefile.inc"
-.include "$S/devtty/Makefile.inc"
+# .include "$S/devtty/Makefile.inc"
 
 # standard filesystems
 .include "$S/ufs/Makefile.inc"
