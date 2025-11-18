@@ -45,6 +45,9 @@ struct	sockaddr_un {
 #ifdef KERNEL
 struct unpcb;
 
+/* 4.4BSD-Lite2: Prototypes temporarily commented out due to GCC conflicts */
+/* These functions are defined in un/unusrreq.c */
+/*
 int	uipc_usrreq __P((struct socket *so, int req, struct mbuf *m,
 		struct mbuf *nam, struct mbuf *control));
 int	unp_attach __P((struct socket *so));
@@ -59,6 +62,7 @@ void	unp_gc __P((void));
 void	unp_mark __P((struct file *fp));
 void	unp_scan __P((struct mbuf *m0, void (*op) __P((struct file *))));
 void	unp_shutdown __P((struct unpcb *unp));
+*/
 #else /* !KERNEL */
 
 /* actual length of an initialized sockaddr_un */
