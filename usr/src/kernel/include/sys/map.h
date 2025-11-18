@@ -73,8 +73,8 @@ struct mapent {
 
 #ifdef KERNEL
 #define	ARGMAPSIZE	16
-struct	map *kmemmap, *mbmap, *swapmap;
-int	nswapmap;
+extern struct	map *kmemmap, *mbmap, *swapmap;
+extern int	nswapmap;
 
 long	rmalloc __P((struct map *, long));
 void	rmfree __P((struct map *, long, long));

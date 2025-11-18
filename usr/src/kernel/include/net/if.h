@@ -323,7 +323,7 @@ struct	ifconf {
 	else \
 		(ifa)->ifa_refcnt--;
 
-struct	ifnet	*ifnet;
+extern struct	ifnet	*ifnet;
 
 void	ether_ifattach __P((struct ifnet *));
 void	ether_input __P((struct ifnet *, struct ether_header *, struct mbuf *));

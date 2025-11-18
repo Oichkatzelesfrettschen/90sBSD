@@ -255,10 +255,11 @@ extern struct proc *initproc, *pageproc;	/* Process slots for init, pager. */
 
 #define	NQS	32			/* 32 run queues. */
 extern int	whichqs;			/* Bit mask summary of non-empty Q's. */
-extern struct	prochd {
+struct prochd {
 	struct	proc *ph_link;		/* Linked list of running processes. */
 	struct	proc *ph_rlink;
-} qs[NQS];
+};
+extern struct prochd qs[NQS];
 
 struct proc *pfind __P((pid_t));	/* Find process by id. */
 struct pgrp *pgfind __P((pid_t));	/* Find process group by id. */

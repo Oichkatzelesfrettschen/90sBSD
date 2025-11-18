@@ -55,7 +55,7 @@ struct rawcb {
 #define	RAWRCVQ		8192
 
 #ifdef KERNEL
-struct rawcb rawcb;			/* head of list */
+extern struct rawcb rawcb;			/* head of list */
 
 int	 raw_attach __P((struct socket *, int));
 void	 raw_ctlinput __P((int, struct sockaddr *));

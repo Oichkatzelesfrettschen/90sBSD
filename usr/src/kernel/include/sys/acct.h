@@ -72,7 +72,7 @@ struct acct {
 #define	AHZ	64
 
 #ifdef KERNEL
-struct vnode	*acctp;
+extern struct vnode	*acctp;
 
 int	acct_process __P((struct proc *p));
 #endif

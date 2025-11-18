@@ -75,13 +75,13 @@
 }
 #ifndef LOCORE
 #ifdef KERNEL
-int	softem;	
+extern int	softem;
 #endif
 #endif
 #endif /* i386 */
 
 #ifndef LOCORE
 #ifdef KERNEL
-int	netisr;				/* scheduling bits for network */
+extern int	netisr;				/* scheduling bits for network */
 #endif
 #endif

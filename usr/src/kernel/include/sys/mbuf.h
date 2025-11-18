@@ -354,13 +354,13 @@ struct mbstat {
 #ifdef	KERNEL
 extern	struct mbuf *mbutl;		/* virtual address of mclusters */
 extern	char *mclrefcnt;		/* cluster reference counts */
-struct	mbstat mbstat;
+extern struct	mbstat mbstat;
 extern	int nmbclusters;
-union	mcluster *mclfree;
-int	max_linkhdr;			/* largest link-level header */
-int	max_protohdr;			/* largest protocol header */
-int	max_hdr;			/* largest link+protocol header */
-int	max_datalen;			/* MHLEN - max_hdr */
+extern union	mcluster *mclfree;
+extern int	max_linkhdr;			/* largest link-level header */
+extern int	max_protohdr;			/* largest protocol header */
+extern int	max_hdr;			/* largest link+protocol header */
+extern int	max_datalen;			/* MHLEN - max_hdr */
 extern	int mbtypes[];			/* XXX */
 
 struct	mbuf *m_copym __P((struct mbuf *, int, int, int));

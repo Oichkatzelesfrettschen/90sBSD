@@ -169,7 +169,7 @@ struct	namecache {
 };
 
 #ifdef KERNEL
-u_long	nextvnodeid;
+extern u_long	nextvnodeid;
 int	namei __P((struct nameidata *ndp));
 int	lookup __P((struct nameidata *ndp));
 int	relookup __P((struct vnode *dvp, struct vnode **vpp,
