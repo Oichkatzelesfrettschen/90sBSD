@@ -15,7 +15,7 @@ int copyinstr(struct proc *p, void *from, void *to, u_int maxlength, u_int *lenc
 int copyout(struct proc *p, void *from, void *toaddr, u_int maxlength);
 int copyout_(struct proc *p, const void *from, void *toaddr, const u_int size);
 int copyoutstr(struct proc *p, void *from, void *to, u_int maxlength, u_int *lencopied);
-int copystr(void *from, void *to, u_int maxlength, u_int *lencopied);
+/* int copystr(void *from, void *to, u_int maxlength, u_int *lencopied); */  /* now static inline */
 
 #if	!defined(i486)
 /* minimized 386 write protection bug workaround functions */
@@ -24,19 +24,19 @@ int copyout_2(short value, void *toaddr);
 int copyout_1(char value, void *toaddr);
 #endif
 
-/* min/max functions */
-int imax(int i1, int i2);
+/* min/max functions - prototypes not needed for static inline */
+/* int imax(int i1, int i2);
 int imin(int i1, int i2);
 long lmax(long l1, long l2);
 long lmin(long l1, long l2);
 u_int max(u_int u1, u_int u2);
 u_int min(u_int u1, u_int u2);
 u_long ulmax(u_long u1, u_long u2);
-u_long ulmin(u_long u1, u_long u2);
+u_long ulmin(u_long u1, u_long u2); */
 
-/* queue functions */
-void _insque(queue_t element, queue_t queue);
-void _remque(queue_t element);
+/* queue functions - prototypes not needed for static inline */
+/* void _insque(queue_t element, queue_t queue);
+void _remque(queue_t element); */
 
 /* process run queue functions */
 void setrq(struct proc *p);
@@ -47,7 +47,7 @@ __END_DECLS
 
 #undef	__INLINE
 #ifndef __NO_INLINES_BUT_EMIT_CODE
-#define	__INLINE	extern inline
+#define	__INLINE	static inline
 #else
 #define	__INLINE
 #endif

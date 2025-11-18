@@ -35,6 +35,8 @@
 
 #include <sys/types.h>
 
+/* Don't define if using machine-specific inline versions */
+#ifdef __NO_INLINES
 static __inline int
 imax(a, b)
 	int a, b;
@@ -83,6 +85,7 @@ ulmin(a, b)
 {
 	return (a < b ? a : b);
 }
+#endif /* __NO_INLINES */
 
 /* Prototypes for non-quad routines. */
 int	 bcmp __P((const void *, const void *, size_t));
