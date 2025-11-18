@@ -131,8 +131,8 @@ struct pdevinit {
 	int	pdev_count;
 };
 
-struct	device *alldevs;	/* head of list of all devices */
-struct	evcnt *allevents;	/* head of list of all events */
+extern struct	device *alldevs;	/* head of list of all devices */
+extern struct	evcnt *allevents;	/* head of list of all events */
 
 struct cfdata *config_search __P((cfmatch_t, struct device *, void *));
 struct cfdata *config_rootsearch __P((cfmatch_t, char *, void *));
