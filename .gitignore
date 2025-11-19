@@ -41,6 +41,9 @@ build/
 build-*/
 */obj/
 
+# Exception: docs/build/ is documentation, not build artifacts
+!docs/build/
+
 # Legacy Pascal assembler outputs & headers
 src/pascal/px_header
 src/pascal/assubs/fcrt0
