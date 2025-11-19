@@ -134,6 +134,7 @@ setpassent(stayopen)
 }
 
 int
+int
 setpwent()
 {
 	_pw_keynum = 0;

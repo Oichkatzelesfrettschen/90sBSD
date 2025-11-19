@@ -135,6 +135,7 @@ bad:		/* no way to distinguish between EOF and syntax error */
 }
 
 struct fstab *
+int
 getfsent()
 {
 	if (!_fs_fp && !setfsent() || !fstabscan())
@@ -164,6 +165,7 @@ getfsfile(name)
 	return((struct fstab *)NULL);
 }
 
+int
 setfsent()
 {
 	if (_fs_fp) {
