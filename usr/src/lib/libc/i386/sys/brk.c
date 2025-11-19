@@ -6,11 +6,11 @@ static char sccsid[] = "@(#)brk.c	5.3 (Berkeley Modernized) 11/19/25";
 
 extern int errno;
 extern char end[];
-void *minbrk = (void *)end;
-void *curbrk = (void *)end;
+char *minbrk = (char *)&end;
+char *curbrk = (char *)&end;
 
-int
-_brk(void *addr)
+char *
+_brk(const char *addr)
 {
 	int result;
 
@@ -30,13 +30,15 @@ _brk(void *addr)
 		: "memory", "cc"
 	);
 
-	if (result == 0)
-		curbrk = addr;
-	return result;
+	if (result == 0) {
+		curbrk = (char *)addr;
+		return curbrk;
+	}
+	return (char *)-1;
 }
 
-int
-brk(void *addr)
+char *
+brk(const char *addr)
 {
 	if (addr < minbrk)
 		addr = minbrk;

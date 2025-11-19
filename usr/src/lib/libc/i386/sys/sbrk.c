@@ -3,16 +3,15 @@ static char sccsid[] = "@(#)sbrk.c	5.2 (Berkeley Modernized) 11/19/25";
 #endif
 
 #include <unistd.h>
-#include <stdint.h>
 
 extern int errno;
-extern void *curbrk;
+extern char *curbrk;
 
-void *
-sbrk(intptr_t incr)
+char *
+sbrk(int incr)
 {
-	void *oldbrk = curbrk;
-	void *newbrk = (void *)((char *)oldbrk + incr);
+	char *oldbrk = curbrk;
+	char *newbrk = oldbrk + incr;
 	int result;
 
 	__asm__ volatile (
@@ -32,7 +31,7 @@ sbrk(intptr_t incr)
 	);
 
 	if (result < 0)
-		return (void *)-1;
+		return (char *)-1;
 
 	curbrk = newbrk;
 	return oldbrk;

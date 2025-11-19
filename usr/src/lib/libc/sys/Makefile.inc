@@ -5,9 +5,9 @@
 
 # modules with non-default implementations on at least one architecture:
 # Modern C implementations (converted from assembly for maintainability)
-SRCS+=	Ovfork.c brk.c cerror.c exect.s fork.c pipe.c ptrace.s reboot.s \
-	sbrk.c setlogin.s sigpending.s sigprocmask.s sigreturn.s \
-	sigsuspend.s syscall.s
+SRCS+=	Ovfork.c brk.c cerror.c exect.c fork.c pipe.c ptrace.c reboot.c \
+	sbrk.c setlogin.c sigpending.c sigprocmask.c sigreturn.c \
+	sigsuspend.c syscall.c
 
 # modules with default implementations on all architectures:
 ASM=	accept.o access.o acct.o adjtime.o async_daemon.o bind.o chdir.o \
