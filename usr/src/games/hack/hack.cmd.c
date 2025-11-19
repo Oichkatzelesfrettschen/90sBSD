@@ -95,9 +95,7 @@ register char *cmd;
 {
 	register struct func_tab *tlist = cmdlist;
 	boolean firsttime = FALSE;
-void
-	register res;
-
+	register int res;
 	if(!cmd) {
 		firsttime = TRUE;
 		flags.nopick = 0;
