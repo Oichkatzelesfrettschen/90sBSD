@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)getgrent.c	5.9 (Berkeley) 4/1/91";
 #include <stdio.h>
 #include <stdlib.h>
 #include <grp.h>
+#include <string.h>
 
 static FILE *_gr_fp;
 static struct group _gr_group;

@@ -41,8 +41,10 @@ static char sccsid[] = "@(#)mktemp.c	5.11 (Berkeley) 7/12/92";
 #include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
 
 static int _gettemp();
+int
 
 mkstemp(path)
 	char *path;

@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)mesg.c	4.7 (Berkeley) 3/1/91";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static char *tty;
 
@@ -94,6 +95,7 @@ main(argc, argv)
 	}
 	/*NOTREACHED*/
 }
+void
 
 newmode(m)
 	u_short m;

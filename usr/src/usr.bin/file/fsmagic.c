@@ -50,6 +50,7 @@ extern char *ckfmsg, *magicfile;
 extern int debug;
 extern FILE *efopen();
 
+int
 fsmagic(fn)
 char *fn;
 {

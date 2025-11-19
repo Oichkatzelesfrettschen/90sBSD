@@ -10,6 +10,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #ifdef __hpux
 #define setreuid(r, e)	setresuid(r, e, -1)
@@ -73,6 +74,7 @@ main()
 
 	exit(0);
 }
+void
 
 printuids(str, r, e)
 	char *str;
