@@ -173,7 +173,6 @@ disconnect(reason)
 }
 
 static void
-void
 acuabort(s)
 {
 	signal(s, SIG_IGN);

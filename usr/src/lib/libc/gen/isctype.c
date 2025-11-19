@@ -87,7 +87,6 @@ islower(c)
 }
 
 #undef isprint
-int
 isprint(c)
 	int c;
 {

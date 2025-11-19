@@ -276,7 +276,6 @@ sigchld_handler(x) {
 
 
 static void
-void
 sighup_handler(x) {
 	log_close();
 }

@@ -156,7 +156,6 @@ setchars()
 }
 
 long
-int
 setflags(n)
 {
 	register long f;

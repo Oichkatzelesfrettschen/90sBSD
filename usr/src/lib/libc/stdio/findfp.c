@@ -126,7 +126,6 @@ found:
  * XXX.  Force immediate allocation of internal memory.  Not used by stdio,
  * but documented historically for certain applications.  Bad applications.
  */
-int
 void
 f_prealloc(void)
 {
