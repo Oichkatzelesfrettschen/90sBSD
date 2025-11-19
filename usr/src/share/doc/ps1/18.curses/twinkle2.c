@@ -38,7 +38,7 @@
 extern int	_putchar();
 
 void
-main()
+int main()
 {
 	reg char	*sp;
 

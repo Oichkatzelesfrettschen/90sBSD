@@ -53,7 +53,7 @@ char buf[1024];
 char *getenv(), *tgetstr();
 
 void
-main(argc, argv) char **argv; {
+int main(argc, argv) char **argv; {
 	char *p, *q;
 	int rc;
 	char b[3], c;

@@ -48,7 +48,7 @@
  */
 
 void
-main()
+int main()
 {
 	int sockets[2], child;
 	char buf[1024];

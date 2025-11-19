@@ -59,7 +59,7 @@ char	*getenv();
 int	die();
 
 void
-main()
+int main()
 {
 	srand(getpid());		/* initialize random sequence */
 

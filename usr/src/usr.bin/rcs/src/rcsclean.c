@@ -80,7 +80,7 @@ char * tempfile;
 FILE * file1, * file2;              /*file descriptors for comparison       */
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc; char **argv;
 {
         char * cmdusage;

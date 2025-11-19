@@ -51,7 +51,7 @@ LIST	*Head;			/* head of linked list */
 int	die();
 
 void
-main(ac, av)
+int main(ac, av)
 int	ac;
 char	*av[];
 {

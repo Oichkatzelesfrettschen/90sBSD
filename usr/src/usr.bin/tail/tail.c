@@ -121,7 +121,7 @@ struct option long_options[] =
 };
 
 void
-main (argc, argv)
+int main(argc, argv)
      int argc;
      char **argv;
 {

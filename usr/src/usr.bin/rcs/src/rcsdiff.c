@@ -122,7 +122,7 @@ char bops[10];
 char otherops[10];
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc; char **argv;
 {
         char * cmdusage;

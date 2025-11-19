@@ -58,7 +58,7 @@ char *UP;
 char *tgout;
 
 void
-main(argc, argv) char **argv; {
+int main(argc, argv) char **argv; {
 	char *p;
 	int rc;
 	int row, col;

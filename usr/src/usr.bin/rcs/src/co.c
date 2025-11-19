@@ -167,7 +167,7 @@ char * joinlist[joinlength];          /* pointers to revisions to be joined */
 int lastjoin;                         /* index of last element in joinlist  */
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc;
 char * argv[];
 {

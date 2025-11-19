@@ -36,7 +36,7 @@ static init_digraphs();
 
 #if AMIGA
 # include "amiwild.c"
-main (argc, argv)
+int main(argc, argv)
 #else
 # if VMS
 #  include "vmswild.c"

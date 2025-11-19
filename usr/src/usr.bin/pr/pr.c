@@ -441,7 +441,7 @@ int truncate_lines = FALSE;
 char *program_name;
 
 void
-main (argc, argv)
+int main(argc, argv)
      int argc;
      char **argv;
 {
