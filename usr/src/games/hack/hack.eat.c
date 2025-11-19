@@ -93,8 +93,7 @@ int
 doeat(){
 	register struct obj *otmp;
 	register struct objclass *ftmp;
-void
-	register tmp;
+	register int tmp;
 
 	/* Is there some food (probably a heavy corpse) here on the ground? */
 	if(!Levitation)
