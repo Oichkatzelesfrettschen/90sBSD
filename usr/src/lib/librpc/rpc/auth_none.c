@@ -68,7 +68,7 @@ static struct authnone_private {
 } *authnone_private;
 
 AUTH *
-authnone_create()
+authnone_create(void)
 {
 	register struct authnone_private *ap = authnone_private;
 	XDR xdr_stream;
@@ -109,25 +109,25 @@ authnone_marshal(client, xdrs)
 }
 
 static void 
-authnone_verf()
+authnone_verf(void)
 {
 }
 
 static bool_t
-authnone_validate()
+authnone_validate(void)
 {
 
 	return (TRUE);
 }
 
 static bool_t
-authnone_refresh()
+authnone_refresh(void)
 {
 
 	return (FALSE);
 }
 
 static void
-authnone_destroy()
+authnone_destroy(void)
 {
 }

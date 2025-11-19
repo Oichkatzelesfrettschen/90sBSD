@@ -251,7 +251,7 @@ error(s)
 		(void)fprintf(stderr, "mv: %s\n", strerror(errno));
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr,
 "usage: mv [-if] src target;\n   or: mv [-if] src1 ... srcN directory\n");

@@ -316,7 +316,7 @@ inline void BitSet::operator -= (const BitSet& y)
 }
 
 
-inline void BitSet::complement()
+inline void BitSet::complement(void)
 {
   ::complement(*this, *this);
 }
@@ -340,13 +340,13 @@ inline int BitSet::test(int p) const
 }
 
 
-inline void BitSet::clear()
+inline void BitSet::clear(void)
 {
   if (rep->len > 0) bzero(rep->s, rep->sz * sizeof(short));
   rep->len = rep->virt = 0;
 }
 
-inline void BitSet::set()
+inline void BitSet::set(void)
 {
   rep = BitSetalloc(rep, 0, 0, 1, 0);
 }
@@ -360,7 +360,7 @@ inline BitSetBit::BitSetBit(BitSet* v, int p)
 
 inline BitSetBit::~BitSetBit() {}
 
-inline BitSetBit::operator int()
+inline BitSetBit::operator int(void)
 {
   return src->test(pos);
 }

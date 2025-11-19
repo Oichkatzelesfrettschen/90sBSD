@@ -62,7 +62,7 @@ static char sccsid[] = "@(#)print.c	5.9 (Berkeley) 7/1/91";
 #include <sys/vm.h>
 #endif
 
-printheader()
+printheader(void)
 {
 	register VAR *v;
 	register struct varent *vent;

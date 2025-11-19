@@ -50,7 +50,7 @@ static char sccsid[] = "@(#)util.c	5.2 (Berkeley) 6/4/91";
  * redirected.
  */
 void
-checkredirect()
+checkredirect(void)
 {
 	struct stat sb1, sb2;
 

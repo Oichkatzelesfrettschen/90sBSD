@@ -586,7 +586,7 @@ rsource(name, statp)
 	(void)response();
 }
 
-response()
+response(void)
 {
 	register char *cp;
 	char ch, resp, rbuf[BUFSIZ];
@@ -620,7 +620,7 @@ response()
 }
 
 void
-lostconn()
+lostconn(void)
 {
 	if (!iamremote)
 		(void)fprintf(stderr, "rcp: lost connection\n");
@@ -891,14 +891,14 @@ error(fmt, a1, a2, a3)
 		(void)fprintf(stderr, fmt, a1, a2, a3);
 }
 
-nospace()
+nospace(void)
 {
 	(void)fprintf(stderr, "rcp: out of memory.\n");
 	exit(1);
 }
 
 
-usage()
+usage(void)
 {
 #ifdef KERBEROS
 #ifdef CRYPT

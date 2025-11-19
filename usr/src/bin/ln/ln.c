@@ -144,7 +144,7 @@ linkit(target, source, isdir)
 }
 
 static
-usage()
+usage(void)
 {
 	(void)fprintf(stderr,
 	    "usage:\tln [-s] file1 file2\n\tln [-s] file ... directory\n");

@@ -130,7 +130,7 @@ setup_tty(on)
  * Move back to beginning of current line
  */
 static void
-back_to_col_1()
+back_to_col_1(void)
 {
     struct termios tty, tty_normal;
     int     omask;
@@ -310,7 +310,7 @@ tilde(new, old)
  * Cause pending line to be printed
  */
 static void
-retype()
+retype(void)
 {
     struct termios tty;
 
@@ -320,7 +320,7 @@ retype()
 }
 
 static void
-beep()
+beep(void)
 {
     if (adrof(STRnobeep) == 0)
 	(void) write(SHOUT, "\007", 1);

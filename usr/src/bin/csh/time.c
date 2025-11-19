@@ -51,7 +51,7 @@ static char sccsid[] = "@(#)time.c	5.14 (Berkeley) 6/8/91";
 static void	pdeltat __P((struct timeval *, struct timeval *));
 
 void
-settimes()
+settimes(void)
 {
     struct rusage ruch;
 
@@ -66,7 +66,7 @@ settimes()
  * prefix to another command
  */
 void
-dotime()
+dotime(void)
 {
     struct timeval timedol;
     struct rusage ru1, ruch;

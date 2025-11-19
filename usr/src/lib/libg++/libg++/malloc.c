@@ -276,9 +276,9 @@ extern void abort();
 /* how to die on detected error */
 
 #ifdef __GNUC__
-static volatile void malloc_user_error()
+static volatile void malloc_user_error(void)
 #else
-static void malloc_user_error()
+static void malloc_user_error(void)
 #endif
 {
   fputs("malloc/free/realloc: clobbered space detected\n", stderr); abort();
@@ -1173,7 +1173,7 @@ void* valloc(unsigned int bytes)
 }
     
 
-void malloc_stats()
+void malloc_stats(void)
 {
 #ifndef MALLOC_STATS
 }

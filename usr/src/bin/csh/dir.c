@@ -197,7 +197,7 @@ dodirs(v)
 }
 
 static void
-printdirs()
+printdirs(void)
 {
     register struct directory *dp;
     Char   *s, *hp = value(STRhome);
@@ -245,7 +245,7 @@ dtildepr(home, dir)
 }
 
 void
-dtilde()
+dtilde(void)
 {
     struct directory *d = dcwd;
 

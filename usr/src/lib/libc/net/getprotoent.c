@@ -62,7 +62,7 @@ setprotoent(f)
 }
 
 void
-endprotoent()
+endprotoent(void)
 {
 	if (protof) {
 		fclose(protof);
@@ -72,7 +72,7 @@ endprotoent()
 }
 
 struct protoent *
-getprotoent()
+getprotoent(void)
 {
 	char *p;
 	register char *cp, **q;

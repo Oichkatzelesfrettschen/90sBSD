@@ -298,7 +298,7 @@ bread(off, buf, cnt)
 }
 
 void
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: df [-in] [file | file_system ...]\n");
 	exit(1);

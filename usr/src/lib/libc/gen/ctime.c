@@ -66,7 +66,7 @@ static char sccsid[] = "@(#)ctime.c	5.26 (Berkeley) 2/23/91";
 
 #else /* !defined __STDC__ */
 
-#define P(s)		()
+#define P(s)		(void)
 
 typedef char *		genericptr_t;
 typedef unsigned	alloc_size_t;
@@ -228,7 +228,7 @@ const char * const	codep;
 }
 
 static void
-settzname()
+settzname(void)
 {
 	register const struct state * const	sp = lclptr;
 	register int				i;
@@ -876,7 +876,7 @@ struct state * const	sp;
 }
 
 void
-tzset()
+tzset(void)
 {
 	register const char *	name;
 	void tzsetwall();
@@ -912,7 +912,7 @@ tzset()
 }
 
 void
-tzsetwall()
+tzsetwall(void)
 {
 	lcl_is_set = TRUE;
 #ifdef ALL_STATE

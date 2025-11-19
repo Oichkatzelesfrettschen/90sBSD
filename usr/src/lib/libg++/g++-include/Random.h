@@ -59,7 +59,7 @@ inline Random::Random(RNG *gen)
     pGenerator = gen;
 }
 
-inline RNG *Random::generator()
+inline RNG *Random::generator(void)
 {
     return(pGenerator);
 }

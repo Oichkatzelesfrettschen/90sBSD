@@ -66,7 +66,7 @@ public:
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
 inline long
-MLCG::seed1()
+MLCG::seed1(void)
 {
     return(seedOne);
 }
@@ -79,7 +79,7 @@ MLCG::seed1(long s)
 }
 
 inline long
-MLCG::seed2()
+MLCG::seed2(void)
 {
     return(seedTwo);
 }

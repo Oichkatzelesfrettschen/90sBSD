@@ -91,7 +91,7 @@ sleep(seconds)
 }
 
 static void
-sleephandler()
+sleephandler(void)
 {
 	ringring = 1;
 }

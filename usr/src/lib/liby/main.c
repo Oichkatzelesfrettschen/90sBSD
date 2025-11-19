@@ -35,7 +35,7 @@
 static char sccsid[] = "@(#)main.c	5.3 (Berkeley) 1/13/91";
 #endif /* not lint */
 
-main()
+main(void)
 {
 	exit(yyparse());
 }

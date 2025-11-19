@@ -231,7 +231,7 @@ freelex(vp)
 }
 
 static Char *
-word()
+word(void)
 {
     register Char c, c1;
     register Char *wp;
@@ -409,7 +409,7 @@ getC1(flag)
 }
 
 static void
-getdol()
+getdol(void)
 {
     register Char *np, *ep;
     Char    name[4 * MAXVARLEN + 1];
@@ -1346,7 +1346,7 @@ reread:
 }
 
 static int
-bgetc()
+bgetc(void)
 {
     register int buf, off, c;
 
@@ -1455,7 +1455,7 @@ again:
 }
 
 static void
-bfree()
+bfree(void)
 {
     register int sb, i;
 
@@ -1503,7 +1503,7 @@ bseek(l)
 }
 
 void
-btoeof()
+btoeof(void)
 {
     (void) lseek(SHIN, (off_t) 0, L_XTND);
     fseekp = feobp;
@@ -1512,7 +1512,7 @@ btoeof()
 }
 
 void
-settell()
+settell(void)
 {
     cantell = 0;
     if (arginp || onelflg || intty)

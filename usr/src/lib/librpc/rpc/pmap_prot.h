@@ -43,7 +43,7 @@
  *
  * The following procedures are supported by the protocol:
  *
- * PMAPPROC_NULL() returns ()
+ * PMAPPROC_NULL() returns (void)
  * 	takes nothing, returns nothing
  *
  * PMAPPROC_SET(struct pmap) returns (bool_t)

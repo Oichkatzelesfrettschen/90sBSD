@@ -62,7 +62,7 @@ public:
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
 
-inline  int SFile::size()
+inline  int SFile::size(void)
 { 
   return sz; 
 }          

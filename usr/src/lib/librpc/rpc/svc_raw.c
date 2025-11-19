@@ -70,7 +70,7 @@ static struct xp_ops server_ops = {
 };
 
 SVCXPRT *
-svcraw_create()
+svcraw_create(void)
 {
 	register struct svcraw_private *srp = svcraw_private;
 
@@ -88,7 +88,7 @@ svcraw_create()
 }
 
 static enum xprt_stat
-svcraw_stat()
+svcraw_stat(void)
 {
 
 	return (XPRT_IDLE);
@@ -161,6 +161,6 @@ svcraw_freeargs(xprt, xdr_args, args_ptr)
 } 
 
 static void
-svcraw_destroy()
+svcraw_destroy(void)
 {
 }

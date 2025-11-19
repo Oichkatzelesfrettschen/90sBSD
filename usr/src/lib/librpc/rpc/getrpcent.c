@@ -66,7 +66,7 @@ char	*inet_ntoa();
 static char RPCDB[] = "/etc/rpc";
 
 static struct rpcdata *
-_rpcdata()
+_rpcdata(void)
 {
 	register struct rpcdata *d = rpcdata;
 
@@ -135,7 +135,7 @@ setrpcent(f)
 	d->stayopen |= f;
 }
 
-endrpcent()
+endrpcent(void)
 {
 	register struct rpcdata *d = _rpcdata();
 
@@ -152,7 +152,7 @@ endrpcent()
 }
 
 struct rpcent *
-getrpcent()
+getrpcent(void)
 {
 	struct rpcent *hp;
 	int reason;

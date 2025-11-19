@@ -132,25 +132,25 @@ inline int streambuf::must_overflow(int ch)
 }
 
 
-inline int streambuf::allocate()
+inline int streambuf::allocate(void)
 {
   return (base == 0)? doallocate() : 0; 
 }
 
-inline int streambuf::sgetc()
+inline int streambuf::sgetc(void)
 {
   return (gptr >= pptr)? underflow() : int((unsigned char)(*gptr));
 }
 
 
-inline int streambuf::snextc()
+inline int streambuf::snextc(void)
 {
   ++gptr;
   return (gptr >= pptr)? underflow() : int((unsigned char)(*gptr));
 }
 
 
-inline void streambuf::stossc()
+inline void streambuf::stossc(void)
 {
   if (gptr >= pptr) underflow(); else gptr++;
 }

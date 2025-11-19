@@ -124,7 +124,7 @@ static int seps [MAX_TYPES] =	{ SEP_0, SEP_1, SEP_2, SEP_3, SEP_4 };
  *
  *	initstate(1, &randtbl, 128);
  *
- * Note that this initialization takes advantage of the fact that srandom()
+ * Note that this initialization takes advantage of the fact that srandom(void)
  * advances the front and rear pointers 10*rand_deg times, and hence the
  * rear pointer which starts at 0 will also end up at zero; thus the zeroeth
  * element of the state information, which contains info about the current
@@ -344,7 +344,7 @@ setstate(arg_state)
  * Returns a 31-bit random number.
  */
 long
-random()
+random(void)
 {
 	long i;
 

@@ -91,7 +91,7 @@ extern char *re_syntax_table;
 static char re_syntax_table[CHAR_SET_SIZE];
 
 static void
-init_syntax_once ()
+init_syntax_once (void)
 {
    register int c;
    static int done = 0;
@@ -881,7 +881,7 @@ static reg_errcode_t compile_range ();
 /* Make sure we have at least N more bytes of space in buffer.  */
 #define GET_BUFFER_SPACE(n)						\
     while (b - bufp->buffer + (n) > bufp->allocated)			\
-      EXTEND_BUFFER ()
+      EXTEND_BUFFER (void)
 
 /* Make sure we have one more byte of buffer space and then add C to it.  */
 #define BUF_PUSH(c)							\
@@ -2333,7 +2333,7 @@ typedef struct
 /* Used to omit pushing failure point id's when we're not debugging.  */
 #ifdef DEBUG
 #define DEBUG_PUSH PUSH_FAILURE_ITEM
-#define DEBUG_POP(item_addr) *(item_addr) = POP_FAILURE_ITEM ()
+#define DEBUG_POP(item_addr) *(item_addr) = POP_FAILURE_ITEM (void)
 #else
 #define DEBUG_PUSH(item)
 #define DEBUG_POP(item_addr)

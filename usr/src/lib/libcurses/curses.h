@@ -71,10 +71,10 @@
 
 /* Old-style terminal modes access. */
 #define	baudrate()	(cfgetospeed(&__baset))
-#define	crmode()	cbreak()
+#define	crmode()	cbreak(void)
 #define	erasechar()	(__baset.c_cc[VERASE])
 #define	killchar()	(__baset.c_cc[VKILL])
-#define	nocrmode()	nocbreak()
+#define	nocrmode()	nocbreak(void)
 #define	ospeed		(cfgetospeed(&__baset))
 #endif /* _CURSES_PRIVATE */
 

@@ -41,7 +41,7 @@ static char sccsid[] = "@(#)abort.c	5.11 (Berkeley) 2/23/91";
 #include <unistd.h>
 
 void
-abort()
+abort(void)
 {
 	sigset_t mask;
 

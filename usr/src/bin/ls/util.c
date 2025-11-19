@@ -65,13 +65,13 @@ char
 	return(retval);
 }
 
-nomem()
+nomem(void)
 {
 	(void)fprintf(stderr, "ls: out of memory.\n");
 	exit(1);
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: ls [-1ACFLRTacdfgiklqrstu] [file ...]\n");
 	exit(1);

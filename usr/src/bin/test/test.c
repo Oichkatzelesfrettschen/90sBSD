@@ -135,7 +135,7 @@ advance (f)
  *	error condition)
  */
 static int
-beyond ()
+beyond (void)
 {
   test_syntax_error ("argument expected\n", (char *)NULL);
 }
@@ -237,7 +237,7 @@ age_of (posit, age)
  *	positive and negative integers
  */
 static int
-term ()
+term (void)
 {
   int expr ();
   auto struct stat stat_buf, stat_spare;
@@ -657,7 +657,7 @@ term ()
  *	term
  */
 static int
-and ()
+and (void)
 {
   auto int value;
 
@@ -676,7 +676,7 @@ and ()
  *	and
  */
 static int
-or ()
+or (void)
 {
   auto int value;
 
@@ -694,7 +694,7 @@ or ()
  *	or
  */
 int
-expr ()
+expr (void)
 {
   auto int value;
 

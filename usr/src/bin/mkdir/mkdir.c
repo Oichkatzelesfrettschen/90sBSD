@@ -111,7 +111,7 @@ build(path)
 	return(0);
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: mkdir [-p] dirname ...\n");
 	exit(1);

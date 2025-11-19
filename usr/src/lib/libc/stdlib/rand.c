@@ -41,7 +41,7 @@ static char sccsid[] = "@(#)rand.c	5.6 (Berkeley) 6/24/91";
 static u_long next = 1;
 
 int
-rand()
+rand(void)
 {
 	return ((next = next * 1103515245 + 12345) % (RAND_MAX + 1));
 }

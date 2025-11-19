@@ -46,7 +46,7 @@ static char sccsid[] = "@(#)setjmperr.c	5.8 (Berkeley) 2/23/91";
 #include <unistd.h>
 
 void
-longjmperror()
+longjmperror(void)
 {
 #define	ERRMSG	"longjmp botch.\n"
 	(void)write(STDERR_FILENO, ERRMSG, sizeof(ERRMSG) - 1);

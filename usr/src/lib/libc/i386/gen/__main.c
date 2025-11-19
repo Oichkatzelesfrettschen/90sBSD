@@ -2,7 +2,7 @@
  * Dummy library intercept routine that is called by "main" functions
  * compiled by the GCC2 suite of compilers. This mechanism allows
  * languages like C++ the ability to call static constructor functions
- * and to register static destructors to be executed by the atexit()
+ * and to register static destructors to be executed by the atexit(void)
  * mechanism in turn. If the final linked image has any C++ static
  * destructors/constructors present, the C++ library's version of
  * this routine should be executed prior to the contents of the main

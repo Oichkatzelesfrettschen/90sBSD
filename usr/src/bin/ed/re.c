@@ -56,7 +56,7 @@ char errmsg[MAXFNAME + 40] = "";
 
 /* optpat: return pointer to compiled pattern from command buffer */
 pattern_t *
-optpat()
+optpat(void)
 {
 	static pattern_t *exp = NULL;
 

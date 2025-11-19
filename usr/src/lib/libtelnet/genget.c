@@ -95,7 +95,7 @@ genget(name, table, stlen)
 }
 
 /*
- * Function call version of Ambiguous()
+ * Function call version of Ambiguous(void)
  */
 	int
 Ambiguous(s)

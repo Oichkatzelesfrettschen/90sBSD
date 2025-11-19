@@ -165,7 +165,7 @@ authunix_create(machname, uid, gid, len, aup_gids)
  * syscalls.
  */
 AUTH *
-authunix_create_default()
+authunix_create_default(void)
 {
 	register int len;
 	char machname[MAX_MACHINE_NAME + 1];

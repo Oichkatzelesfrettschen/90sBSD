@@ -97,37 +97,37 @@ public:
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
 
-inline Obstack::~Obstack()
+inline Obstack::~Obstack(void)
 {
   _free(0); 
 }
 
-inline void* Obstack::base()
+inline void* Obstack::base(void)
 {
   return objectbase; 
 }
 
-inline void* Obstack::next_free()
+inline void* Obstack::next_free(void)
 {
   return nextfree; 
 }
 
-inline int Obstack::alignment_mask()
+inline int Obstack::alignment_mask(void)
 {
   return alignmentmask; 
 }
 
-inline int Obstack::chunk_size()
+inline int Obstack::chunk_size(void)
 {
   return chunksize; 
 }
 
-inline int Obstack::size()
+inline int Obstack::size(void)
 {
   return nextfree - objectbase; 
 }
 
-inline int Obstack::room()
+inline int Obstack::room(void)
 {
   return chunklimit - nextfree; 
 }

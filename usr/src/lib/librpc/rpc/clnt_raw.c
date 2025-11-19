@@ -197,7 +197,7 @@ call_again:
 }
 
 static void
-clntraw_geterr()
+clntraw_geterr(void)
 {
 }
 
@@ -222,17 +222,17 @@ clntraw_freeres(cl, xdr_res, res_ptr)
 }
 
 static void
-clntraw_abort()
+clntraw_abort(void)
 {
 }
 
 static bool_t
-clntraw_control()
+clntraw_control(void)
 {
 	return (FALSE);
 }
 
 static void
-clntraw_destroy()
+clntraw_destroy(void)
 {
 }

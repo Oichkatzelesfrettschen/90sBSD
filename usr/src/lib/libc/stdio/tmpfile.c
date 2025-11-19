@@ -46,7 +46,7 @@ static char sccsid[] = "@(#)tmpfile.c	5.4 (Berkeley) 5/27/91";
 #include <paths.h>
 
 FILE *
-tmpfile()
+tmpfile(void)
 {
 	sigset_t set, oset;
 	FILE *fp;

@@ -59,7 +59,7 @@ getttynam(tty)
 }
 
 struct ttyent *
-getttyent()
+getttyent(void)
 {
 	static struct ttyent tty;
 	register int c;
@@ -174,7 +174,7 @@ value(p)
 }
 
 int
-setttyent()
+setttyent(void)
 {
 
 	if (tf) {
@@ -186,7 +186,7 @@ setttyent()
 }
 
 int
-endttyent()
+endttyent(void)
 {
 	int rval;
 

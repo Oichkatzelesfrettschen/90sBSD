@@ -418,12 +418,12 @@ wait:
 
 /*
  * This routine is for closing the socket if a virtual circuit is used and
- * the program wants to close it.  This provides support for endhostent()
+ * the program wants to close it.  This provides support for endhostent(void)
  * which expects to close the socket.
  *
  * This routine is not expected to be user visible.
  */
-_res_close()
+_res_close(void)
 {
 	if (s != -1) {
 		(void) close(s);

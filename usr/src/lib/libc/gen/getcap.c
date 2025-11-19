@@ -618,7 +618,7 @@ static int slash;
 static char **dbp;
 
 int
-cgetclose()
+cgetclose(void)
 {
 	if (pfp != NULL) {
 		(void)fclose(pfp);
@@ -878,7 +878,7 @@ cgetstr(buf, cap, str)
 
 /*
  * Cgetustr retrieves the value of the string capability cap from the
- * capability record pointed to by buf.  The difference between cgetustr()
+ * capability record pointed to by buf.  The difference between cgetustr(void)
  * and cgetstr() is that cgetustr does not decode escapes but rather treats
  * all characters literally.  A pointer to a  NUL terminated malloc'd 
  * copy of the string is returned in the char pointed to by str.  The 

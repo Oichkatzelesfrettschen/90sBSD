@@ -208,7 +208,7 @@ getlp(n)
 char sfn[15] = "";				/* scratch file name */
 
 /* sbopen: open scratch file */
-sbopen()
+sbopen(void)
 {
 	strcpy(sfn, "/tmp/ed.XXXXXX");
 	if (mktemp(sfn) == NULL || (sfp = fopen(sfn, "w+")) == NULL) {
@@ -221,7 +221,7 @@ sbopen()
 
 
 /* sbclose: close scratch file */
-sbclose()
+sbclose(void)
 {
 	if (sfp) {
 		if (fclose(sfp) < 0) {
@@ -254,7 +254,7 @@ unsigned char ctab[256];		/* character translation table */
 
 /* init_buf: open scratch buffer; initialize line queue */
 void
-init_buf()
+init_buf(void)
 {
 	int i = 0;
 

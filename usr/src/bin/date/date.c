@@ -213,13 +213,13 @@ setthetime(p)
 	}
 }
 
-badformat()
+badformat(void)
 {
 	(void)fprintf(stderr, "date: illegal time format.\n");
 	usage();
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr,
 	    "usage: date [-nu] [-d dst] [-r seconds] [-t west] [+format]\n");

@@ -208,7 +208,7 @@ main(argc, argv)
 }
 
 /* copy file or directory at "from" to "to". */
-copy()
+copy(void)
 {
 	struct stat from_stat, to_stat;
 	int dne, statval;
@@ -364,7 +364,7 @@ copy_file(fs, dne)
 		error(to.p_path);
 }
 
-copy_dir()
+copy_dir(void)
 {
 	struct stat from_stat;
 	struct dirent *dp, **dir_list;
@@ -542,7 +542,7 @@ error(s)
 	(void)fprintf(stderr, "%s: %s: %s\n", progname, s, strerror(errno));
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr,
 "usage: cp [-Rfhip] src target;\n   or: cp [-Rfhip] src1 ... srcN directory\n");

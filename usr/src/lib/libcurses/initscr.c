@@ -44,7 +44,7 @@ static char sccsid[] = "@(#)initscr.c	8.1 (Berkeley) 6/4/93";
  *	Initialize the current and standard screen.
  */
 WINDOW *
-initscr()
+initscr(void)
 {
 	register char *sp;
 

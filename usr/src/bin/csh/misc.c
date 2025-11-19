@@ -241,7 +241,7 @@ lastchr(cp)
  * any units which may have been left open accidentally.
  */
 void
-closem()
+closem(void)
 {
     register int f;
 
@@ -252,7 +252,7 @@ closem()
 }
 
 void
-donefds()
+donefds(void)
 {
 
     (void) close(0);

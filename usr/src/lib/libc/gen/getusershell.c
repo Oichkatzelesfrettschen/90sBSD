@@ -59,7 +59,7 @@ static char **initshells();
  * Get a list of shells from SHELLS, if it exists.
  */
 char *
-getusershell()
+getusershell(void)
 {
 	char *ret;
 
@@ -72,7 +72,7 @@ getusershell()
 }
 
 void
-endusershell()
+endusershell(void)
 {
 	
 	if (shells != NULL)
@@ -85,14 +85,14 @@ endusershell()
 }
 
 void
-setusershell()
+setusershell(void)
 {
 
 	curshell = initshells();
 }
 
 static char **
-initshells()
+initshells(void)
 {
 	register char **sp, *cp;
 	register FILE *fp;

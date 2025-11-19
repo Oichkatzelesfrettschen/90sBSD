@@ -46,7 +46,7 @@ static char sccsid[] = "@(#)clock.c	5.4 (Berkeley) 8/27/90";
 #define	CONVTCK(r)	(r.tv_sec * CLK_TCK + r.tv_usec / (1000000 / CLK_TCK))
 
 clock_t
-clock()
+clock(void)
 {
 	struct rusage ru;
 

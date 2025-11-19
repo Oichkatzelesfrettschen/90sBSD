@@ -513,7 +513,7 @@ Free(p)
  * frees for each size category.
  */
 void
-showall()
+showall(void)
 {
 #ifndef SYSMALLOC
     register int i, j;

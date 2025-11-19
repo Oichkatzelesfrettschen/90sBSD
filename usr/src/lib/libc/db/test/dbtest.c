@@ -619,7 +619,7 @@ xmalloc(text, len)
 }
 
 void
-usage()
+usage(void)
 {
 	(void)fprintf(stderr,
 	    "usage: dbtest [-f file] [-i info] [-o file] type script\n");

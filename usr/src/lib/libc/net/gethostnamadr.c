@@ -338,7 +338,7 @@ _sethtent(f)
 	stayopen |= f;
 }
 
-_endhtent()
+_endhtent(void)
 {
 	if (hostf && !stayopen) {
 		(void) fclose(hostf);
@@ -347,7 +347,7 @@ _endhtent()
 }
 
 struct hostent *
-_gethtent()
+_gethtent(void)
 {
 	char *p;
 	register char *cp, **q;

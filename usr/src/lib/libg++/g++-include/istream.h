@@ -171,37 +171,37 @@ inline void istream::unset(state_value flag)
   state = state_value(int(state) & ~int(flag));
 }
 
-inline int istream::rdstate()
+inline int istream::rdstate(void)
 {
   return int(state);
 }
 
-inline int istream::good()
+inline int istream::good(void)
 {
   return state == _good;
 }
 
-inline int istream::eof()
+inline int istream::eof(void)
 {
   return int(state) & int(_eof);
 }
 
-inline int istream::fail()
+inline int istream::fail(void)
 {
   return int(state) & int(_fail);
 }
 
-inline int istream::bad()
+inline int istream::bad(void)
 {
   return int(state) & int(_bad);
 }
 
-inline istream::operator void*()
+inline istream::operator void*(void)
 {
   return (state == _good)? this : 0;
 }
 
-inline int istream::operator !()
+inline int istream::operator !(void)
 {
   return (state != _good);
 }
@@ -211,29 +211,29 @@ inline istream& istream::failif(int cond)
   if (cond) set(_fail); return *this;
 }
 
-inline int istream::is_open()
+inline int istream::is_open(void)
 {
   return bp->is_open();
 }
 
-inline int istream::readable()
+inline int istream::readable(void)
 {
   return (bp != 0) && (bp->is_open()) && (state == _good);
 }
 
-inline int istream::writable()
+inline int istream::writable(void)
 {
   return 0;
 }
 
 
-inline char* istream::bufptr()
+inline char* istream::bufptr(void)
 {
   return bp->base;
 }
 
 
-inline istream& istream::close()
+inline istream& istream::close(void)
 {
   bp->close();  return *this;
 }

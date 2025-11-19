@@ -50,7 +50,7 @@ extern char *strcpy();
 static char *buf;
 
 static char *
-_buf()
+_buf(void)
 {
 
 	if (buf == 0)

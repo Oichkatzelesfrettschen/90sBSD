@@ -56,7 +56,7 @@ __swbuf(c, fp)
 	 * In case we cannot write, or longjmp takes us out early,
 	 * make sure _w is 0 (if fully- or un-buffered) or -_bf._size
 	 * (if line buffered) so that we will get called again.
-	 * If we did not do this, a sufficient number of putc()
+	 * If we did not do this, a sufficient number of putc(void)
 	 * calls might wrap _w from negative to positive.
 	 */
 	fp->_w = fp->_lbfsize;
@@ -69,7 +69,7 @@ __swbuf(c, fp)
 	 * stuff c into the buffer.  If this causes the buffer to fill
 	 * completely, or if c is '\n' and the file is line buffered,
 	 * flush it (perhaps a second time).  The second flush will always
-	 * happen on unbuffered streams, where _bf._size==1; fflush()
+	 * happen on unbuffered streams, where _bf._size==1; fflush(void)
 	 * guarantees that putc() will always call wbuf() by setting _w
 	 * to 0, so we need not do anything else.
 	 */

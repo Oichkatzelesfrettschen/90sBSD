@@ -96,7 +96,7 @@ main(argc, argv)
 }
 
 static void
-setup()
+setup(void)
 {
 	register u_int cnt;
 	struct stat sb;
@@ -209,7 +209,7 @@ setup()
 }
 
 static void
-dd_in()
+dd_in(void)
 {
 	register int flags, n;
 
@@ -308,7 +308,7 @@ dd_in()
  * is truncated.
  */
 static void
-dd_close()
+dd_close(void)
 {
 	if (cfunc == def)
 		def_close();

@@ -156,7 +156,7 @@ doonintr(v)
 }
 
 void
-donohup()
+donohup(void)
 {
     if (intty)
 	stderror(ERR_NAME | ERR_TERMINAL);
@@ -166,13 +166,13 @@ donohup()
 }
 
 void
-dozip()
+dozip(void)
 {
     ;
 }
 
 void
-prvars()
+prvars(void)
 {
     plist(&shvhed);
 }
@@ -210,7 +210,7 @@ unalias(v)
 }
 
 void
-dologout()
+dologout(void)
 {
     islogin();
     goodbye();
@@ -229,7 +229,7 @@ dologin(v)
 }
 
 static void
-islogin()
+islogin(void)
 {
     if (chkstop == 0 && setintr)
 	panystop(0);
@@ -293,7 +293,7 @@ reexecute(kp)
 }
 
 void
-doelse()
+doelse(void)
 {
     search(T_ELSE, 0, NULL);
 }
@@ -344,7 +344,7 @@ doswitch(v)
 }
 
 void
-dobreak()
+dobreak(void)
 {
     if (whyles)
 	toend();
@@ -456,7 +456,7 @@ dowhile(v)
 }
 
 static void
-preread()
+preread(void)
 {
     whyles->w_end = -1;
     if (setintr)
@@ -469,7 +469,7 @@ preread()
 }
 
 void
-doend()
+doend(void)
 {
     if (!whyles)
 	stderror(ERR_NAME | ERR_NOTWHILE);
@@ -478,7 +478,7 @@ doend()
 }
 
 void
-docontin()
+docontin(void)
 {
     if (!whyles)
 	stderror(ERR_NAME | ERR_NOTWHILE);
@@ -486,7 +486,7 @@ docontin()
 }
 
 static void
-doagain()
+doagain(void)
 {
     /* Repeating a while is simple */
     if (whyles->w_fename == 0) {
@@ -530,7 +530,7 @@ dorepeat(v, kp)
 }
 
 void
-doswbrk()
+doswbrk(void)
 {
     search(T_BRKSW, 0, NULL);
 }
@@ -770,7 +770,7 @@ keyword(wp)
 }
 
 static void
-toend()
+toend(void)
 {
     if (whyles->w_end == 0) {
 	search(T_BREAK, 0, NULL);
@@ -782,7 +782,7 @@ toend()
 }
 
 void
-wfree()
+wfree(void)
 {
     long    o = fseekp;
 
@@ -1259,7 +1259,7 @@ setlim(lp, hard, limit)
 }
 
 void
-dosuspend()
+dosuspend(void)
 {
     int     ctpgrp;
 

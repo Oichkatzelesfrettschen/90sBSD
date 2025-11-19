@@ -54,7 +54,7 @@ static int _pw_stayopen;		/* keep fd's open */
 static int __hashpw(), __initdb();
 
 struct passwd *
-getpwent()
+getpwent(void)
 {
 	DBT key;
 	char bf[sizeof(_pw_keynum) + 1];
@@ -134,7 +134,7 @@ setpassent(stayopen)
 }
 
 int
-setpwent()
+setpwent(void)
 {
 	_pw_keynum = 0;
 	_pw_stayopen = 0;
@@ -142,7 +142,7 @@ setpwent()
 }
 
 void
-endpwent()
+endpwent(void)
 {
 	_pw_keynum = 0;
 	if (_pw_db) {
@@ -152,7 +152,7 @@ endpwent()
 }
 
 static
-__initdb()
+__initdb(void)
 {
 	static int warned;
 	char *p;
