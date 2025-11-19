@@ -33,9 +33,11 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)ranf.c	5.4 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	<stdio.h>
+int
 
 ranf(max)
 int	max;

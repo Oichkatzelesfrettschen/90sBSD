@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)pty.c	5.6 (Berkeley) 5/10/91";
 #include <string.h>
 #include <grp.h>
 
+int
 openpty(amaster, aslave, name, termp, winp)
 	int *amaster, *aslave;
 	char *name;
@@ -97,6 +98,7 @@ openpty(amaster, aslave, name, termp, winp)
 	return (-1);
 }
 
+int
 forkpty(amaster, name, termp, winp)
 	int *amaster;
 	char *name;

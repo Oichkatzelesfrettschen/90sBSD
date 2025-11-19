@@ -61,6 +61,7 @@ static char sccsid[] = "@(#)ring.c	5.2 (Berkeley) 3/1/91";
 
 #include	"ring.h"
 #include	"general.h"
+#include <string.h>
 
 /* Internal macros */
 
@@ -98,6 +99,7 @@ static u_long ring_clock = 0;
 
 
 /* Buffer state transition routines */
+int
 
     ring_init(ring, buffer, count)
 Ring *ring;

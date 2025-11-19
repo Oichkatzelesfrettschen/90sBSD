@@ -41,6 +41,7 @@ extern char *magicfile;
 extern int debug, nmagic;	/* number of valid magic[]s */
 extern void showstr();
 
+void
 mdump(m)
 struct magic *m;
 {
@@ -73,6 +74,7 @@ char *s1, *s2;
 
 /*ARGSUSED1*/
 /*VARARGS*/
+void
 warning(f, a)
 char *f, *a;
 {

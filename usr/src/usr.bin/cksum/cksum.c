@@ -114,6 +114,7 @@ main(argc, argv)
 	exit(rval);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: cksum [-o 1 | 2] [file ...]\n");

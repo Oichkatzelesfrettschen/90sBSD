@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)getword.c	5.3 (Berkeley) 6/1/90";
+#include <stdlib.h>
+#include <string.h>
 #endif /* not lint */
 
 # include	"hangman.h"
@@ -45,6 +47,7 @@ static char sccsid[] = "@(#)getword.c	5.3 (Berkeley) 6/1/90";
 
 /*
  * getword:
+void
  *	Get a valid word out of the dictionary file
  */
 getword()
