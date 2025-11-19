@@ -59,6 +59,8 @@ static char sccsid[] = "@(#)path.c	5.1 (Berkeley) 4/3/91";
  * Move specified string into path.  Convert "" to "." to handle BSD
  * semantics for a null path.  Strip trailing slashes.
  */
+int
+int
 path_set(p, string)
 	register PATH_T *p;
 	char *string;

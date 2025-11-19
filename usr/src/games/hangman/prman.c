@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)prman.c	5.3 (Berkeley) 4/8/91";
  *	Print out the man appropriately for the give number
  *	of incorrect guesses.
  */
+void
+void
 prman()
 {
 	register int	i;

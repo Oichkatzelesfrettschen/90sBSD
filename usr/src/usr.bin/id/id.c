@@ -316,6 +316,8 @@ who(u)
 	/* NOTREACHED */
 }
 
+int
+int
 gcmp(a, b)
 	const void *a, *b;
 {

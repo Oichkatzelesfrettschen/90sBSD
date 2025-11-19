@@ -41,6 +41,8 @@ static char sccsid[] = "@(#)putw.c	5.3 (Berkeley) 1/20/91";
 #include <stdio.h>
 #include "fvwrite.h"
 
+int
+int
 putw(w, fp)
 	int w;
 	FILE *fp;

@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)system.c	5.10 (Berkeley) 2/23/91";
 #include <unistd.h>
 #include <paths.h>
 
+int
+int
 system(command)
 	const char *command;
 {

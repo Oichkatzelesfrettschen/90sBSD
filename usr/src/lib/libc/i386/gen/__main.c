@@ -14,4 +14,5 @@
  * be going away or changing some time in the future. -wfj
  */
 void
+void
 __main() {}

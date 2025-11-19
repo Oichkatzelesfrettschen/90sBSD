@@ -47,6 +47,8 @@ static char sccsid[] = "@(#)wsetup.c	5.2 (Berkeley) 2/24/91";
  * because either _flags does not include __SWR, or _buf is NULL.
  * _wsetup returns 0 if OK to write, nonzero otherwise.
  */
+int
+int
 __swsetup(fp)
 	register FILE *fp;
 {

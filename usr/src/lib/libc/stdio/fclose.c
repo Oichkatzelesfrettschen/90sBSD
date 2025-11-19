@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)fclose.c	5.2 (Berkeley) 2/1/91";
 #include "local.h"
 
 int
+int
 fclose(fp)
 	register FILE *fp;
 {

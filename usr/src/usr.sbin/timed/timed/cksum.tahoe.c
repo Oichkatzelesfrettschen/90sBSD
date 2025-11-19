@@ -54,6 +54,10 @@ static char sccsid[] = "@(#)cksum.tahoe.c	2.4 (Berkeley) 6/1/90";
 	} \
 }
 
+int
+int
+int
+int
 in_cksum(addr, len)
 	register u_short *addr;
 	register int len;

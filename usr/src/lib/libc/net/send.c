@@ -39,6 +39,8 @@ static char sccsid[] = "@(#)send.c	5.3 (Berkeley) 2/24/91";
 #include <sys/socket.h>
 #include <stdio.h>
 
+int
+int
 send(s, msg, len, flags)
 	int s, flags;
 	size_t len;

@@ -712,6 +712,7 @@ error:
 
 #ifdef FLOATING_POINT
 #include <math.h>
+#include <stdlib.h>
 
 static char *exponent();
 static char *round();

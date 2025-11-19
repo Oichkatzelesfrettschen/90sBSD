@@ -18,6 +18,7 @@ along with GAS; see the file COPYING.  If not, write to
 the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 /* JF:  This is silly.  Why not stuff this in some other file? */
+#include <string.h>
 #ifdef USG
 #define bcopy(from,to,n) memcpy(to,from,n)
 #endif

@@ -104,6 +104,8 @@ u_long crctab[] = {
  *	of bytes read.  It returns 0 on success and 1 on failure.  Errno is
  *	set on failure.
  */
+int
+int
 crc(fd, cval, clen)
 	register int fd;
 	u_long *cval, *clen;

@@ -2,6 +2,7 @@
    Modified: 890606 NEWMOVE Levels 1-6 for easier debugging */
 #include "move.h"
 #include "gnuchess.h"
+#include <stdlib.h>
 
 short distdata[64][64];
 short taxidata[64][64];

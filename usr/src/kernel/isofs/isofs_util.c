@@ -88,6 +88,8 @@ unsigned char *p;
 /*
  * translate and compare a filename
  */
+int
+int
 isofncmp(char *fn, int fnlen, char *isofn, int isolen) {
 	int fnidx;
 

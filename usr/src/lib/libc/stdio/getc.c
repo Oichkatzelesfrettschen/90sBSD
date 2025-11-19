@@ -45,6 +45,8 @@ static char sccsid[] = "@(#)getc.c	5.1 (Berkeley) 1/20/91";
  */
 #undef getc
 
+int
+int
 getc(fp)
 	register FILE *fp;
 {

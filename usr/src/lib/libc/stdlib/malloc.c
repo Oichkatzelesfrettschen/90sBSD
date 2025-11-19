@@ -368,6 +368,8 @@ realloc(cp, nbytes)
  * Return bucket number, or -1 if not found.
  */
 static
+int
+int
 findbucket(freep, srchlen)
 	union overhead *freep;
 	int srchlen;

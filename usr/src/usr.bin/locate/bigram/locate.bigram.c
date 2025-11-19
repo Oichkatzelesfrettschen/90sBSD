@@ -57,6 +57,8 @@ static char sccsid[] = "@(#)locate.bigram.c	4.7 (Berkeley) 6/1/90";
 char buf1[PATH_MAX] = " ";	
 char buf2[PATH_MAX];
 
+void
+void
 main ( )
 {
   	register char *cp;

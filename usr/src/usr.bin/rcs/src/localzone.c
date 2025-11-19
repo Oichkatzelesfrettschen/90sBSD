@@ -25,6 +25,8 @@ static char sccsid[] = "@(#)localzone.c	5.1 (Berkeley) 8/15/89";
 #include <stdio.h>
 
 static int lclzon;
+int
+int
 localzone()
 {
 	struct timezone tz;

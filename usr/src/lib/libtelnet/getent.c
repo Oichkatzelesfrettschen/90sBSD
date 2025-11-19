@@ -55,6 +55,8 @@ static char sccsid[] = "@(#)getent.c	5.1 (Berkeley) 2/28/91";
  */
 
 /*ARGSUSED*/
+int
+int
 getent(cp, name)
 char *cp, *name;
 {

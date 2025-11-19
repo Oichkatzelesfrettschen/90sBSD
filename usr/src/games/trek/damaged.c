@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)damaged.c	5.4 (Berkeley) 6/1/90";
 **	event list for a "device fix" action on that device.
 */
 
+int
+int
 damaged(dev)
 int	dev;
 {

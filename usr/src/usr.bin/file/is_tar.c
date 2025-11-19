@@ -13,6 +13,7 @@
 #include <ctype.h>
 #include <sys/types.h>
 #include "tar.h"
+#include <string.h>
 
 #define	isodigit(c)	( ((c) >= '0') && ((c) <= '7') )
 

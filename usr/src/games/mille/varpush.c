@@ -48,6 +48,8 @@ int	read(), write();
  *	push variables around via the routine func() on the file
  * channel file.  func() is either read or write.
  */
+void
+void
 varpush(file, func)
 reg int	file;
 reg int	(*func)(); {

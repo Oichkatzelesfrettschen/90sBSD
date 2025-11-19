@@ -33,6 +33,8 @@
  *	$Id: strcpy.c,v 1.1 94/10/19 18:33:41 bill Exp $
  */
 
+void
+void
 strcpy(char *to, const char *from)
 {
 

@@ -22,6 +22,7 @@ what you give them.   Help stamp out software-hoarding!  */
 
 
 #include "obstack.h"
+#include <stdlib.h>
 
 #ifdef __STDC__
 #define POINTER void *

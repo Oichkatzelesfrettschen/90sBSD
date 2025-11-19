@@ -46,6 +46,8 @@ static char sccsid[] = "@(#)fscanf.c	5.1 (Berkeley) 1/20/91";
 #endif
 
 #if __STDC__
+int
+int
 fscanf(FILE *fp, char const *fmt, ...) {
 	int ret;
 	va_list ap;
