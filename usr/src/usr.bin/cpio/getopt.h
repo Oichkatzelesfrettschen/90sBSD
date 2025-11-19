@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_GETOPT_H_
+#define _USR.BIN_CPIO_GETOPT_H_
+
 /* Declarations for getopt.
    Copyright (C) 1989, 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 
@@ -127,3 +134,5 @@ extern int _getopt_internal ();
 #endif
 
 #endif /* _GETOPT_H */
+
+#endif /* _USR.BIN_CPIO_GETOPT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_HASH_SEARCH_H_
+#define _LIB_LIBC_DB_HASH_SEARCH_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -49,3 +56,5 @@ typedef enum {
 int	 hcreate __P((unsigned int));
 void	 hdestroy __P((void));
 ENTRY	*hsearch __P((ENTRY, ACTION));
+
+#endif /* _LIB_LIBC_DB_HASH_SEARCH_H_ */

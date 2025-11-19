@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_UCRED_H_
+#define _KERNEL_INCLUDE_UCRED_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -70,3 +77,5 @@ __ISYM__(int, groupmember, (gid_t gid, const struct ucred *cred))
 #endif KERNEL
 
 #endif /* !_UCRED_H_ */
+
+#endif /* _KERNEL_INCLUDE_UCRED_H_ */

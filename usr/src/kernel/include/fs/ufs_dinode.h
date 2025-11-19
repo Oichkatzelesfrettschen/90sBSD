@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_UFS_DINODE_H_
+#define _KERNEL_INCLUDE_FS_UFS_DINODE_H_
+
+/*
  * Copyright (c) 1982, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -84,3 +91,5 @@ struct dinode {
 #define	IREAD		0400		/* read permission */
 #define	IWRITE		0200		/* write permission */
 #define	IEXEC		0100		/* execute permission */
+
+#endif /* _KERNEL_INCLUDE_FS_UFS_DINODE_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_HASH_H_
+#define _USR.BIN_G++_CC1PLUS_CP_HASH_H_
+
 /* C code produced by gperf version 2.5 (GNU C++ version) */
 /* Command-line: gperf -p -j1 -g -o -t -N is_reserved_word -k1,4,$,7 gplus.gperf  */
 /* Command-line: gperf -p -j1 -g -o -t -N is_reserved_word -k1,4,$,7 gplus.gperf  */
@@ -184,3 +191,5 @@ is_reserved_word (str, len)
     }
   return 0;
 }
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_HASH_H_ */

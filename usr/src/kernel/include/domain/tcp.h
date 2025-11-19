@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_TCP_H_
+#define _KERNEL_INCLUDE_DOMAIN_TCP_H_
+
+/*
  * Copyright (c) 1982, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -83,3 +90,5 @@ struct tcphdr {
  */
 #define	TCP_NODELAY	0x01	/* don't delay send to coalesce packets */
 #define	TCP_MAXSEG	0x02	/* set maximum segment size */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_TCP_H_ */

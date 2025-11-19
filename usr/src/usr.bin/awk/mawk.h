@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_MAWK_H_
+#define _USR.BIN_AWK_MAWK_H_
+
 
 /********************************************
 mawk.h
@@ -200,3 +207,5 @@ double strtod() ;
 double fmod() ;
 
 #endif  /* MAWK_H */
+
+#endif /* _USR.BIN_AWK_MAWK_H_ */

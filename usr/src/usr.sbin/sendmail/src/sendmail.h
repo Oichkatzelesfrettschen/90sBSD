@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SENDMAIL_SRC_SENDMAIL_H_
+#define _USR.SBIN_SENDMAIL_SRC_SENDMAIL_H_
+
+/*
  * Copyright (c) 1983 Eric P. Allman
  * Copyright (c) 1988, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -971,3 +978,5 @@ extern void		usrerr();
 extern void		message();
 extern void		nmessage();
 #endif
+
+#endif /* _USR.SBIN_SENDMAIL_SRC_SENDMAIL_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYOUT__H_
+#define _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYOUT__H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -39,3 +46,5 @@ copyout_(struct proc *p, const void *from, void *to, const u_int size)
 	p->p_md.md_onfault = 0;
 	return (rv);
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYOUT__H_ */

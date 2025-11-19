@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_NAMED_NS_H_
+#define _USR.SBIN_NAMED_NS_H_
+
+/*
  * Copyright (c) 1985, 1990 Regents of the University of California.
  * All rights reserved.
  *
@@ -287,3 +294,5 @@ extern int xfer_running_cnt;	          /* number of xfers running */
 extern int xfer_deferred_cnt;	          /* number of deferred xfers */
 #define MAX_XFERS_RUNNING     4           /* max value of xfer_running_cnt */
 #endif /* XFER */
+
+#endif /* _USR.SBIN_NAMED_NS_H_ */

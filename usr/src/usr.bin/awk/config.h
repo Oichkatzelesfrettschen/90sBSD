@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_CONFIG_H_
+#define _USR.BIN_AWK_CONFIG_H_
+
 /********************************************
 386bsd.h
 copyright 1993, Michael D. Brennan
@@ -33,3 +40,5 @@ the GNU General Public License, version 2, 1991.
 #include "config/Idefault.h"
 
 #endif  /* CONFIG_H  */
+
+#endif /* _USR.BIN_AWK_CONFIG_H_ */

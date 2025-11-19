@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_WD_ATAPI_H_
+#define _KERNEL_WD_ATAPI_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -117,3 +124,5 @@ struct atapi_read_10 {
 	u_char ac_rsv3[3];
 };
 #define ATAPI10OP	0x28
+
+#endif /* _KERNEL_WD_ATAPI_H_ */

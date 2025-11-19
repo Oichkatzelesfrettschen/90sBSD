@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FILE_FILE_H_
+#define _USR.BIN_FILE_FILE_H_
+
+/*
  * file.h - definitions for file(1) program
  # @(#)$Header: file.h,v 1.4 87/09/18 10:56:09 ian Exp $
  *
@@ -52,3 +59,5 @@ struct magic {
 };
 
 extern void error(), exit();
+
+#endif /* _USR.BIN_FILE_FILE_H_ */

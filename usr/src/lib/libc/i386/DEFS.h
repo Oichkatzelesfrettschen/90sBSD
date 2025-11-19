@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_I386_DEFS_H_
+#define _LIB_LIBC_I386_DEFS_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -45,3 +52,5 @@
 #define	ENTRY(x)	.globl _/**/x; _/**/x: 
 #define	ASENTRY(x)	.globl x; x: 
 #endif
+
+#endif /* _LIB_LIBC_I386_DEFS_H_ */

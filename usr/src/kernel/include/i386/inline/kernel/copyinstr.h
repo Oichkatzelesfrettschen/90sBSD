@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYINSTR_H_
+#define _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYINSTR_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -62,3 +69,5 @@ copyinstr(struct proc *p, void *from, void *to, u_int size,
 
 	return (rv);
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_KERNEL_COPYINSTR_H_ */

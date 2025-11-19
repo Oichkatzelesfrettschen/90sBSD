@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_CONFIG_IDEFAULT_H_
+#define _USR.BIN_AWK_CONFIG_IDEFAULT_H_
+
 
 /********************************************
 Idefault.h
@@ -279,3 +286,5 @@ the GNU General Public License, version 2, 1991.
 #ifndef SIZE_T
 #define SIZE_T(x) (x)
 #endif
+
+#endif /* _USR.BIN_AWK_CONFIG_IDEFAULT_H_ */

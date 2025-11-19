@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_HEXDUMP_HEXDUMP_H_
+#define _USR.BIN_HEXDUMP_HEXDUMP_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -74,3 +81,5 @@ extern FS *fshead;			/* head of format strings list */
 extern int blocksize;			/* data block size */
 enum _vflag { ALL, DUP, FIRST, WAIT };	/* -v values */
 char *emalloc();
+
+#endif /* _USR.BIN_HEXDUMP_HEXDUMP_H_ */

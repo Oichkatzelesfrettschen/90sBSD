@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CHESS_MOVE_H_
+#define _GAMES_CHESS_MOVE_H_
+
 /* header file for move generator hes 890318
    Modified: 890510 minor bug fixed in Newataks
              890606 NEWMOVE levels 1-6 */
@@ -79,3 +86,5 @@ extern CaptureList();
 #if (NEWMOVE > 5)
 extern GenMoves();
 #endif
+
+#endif /* _GAMES_CHESS_MOVE_H_ */

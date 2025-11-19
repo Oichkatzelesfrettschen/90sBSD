@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_HOSTCTLR_H_
+#define _USR.BIN_TN3270_CTLR_HOSTCTLR_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -220,3 +227,5 @@ struct orders_def {
 #define	AID_PF34		0x5a
 #define	AID_PF35		0x5b
 #define	AID_PF36		0x5c
+
+#endif /* _USR.BIN_TN3270_CTLR_HOSTCTLR_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ATC_EXTERN_H_
+#define _GAMES_ATC_EXTERN_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -60,3 +67,5 @@ extern struct sgttyb	tty_start, tty_new;
 extern DISPLACEMENT	displacement[MAXDIR];
 
 extern PLANE		*findplane(), *newplane();
+
+#endif /* _GAMES_ATC_EXTERN_H_ */

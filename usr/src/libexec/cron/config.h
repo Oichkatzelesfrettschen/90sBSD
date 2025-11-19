@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_CRON_CONFIG_H_
+#define _LIBEXEC_CRON_CONFIG_H_
+
 /* Copyright 1988,1990,1993,1994 by Paul Vixie
  * All rights reserved
  *
@@ -84,3 +91,5 @@
 			 * places.
 			 */
 #define SYSLOG	 			/*-*/
+
+#endif /* _LIBEXEC_CRON_CONFIG_H_ */

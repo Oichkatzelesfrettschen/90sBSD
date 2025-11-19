@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_UUCP_H_
+#define _LIBEXEC_UUCP_UUCP_H_
+
 /* uucp.h
    Header file for the UUCP package.
 
@@ -1407,3 +1414,5 @@ extern openfile_t eRecfile;
 
 /* Device name to log.  This is set by fport_open.  It may be NULL.  */
 extern char *zLdevice;
+
+#endif /* _LIBEXEC_UUCP_UUCP_H_ */

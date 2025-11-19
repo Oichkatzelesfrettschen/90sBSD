@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_SAIL_PLAYER_H_
+#define _GAMES_SAIL_PLAYER_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -120,3 +127,5 @@ struct shipspecs *mc;		/* ms->specs */
 #define LEAVE_DRIVER	3
 #define LEAVE_FORK	4
 #define LEAVE_SYNC	5
+
+#endif /* _GAMES_SAIL_PLAYER_H_ */

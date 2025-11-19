@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_LPR_COMMON_SOURCE_LP.LOCAL_H_
+#define _USR.SBIN_LPR_COMMON_SOURCE_LP.LOCAL_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -94,3 +101,5 @@
  */
 #define MAXUSERS	50
 #define MAXREQUESTS	50
+
+#endif /* _USR.SBIN_LPR_COMMON_SOURCE_LP.LOCAL_H_ */

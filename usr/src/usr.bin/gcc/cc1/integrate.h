@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_INTEGRATE_H_
+#define _USR.BIN_GCC_CC1_INTEGRATE_H_
+
 /* Function integration definitions for GNU C-Compiler
    Copyright (C) 1990 Free Software Foundation, Inc.
 
@@ -118,3 +125,5 @@ extern void try_constants PROTO((rtx, struct inline_remap *));
 extern void mark_stores PROTO((rtx, rtx));
 
 extern rtx *global_const_equiv_map;
+
+#endif /* _USR.BIN_GCC_CC1_INTEGRATE_H_ */

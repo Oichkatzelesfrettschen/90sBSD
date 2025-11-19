@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_SYMTAB_H_
+#define _USR.BIN_GDB_SYMTAB_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -382,3 +389,5 @@ struct symtab_and_line find_pc_line ();
 struct symtabs_and_lines decode_line_spec ();
 struct symtabs_and_lines decode_line_spec_1 ();
 struct symtabs_and_lines decode_line_1 ();
+
+#endif /* _USR.BIN_GDB_SYMTAB_H_ */

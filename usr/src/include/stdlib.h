@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STDLIB_H_
+#define _INCLUDE_STDLIB_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -122,3 +129,5 @@ void	 unsetenv __P((const char *));
 __END_DECLS
 
 #endif /* _STDLIB_H_ */
+
+#endif /* _INCLUDE_STDLIB_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_RMT_H_
+#define _USR.BIN_CPIO_RMT_H_
+
 /* Definitions for communicating with a remote tape drive.
    Copyright (C) 1988, 1992 Free Software Foundation, Inc.
 
@@ -96,3 +103,5 @@ int __rmt_write ();
 long __rmt_lseek ();
 int __rmt_ioctl ();
 #endif /* !NO_REMOTE */
+
+#endif /* _USR.BIN_CPIO_RMT_H_ */

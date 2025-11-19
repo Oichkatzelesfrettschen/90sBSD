@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_ROUTED_AF_H_
+#define _SBIN_ROUTED_AF_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -63,3 +70,5 @@ struct afhash {
 
 struct	afswitch afswitch[];		/* table proper */
 int	af_max;				/* number of entries in table */
+
+#endif /* _SBIN_ROUTED_AF_H_ */

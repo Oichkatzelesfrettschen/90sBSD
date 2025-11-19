@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GREP_DFA_H_
+#define _USR.BIN_GREP_DFA_H_
+
 /* dfa.h - declarations for GNU deterministic regexp compiler
    Copyright (C) 1988 Free Software Foundation, Inc.
 
@@ -358,3 +365,5 @@ extern void dfasyntax(), dfacomp(), dfafree(), dfainit(), dfaparse();
 extern void dfaanalyze(), dfastate(), dfaerror();
 extern char *dfaexec();
 #endif /* ! __STDC__ */
+
+#endif /* _USR.BIN_GREP_DFA_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ATC_INCLUDE_H_
+#define _GAMES_ATC_INCLUDE_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -84,3 +91,5 @@
 #include "struct.h"
 #include "extern.h"
 #include "tunable.h"
+
+#endif /* _GAMES_ATC_INCLUDE_H_ */

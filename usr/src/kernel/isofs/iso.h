@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_ISOFS_ISO_H_
+#define _KERNEL_ISOFS_ISO_H_
+
+/*
  *	$Id: iso.h,v 1.2 1993/07/20 03:27:24 jkh Exp $
  */
 
@@ -111,3 +118,5 @@ int isofs_fhtovp __P((struct mount *mp, struct fid *fhp, struct vnode **vpp));
 int isofs_vptofh __P((struct vnode *vp, struct fid *fhp));
 int isofs_init __P(());
 
+
+#endif /* _KERNEL_ISOFS_ISO_H_ */

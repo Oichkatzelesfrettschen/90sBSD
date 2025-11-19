@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_LASTBSD_SYS_QUEUE_H_
+#define _INCLUDE_NONSTD_LASTBSD_SYS_QUEUE_H_
+
 /* 
  * Copyright (c) 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -243,3 +250,5 @@ struct {								\
 		    (elm)->field.cqe_next;				\
 }
 #endif	/* !_QUEUE_H_ */
+
+#endif /* _INCLUDE_NONSTD_LASTBSD_SYS_QUEUE_H_ */

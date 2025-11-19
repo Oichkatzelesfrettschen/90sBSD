@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VMSPACE_H_
+#define _KERNEL_INCLUDE_VMSPACE_H_
+
+/*
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
  *
@@ -78,3 +85,5 @@ int vmspace_activate(struct vmspace *vs, caddr_t va, unsigned sz);
 __END_DECLS
 
 #endif	VMSPACE_H
+
+#endif /* _KERNEL_INCLUDE_VMSPACE_H_ */

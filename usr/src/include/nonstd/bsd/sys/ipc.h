@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_SYS_IPC_H_
+#define _INCLUDE_NONSTD_BSD_SYS_IPC_H_
+
+/*
  * Copyright (c) 1988 University of Utah.
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -72,3 +79,5 @@ struct ipc_perm {
 #define	IPC_STAT	2	/* get options */
 
 #endif /* !_IPC_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_SYS_IPC_H_ */

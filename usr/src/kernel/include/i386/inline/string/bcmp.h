@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_STRING_BCMP_H_
+#define _KERNEL_INCLUDE_I386_INLINE_STRING_BCMP_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -23,3 +30,5 @@ bcmp(const void *fromaddr, void *toaddr, size_t maxlength) {
 	asm ("	1:");
 	return (1);	/* failed match */
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_STRING_BCMP_H_ */

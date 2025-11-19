@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_CHAP_H_
+#define _USR.SBIN_PPPD_CHAP_H_
+
+/*
  * chap.h - Cryptographic Handshake Authentication Protocol definitions.
  *
  * Copyright (c) 1991 Gregory M. Christy
@@ -110,3 +117,5 @@ int  ChapPrintPkt __ARGS((u_char *, int,
 
 #define __CHAP_INCLUDE__
 #endif /* __CHAP_INCLUDE__ */
+
+#endif /* _USR.SBIN_PPPD_CHAP_H_ */

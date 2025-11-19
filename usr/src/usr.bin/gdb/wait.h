@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_WAIT_H_
+#define _USR.BIN_GDB_WAIT_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -79,3 +86,5 @@
 #endif
 
 #endif
+
+#endif /* _USR.BIN_GDB_WAIT_H_ */

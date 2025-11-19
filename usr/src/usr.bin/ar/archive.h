@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AR_ARCHIVE_H_
+#define _USR.BIN_AR_ARCHIVE_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -105,3 +112,5 @@ struct stat;
 int	put_arobj __P((CF *, struct stat *));
 __END_DECLS
 
+
+#endif /* _USR.BIN_AR_ARCHIVE_H_ */

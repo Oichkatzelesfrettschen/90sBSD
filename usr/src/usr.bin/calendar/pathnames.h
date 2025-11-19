@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CALENDAR_PATHNAMES_H_
+#define _USR.BIN_CALENDAR_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -38,3 +45,5 @@
 #define	_PATH_CPP	"/usr/bin/cpp"
 			/* XXX -- fix when cpp parses arguments rationally */
 #define	_PATH_INCLUDE	"-I/usr/share/calendar"
+
+#endif /* _USR.BIN_CALENDAR_PATHNAMES_H_ */

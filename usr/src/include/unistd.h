@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_UNISTD_H_
+#define _INCLUDE_UNISTD_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -177,3 +184,5 @@ int	 vfork __P((void));
 __END_DECLS
 
 #endif /* !_UNISTD_H_ */
+
+#endif /* _INCLUDE_UNISTD_H_ */

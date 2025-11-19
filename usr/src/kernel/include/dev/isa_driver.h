@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_ISA_DRIVER_H_
+#define _KERNEL_INCLUDE_DEV_ISA_DRIVER_H_
+
 /*-
  * ISA Bus Driver specification.
  *
@@ -48,3 +55,5 @@ __ISYM__(void, new_isa_configure, (char **, struct isa_driver *))
 #undef __ISYM__
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
+
+#endif /* _KERNEL_INCLUDE_DEV_ISA_DRIVER_H_ */

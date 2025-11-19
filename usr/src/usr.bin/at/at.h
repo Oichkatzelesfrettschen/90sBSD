@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AT_AT_H_
+#define _USR.BIN_AT_AT_H_
+
+/*
  * at.h -  header for at(1)
  * Copyright (c) 1993 by Thomas Koenig
  * All rights reserved.
@@ -32,3 +39,5 @@ extern char atfile[];
 extern char atverify;
 
 #define AT_MAXJOBS	255	/* max jobs outstanding per user */
+
+#endif /* _USR.BIN_AT_AT_H_ */

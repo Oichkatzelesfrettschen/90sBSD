@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_SH_MAIN_H_
+#define _BIN_SH_MAIN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -46,3 +53,5 @@ void cmdloop(int);
 void readcmdfile();
 void cmdloop();
 #endif
+
+#endif /* _BIN_SH_MAIN_H_ */

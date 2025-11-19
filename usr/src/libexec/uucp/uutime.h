@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_UUTIME_H_
+#define _LIBEXEC_UUCP_UUTIME_H_
+
 /* uutime.h
    Header file for UUCP time routines.
 
@@ -142,3 +149,5 @@ extern long cmax_size_now P((const char *ztimesize));
 extern long cmax_size_ever P((const char *ztimesize));
 
 #endif /* ! defined (UUTIME_H) */
+
+#endif /* _LIBEXEC_UUCP_UUTIME_H_ */

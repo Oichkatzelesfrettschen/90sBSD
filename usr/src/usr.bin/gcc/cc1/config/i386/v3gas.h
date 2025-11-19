@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_V3GAS_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_V3GAS_H_
+
 /* Definitions for Intel 386 running system V, using gas.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -77,3 +84,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #undef WCHAR_TYPE_SIZE
 #define WCHAR_TYPE_SIZE BITS_PER_WORD
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_V3GAS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_INFERIOR_H_
+#define _USR.BIN_GDB_INFERIOR_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -140,3 +147,5 @@ extern char stop_registers[REGISTER_BYTES];
 extern int pc_changed;
 
 long read_memory_integer ();
+
+#endif /* _USR.BIN_GDB_INFERIOR_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GREP_OBSTACK_H_
+#define _USR.BIN_GREP_OBSTACK_H_
+
 /* obstack.h - object stack macros
    Copyright (C) 1988, 1992 Free Software Foundation, Inc.
 
@@ -482,3 +489,5 @@ __extension__								\
 #endif /* not __GNUC__ or not __STDC__ */
 
 #endif /* not __OBSTACKS__ */
+
+#endif /* _USR.BIN_GREP_OBSTACK_H_ */

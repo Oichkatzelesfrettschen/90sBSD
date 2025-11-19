@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAIL_GETOPT_H_
+#define _USR.BIN_TAIL_GETOPT_H_
+
 /* declarations for getopt
    Copyright (C) 1989, 1990 Free Software Foundation, Inc.
 
@@ -100,3 +107,5 @@ int getopt_long ();
 int getopt_long_only ();
 void envopt();
 #endif
+
+#endif /* _USR.BIN_TAIL_GETOPT_H_ */

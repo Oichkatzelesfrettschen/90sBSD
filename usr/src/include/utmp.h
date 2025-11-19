@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_UTMP_H_
+#define _INCLUDE_UTMP_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -58,3 +65,5 @@ struct utmp {
 };
 
 #endif /* !_UTMP_H_ */
+
+#endif /* _INCLUDE_UTMP_H_ */

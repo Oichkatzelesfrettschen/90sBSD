@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SLIPLOGIN_PATHNAMES_H_
+#define _USR.SBIN_SLIPLOGIN_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -38,3 +45,5 @@
 #define	_PATH_ACCESS	"/etc/slip.hosts"
 #define	_PATH_LOGIN	"/etc/slip.login"
 #define	_PATH_LOGOUT	"/etc/slip.logout"
+
+#endif /* _USR.SBIN_SLIPLOGIN_PATHNAMES_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_TCP_TIMER_H_
+#define _KERNEL_INCLUDE_DOMAIN_TCP_TIMER_H_
+
+/*
  * Copyright (c) 1982, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -128,3 +135,5 @@ extern int tcp_maxidle;			/* time to drop after starting probes */
 extern int tcp_ttl;			/* time to live for TCP segs */
 extern int tcp_backoff[];
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_TCP_TIMER_H_ */

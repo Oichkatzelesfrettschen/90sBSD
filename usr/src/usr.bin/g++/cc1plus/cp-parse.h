@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_PARSE_H_
+#define _USR.BIN_G++_CC1PLUS_CP_PARSE_H_
+
 typedef union {long itype; tree ttype; char *strtype; enum tree_code code; } YYSTYPE;
 #define	IDENTIFIER	258
 #define	TYPENAME	259
@@ -86,3 +93,5 @@ typedef union {long itype; tree ttype; char *strtype; enum tree_code code; } YYS
 
 extern YYSTYPE yylval;
 #define YYEMPTY		-2
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_PARSE_H_ */

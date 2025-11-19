@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_UIO_H_
+#define _KERNEL_INCLUDE_UIO_H_
+
 
 /*
  * Copyright (c) 1982, 1986 The Regents of the University of California.
@@ -116,3 +123,5 @@ uio_advance(struct uio *uio, struct iovec *iov, int cnt) {
 #endif	/* !KERNEL */
 
 #endif /* !_UIO_H_ */
+
+#endif /* _KERNEL_INCLUDE_UIO_H_ */

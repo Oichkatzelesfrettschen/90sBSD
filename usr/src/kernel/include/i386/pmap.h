@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_PMAP_H_
+#define _KERNEL_INCLUDE_I386_PMAP_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -234,3 +241,5 @@ pv_entry_t	pv_table;		/* array of entries, one per page */
 #endif	LOCORE
 
 #endif	_PMAP_MACHINE_
+
+#endif /* _KERNEL_INCLUDE_I386_PMAP_H_ */

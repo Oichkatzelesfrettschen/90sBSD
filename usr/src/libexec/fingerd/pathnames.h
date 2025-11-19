@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_FINGERD_PATHNAMES_H_
+#define _LIBEXEC_FINGERD_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -34,3 +41,5 @@
  */
 
 #define	_PATH_FINGER	"/usr/bin/finger"
+
+#endif /* _LIBEXEC_FINGERD_PATHNAMES_H_ */

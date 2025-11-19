@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_GEN_DIRLOC_H_
+#define _LIB_LIBC_GEN_DIRLOC_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -43,3 +50,5 @@ struct ddloc {
 	long	loc_seek;	/* magic cookie returned by getdirentries */
 	long	loc_loc;	/* offset of entry in buffer */
 };
+
+#endif /* _LIB_LIBC_GEN_DIRLOC_H_ */

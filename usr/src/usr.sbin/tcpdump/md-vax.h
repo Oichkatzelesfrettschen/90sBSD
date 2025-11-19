@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_MD_VAX_H_
+#define _USR.SBIN_TCPDUMP_MD_VAX_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -38,3 +45,5 @@
 /* Some Ultrix header files may need this */
 #define	vax	1
 #endif	vax
+
+#endif /* _USR.SBIN_TCPDUMP_MD_VAX_H_ */

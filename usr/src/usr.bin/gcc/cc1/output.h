@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_OUTPUT_H_
+#define _USR.BIN_GCC_CC1_OUTPUT_H_
+
 /* Declarations for insn-output.c.  These functions are defined in recog.c,
    final.c, and varasm.c.
    Copyright (C) 1987, 1991 Free Software Foundation, Inc.
@@ -169,3 +176,5 @@ extern int sdb_begin_function_line;
 #ifdef BUFSIZ
 extern FILE *asm_out_file;
 #endif
+
+#endif /* _USR.BIN_GCC_CC1_OUTPUT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_EXPR_H_
+#define _USR.BIN_GAS_EXPR_H_
+
 /* expr.h -> header file for expr.c
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -67,3 +74,5 @@ segT		expr();
 char		get_symbol_end();
 
 /* end: expr.h */
+
+#endif /* _USR.BIN_GAS_EXPR_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GPROF_GPROF_H_
+#define _USR.BIN_GPROF_GPROF_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -301,3 +308,5 @@ int		totalcmp();
 #define	LOOKUPDEBUG	256
 #define	PROPDEBUG	512
 #define	ANYDEBUG	1024
+
+#endif /* _USR.BIN_GPROF_GPROF_H_ */

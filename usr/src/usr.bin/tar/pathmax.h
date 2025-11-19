@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_PATHMAX_H_
+#define _USR.BIN_TAR_PATHMAX_H_
+
 /* Define PATH_MAX somehow.  Requires sys/types.h.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -51,3 +58,5 @@
 #endif
 
 #endif /* _PATHMAX_H */
+
+#endif /* _USR.BIN_TAR_PATHMAX_H_ */

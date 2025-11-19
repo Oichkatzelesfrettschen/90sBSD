@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FILEDESC_H_
+#define _KERNEL_INCLUDE_FILEDESC_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -104,3 +111,5 @@ void fdcloseexec(struct proc *p);
 int closef(struct file *fp, struct proc *p);
 int dupfdopen(struct filedesc *fdp, int indx, int dfd, int mode);
 #endif
+
+#endif /* _KERNEL_INCLUDE_FILEDESC_H_ */

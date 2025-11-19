@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_ARPA_TELNET_H_
+#define _INCLUDE_NONSTD_ARPA_TELNET_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -308,3 +315,5 @@ extern char *enctype_names[];
 #define	ENCTYPE_NAME(x)		enctype_names[x]
 
 #endif /* !_TELNET_H_ */
+
+#endif /* _INCLUDE_NONSTD_ARPA_TELNET_H_ */

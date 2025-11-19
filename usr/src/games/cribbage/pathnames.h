@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CRIBBAGE_PATHNAMES_H_
+#define _GAMES_CRIBBAGE_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -36,3 +43,5 @@
 #define	_PATH_LOG	"/var/games/criblog"
 #define	_PATH_MORE	"/usr/bin/more"
 #define	_PATH_INSTR	"/usr/share/games/cribbage.instr"
+
+#endif /* _GAMES_CRIBBAGE_PATHNAMES_H_ */

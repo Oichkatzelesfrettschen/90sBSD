@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_LCP_H_
+#define _USR.SBIN_PPPD_LCP_H_
+
+/*
  * lcp.h - Link Control Protocol definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -85,3 +92,5 @@ int  lcp_printpkt __ARGS((u_char *, int,
 
 extern int lcp_warnloops;	/* Warn about a loopback this often */
 #define DEFWARNLOOPS	10	/* Default value for above */
+
+#endif /* _USR.SBIN_PPPD_LCP_H_ */

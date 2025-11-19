@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SENDMAIL_SRC_USEFUL_H_
+#define _USR.SBIN_SENDMAIL_SRC_USEFUL_H_
+
+/*
  * Copyright (c) 1988, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
@@ -75,3 +82,5 @@ typedef char	bool;
 # else
 #  define SCCSID(arg)
 # endif
+
+#endif /* _USR.SBIN_SENDMAIL_SRC_USEFUL_H_ */

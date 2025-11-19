@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_CURSES_H_
+#define _INCLUDE_CURSES_H_
+
+/*
  * Copyright (c) 1981, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
@@ -336,3 +343,5 @@ char	*tgoto __P((char *, int, int));
 int	 tputs __P((char *, int, void (*)(int)));
 
 #endif /* !_CURSES_H_ */
+
+#endif /* _INCLUDE_CURSES_H_ */

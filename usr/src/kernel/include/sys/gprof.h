@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_GPROF_H_
+#define _KERNEL_INCLUDE_SYS_GPROF_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -112,3 +119,5 @@ struct rawarc {
      */
 #define ROUNDDOWN(x,y)	(((x)/(y))*(y))
 #define ROUNDUP(x,y)	((((x)+(y)-1)/(y))*(y))
+
+#endif /* _KERNEL_INCLUDE_SYS_GPROF_H_ */

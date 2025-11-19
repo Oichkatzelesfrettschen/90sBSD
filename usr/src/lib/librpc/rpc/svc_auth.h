@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_SVC_AUTH_H_
+#define _LIB_LIBRPC_RPC_SVC_AUTH_H_
+
 /* @(#)svc_auth.h	2.1 88/07/29 4.0 RPCSRC */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -40,3 +47,5 @@
  * Server side authenticator
  */
 extern enum auth_stat _authenticate();
+
+#endif /* _LIB_LIBRPC_RPC_SVC_AUTH_H_ */

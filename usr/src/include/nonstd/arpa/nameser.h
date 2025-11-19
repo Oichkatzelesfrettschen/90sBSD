@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_ARPA_NAMESER_H_
+#define _INCLUDE_NONSTD_ARPA_NAMESER_H_
+
+/*
  * Copyright (c) 1983, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -250,3 +257,5 @@ extern	u_long	_getlong();
 }
 
 #endif /* !_NAMESER_H_ */
+
+#endif /* _INCLUDE_NONSTD_ARPA_NAMESER_H_ */

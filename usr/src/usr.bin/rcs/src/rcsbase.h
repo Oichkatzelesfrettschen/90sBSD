@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_RCS_SRC_RCSBASE_H_
+#define _USR.BIN_RCS_SRC_RCSBASE_H_
+
 
 /*
  *                     RCS common definitions and data structures
@@ -388,3 +395,5 @@ enum markers { Nomatch, Author, Date, Header, Id,
 #define DELETE          'D'
 /* set by rcs -o and used by puttree() in rcssyn */
 
+
+#endif /* _USR.BIN_RCS_SRC_RCSBASE_H_ */

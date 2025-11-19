@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CHESS_XCHESS_SCROLLTEXT_H_
+#define _GAMES_CHESS_XCHESS_SCROLLTEXT_H_
+
+/*
  * Scrollable Text Window Header File
  *
  * David Harrison
@@ -30,3 +37,5 @@ int TxtRepaint();
    /* Repaints entire scrollable text window */
 int TxtFilter();
    /* Handles events related to text window */
+
+#endif /* _GAMES_CHESS_XCHESS_SCROLLTEXT_H_ */

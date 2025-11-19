@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_PMAP_PROT_H_
+#define _LIB_LIBRPC_RPC_PMAP_PROT_H_
+
 /* @(#)pmap_prot.h	2.1 88/07/29 4.0 RPCSRC; from 1.14 88/02/08 SMI */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -92,3 +99,5 @@ struct pmaplist {
 };
 
 extern bool_t xdr_pmaplist();
+
+#endif /* _LIB_LIBRPC_RPC_PMAP_PROT_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_PROTOTYPES_H_
+#define _KERNEL_INCLUDE_PROTOTYPES_H_
+
+/*
  * Copyright (c) 1993 William Jolitz. All rights reserved.
  * Written by William Jolitz 1/93
  *
@@ -114,3 +121,5 @@ __END_DECLS */
 
 #include "machine/inline/string.h"
 #include "machine/inline/kernel.h"
+
+#endif /* _KERNEL_INCLUDE_PROTOTYPES_H_ */

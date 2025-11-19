@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_MILLE_UNCTRL_H_
+#define _GAMES_MILLE_UNCTRL_H_
+
+/*
  * Copyright (c) 1982 Regents of the University of California.
  * All rights reserved.
  *
@@ -40,3 +47,5 @@
 extern char	*_unctrl[];
 
 # define	unctrl(ch)	(_unctrl[ch & 0177])
+
+#endif /* _GAMES_MILLE_UNCTRL_H_ */

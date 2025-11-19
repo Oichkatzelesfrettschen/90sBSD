@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_PROTOSW_H_
+#define _KERNEL_INCLUDE_DOMAIN_PROTOSW_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -218,3 +225,5 @@ __ISYM__(void, pfctlinput, (int, struct sockaddr *))
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_PROTOSW_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_FUNCTION_H_
+#define _USR.BIN_TN3270_CTLR_FUNCTION_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -164,3 +171,5 @@ extern struct hits hits[];
 #define	SHIFT_ALT	0x04	/* ALT shift state */
 #define	SHIFT_CAPS	0x02	/* Caps lock state */
 #define	SHIFT_UPSHIFT	0x01	/* Upshift state */
+
+#endif /* _USR.BIN_TN3270_CTLR_FUNCTION_H_ */

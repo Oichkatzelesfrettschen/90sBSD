@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_NTP_H_
+#define _USR.SBIN_TCPDUMP_NTP_H_
+
 /* $Header: ntp.h,v 1.1 90/08/07 11:08:27 mogul Exp $ */
 
 /*
@@ -115,3 +122,5 @@ struct ntpdata {
 #define	PRIM_REF	1	/* radio clock */
 #define	INFO_QUERY	62	/* **** THIS implementation dependent **** */
 #define	INFO_REPLY	63	/* **** THIS implementation dependent **** */
+
+#endif /* _USR.SBIN_TCPDUMP_NTP_H_ */

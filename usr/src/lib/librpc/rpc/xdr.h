@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_XDR_H_
+#define _LIB_LIBRPC_RPC_XDR_H_
+
 /* @(#)xdr.h	2.2 88/07/29 4.0 RPCSRC */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -268,3 +275,5 @@ extern bool_t xdrrec_skiprecord();	/* move to beginning of next record */
 extern bool_t xdrrec_eof();		/* true if no more input */
 
 #endif !__XDR_HEADER__
+
+#endif /* _LIB_LIBRPC_RPC_XDR_H_ */

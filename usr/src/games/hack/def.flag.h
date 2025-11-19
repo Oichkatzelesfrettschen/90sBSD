@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.FLAG_H_
+#define _GAMES_HACK_DEF.FLAG_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.flag.h - version 1.0.3 */
 
@@ -40,3 +47,5 @@ struct flag {
 
 extern struct flag flags;
 
+
+#endif /* _GAMES_HACK_DEF.FLAG_H_ */

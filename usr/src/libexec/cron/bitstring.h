@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_CRON_BITSTRING_H_
+#define _LIBEXEC_CRON_BITSTRING_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -120,3 +127,5 @@ typedef	unsigned char bitstr_t;
 		} \
 	*(value) = _value; \
 }
+
+#endif /* _LIBEXEC_CRON_BITSTRING_H_ */

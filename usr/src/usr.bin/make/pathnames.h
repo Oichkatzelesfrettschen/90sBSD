@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAKE_PATHNAMES_H_
+#define _USR.BIN_MAKE_PATHNAMES_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -37,3 +44,5 @@
 #define	_PATH_DEFSHELLDIR	"/bin"
 #define	_PATH_DEFSYSMK		"/usr/share/mk/sys.mk"
 #define	_PATH_DEFSYSPATH	"/usr/share/mk"
+
+#endif /* _USR.BIN_MAKE_PATHNAMES_H_ */

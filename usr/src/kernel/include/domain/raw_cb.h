@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_RAW_CB_H_
+#define _KERNEL_INCLUDE_DOMAIN_RAW_CB_H_
+
+/*
  * Copyright (c) 1980, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -71,3 +78,5 @@ __ISYM__(int, raw_usrreq, (struct socket *, int, struct mbuf *, struct mbuf *, s
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_RAW_CB_H_ */

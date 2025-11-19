@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBTELNET_AUTH_PROTO_H_
+#define _LIB_LIBTELNET_AUTH_PROTO_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -94,3 +101,5 @@ int kerberos5_status P((Authenticator *, char *, int));
 void kerberos5_printsub P((unsigned char *, int, unsigned char *, int));
 #endif
 #endif
+
+#endif /* _LIB_LIBTELNET_AUTH_PROTO_H_ */

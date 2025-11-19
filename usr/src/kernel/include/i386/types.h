@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_TYPES_H_
+#define _KERNEL_INCLUDE_I386_TYPES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -53,3 +60,5 @@ typedef	u_long	vm_size_t;
 /* #endif */
 
 #endif	/* _MACHTYPES_H_ */
+
+#endif /* _KERNEL_INCLUDE_I386_TYPES_H_ */

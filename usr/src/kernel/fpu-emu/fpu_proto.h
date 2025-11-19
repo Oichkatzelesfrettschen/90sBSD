@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_FPU_PROTO_H_
+#define _KERNEL_FPU_EMU_FPU_PROTO_H_
+
 /* errors.c */
 extern void Un_impl(void);
 extern void emu_printall(void);
@@ -113,3 +120,5 @@ extern char *fstenv(void);
 extern void fsave(void);
 /* reg_mul.c */
 extern void reg_mul(FPU_REG *a, FPU_REG *b, FPU_REG *dest, unsigned int control_w);
+
+#endif /* _KERNEL_FPU_EMU_FPU_PROTO_H_ */

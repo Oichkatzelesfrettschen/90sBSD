@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAKE_HASH_H_
+#define _USR.BIN_MAKE_HASH_H_
+
+/*
  * Copyright (c) 1988, 1989, 1990 The Regents of the University of California.
  * Copyright (c) 1988, 1989 by Adam de Boor
  * Copyright (c) 1989 by Berkeley Softworks
@@ -122,3 +129,5 @@ extern void		Hash_InitTable();
 extern void		Hash_PrintStats();
 
 #endif _HASH
+
+#endif /* _USR.BIN_MAKE_HASH_H_ */

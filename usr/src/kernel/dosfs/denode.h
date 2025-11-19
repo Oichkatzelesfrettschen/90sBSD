@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_DENODE_H_
+#define _KERNEL_DOSFS_DENODE_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -247,3 +254,5 @@ int pcfs_advlock __P((struct vnode *vp, caddr_t id, int op, struct flock *fl,
 int deget __P((struct pcfsmount *pmp, u_long dirclust, u_long diroffset,
 	struct direntry *direntptr, struct denode **depp));
 #endif /* defined(KERNEL) */
+
+#endif /* _KERNEL_DOSFS_DENODE_H_ */

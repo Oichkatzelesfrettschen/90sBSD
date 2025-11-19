@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBTELNET_ENC_PROTO_H_
+#define _LIB_LIBTELNET_ENC_PROTO_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -114,3 +121,5 @@ void des_key_sched P((Block, Schedule));
 void des_ecb_encrypt P((Block, Block, Schedule, int));
 int  des_string_to_key P((char *, Block));
 #endif
+
+#endif /* _LIB_LIBTELNET_ENC_PROTO_H_ */

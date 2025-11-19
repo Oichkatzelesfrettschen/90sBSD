@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_OPEN3_H_
+#define _USR.BIN_TAR_OPEN3_H_
+
 /* Defines for Sys V style 3-argument open call.
    Copyright (C) 1988 Free Software Foundation
 
@@ -65,3 +72,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
  */
 #define open	open3
 #endif
+
+#endif /* _USR.BIN_TAR_OPEN3_H_ */

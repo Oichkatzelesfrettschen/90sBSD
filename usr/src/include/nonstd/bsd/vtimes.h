@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_VTIMES_H_
+#define _INCLUDE_NONSTD_BSD_VTIMES_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -52,3 +59,5 @@ struct vtimes {
 	int	vm_inblk;		/* block reads */
 	int	vm_oublk;		/* block writes */
 };
+
+#endif /* _INCLUDE_NONSTD_BSD_VTIMES_H_ */

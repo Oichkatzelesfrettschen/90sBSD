@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_FILETYPES_H_
+#define _USR.BIN_CPIO_FILETYPES_H_
+
 /* filetypes.h - deal with POSIX annoyances
    Copyright (C) 1991 Free Software Foundation, Inc.
 
@@ -82,3 +89,5 @@
 #endif
 int lstat ();
 int stat ();
+
+#endif /* _USR.BIN_CPIO_FILETYPES_H_ */

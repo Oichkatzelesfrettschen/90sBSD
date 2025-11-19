@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ATC_PATHNAMES_H_
+#define _GAMES_ATC_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -37,3 +44,5 @@
 
 #define	_PATH_GAMES	"/usr/share/games/atc/"
 #define	_PATH_SCORE	"/var/games/atc_score"
+
+#endif /* _GAMES_ATC_PATHNAMES_H_ */

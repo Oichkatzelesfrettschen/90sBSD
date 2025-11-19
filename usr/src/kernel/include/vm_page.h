@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_PAGE_H_
+#define _KERNEL_INCLUDE_VM_PAGE_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -213,3 +220,5 @@ vm_page_init(vm_page_t mem, vm_object_t object, vm_offset_t offset)
 #define vm_page_set_modified(m)	{ (m)->clean = FALSE; }
 #endif	KERNEL
 #endif	_VM_PAGE_
+
+#endif /* _KERNEL_INCLUDE_VM_PAGE_H_ */

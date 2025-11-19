@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_PROTOCOLS_ROUTED_H_
+#define _INCLUDE_NONSTD_BSD_PROTOCOLS_ROUTED_H_
+
 /*-
  * Copyright (c) 1983, 1989 Regents of the University of California.
  * All rights reserved.
@@ -102,3 +109,5 @@ char *ripcmds[RIPCMD_MAX] =
 #define	GARBAGE_TIME		240	/* time to garbage collect */
 
 #endif /* !_ROUTED_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_PROTOCOLS_ROUTED_H_ */

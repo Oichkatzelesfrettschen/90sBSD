@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_SYMTYPE_H_
+#define _USR.BIN_AWK_SYMTYPE_H_
+
 
 /********************************************
 symtype.h
@@ -187,3 +194,5 @@ void    PROTO( restore_ids, (void) ) ;
 void  PROTO(type_error, (SYMTAB *) ) ;
 
 #endif  /* SYMTYPE_H */
+
+#endif /* _USR.BIN_AWK_SYMTYPE_H_ */

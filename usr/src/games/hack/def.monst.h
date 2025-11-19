@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.MONST_H_
+#define _GAMES_HACK_DEF.MONST_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.monst.h - version 1.0.2 */
 
@@ -58,3 +65,5 @@ struct monst *m_at();
 #define	NAME(mtmp)	(((char *) mtmp->mextra) + mtmp->mxlth)
 #define	MREGEN		"TVi1"
 #define	UNDEAD		"ZVW "
+
+#endif /* _GAMES_HACK_DEF.MONST_H_ */

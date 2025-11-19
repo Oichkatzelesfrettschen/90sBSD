@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_CONFIG_M_I386_H_
+#define _USR.BIN_GDB_CONFIG_M_I386_H_
+
 /* Macro defintions for i386.
    Copyright (C) 1986, 1987, 1989 Free Software Foundation, Inc.
 
@@ -392,3 +399,5 @@ on those where it does, it occurs quite reliably.  */
 
 #define POP_REGISTERS      {}
 #endif
+
+#endif /* _USR.BIN_GDB_CONFIG_M_I386_H_ */

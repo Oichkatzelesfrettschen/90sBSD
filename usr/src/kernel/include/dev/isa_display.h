@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_ISA_DISPLAY_H_
+#define _KERNEL_INCLUDE_DEV_ISA_DISPLAY_H_
+
+/*
  * IBM PC display definitions
  */
 
@@ -41,3 +48,5 @@
 /* Monochrome attributes for text background */
 
 #define	BG_INTENSE		0x10
+
+#endif /* _KERNEL_INCLUDE_DEV_ISA_DISPLAY_H_ */

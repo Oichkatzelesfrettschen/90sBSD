@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STDARG_H_
+#define _INCLUDE_STDARG_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -39,3 +46,5 @@
 #include <machine/stdarg.h>
 
 #endif /* !_STDARG_H */
+
+#endif /* _INCLUDE_STDARG_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_NFS_DISKLESS_H_
+#define _KERNEL_INCLUDE_FS_NFS_DISKLESS_H_
+
+/*
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
  *
@@ -56,3 +63,5 @@ struct nfs_diskless {
 	struct sockaddr	root_saddr;	/* Address of root server */
 	char		*root_hostnam;	/* Host name for mount pt */
 };
+
+#endif /* _KERNEL_INCLUDE_FS_NFS_DISKLESS_H_ */

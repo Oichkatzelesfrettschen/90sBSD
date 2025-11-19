@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_FLAGS_H_
+#define _USR.BIN_GCC_CC1_FLAGS_H_
+
 /* Compilation switch flag definitions for GNU CC.
    Copyright (C) 1987, 1988 Free Software Foundation, Inc.
 
@@ -342,3 +349,5 @@ extern int can_reach_end;
 
 extern int current_function_has_nonlocal_label;
 
+
+#endif /* _USR.BIN_GCC_CC1_FLAGS_H_ */

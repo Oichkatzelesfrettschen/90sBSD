@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_LPT_LPTREG_H_
+#define _KERNEL_LPT_LPTREG_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -32,3 +39,5 @@
 #define	LPC_NINIT		0x04	/* initialize printer */
 #define	LPC_SEL			0x08	/* printer selected */
 #define	LPC_ENA			0x10	/* printer out of paper */
+
+#endif /* _KERNEL_LPT_LPTREG_H_ */

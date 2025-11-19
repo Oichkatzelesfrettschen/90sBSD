@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_BOOTSECT_H_
+#define _KERNEL_DOSFS_BOOTSECT_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -71,3 +78,5 @@ union bootsector {
 #define	bsHeads		bsBPB.bpbHeads
 #define	bsHiddenSecs	bsBPB.bpbHiddenSecs
 #define	bsHugeSectors	bsBPB.bpbHugeSectors
+
+#endif /* _KERNEL_DOSFS_BOOTSECT_H_ */

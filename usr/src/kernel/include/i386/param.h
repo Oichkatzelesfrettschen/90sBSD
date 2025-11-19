@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_PARAM_H_
+#define _KERNEL_INCLUDE_I386_PARAM_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -168,3 +175,5 @@ __ISYM__(int, loops_per_usec,)		/*  */
 		;					\
 })
 #endif
+
+#endif /* _KERNEL_INCLUDE_I386_PARAM_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_NETISR_H_
+#define _KERNEL_INCLUDE_DOMAIN_NETISR_H_
+
+/*
  * Copyright (c) 1980, 1986, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -78,3 +85,5 @@ __ISYM__(net_intr_t, netintr, [32])
 #undef __ISYM_VERSION__
 #endif
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_NETISR_H_ */

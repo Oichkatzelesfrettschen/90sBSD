@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_MOUNT_H_
+#define _KERNEL_INCLUDE_SYS_MOUNT_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -315,3 +322,5 @@ int	unmount __P((const char *, int));
 __END_DECLS
 
 #endif /* KERNEL */
+
+#endif /* _KERNEL_INCLUDE_SYS_MOUNT_H_ */

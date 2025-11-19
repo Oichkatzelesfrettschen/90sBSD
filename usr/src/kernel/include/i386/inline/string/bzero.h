@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_STRING_BZERO_H_
+#define _KERNEL_INCLUDE_I386_INLINE_STRING_BZERO_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -16,3 +23,5 @@ bzero(void *toaddr, size_t maxlength) {
 	    "=D" (toaddr) :
 	    "0" (toaddr), "c" (maxlength & 3), "a" (0));
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_STRING_BZERO_H_ */

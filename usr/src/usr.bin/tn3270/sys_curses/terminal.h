@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_SYS_CURSES_TERMINAL_H_
+#define _USR.BIN_TN3270_SYS_CURSES_TERMINAL_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -79,3 +86,5 @@
 #define GetTerminal(i)		GetGeneric(i, Terminal)
 #define GetTerminalPointer(p)	GetGenericPointer(p)
 #define SetTerminal(i,c)	SetGeneric(i,c,Terminal)
+
+#endif /* _USR.BIN_TN3270_SYS_CURSES_TERMINAL_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_PROTOCOLS_DUMPRESTORE_H_
+#define _INCLUDE_NONSTD_BSD_PROTOCOLS_DUMPRESTORE_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -102,3 +109,5 @@ union u_spcl {
 #define	DUMPINFMT	"%16s %c %[^\n]\n"	/* inverse for scanf */
 
 #endif /* !_DUMPRESTORE_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_PROTOCOLS_DUMPRESTORE_H_ */

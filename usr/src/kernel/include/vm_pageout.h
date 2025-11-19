@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_PAGEOUT_H_
+#define _KERNEL_INCLUDE_VM_PAGEOUT_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -88,3 +95,5 @@ extern int	vm_pages_needed;	/* should be some "event" structure */
 }
 
 void	vm_pageout();
+
+#endif /* _KERNEL_INCLUDE_VM_PAGEOUT_H_ */

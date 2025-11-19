@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_RLIST_H_
+#define _KERNEL_INCLUDE_RLIST_H_
+
+/*
  * Copyright (c) 1992 William Jolitz. All rights reserved.
  * Written by William Jolitz 1/92
  *
@@ -24,3 +31,5 @@ struct rlist {
 void rlist_free(struct rlist **, unsigned, unsigned);
 int rlist_alloc(struct rlist **, unsigned, unsigned *);
 void rlist_destroy(struct rlist **);
+
+#endif /* _KERNEL_INCLUDE_RLIST_H_ */

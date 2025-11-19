@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TIP_TIP_H_
+#define _USR.BIN_TIP_TIP_H_
+
+/*
  * Copyright (c) 1983 The Regents of the University of California.
  * All rights reserved.
  *
@@ -275,3 +282,5 @@ extern	int disc;			/* current tty discpline */
 extern	char *ctrl();
 extern	char *vinterp();
 extern	char *connect();
+
+#endif /* _USR.BIN_TIP_TIP_H_ */

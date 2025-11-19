@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FTP_PATHNAMES_H_
+#define _USR.BIN_FTP_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -37,3 +44,5 @@
 
 #undef _PATH_TMP
 #define	_PATH_TMP	"/tmp/ftpXXXXXX"
+
+#endif /* _USR.BIN_FTP_PATHNAMES_H_ */

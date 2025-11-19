@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_DB_DB_H_
+#define _INCLUDE_NONSTD_DB_DB_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -191,3 +198,5 @@ void	 __dbpanic __P((DB *dbp));
 #endif
 __END_DECLS
 #endif /* !_DB_H_ */
+
+#endif /* _INCLUDE_NONSTD_DB_DB_H_ */

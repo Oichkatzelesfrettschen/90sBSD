@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_ASCII_MAP3270_H_
+#define _USR.BIN_TN3270_ASCII_MAP3270_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -39,3 +46,5 @@
 
 extern state
     *InitControl();
+
+#endif /* _USR.BIN_TN3270_ASCII_MAP3270_H_ */

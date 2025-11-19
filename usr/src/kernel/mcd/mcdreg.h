@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_MCD_MCDREG_H_
+#define _KERNEL_MCD_MCDREG_H_
+
+/*
  * Copyright 1993 by Holger Veit (data part)
  * Copyright 1993 by Brian Moore (audio part)
  * All rights reserved.
@@ -199,3 +206,5 @@ struct mcd_read2 {
 
 
 #endif /* MCD_H */
+
+#endif /* _KERNEL_MCD_MCDREG_H_ */

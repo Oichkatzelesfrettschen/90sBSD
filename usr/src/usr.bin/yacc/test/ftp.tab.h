@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_YACC_TEST_FTP.TAB_H_
+#define _USR.BIN_YACC_TEST_FTP.TAB_H_
+
 #define A 257
 #define B 258
 #define C 259
@@ -61,3 +68,5 @@
 #define IDLE 317
 #define CHMOD 318
 #define LEXERR 319
+
+#endif /* _USR.BIN_YACC_TEST_FTP.TAB_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_TYPES_H_
+#define _LIB_LIBRPC_RPC_TYPES_H_
+
 /* @(#)types.h	2.3 88/08/15 4.0 RPCSRC */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -61,3 +68,5 @@ void *malloc();
 #endif
 
 #endif /* ndef __TYPES_RPC_HEADER__ */
+
+#endif /* _LIB_LIBRPC_RPC_TYPES_H_ */

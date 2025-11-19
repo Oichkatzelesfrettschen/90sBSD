@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.OBJ_H_
+#define _GAMES_HACK_DEF.OBJ_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.obj.h - version 1.0.3 */
 
@@ -46,3 +53,5 @@ extern struct obj *fobj;
 #define newobj(xl)	(struct obj *) alloc((unsigned)(xl) + sizeof(struct obj))
 #define	ONAME(otmp)	((char *) otmp->oextra)
 #define	OGOLD(otmp)	(otmp->oextra[0])
+
+#endif /* _GAMES_HACK_DEF.OBJ_H_ */

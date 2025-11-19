@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_QUEUE_H_
+#define _KERNEL_INCLUDE_QUEUE_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -132,3 +139,5 @@ typedef	struct queue_entry	*queue_entry_t;
 }
 
 #endif	/* !_QUEUE_H_ */
+
+#endif /* _KERNEL_INCLUDE_QUEUE_H_ */

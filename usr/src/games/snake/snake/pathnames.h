@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_SNAKE_SNAKE_PATHNAMES_H_
+#define _GAMES_SNAKE_SNAKE_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -35,3 +42,5 @@
 
 #define	_PATH_RAWSCORES	"/var/games/snakerawscores"
 #define	_PATH_LOGFILE	"/var/games/snake.log"
+
+#endif /* _GAMES_SNAKE_SNAKE_PATHNAMES_H_ */

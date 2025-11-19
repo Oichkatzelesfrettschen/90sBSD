@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_LPR_COMMON_SOURCE_PATHNAMES_H_
+#define _USR.SBIN_LPR_COMMON_SOURCE_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -48,3 +55,5 @@
 #define	_PATH_VFONTI		"/usr/libdata/vfont/I"
 #define	_PATH_VFONTR		"/usr/libdata/vfont/R"
 #define	_PATH_VFONTS		"/usr/libdata/vfont/S"
+
+#endif /* _USR.SBIN_LPR_COMMON_SOURCE_PATHNAMES_H_ */

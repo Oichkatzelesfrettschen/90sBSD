@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_API_APILIB_H_
+#define _USR.BIN_TN3270_API_APILIB_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -42,3 +49,5 @@ extern int
     api_sup_fcn_id,			/* Supervisor function id (0x12) */
     api_fcn_errno,			/* Function error number */
     api_fcn_fcn_id;			/* Function ID (0x6b, etc.) */
+
+#endif /* _USR.BIN_TN3270_API_APILIB_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_AF_H_
+#define _KERNEL_INCLUDE_DOMAIN_AF_H_
+
+/*
  * Copyright (c) 1980, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -62,3 +69,5 @@ struct afhash {
 extern struct	afswitch afswitch[];
 #endif
  */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_AF_H_ */

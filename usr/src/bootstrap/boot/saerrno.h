@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BOOTSTRAP_BOOT_SAERRNO_H_
+#define _BOOTSTRAP_BOOT_SAERRNO_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -52,3 +59,5 @@ extern	int errno;	/* just like unix */
 #define	EWCK	14	/* write check error */
 #define	EECC	15	/* uncorrectable ecc error */
 #define	EHER	16	/* hard error */
+
+#endif /* _BOOTSTRAP_BOOT_SAERRNO_H_ */

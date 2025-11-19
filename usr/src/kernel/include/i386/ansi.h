@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_ANSI_H_
+#define _KERNEL_INCLUDE_I386_ANSI_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -55,3 +62,5 @@
 #define	_WCHAR_T_	unsigned short		/* wchar_t */
 
 #endif	/* _ANSI_H_ */
+
+#endif /* _KERNEL_INCLUDE_I386_ANSI_H_ */

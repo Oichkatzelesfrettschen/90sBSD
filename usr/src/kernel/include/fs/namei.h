@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_NAMEI_H_
+#define _KERNEL_INCLUDE_FS_NAMEI_H_
+
+/*
  * Copyright (c) 1985, 1989, 1991 Regents of the University of California.
  * All rights reserved.
  *
@@ -180,3 +187,5 @@ struct	nchstats {
 	long	ncs_2passes;		/* number of times we attempt it */
 };
 #endif /* !_NAMEI_H_ */
+
+#endif /* _KERNEL_INCLUDE_FS_NAMEI_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_MAP_H_
+#define _KERNEL_INCLUDE_VM_MAP_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -227,3 +234,5 @@ void vm_map_print(vm_map_t map, boolean_t full);
 #define	MAX_KMAPENT	500
 
 #endif	_VM_MAP_
+
+#endif /* _KERNEL_INCLUDE_VM_MAP_H_ */

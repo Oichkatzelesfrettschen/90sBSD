@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_JMP_H_
+#define _USR.BIN_AWK_JMP_H_
+
 
 /********************************************
 jmp.h
@@ -30,3 +37,5 @@ void  PROTO(patch_jmp, (INST *) ) ;
 
 #endif  /* JMP_H  */
 
+
+#endif /* _USR.BIN_AWK_JMP_H_ */

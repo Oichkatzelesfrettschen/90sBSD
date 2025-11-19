@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_STRING_MEMCMP_H_
+#define _KERNEL_INCLUDE_I386_INLINE_STRING_MEMCMP_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -24,3 +31,5 @@ memcmp(const void *s1, const void *s2, size_t len) {
 	asm volatile ("1:");
 	return (1);	/* failed match */
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_STRING_MEMCMP_H_ */

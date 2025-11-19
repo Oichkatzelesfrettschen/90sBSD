@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NDBM_H_
+#define _INCLUDE_NDBM_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -75,3 +82,5 @@ int	 dbm_dirfno __P((DBM *));
 __END_DECLS
 
 #endif /* !_NDBM_H_ */
+
+#endif /* _INCLUDE_NDBM_H_ */

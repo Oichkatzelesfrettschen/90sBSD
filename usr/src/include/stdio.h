@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STDIO_H_
+#define _INCLUDE_STDIO_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -351,3 +358,5 @@ static inline int __sputc(int _c, FILE *_p) {
 #define	getchar()	getc(stdin)
 #define	putchar(x)	putc(x, stdout)
 #endif /* _STDIO_H_ */
+
+#endif /* _INCLUDE_STDIO_H_ */

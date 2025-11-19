@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_TIMES_H_
+#define _KERNEL_INCLUDE_SYS_TIMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -54,3 +61,5 @@ __BEGIN_DECLS
 clock_t	times __P((struct tms *));
 __END_DECLS
 #endif
+
+#endif /* _KERNEL_INCLUDE_SYS_TIMES_H_ */

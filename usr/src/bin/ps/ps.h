@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_PS_PS_H_
+#define _BIN_PS_PS_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -83,3 +90,5 @@ struct varent {
 };
 
 #include "extern.h"
+
+#endif /* _BIN_PS_PS_H_ */

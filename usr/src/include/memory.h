@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_MEMORY_H_
+#define _INCLUDE_MEMORY_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -34,3 +41,5 @@
  */
 
 #include <string.h>
+
+#endif /* _INCLUDE_MEMORY_H_ */

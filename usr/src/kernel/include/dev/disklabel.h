@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_DISKLABEL_H_
+#define _KERNEL_INCLUDE_DEV_DISKLABEL_H_
+
+/*
  * Copyright (c) 1987, 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -363,3 +370,5 @@ struct disklabel *getdiskbyname __P((const char *));
 __END_DECLS
 
 #endif
+
+#endif /* _KERNEL_INCLUDE_DEV_DISKLABEL_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_CONFIG_M_I386BSD_H_
+#define _USR.BIN_GDB_CONFIG_M_I386BSD_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -371,3 +378,5 @@ extern int kernel_debugging;
 
 #define POP_REGISTERS      {}
 #endif
+
+#endif /* _USR.BIN_GDB_CONFIG_M_I386BSD_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_MATH_H_
+#define _INCLUDE_MATH_H_
+
+/*
  * Copyright (c) 1985, 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -128,3 +135,5 @@ double	yn __P((int, double));
 __END_DECLS
 
 #endif /* _MATH_H_ */
+
+#endif /* _INCLUDE_MATH_H_ */

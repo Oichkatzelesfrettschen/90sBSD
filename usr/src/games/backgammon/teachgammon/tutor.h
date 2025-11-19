@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_BACKGAMMON_TEACHGAMMON_TUTOR_H_
+#define _GAMES_BACKGAMMON_TEACHGAMMON_TUTOR_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -43,3 +50,5 @@ struct situatn  {
 	int	new2;
 	char	*(*com[8]);
 };
+
+#endif /* _GAMES_BACKGAMMON_TEACHGAMMON_TUTOR_H_ */

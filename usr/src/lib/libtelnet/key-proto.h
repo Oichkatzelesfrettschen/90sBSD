@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBTELNET_KEY_PROTO_H_
+#define _LIB_LIBTELNET_KEY_PROTO_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -69,3 +76,5 @@ void key_lookup P((unsigned char *, Block));
 void key_stream_init P((Block, Block, int));
 unsigned char key_stream P((int, int));
 #endif
+
+#endif /* _LIB_LIBTELNET_KEY_PROTO_H_ */

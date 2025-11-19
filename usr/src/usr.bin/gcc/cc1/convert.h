@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONVERT_H_
+#define _USR.BIN_GCC_CC1_CONVERT_H_
+
 /* Definition of functions in convert.c.
    Copyright (C) 1993 Free Software Foundation, Inc.
 
@@ -21,3 +28,5 @@ extern tree convert_to_integer PROTO ((tree, tree));
 extern tree convert_to_pointer PROTO ((tree, tree));
 extern tree convert_to_real PROTO ((tree, tree));
 extern tree convert_to_complex PROTO ((tree, tree));
+
+#endif /* _USR.BIN_GCC_CC1_CONVERT_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_TIME_H_
+#define _KERNEL_INCLUDE_SYS_TIME_H_
+
+/*
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
  *
@@ -118,3 +125,5 @@ __ISYM__(void, microtime, (struct timeval *))	/* */
 #endif /* KERNEL */
 
 #endif /* !_SYS_TIME_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_TIME_H_ */

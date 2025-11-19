@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_KVM_H_
+#define _INCLUDE_KVM_H_
+
 /*-
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
@@ -57,3 +64,5 @@ int		 kvm_read __P((void *, void *, int));
 __END_DECLS
 
 #endif /* !_KVM_H_ */
+
+#endif /* _INCLUDE_KVM_H_ */

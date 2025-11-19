@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAIL_DEF_H_
+#define _USR.BIN_MAIL_DEF_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -321,3 +328,5 @@ struct	name	*outof();
 struct	name	*put();
 struct	name	*usermap();
 struct	var	*lookup();
+
+#endif /* _USR.BIN_MAIL_DEF_H_ */

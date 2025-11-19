@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TELNET_EXTERNS_H_
+#define _USR.BIN_TELNET_EXTERNS_H_
+
+/*
  * Copyright (c) 1988, 1990 Regents of the University of California.
  * All rights reserved.
  *
@@ -458,3 +465,5 @@ extern int
 extern void
     inputAvailable P((void));
 #endif	/* defined(TN3270) */
+
+#endif /* _USR.BIN_TELNET_EXTERNS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_BC_PROTO_H_
+#define _USR.BIN_BC_PROTO_H_
+
 /* proto.h: Prototype function definitions for "external" functions. */
 
 /*  This file is part of bc written for MINIX.
@@ -163,3 +170,5 @@ _PROTOTYPE(int yylex, (void));
 /* Other things... */
 /* _PROTOTYPE (int getopt, (int, char *[], CONST char *)); */
 
+
+#endif /* _USR.BIN_BC_PROTO_H_ */

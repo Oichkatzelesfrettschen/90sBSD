@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_GETOPT_H_
+#define _LIB_LIBG++_G++_INCLUDE_GETOPT_H_
+
 /* Getopt for GNU. 
    Copyright (C) 1987, 1989 Free Software Foundation, Inc.
    (Modified by Douglas C. Schmidt for use with GNU G++.)
@@ -129,3 +136,5 @@ public:
 };
 
 #endif
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_GETOPT_H_ */

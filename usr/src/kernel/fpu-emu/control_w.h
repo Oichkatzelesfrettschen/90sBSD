@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_CONTROL_W_H_
+#define _KERNEL_FPU_EMU_CONTROL_W_H_
+
+/*
  *  control_w.h
  *
  *
@@ -80,3 +87,5 @@
 #define FULL_PRECISION  (PR_64_BITS | RC_RND | 0x3f)
 
 #endif _CONTROLW_H_
+
+#endif /* _KERNEL_FPU_EMU_CONTROL_W_H_ */

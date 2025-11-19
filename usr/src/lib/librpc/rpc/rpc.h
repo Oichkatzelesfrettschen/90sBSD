@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_RPC_H_
+#define _LIB_LIBRPC_RPC_RPC_H_
+
 /* @(#)rpc.h	2.4 89/07/11 4.0 RPCSRC; from 1.9 88/02/08 SMI */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -78,3 +85,5 @@ struct rpcent {
 struct rpcent *getrpcbyname(), *getrpcbynumber(), *getrpcent();
 
 #endif /* ndef __RPC_HEADER__ */
+
+#endif /* _LIB_LIBRPC_RPC_RPC_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CSH_PROC_H_
+#define _BIN_CSH_PROC_H_
+
 /*-
  * Copyright (c) 1980, 1991 The Regents of the University of California.
  * All rights reserved.
@@ -99,3 +106,5 @@ struct process *pcurrent;	/* current job in table */
 struct process *pprevious;	/* previous job in table */
 
 int    pmaxindex;		/* current maximum job index */
+
+#endif /* _BIN_CSH_PROC_H_ */

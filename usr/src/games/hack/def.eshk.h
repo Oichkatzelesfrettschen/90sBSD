@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.ESHK_H_
+#define _GAMES_HACK_DEF.ESHK_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.eshk.h - version 1.0.2 : added 'following' */
 
@@ -22,3 +29,5 @@ struct eshk {
 	char customer[PL_NSIZ];	/* most recent customer */
 	char shknam[PL_NSIZ];
 };
+
+#endif /* _GAMES_HACK_DEF.ESHK_H_ */

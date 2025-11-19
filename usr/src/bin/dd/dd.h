@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_DD_DD_H_
+#define _BIN_DD_DD_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -93,3 +100,5 @@ typedef struct {
 #define	C_SYNC		0x20000
 #define	C_UCASE		0x40000
 #define	C_UNBLOCK	0x80000
+
+#endif /* _BIN_DD_DD_H_ */

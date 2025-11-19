@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_UPAP_H_
+#define _USR.SBIN_PPPD_UPAP_H_
+
+/*
  * upap.h - User/Password Authentication Protocol definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -89,3 +96,5 @@ void upap_input __ARGS((int, u_char *, int));
 void upap_protrej __ARGS((int));
 int  upap_printpkt __ARGS((u_char *, int,
 			   void (*) __ARGS((void *, char *, ...)), void *));
+
+#endif /* _USR.SBIN_PPPD_UPAP_H_ */

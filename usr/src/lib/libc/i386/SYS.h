@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_I386_SYS_H_
+#define _LIB_LIBC_I386_SYS_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -55,3 +62,5 @@
 #define	ASMSTR		.asciz
 
 	.globl	cerror
+
+#endif /* _LIB_LIBC_I386_SYS_H_ */

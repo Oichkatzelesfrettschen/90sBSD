@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_LPR_COMMON_SOURCE_LPC_H_
+#define _USR.SBIN_LPR_COMMON_SOURCE_LPC_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -42,3 +49,5 @@ struct	cmd {
 	int	(*c_handler)();		/* routine to do the work */
 	int	c_priv;			/* privileged command */
 };
+
+#endif /* _USR.SBIN_LPR_COMMON_SOURCE_LPC_H_ */

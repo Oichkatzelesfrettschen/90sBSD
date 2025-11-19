@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_SCRNCTLR_H_
+#define _USR.BIN_TN3270_CTLR_SCRNCTLR_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -46,3 +53,5 @@
 #define	DISP_GREATER_THAN	0x08
 #define	DISP_NULL		0x00
 #define	DISP_QUESTION		0x18
+
+#endif /* _USR.BIN_TN3270_CTLR_SCRNCTLR_H_ */

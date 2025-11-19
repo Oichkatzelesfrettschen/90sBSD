@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_STTY_STTY_H_
+#define _BIN_STTY_STTY_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -56,3 +63,5 @@ struct cchar {
 enum FMT { NOTSET, GFLAG, BSD, POSIX };
 
 #define	LINELENGTH	72
+
+#endif /* _BIN_STTY_STTY_H_ */

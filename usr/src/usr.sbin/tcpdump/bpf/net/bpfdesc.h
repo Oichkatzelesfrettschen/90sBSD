@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_BPF_NET_BPFDESC_H_
+#define _USR.SBIN_TCPDUMP_BPF_NET_BPFDESC_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -66,3 +73,5 @@ struct bpf_if {
 	u_int bif_hdrlen;		/* length of header (with padding) */
 	struct ifnet *bif_ifp;		/* correspoding interface */
 };
+
+#endif /* _USR.SBIN_TCPDUMP_BPF_NET_BPFDESC_H_ */

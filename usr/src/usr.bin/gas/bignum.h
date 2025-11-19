@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_BIGNUM_H_
+#define _USR.BIN_GAS_BIGNUM_H_
+
 /* bignum.h-arbitrary precision integers
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -46,3 +53,5 @@ typedef unsigned short int	LITTLENUM_TYPE;
 				/* WARNING: I haven't checked that the trailing digits are correct! */
 
 /* end: bignum.h */
+
+#endif /* _USR.BIN_GAS_BIGNUM_H_ */

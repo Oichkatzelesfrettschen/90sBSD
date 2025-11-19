@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_BPB_H_
+#define _KERNEL_DOSFS_BPB_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -109,3 +116,5 @@ struct byte_bpb50 {
 	char bpbHiddenSecs[4];	/* number of hidden sectors		*/
 	char bpbHugeSectors[4];	/* number of sectrs if bpbSectors == 0	*/
 };
+
+#endif /* _KERNEL_DOSFS_BPB_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CHPASS_CHPASS_H_
+#define _USR.BIN_CHPASS_CHPASS_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -48,3 +55,5 @@ typedef struct _entry {
 
 extern ENTRY list[];
 extern uid_t uid;
+
+#endif /* _USR.BIN_CHPASS_CHPASS_H_ */

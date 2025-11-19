@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_SCREEN_H_
+#define _USR.BIN_TN3270_CTLR_SCREEN_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -143,3 +150,5 @@ extern char
 #define GetHostPointer(p)	GetGenericPointer(p)
 #define	SetHost(i,c)		SetGeneric(i,c,Host)
 #define	ModifyHost(i,what)	ModifyGeneric(i,what,Host)
+
+#endif /* _USR.BIN_TN3270_CTLR_SCREEN_H_ */

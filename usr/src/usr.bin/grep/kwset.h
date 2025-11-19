@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GREP_KWSET_H_
+#define _USR.BIN_GREP_KWSET_H_
+
 /* kwset.h - header declaring the keyword set library.
    Copyright 1989 Free Software Foundation
 		  Written August 1989 by Mike Haertel.
@@ -67,3 +74,5 @@ extern char *kwsexec();
 extern void kwsfree();
 
 #endif
+
+#endif /* _USR.BIN_GREP_KWSET_H_ */

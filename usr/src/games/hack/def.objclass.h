@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.OBJCLASS_H_
+#define _GAMES_HACK_DEF.OBJCLASS_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.objclass.h - version 1.0.3 */
 
@@ -58,3 +65,5 @@ extern struct objclass objects[];
  * hack.invent.c:          if(index("!%?[)=*(0/\"", sym)){
  * hack.invent.c:    || index("%?!*",otmp->olet))){
  */
+
+#endif /* _GAMES_HACK_DEF.OBJCLASS_H_ */

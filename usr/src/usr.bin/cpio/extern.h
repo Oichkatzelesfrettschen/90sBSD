@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_EXTERN_H_
+#define _USR.BIN_CPIO_EXTERN_H_
+
 /* extern.h - External declarations for cpio.  Requires system.h.
    Copyright (C) 1990, 1991, 1992 Free Software Foundation, Inc.
 
@@ -174,3 +181,5 @@ char *xrealloc P_((char *p, unsigned n));
 
 /* xstrdup.c */
 char *xstrdup P_((char *string));
+
+#endif /* _USR.BIN_CPIO_EXTERN_H_ */

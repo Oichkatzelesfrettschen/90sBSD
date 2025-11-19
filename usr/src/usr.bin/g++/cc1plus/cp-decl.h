@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_DECL_H_
+#define _USR.BIN_G++_CC1PLUS_CP_DECL_H_
+
 /* Variables and structures for declaration processing.
    Copyright (C) 1993 Free Software Foundation, Inc.
 
@@ -57,3 +64,5 @@ extern tree pending_addressable_inlines;
 /* Purely for debugging purposes.  */
 extern int debug_bindings_indentation;
 #endif
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_DECL_H_ */

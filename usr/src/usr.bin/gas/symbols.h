@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_SYMBOLS_H_
+#define _USR.BIN_GAS_SYMBOLS_H_
+
 /* symbols.h -
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -40,3 +47,5 @@ void		symbol_table_insert();
 symbolS *	symbol_find_or_make();
 
 /* end: symbols.h */
+
+#endif /* _USR.BIN_GAS_SYMBOLS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_SLVAR_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_SLVAR_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -71,3 +78,5 @@ struct sl_softc {
 #define	SLIOCGFLAGS	_IOR('t', 90, int)	/* get configuration flags */
 #define	SLIOCSFLAGS	_IOW('t', 89, int)	/* set configuration flags */
 #define	SLIOCGUNIT	_IOR('t', 88, int)	/* get slip unit number */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_SLVAR_H_ */

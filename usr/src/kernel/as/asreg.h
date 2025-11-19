@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_AS_ASREG_H_
+#define _KERNEL_AS_ASREG_H_
+
+/*
  * Adaptec 1542 SCSI driver for 386bsd
  *
  * $Id$
@@ -115,3 +122,5 @@ struct ccb {
 };
 #define ccb_sense(ccb) ((ccb)->ccb_cdb + (ccb)->ccb_scsi_command_len)
 
+
+#endif /* _KERNEL_AS_ASREG_H_ */

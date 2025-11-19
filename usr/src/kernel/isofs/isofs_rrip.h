@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_ISOFS_ISOFS_RRIP_H_
+#define _KERNEL_ISOFS_ISOFS_RRIP_H_
+
+/*
  * Copyright (c) 1993 Atsushi Murai (amurai@spec.co.jp)
  * All rights reserved.
  *
@@ -122,3 +129,5 @@ typedef struct {
 	unsigned char flags		[ISODCL (  4,    4)];
 } ISO_RRIP_EXFLAG;
 
+
+#endif /* _KERNEL_ISOFS_ISOFS_RRIP_H_ */

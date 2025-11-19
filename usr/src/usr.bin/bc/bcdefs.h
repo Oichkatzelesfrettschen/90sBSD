@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_BC_BCDEFS_H_
+#define _USR.BIN_BC_BCDEFS_H_
+
 /* bcdefs.h:  The single file to include all constants and type definitions. */
 
 /*  This file is part of bc written for MINIX.
@@ -152,3 +159,5 @@ typedef struct id_rec {
         short balance;  /* For the balanced tree. */
 	struct id_rec *left, *right; /* Tree pointers. */
 } id_rec;
+
+#endif /* _USR.BIN_BC_BCDEFS_H_ */

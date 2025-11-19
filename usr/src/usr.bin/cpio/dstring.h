@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_DSTRING_H_
+#define _USR.BIN_CPIO_DSTRING_H_
+
 /* dstring.h - Dynamic string handling include file.  Requires strings.h.
    Copyright (C) 1990, 1991, 1992 Free Software Foundation, Inc.
 
@@ -47,3 +54,5 @@ void ds_resize ();
 char *ds_fgetname ();
 char *ds_fgets ();
 char *ds_fgetstr ();
+
+#endif /* _USR.BIN_CPIO_DSTRING_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_RTL_H_
+#define _USR.BIN_GCC_CC1_RTL_H_
+
 /* Register Transfer Language (RTL) definitions for GNU C-Compiler
    Copyright (C) 1987, 1991, 1992 Free Software Foundation, Inc.
 
@@ -915,3 +922,5 @@ extern rtx *regno_reg_rtx;
 /* Translates rtx code to tree code, for those codes needed by
    REAL_ARITHMETIC.  */
 extern int rtx_to_tree_code ();
+
+#endif /* _USR.BIN_GCC_CC1_RTL_H_ */

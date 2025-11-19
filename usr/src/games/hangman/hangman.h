@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HANGMAN_HANGMAN_H_
+#define _GAMES_HANGMAN_HANGMAN_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -79,3 +86,5 @@ extern off_t	Dict_size;
 void	die();
 
 off_t	abs();
+
+#endif /* _GAMES_HANGMAN_HANGMAN_H_ */

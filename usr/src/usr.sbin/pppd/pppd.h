@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_PPPD_H_
+#define _USR.SBIN_PPPD_PPPD_H_
+
+/*
  * pppd.h - PPP daemon global declarations.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -213,3 +220,5 @@ u_long GetMask __ARGS((u_long)); /* get netmask for address */
 #endif
 
 #endif /* __PPP_H__ */
+
+#endif /* _USR.SBIN_PPPD_PPPD_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.PERMONST_H_
+#define _GAMES_HACK_DEF.PERMONST_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.permonst.h - version 1.0.2 */
 
@@ -23,3 +30,5 @@ extern struct permonst mons[];
 #define	PM_EEL		&pm_eel
 #define	PM_WIZARD	&pm_wizard
 #define	CMNUM		55		/* number of common monsters */
+
+#endif /* _GAMES_HACK_DEF.PERMONST_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_CRON_PATHNAMES_H_
+#define _LIBEXEC_CRON_PATHNAMES_H_
+
 /* Copyright 1993,1994 by Paul Vixie
  * All rights reserved
  *
@@ -79,3 +86,5 @@
 #ifndef _PATH_DEFPATH
 # define _PATH_DEFPATH "/usr/bin:/bin"
 #endif
+
+#endif /* _LIBEXEC_CRON_PATHNAMES_H_ */

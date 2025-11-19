@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_I386_BSD_TOKDEFS_H_
+#define _USR.SBIN_TCPDUMP_I386_BSD_TOKDEFS_H_
+
 #define DST 257
 #define SRC 258
 #define HOST 259
@@ -39,3 +46,5 @@ typedef union {
 	struct arth *a;
 } YYSTYPE;
 extern YYSTYPE yylval;
+
+#endif /* _USR.SBIN_TCPDUMP_I386_BSD_TOKDEFS_H_ */

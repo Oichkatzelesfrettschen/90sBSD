@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_PROTOTYPES_H_
+#define _KERNEL_INCLUDE_I386_PROTOTYPES_H_
+
 
 __BEGIN_DECLS
 void swtch(void);
@@ -33,3 +40,5 @@ void outsw (u_short, caddr_t, int);
 void outsl (u_short, caddr_t, int);
 
 __END_DECLS
+
+#endif /* _KERNEL_INCLUDE_I386_PROTOTYPES_H_ */

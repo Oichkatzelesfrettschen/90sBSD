@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONDITIONS_H_
+#define _USR.BIN_GCC_CC1_CONDITIONS_H_
+
 /* Definitions for condition code handling in final.c and output routines.
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -113,3 +120,5 @@ extern CC_STATUS cc_status;
   CC_STATUS_MDEP_INIT)
 
 #endif
+
+#endif /* _USR.BIN_GCC_CC1_CONDITIONS_H_ */

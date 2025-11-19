@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_ZMALLOC_H_
+#define _USR.BIN_AWK_ZMALLOC_H_
+
 
 /********************************************
 zmalloc.h
@@ -44,3 +51,5 @@ PTR  PROTO( zrealloc , (PTR,unsigned,unsigned) ) ;
 
 
 #endif  /* ZMALLOC_H */
+
+#endif /* _USR.BIN_AWK_ZMALLOC_H_ */

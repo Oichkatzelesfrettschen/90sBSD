@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GPROF_VAX_H_
+#define _USR.BIN_GPROF_VAX_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -63,3 +70,5 @@ struct modebyte {
     unsigned int	modefield:4;
 };
 
+
+#endif /* _USR.BIN_GPROF_VAX_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FILE_TAR_H_
+#define _USR.BIN_FILE_TAR_H_
+
+/*
  * Header file for public domain tar (tape archive) program.
  *
  * @(#)tar.h 1.20 86/10/29	Public Domain.
@@ -175,3 +182,5 @@ union record *endofrecs();
 void anno();
 #define	 annorec(stream, msg)	anno(stream, msg, 0)	/* Cur rec */
 #define	annofile(stream, msg)	anno(stream, msg, 1)	/* Saved rec */
+
+#endif /* _USR.BIN_FILE_TAR_H_ */

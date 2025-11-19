@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SENDMAIL_SRC_CDEFS_H_
+#define _USR.SBIN_SENDMAIL_SRC_CDEFS_H_
+
+/*
  * Copyright (c) 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
@@ -120,3 +127,5 @@
 #endif
 
 #endif /* !_CDEFS_H_ */
+
+#endif /* _USR.SBIN_SENDMAIL_SRC_CDEFS_H_ */

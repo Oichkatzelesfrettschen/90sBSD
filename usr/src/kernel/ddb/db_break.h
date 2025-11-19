@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DDB_DB_BREAK_H_
+#define _KERNEL_DDB_DB_BREAK_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -82,3 +89,5 @@ extern db_breakpoint_t	db_set_temp_breakpoint(/* db_addr_t addr */);
 extern void		db_delete_temp_breakpoint(/* db_breakpoint_t bkpt */);
 
 #endif	_DDB_DB_BREAK_H_
+
+#endif /* _KERNEL_DDB_DB_BREAK_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_HASH_PAGE_H_
+#define _LIB_LIBC_DB_HASH_PAGE_H_
+
 /*-
  * Copyright (c) 1990, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -90,3 +97,5 @@ typedef struct {
 	BUFHEAD *nextp;
 	u_short next_addr;
 }       SPLIT_RETURN;
+
+#endif /* _LIB_LIBC_DB_HASH_PAGE_H_ */

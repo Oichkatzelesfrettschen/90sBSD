@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_STDIO_FLOATIO_H_
+#define _LIB_LIBC_STDIO_FLOATIO_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -44,3 +51,5 @@
 #define	MAXEXP		308
 /* 128 bit fraction takes up 39 decimal digits; max reasonable precision */
 #define	MAXFRACT	39
+
+#endif /* _LIB_LIBC_STDIO_FLOATIO_H_ */

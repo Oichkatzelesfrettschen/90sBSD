@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AT_PATHNAMES_H_
+#define _USR.BIN_AT_PATHNAMES_H_
+
+/*
  * Copyright (c) 1993 Christopher G. Demetriou
  * All rights reserved.
  *
@@ -40,3 +47,5 @@
 #define _PATH_LOCKFILE	"/var/at/lockfile"
 
 #endif				/* !_PATHNAMES_H_ */
+
+#endif /* _USR.BIN_AT_PATHNAMES_H_ */

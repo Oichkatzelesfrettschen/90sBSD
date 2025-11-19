@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_MODCONFIG_H_
+#define _KERNEL_INCLUDE_MODCONFIG_H_
+
+/*
  * Copyright (c) 1994 William Jolitz. All rights reserved.
  * Written by William Jolitz 6/94
  *
@@ -352,3 +359,5 @@ unsigned console_getchar(void);
 #undef __ISYM__
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
+
+#endif /* _KERNEL_INCLUDE_MODCONFIG_H_ */

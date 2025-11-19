@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_MV_PATHNAMES_H_
+#define _BIN_MV_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -35,3 +42,5 @@
 
 #define	_PATH_RM	"/bin/rm"
 #define	_PATH_CP	"/bin/cp"
+
+#endif /* _BIN_MV_PATHNAMES_H_ */

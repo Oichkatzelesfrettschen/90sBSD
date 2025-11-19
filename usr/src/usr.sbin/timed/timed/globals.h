@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TIMED_TIMED_GLOBALS_H_
+#define _USR.SBIN_TIMED_TIMED_GLOBALS_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -114,3 +121,5 @@ extern int nignorednets;	/* Number of ignored nets */
 extern int nnets;		/* Number of nets I am connected to */
 
 char *strcpy(), *malloc();
+
+#endif /* _USR.SBIN_TIMED_TIMED_GLOBALS_H_ */

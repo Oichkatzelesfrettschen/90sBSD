@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_API_H_
+#define _USR.BIN_TN3270_CTLR_API_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -401,3 +408,5 @@ struct SREGS {
 	ss;
 };
 #endif	/* defined(MSDOS) (else section) */
+
+#endif /* _USR.BIN_TN3270_CTLR_API_H_ */

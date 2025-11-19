@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_LIMITS_H_
+#define _KERNEL_INCLUDE_I386_LIMITS_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -57,3 +64,5 @@
 #define	ULONG_MAX	0xffffffff	/* max value for an unsigned long */
 #define	LONG_MAX	0x7fffffff	/* max value for a long */
 #define	LONG_MIN	(-0x7fffffff-1)	/* min value for a long */
+
+#endif /* _KERNEL_INCLUDE_I386_LIMITS_H_ */

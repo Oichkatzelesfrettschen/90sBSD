@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ROBOTS_ROBOTS_H_
+#define _GAMES_ROBOTS_ROBOTS_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -108,3 +115,5 @@ int	cmp_sc();
 void	move_robots();
 
 COORD	*rnd_pos();
+
+#endif /* _GAMES_ROBOTS_ROBOTS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_ICU_H_
+#define _KERNEL_INCLUDE_I386_ICU_H_
+
 /* interface symbols */
 #define	__ISYM_VERSION__ "1"	/* XXX RCS major revision number of hdr file */
 #include "isym.h"		/* this header has interface symbols */
@@ -26,3 +33,5 @@ extern	int biomask; /* group of interrupts masked with splbio() */
 #undef __ISYM__
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
+
+#endif /* _KERNEL_INCLUDE_I386_ICU_H_ */

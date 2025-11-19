@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FIND_FIND_H_
+#define _USR.BIN_FIND_FIND_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -84,3 +91,5 @@ typedef struct _plandata {
 } PLAN;
 
 #include "extern.h"
+
+#endif /* _USR.BIN_FIND_FIND_H_ */

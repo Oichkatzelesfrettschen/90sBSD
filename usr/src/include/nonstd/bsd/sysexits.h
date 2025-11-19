@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_SYSEXITS_H_
+#define _INCLUDE_NONSTD_BSD_SYSEXITS_H_
+
+/*
  * Copyright (c) 1987 Regents of the University of California.
  * All rights reserved.
  *
@@ -116,3 +123,5 @@
 #define EX__MAX	78	/* maximum listed value */
 
 #endif /* !_SYSEXIST_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_SYSEXITS_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_IOCTL_COMPAT_H_
+#define _KERNEL_INCLUDE_SYS_IOCTL_COMPAT_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -165,3 +172,5 @@ struct sgttyb {
 #define	NTTYDISC	2
 
 #endif /* !_IOCTL_COMPAT_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_IOCTL_COMPAT_H_ */

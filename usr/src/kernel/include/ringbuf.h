@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_RINGBUF_H_
+#define _KERNEL_INCLUDE_RINGBUF_H_
+
+/*
  * Copyright (c) 1989, 1990, 1991, 1992 William F. Jolitz, TeleMuse
  * All rights reserved.
  *
@@ -71,3 +78,5 @@ int unputc(struct ringb *);
 void initrb(struct ringb *);
 void catb(struct ringb *, struct ringb *);
 #endif
+
+#endif /* _KERNEL_INCLUDE_RINGBUF_H_ */

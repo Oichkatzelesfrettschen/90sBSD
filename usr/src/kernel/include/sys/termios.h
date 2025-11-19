@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_TERMIOS_H_
+#define _KERNEL_INCLUDE_SYS_TERMIOS_H_
+
+/*
  * Copyright (c) 1988, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -267,3 +274,5 @@ __END_DECLS
 #include <sys/ttydefaults.h>
 #endif
 #endif  /*_POSIX_SOURCE */
+
+#endif /* _KERNEL_INCLUDE_SYS_TERMIOS_H_ */

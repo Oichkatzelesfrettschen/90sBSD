@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_FILE_H_
+#define _KERNEL_INCLUDE_SYS_FILE_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -69,3 +76,5 @@ extern int maxfiles;		/* kernel limit on number of open files */
 extern int nfiles;		/* actual number of open files */
 
 #endif /* KERNEL */
+
+#endif /* _KERNEL_INCLUDE_SYS_FILE_H_ */

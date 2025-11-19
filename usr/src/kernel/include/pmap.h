@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_PMAP_H_
+#define _KERNEL_INCLUDE_PMAP_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -144,3 +151,5 @@ extern pmap_t	kernel_pmap;
 #endif
 
 #endif	_PMAP_VM_
+
+#endif /* _KERNEL_INCLUDE_PMAP_H_ */

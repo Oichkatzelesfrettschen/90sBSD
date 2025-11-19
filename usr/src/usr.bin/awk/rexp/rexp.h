@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_REXP_REXP_H_
+#define _USR.BIN_AWK_REXP_REXP_H_
+
 
 /********************************************
 rexp.h
@@ -183,3 +190,5 @@ void      PROTO( RE_run_stack_init, (void) ) ;
 RT_STATE *PROTO( RE_new_run_stack, (void) ) ;
 
 #endif   /* REXP_H  */
+
+#endif /* _USR.BIN_AWK_REXP_REXP_H_ */

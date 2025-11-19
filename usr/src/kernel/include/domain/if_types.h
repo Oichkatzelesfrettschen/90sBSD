@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_TYPES_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_TYPES_H_
+
+/*
  * Copyright (c) 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -63,3 +70,5 @@
 #define	IFT_NSIP	0x1b		/* XNS over IP */
 #define	IFT_SLIP	0x1c		/* IP over generic TTY */
 #define	IFT_PPP		0x1d		/* PPP over generic TTY */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_TYPES_H_ */

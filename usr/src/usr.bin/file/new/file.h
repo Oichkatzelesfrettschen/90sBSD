@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FILE_NEW_FILE_H_
+#define _USR.BIN_FILE_NEW_FILE_H_
+
+/*
  * file.h - definitions for file(1) program
  * @(#)$Id: file.h,v 1.14 93/02/19 14:22:44 ian Exp $
  *
@@ -125,3 +132,5 @@ extern char *sys_errlist[];
 #ifndef MAXPATHLEN
 #define	MAXPATHLEN	512
 #endif
+
+#endif /* _USR.BIN_FILE_NEW_FILE_H_ */

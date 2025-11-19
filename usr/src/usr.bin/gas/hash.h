@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_HASH_H_
+#define _USR.BIN_GAS_HASH_H_
+
 /* hash.h - for hash.c
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -57,3 +64,5 @@ char *			hash_jam();	/* error text (internal)  */
 #endif				/* #ifdef hashH */
 
 /* end: hash.c */
+
+#endif /* _USR.BIN_GAS_HASH_H_ */

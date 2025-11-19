@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_PROC_H_
+#define _KERNEL_INCLUDE_PROC_H_
+
 /*-
  * Copyright (c) 1986, 1989, 1991 The Regents of the University of California.
  * All rights reserved.
@@ -346,3 +353,5 @@ __ISYM__(struct pcred *, modpcred, (struct proc *))
 #endif	/* KERNEL */
 
 #endif	/* !_PROC_H_ */
+
+#endif /* _KERNEL_INCLUDE_PROC_H_ */

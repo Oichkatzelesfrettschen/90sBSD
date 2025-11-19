@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_CPIO_H_
+#define _USR.BIN_CPIO_CPIO_H_
+
 /* Extended cpio format from POSIX.1.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -67,3 +74,5 @@
 #define C_ISREG		0100000
 
 #endif /* cpio.h */
+
+#endif /* _USR.BIN_CPIO_CPIO_H_ */

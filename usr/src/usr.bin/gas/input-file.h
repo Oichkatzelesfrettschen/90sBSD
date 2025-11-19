@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_INPUT_FILE_H_
+#define _USR.BIN_GAS_INPUT_FILE_H_
+
 /* input_file.h header for input-file.c
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -55,3 +62,5 @@ void	input_file_open();
 char *	input_file_give_next_buffer();
 
 /* end: input_file.h */
+
+#endif /* _USR.BIN_GAS_INPUT_FILE_H_ */

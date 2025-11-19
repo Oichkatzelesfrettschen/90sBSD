@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_RANLIB_H_
+#define _INCLUDE_RANLIB_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -48,3 +55,5 @@ struct ranlib {
 };
 
 #endif /* !_RANLIB_H_ */
+
+#endif /* _INCLUDE_RANLIB_H_ */

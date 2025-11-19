@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_BC_NUMBER_H_
+#define _USR.BIN_BC_NUMBER_H_
+
 /* number.h: Arbitrary precision numbers header file. */
 
 /*  This file is part of bc written for MINIX.
@@ -58,3 +65,5 @@ typedef bc_struct *bc_num;
 #define TRUE 1
 #define FALSE 0
 #endif
+
+#endif /* _USR.BIN_BC_NUMBER_H_ */

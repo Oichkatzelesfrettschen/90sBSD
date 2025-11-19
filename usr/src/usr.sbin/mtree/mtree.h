@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_MTREE_MTREE_H_
+#define _USR.SBIN_MTREE_MTREE_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -77,3 +84,5 @@ typedef struct _node {
 } NODE;
 
 #define	RP(p)	(p->fts_path + 2)
+
+#endif /* _USR.SBIN_MTREE_MTREE_H_ */

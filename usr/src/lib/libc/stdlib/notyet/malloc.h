@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_STDLIB_NOTYET_MALLOC_H_
+#define _LIB_LIBC_STDLIB_NOTYET_MALLOC_H_
+
+/*
  * Copyright (c) 1987 Regents of the University of California.
  * All rights reserved.
  *
@@ -149,3 +156,5 @@ extern struct kmembuckets bucket[];
 extern void *malloc __P((unsigned long size));
 extern void free __P((void *addr));
 #endif /* !_MALLOC_H_ */
+
+#endif /* _LIB_LIBC_STDLIB_NOTYET_MALLOC_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_BC_GLOBAL_H_
+#define _USR.BIN_BC_GLOBAL_H_
+
 /* global.h:  The global variables for bc.  */
 
 /*  This file is part of bc written for MINIX.
@@ -106,3 +113,5 @@ extern bc_num _one_;
 /* For use with getopt.  Do not declare them here.*/
 extern int optind;
 
+
+#endif /* _USR.BIN_BC_GLOBAL_H_ */

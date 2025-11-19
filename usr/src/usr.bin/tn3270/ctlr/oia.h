@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_CTLR_OIA_H_
+#define _USR.BIN_TN3270_CTLR_OIA_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -188,3 +195,5 @@ typedef struct {
 /* A macro to let the world know that someone has modified the OIA. */
 #define	SetOiaModified()	oia_modified = 1
 #define	SetPsModified()		ps_modified = 1
+
+#endif /* _USR.BIN_TN3270_CTLR_OIA_H_ */

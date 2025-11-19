@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_ISOFS_ISOFS_NODE_H_
+#define _KERNEL_ISOFS_ISOFS_NODE_H_
+
+/*
  *	$Id: isofs_node.h,v 1.2 1993/07/20 03:27:31 jkh Exp $
  */
 
@@ -94,3 +101,5 @@ int isofs_strategy __P((struct buf *bp));
 int isofs_print __P((struct vnode *vp));
 int isofs_islocked __P((struct vnode *vp));
 
+
+#endif /* _KERNEL_ISOFS_ISOFS_NODE_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_FAT_H_
+#define _KERNEL_DOSFS_FAT_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -66,3 +73,5 @@ int fatentry __P((int function, struct pcfsmount *pmp,
 	u_long cluster, u_long *oldcontents, u_long newcontents));
 int freeclusterchain __P((struct pcfsmount *pmp, u_long startchain));
 #endif /* defined(KERNEL) */
+
+#endif /* _KERNEL_DOSFS_FAT_H_ */

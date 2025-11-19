@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_CPU_H_
+#define _KERNEL_INCLUDE_I386_CPU_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -141,3 +148,5 @@ extern int	cpu_option;
 extern struct	proc	*npxproc;
 
 #endif
+
+#endif /* _KERNEL_INCLUDE_I386_CPU_H_ */

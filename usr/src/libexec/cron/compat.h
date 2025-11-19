@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_CRON_COMPAT_H_
+#define _LIBEXEC_CRON_COMPAT_H_
+
 /* Copyright 1993,1994 by Paul Vixie
  * All rights reserved
  *
@@ -135,3 +142,5 @@
 #if !defined(UNICOS) && !defined(UNIXPC)
 # define HAS_FCHMOD
 #endif
+
+#endif /* _LIBEXEC_CRON_COMPAT_H_ */

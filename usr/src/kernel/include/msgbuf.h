@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_MSGBUF_H_
+#define _KERNEL_INCLUDE_MSGBUF_H_
+
+/*
  * Copyright (c) 1981, 1984 The Regents of the University of California.
  * All rights reserved.
  *
@@ -44,3 +51,5 @@ struct	msgbuf {
 #ifdef KERNEL
 struct	msgbuf *msgbufp;
 #endif
+
+#endif /* _KERNEL_INCLUDE_MSGBUF_H_ */

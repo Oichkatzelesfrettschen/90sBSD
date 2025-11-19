@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_INIT_H_
+#define _USR.BIN_AWK_INIT_H_
+
 
 /********************************************
 init.h
@@ -53,3 +60,5 @@ void  PROTO( load_environ, (ARRAY)) ;
 void  PROTO( set_stderr, (void)) ;
 
 #endif   /* INIT_H  */
+
+#endif /* _USR.BIN_AWK_INIT_H_ */

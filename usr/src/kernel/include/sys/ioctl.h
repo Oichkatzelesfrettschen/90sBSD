@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_IOCTL_H_
+#define _KERNEL_INCLUDE_SYS_IOCTL_H_
+
 /*-
  * Copyright (c) 1982, 1986, 1990 The Regents of the University of California.
  * All rights reserved.
@@ -227,3 +234,5 @@ __END_DECLS
 #include <sys/ioctl_compat.h>
 #endif
 #endif
+
+#endif /* _KERNEL_INCLUDE_SYS_IOCTL_H_ */

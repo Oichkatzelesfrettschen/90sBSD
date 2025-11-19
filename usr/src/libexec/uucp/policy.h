@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_POLICY_H_
+#define _LIBEXEC_UUCP_POLICY_H_
+
 /* policy.h
    Configuration file for policy decisions.  To be edited on site.
 
@@ -441,3 +448,5 @@
 #define DEBUGFILE "/var/spool/uucp/.Admin/audit.local"
 
 #endif /* HAVE_BNU_LOGGING */
+
+#endif /* _LIBEXEC_UUCP_POLICY_H_ */

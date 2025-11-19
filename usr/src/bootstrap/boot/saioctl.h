@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BOOTSTRAP_BOOT_SAIOCTL_H_
+#define _BOOTSTRAP_BOOT_SAIOCTL_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -48,3 +55,5 @@
 #define	SAIOSSDEV	(('d'<<8)|12)	/* is device skip sector type? */
 #define	SAIODEBUG	(('d'<<8)|13)	/* enable/disable debugging */
 #define	SAIOGBADINFO	(('d'<<8)|14)	/* get bad-sector table */
+
+#endif /* _BOOTSTRAP_BOOT_SAIOCTL_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_IC_DS8390_H_
+#define _KERNEL_INCLUDE_IC_DS8390_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -144,3 +151,5 @@ struct prhdr {
 	u_char	pr_sz0;
 	u_char	pr_sz1;
 };
+
+#endif /* _KERNEL_INCLUDE_IC_DS8390_H_ */

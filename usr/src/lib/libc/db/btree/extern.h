@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_BTREE_EXTERN_H_
+#define _LIB_LIBC_DB_BTREE_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -69,3 +76,5 @@ void	 __bt_dump __P((DB *));
 #ifdef STATISTICS
 void	 __bt_stat __P((DB *));
 #endif
+
+#endif /* _LIB_LIBC_DB_BTREE_EXTERN_H_ */

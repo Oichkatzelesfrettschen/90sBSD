@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_TREE_H_
+#define _USR.BIN_G++_CC1PLUS_CP_TREE_H_
+
 /* Definitions for C++ parsing and type checking.
    Copyright (C) 1987, 1993 Free Software Foundation, Inc.
    Hacked by Michael Tiemann (tiemann@cygnus.com)
@@ -2004,3 +2011,5 @@ extern void GNU_xref_hier			PROTO((char *, char *, int, int, int));
 extern void GNU_xref_member			PROTO((tree, tree));
 
 /* -- end of C++ */
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_TREE_H_ */

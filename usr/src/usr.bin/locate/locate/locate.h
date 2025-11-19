@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_LOCATE_LOCATE_LOCATE_H_
+#define _USR.BIN_LOCATE_LOCATE_LOCATE_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -39,3 +46,5 @@
 #define	OFFSET		14		/* abs value of max likely diff */
 #define	PARITY		0200		/* parity bit */
 #define	SWITCH		30		/* switch code */
+
+#endif /* _USR.BIN_LOCATE_LOCATE_LOCATE_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.GEN_H_
+#define _GAMES_HACK_DEF.GEN_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.gen.h version 1.0.1: added ONCE flag */
 
@@ -13,3 +20,5 @@ struct gen {
 extern struct gen *fgold, *ftrap;
 struct gen *g_at();
 #define newgen()	(struct gen *) alloc(sizeof(struct gen))
+
+#endif /* _GAMES_HACK_DEF.GEN_H_ */

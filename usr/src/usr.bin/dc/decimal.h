@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_DC_DECIMAL_H_
+#define _USR.BIN_DC_DECIMAL_H_
+
 /* 
  * Header file for decimal.c (arbitrary precision decimal arithmetic)
  *
@@ -91,3 +98,5 @@ decimal decimal_sqrt (), decimal_expt ();
 void decimal_print ();
 
 /* End of decimal.h */
+
+#endif /* _USR.BIN_DC_DECIMAL_H_ */

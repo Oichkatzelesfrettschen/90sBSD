@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_DB_EFLAGS_H_
+#define _KERNEL_INCLUDE_I386_DB_EFLAGS_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990,1989 Carnegie Mellon University
@@ -65,3 +72,5 @@
 #define	EFL_USER_CLEAR	(EFL_IOPL|EFL_NT|EFL_RF)
 
 #endif	_I386_EFLAGS_H_
+
+#endif /* _KERNEL_INCLUDE_I386_DB_EFLAGS_H_ */

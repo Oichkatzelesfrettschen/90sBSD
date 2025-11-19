@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_FLOAT_H_
+#define _KERNEL_INCLUDE_I386_FLOAT_H_
+
+/*
  * Copyright (c) 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -66,3 +73,5 @@
 #define LDBL_MAX_EXP	DBL_MAX_EXP
 #define LDBL_MAX	DBL_MAX
 #define LDBL_MAX_10_EXP	DBL_MAX_10_EXP
+
+#endif /* _KERNEL_INCLUDE_I386_FLOAT_H_ */

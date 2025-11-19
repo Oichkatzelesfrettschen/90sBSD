@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_MOUNT_PATHNAMES_H_
+#define _SBIN_MOUNT_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -36,3 +43,5 @@
 #define _PATH_EXECDIR	"/usr/libexec"
 #define	_PATH_EXPORTS	"/etc/exports"
 #define	_PATH_MOUNTDPID	"/var/run/mountd.pid"
+
+#endif /* _SBIN_MOUNT_PATHNAMES_H_ */

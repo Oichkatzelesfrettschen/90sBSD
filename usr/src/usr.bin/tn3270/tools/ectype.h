@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_TOOLS_ECTYPE_H_
+#define _USR.BIN_TN3270_TOOLS_ECTYPE_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -50,3 +57,5 @@
 #define	Eisspace(c)	(ectype[(c)&0xff]&E_SPACE)	/* blank or null */
 #define	Eispunct(c)	(ectype[(c)&0xff]&E_PUNCT)
 #define	Eisprint(c)	(ectype[(c)&0xff]&E_PRINT)
+
+#endif /* _USR.BIN_TN3270_TOOLS_ECTYPE_H_ */

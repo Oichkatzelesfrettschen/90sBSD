@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_SGTTY_H_
+#define _INCLUDE_SGTTY_H_
+
+/*
  * Copyright (c) 1985 The Regents of the University of California.
  * All rights reserved.
  *
@@ -37,3 +44,5 @@
 #define	USE_OLD_TTY
 #endif
 #include <sys/ioctl.h>
+
+#endif /* _INCLUDE_SGTTY_H_ */

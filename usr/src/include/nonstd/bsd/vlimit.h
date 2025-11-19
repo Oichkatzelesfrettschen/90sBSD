@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_VLIMIT_H_
+#define _INCLUDE_NONSTD_BSD_VLIMIT_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -47,3 +54,5 @@
 #define	NLIMITS		6
 
 #define	INFINITY	0x7fffffff
+
+#endif /* _INCLUDE_NONSTD_BSD_VLIMIT_H_ */

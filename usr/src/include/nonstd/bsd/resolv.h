@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_RESOLV_H_
+#define _INCLUDE_NONSTD_BSD_RESOLV_H_
+
+/*
  * Copyright (c) 1983, 1987, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -118,3 +125,5 @@ int	 res_send __P((const char *, int, char *, int));
 __END_DECLS
 
 #endif /* !_RESOLV_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_RESOLV_H_ */

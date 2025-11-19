@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_RNDINT_H_
+#define _LIB_LIBG++_G++_INCLUDE_RNDINT_H_
+
 // This may look like C code, but it is really -*- C++ -*-
 /* 
 Copyright (C) 1990 Free Software Foundation
@@ -167,3 +174,5 @@ inline int RandomInteger:: asInt()
 #endif
 
 #endif
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_RNDINT_H_ */

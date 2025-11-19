@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CPP_PCP_H_
+#define _USR.BIN_GCC_CPP_PCP_H_
+
 /* pcp.h -- Describes the format of a precompiled file
    Copyright (C) 1990 Free Software Foundation, Inc.
 
@@ -98,3 +105,5 @@ The preconditions section is null terminated. */
     .
 
 */
+
+#endif /* _USR.BIN_GCC_CPP_PCP_H_ */

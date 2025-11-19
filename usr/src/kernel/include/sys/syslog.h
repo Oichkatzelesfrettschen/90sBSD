@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_SYSLOG_H_
+#define _KERNEL_INCLUDE_SYS_SYSLOG_H_
+
+/*
  * Copyright (c) 1982, 1986, 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -176,3 +183,5 @@ void	vsyslog __P((int, const char *, va_list));
 __END_DECLS
 
 #endif /* !KERNEL */
+
+#endif /* _KERNEL_INCLUDE_SYS_SYSLOG_H_ */

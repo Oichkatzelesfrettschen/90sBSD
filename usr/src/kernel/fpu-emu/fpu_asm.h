@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_FPU_ASM_H_
+#define _KERNEL_FPU_EMU_FPU_ASM_H_
+
+/*
  *  fpu_asm.h
  *
  *
@@ -67,3 +74,5 @@
 #define	SIGH(x)	12(x)
 
 #endif _FPU_ASM_H_
+
+#endif /* _KERNEL_FPU_EMU_FPU_ASM_H_ */

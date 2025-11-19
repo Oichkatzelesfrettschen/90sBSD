@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_PRIVILEGE_H_
+#define _KERNEL_INCLUDE_PRIVILEGE_H_
+
+/*
  * Copyright (c) 1994 William Jolitz. All rights reserved.
  * Written by William Jolitz 4/94
  *
@@ -65,3 +72,5 @@ __ISYM__(int, use_priv, (const struct ucred *, cr_priv_t, struct proc *))
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
 #endif
+
+#endif /* _KERNEL_INCLUDE_PRIVILEGE_H_ */

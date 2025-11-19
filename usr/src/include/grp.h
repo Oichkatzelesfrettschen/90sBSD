@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_GRP_H_
+#define _INCLUDE_GRP_H_
+
 /*-
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
@@ -62,3 +69,5 @@ int setgroupent __P((int));
 __END_DECLS
 
 #endif /* !_GRP_H_ */
+
+#endif /* _INCLUDE_GRP_H_ */

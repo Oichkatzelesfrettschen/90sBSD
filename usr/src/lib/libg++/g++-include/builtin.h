@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_BUILTIN_H_
+#define _LIB_LIBG++_G++_INCLUDE_BUILTIN_H_
+
 // This may look like C code, but it is really -*- C++ -*-
 
 /* 
@@ -274,3 +281,5 @@ inline double max(double a, double b) {return (a > b)?a:b;}
 #endif
 
 #endif
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_BUILTIN_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYSTM_H_
+#define _KERNEL_INCLUDE_SYSTM_H_
+
 /*-
  * Copyright (c) 1982, 1988, 1991 The Regents of the University of California.
  * All rights reserved.
@@ -64,3 +71,5 @@ extern struct sysent {		/* system call table */
 extern int nsysent;		/* number of system call table entries */
 
 extern int boothowto;		/* reboot flags, from system bootstrap */
+
+#endif /* _KERNEL_INCLUDE_SYSTM_H_ */

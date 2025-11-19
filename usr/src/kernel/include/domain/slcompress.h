@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_SLCOMPRESS_H_
+#define _KERNEL_INCLUDE_DOMAIN_SLCOMPRESS_H_
+
 /*	slcompress.h	7.4	90/06/28	*/
 /*
  * Definitions for tcp compression routines.
@@ -155,3 +162,5 @@ extern void sl_compress_init(/* struct slcompress * */);
 extern u_char sl_compress_tcp(/* struct mbuf *, struct ip *,
 				struct slcompress *, int compress_cid_flag */);
 extern int sl_uncompress_tcp(/* u_char **, int,  u_char, struct slcompress * */);
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_SLCOMPRESS_H_ */

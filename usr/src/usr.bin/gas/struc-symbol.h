@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_STRUC_SYMBOL_H_
+#define _USR.BIN_GAS_STRUC_SYMBOL_H_
+
 /* struct_symbol.h - Internal symbol structure
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -70,3 +77,5 @@ struct broken_word {
 };
 extern struct broken_word *broken_words;
 #endif
+
+#endif /* _USR.BIN_GAS_STRUC_SYMBOL_H_ */

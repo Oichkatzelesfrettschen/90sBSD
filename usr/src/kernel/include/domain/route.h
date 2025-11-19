@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_ROUTE_H_
+#define _KERNEL_INCLUDE_DOMAIN_ROUTE_H_
+
+/*
  * Copyright (c) 1980, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -367,3 +374,5 @@ extern struct	mbuf *rthost[RTHASHSIZ];
 extern struct	mbuf *rtnet[RTHASHSIZ];
 extern struct	rtstat	rtstat;
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_ROUTE_H_ */

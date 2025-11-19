@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_FIELD_H_
+#define _USR.BIN_AWK_FIELD_H_
+
 
 /********************************************
 field.h
@@ -95,3 +102,5 @@ extern  SPLIT_OV  *split_ov_list ;
 
 
 #endif   /* FIELD_H  */
+
+#endif /* _USR.BIN_AWK_FIELD_H_ */

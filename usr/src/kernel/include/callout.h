@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_CALLOUT_H_
+#define _KERNEL_INCLUDE_CALLOUT_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -44,3 +51,5 @@ struct callout {
 struct callout *callfree, *callout, calltodo;
 int ncallout;
 #endif
+
+#endif /* _KERNEL_INCLUDE_CALLOUT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_ASSERT_H_
+#define _INCLUDE_ASSERT_H_
+
 /*-
  * Copyright (c) 1992 The Regents of the University of California.
  * All rights reserved.
@@ -57,3 +64,5 @@
 __BEGIN_DECLS
 void __assert __P((const char *, int, const char *));
 __END_DECLS
+
+#endif /* _INCLUDE_ASSERT_H_ */

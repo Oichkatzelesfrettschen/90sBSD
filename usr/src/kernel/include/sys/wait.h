@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_WAIT_H_
+#define _KERNEL_INCLUDE_SYS_WAIT_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -155,3 +162,5 @@ pid_t	wait4 __P((pid_t, int *, int, struct rusage *));
 #endif
 __END_DECLS
 #endif
+
+#endif /* _KERNEL_INCLUDE_SYS_WAIT_H_ */

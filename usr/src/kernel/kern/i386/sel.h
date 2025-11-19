@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_KERN_I386_SEL_H_
+#define _KERNEL_KERN_I386_SEL_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -22,3 +29,5 @@
 
 #define	_386BSDCODE	0x1f	/* 386BSD user program code selector */
 #define	_386BSDDATA	0x27	/* 386BSD user program data selector */
+
+#endif /* _KERNEL_KERN_I386_SEL_H_ */

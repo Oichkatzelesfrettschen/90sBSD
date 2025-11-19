@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_386BSD_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_386BSD_H_
+
 /* Configuration for an i386 running 386BSD as the target machine.  */
 
 /* This is tested by i386gas.h.  */
@@ -79,3 +86,5 @@
 /* Don't default to pcc-struct-return, because gcc is the only compiler, and
    we want to retain compatibility with older gcc versions.  */
 #define DEFAULT_PCC_STRUCT_RETURN 0
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_386BSD_H_ */

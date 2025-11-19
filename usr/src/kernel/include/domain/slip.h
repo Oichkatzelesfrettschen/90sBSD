@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_SLIP_H_
+#define _KERNEL_INCLUDE_DOMAIN_SLIP_H_
+
+/*
  * Definitions that user level programs might need to know to interact
  * with serial line IP (slip) lines.
 
@@ -43,3 +50,5 @@
 #define SLIPDIR_IN 0
 #define SLIPDIR_OUT 1
 
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_SLIP_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_DIR_H_
+#define _KERNEL_INCLUDE_SYS_DIR_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -59,3 +66,5 @@
     ((sizeof (struct direct) - (MAXNAMLEN+1)) + (((dp)->d_namlen+1 + 3) &~ 3))
 
 #endif /* !_DIR_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_DIR_H_ */

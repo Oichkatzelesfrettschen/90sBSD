@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_EXPR_H_
+#define _USR.BIN_GCC_CC1_EXPR_H_
+
 /* Definitions for code generation pass of GNU compiler.
    Copyright (C) 1987, 1991, 1992, 1993 Free Software Foundation, Inc.
 
@@ -810,3 +817,5 @@ extern rtx assemble_static_space PROTO((int));
    It is up to the language front end to install a hook
    if it has any such codes that expand_expr needs to know about.  */
 extern rtx (*lang_expand_expr) ();
+
+#endif /* _USR.BIN_GCC_CC1_EXPR_H_ */

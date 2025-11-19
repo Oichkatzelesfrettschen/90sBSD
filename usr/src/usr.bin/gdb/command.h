@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_COMMAND_H_
+#define _USR.BIN_GDB_COMMAND_H_
+
 /* Header file for command-reading library command.c.
    Copyright (C) 1986, 1989 Free Software Foundation, Inc.
 
@@ -75,3 +82,5 @@ extern struct cmd_list_element *lookup_cmd (), *lookup_cmd_1 ();
 extern char **complete_on_cmdlist ();
 extern void delete_cmd ();
 extern void help_cmd ();
+
+#endif /* _USR.BIN_GDB_COMMAND_H_ */

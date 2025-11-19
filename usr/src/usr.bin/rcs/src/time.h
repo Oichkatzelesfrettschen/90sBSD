@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_RCS_SRC_TIME_H_
+#define _USR.BIN_RCS_SRC_TIME_H_
+
 
 /* Structure for use by time manipulating subroutines.
  * The following library routines use it:
@@ -50,3 +57,5 @@ struct tm {     /* See defines below for allowable ranges */
 	/* New stuff */
 #define TM_ZON 9	/* 0-(24*60) minutes west of Greenwich */
 #define TM_AMPM 10	/* 1 AM, 2 PM		*/
+
+#endif /* _USR.BIN_RCS_SRC_TIME_H_ */

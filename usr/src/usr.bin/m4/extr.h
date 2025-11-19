@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_M4_EXTR_H_
+#define _USR.BIN_M4_EXTR_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -57,3 +64,5 @@ extern char lquote;		/* left quote character  (`)   */
 extern char rquote;		/* right quote character (')   */
 extern char scommt;		/* start character for comment */
 extern char ecommt;		/* end character for comment   */
+
+#endif /* _USR.BIN_M4_EXTR_H_ */

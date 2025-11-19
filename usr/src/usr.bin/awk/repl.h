@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_REPL_H_
+#define _USR.BIN_AWK_REPL_H_
+
 
 /********************************************
 repl.h
@@ -32,3 +39,5 @@ CELL *PROTO( replv_cpy, (CELL *, CELL *) ) ;
 CELL *PROTO( replv_to_repl, (CELL *, STRING *) ) ;
 
 #endif
+
+#endif /* _USR.BIN_AWK_REPL_H_ */

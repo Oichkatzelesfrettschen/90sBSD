@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_GETTY_GETTYTAB_H_
+#define _LIBEXEC_GETTY_GETTYTAB_H_
+
+/*
  * Copyright (c) 1983 The Regents of the University of California.
  * All rights reserved.
  *
@@ -143,3 +150,5 @@ extern	struct gettyflags gettyflags[];
 extern	struct gettynums gettynums[];
 extern	struct gettystrs gettystrs[];
 extern	int hopcount;
+
+#endif /* _LIBEXEC_GETTY_GETTYTAB_H_ */

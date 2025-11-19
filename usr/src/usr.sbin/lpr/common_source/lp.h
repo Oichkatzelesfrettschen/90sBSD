@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_LPR_COMMON_SOURCE_LP_H_
+#define _USR.SBIN_LPR_COMMON_SOURCE_LP_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -119,3 +126,5 @@ char	*getenv();
 char	*index();
 char	*rindex();
 char	*checkremote();
+
+#endif /* _USR.SBIN_LPR_COMMON_SOURCE_LP_H_ */

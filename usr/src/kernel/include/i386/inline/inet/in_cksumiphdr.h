@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_INET_IN_CKSUMIPHDR_H_
+#define _KERNEL_INCLUDE_I386_INLINE_INET_IN_CKSUMIPHDR_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -25,3 +32,5 @@ in_cksumiphdr(void *ip) {
 	return (~val);
 }
 
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_INET_IN_CKSUMIPHDR_H_ */

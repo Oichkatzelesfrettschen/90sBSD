@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DMAP_H_
+#define _KERNEL_INCLUDE_DMAP_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -62,3 +69,5 @@ struct dblock {
 	swblk_t db_size;	/* size of block */
 };
 #endif	/* !_DMAP_H_ */
+
+#endif /* _KERNEL_INCLUDE_DMAP_H_ */

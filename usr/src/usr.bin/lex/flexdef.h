@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_LEX_FLEXDEF_H_
+#define _USR.BIN_LEX_FLEXDEF_H_
+
 /* flexdef - definitions file for flex */
 
 /*-
@@ -900,3 +907,5 @@ extern void stack1 PROTO((int, int, int, int));
 /* from file yylex.c */
 
 extern int yylex PROTO((void));
+
+#endif /* _USR.BIN_LEX_FLEXDEF_H_ */

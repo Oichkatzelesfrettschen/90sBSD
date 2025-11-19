@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_DB_DB_MACHDEP_H_
+#define _KERNEL_INCLUDE_I386_DB_DB_MACHDEP_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -151,3 +158,5 @@ extern void	 db_put_value(db_addr_t addr, int size, db_expr_t value);
 #define db_thread_fp_used(thread)	((thread)->pcb->ims.ifps != 0)
 
 #endif	/* _I386_DB_MACHDEP_H_ */
+
+#endif /* _KERNEL_INCLUDE_I386_DB_DB_MACHDEP_H_ */

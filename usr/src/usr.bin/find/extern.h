@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FIND_EXTERN_H_
+#define _USR.BIN_FIND_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -76,3 +83,5 @@ PLAN	*c_not __P((void));
 PLAN	*c_or __P((void));
 
 extern int ftsoptions, isdeprecated, isdepth, isoutput, isxargs;
+
+#endif /* _USR.BIN_FIND_EXTERN_H_ */

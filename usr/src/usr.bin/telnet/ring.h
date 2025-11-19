@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TELNET_RING_H_
+#define _USR.BIN_TELNET_RING_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -103,3 +110,5 @@ extern void
 extern void
     ring_clear_mark(),
     ring_mark();
+
+#endif /* _USR.BIN_TELNET_RING_H_ */

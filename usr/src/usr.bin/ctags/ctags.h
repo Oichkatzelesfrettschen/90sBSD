@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CTAGS_CTAGS_H_
+#define _USR.BIN_CTAGS_CTAGS_H_
+
+/*
  * Copyright (c) 1987 The Regents of the University of California.
  * All rights reserved.
  *
@@ -67,3 +74,5 @@ extern int	lineno,			/* line number of current line */
 		xflag;			/* -x: cxref style output */
 extern bool	_wht[0177],_etk[0177],_itk[0177],_btk[0177],_gd[0177];
 extern char	lbuf[BUFSIZ];
+
+#endif /* _USR.BIN_CTAGS_CTAGS_H_ */

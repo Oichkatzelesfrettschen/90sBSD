@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DDB_DB_WATCH_H_
+#define _KERNEL_DDB_DB_WATCH_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -75,3 +82,5 @@ extern void db_delete_watchpoint(/* vm_map_t map, db_addr_t addr */);
 extern void db_list_watchpoints();
 
 #endif	_DDB_DB_WATCH_
+
+#endif /* _KERNEL_DDB_DB_WATCH_H_ */

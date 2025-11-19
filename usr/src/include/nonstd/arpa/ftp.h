@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_ARPA_FTP_H_
+#define _INCLUDE_NONSTD_ARPA_FTP_H_
+
+/*
  * Copyright (c) 1983, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -107,3 +114,5 @@ char *modenames[] =  {"0", "Stream", "Block", "Compressed" };
 #define	BLK_BYTECOUNT	2	/* Bytes in this block */
 
 #endif /* !_FTP_H_ */
+
+#endif /* _INCLUDE_NONSTD_ARPA_FTP_H_ */

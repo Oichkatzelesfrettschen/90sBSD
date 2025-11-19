@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_MD5_H_
+#define _USR.SBIN_PPPD_MD5_H_
+
+/*
  ***********************************************************************
  ** md5.h -- header file for implementation of MD5                    **
  ** RSA Data Security, Inc. MD5 Message-Digest Algorithm              **
@@ -56,3 +63,5 @@ void MD5Final ();
 
 #define __MD5_INCLUDE__
 #endif /* __MD5_INCLUDE__ */
+
+#endif /* _USR.SBIN_PPPD_MD5_H_ */

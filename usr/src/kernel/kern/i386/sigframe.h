@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_KERN_I386_SIGFRAME_H_
+#define _KERNEL_KERN_I386_SIGFRAME_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -17,3 +24,5 @@ struct sigframe {
 	char	sf_sigcode[16];
 	struct	sigcontext sf_sc;
 } ;
+
+#endif /* _KERNEL_KERN_I386_SIGFRAME_H_ */

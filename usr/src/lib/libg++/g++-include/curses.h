@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_CURSES_H_
+#define _LIB_LIBG++_G++_INCLUDE_CURSES_H_
+
 // This may look like C code, but it is really -*- C++ -*-
 
 /* 
@@ -340,3 +347,5 @@ inline char * unctrl(int c) {  return _unctrl[(c) & 0177]; }
 #endif /* __ OPTIMIZE __ */
 
 #endif
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_CURSES_H_ */

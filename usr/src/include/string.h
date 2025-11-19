@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STRING_H_
+#define _INCLUDE_STRING_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -91,3 +98,5 @@ void	 swab __P((const void *, void *, size_t));
 __END_DECLS
 
 #endif /* _STRING_H_ */
+
+#endif /* _INCLUDE_STRING_H_ */

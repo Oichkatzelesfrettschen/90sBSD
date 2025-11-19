@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAIL_GLOB_H_
+#define _USR.BIN_MAIL_GLOB_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -98,3 +105,5 @@ struct strings {
 	char	*s_nextFree;		/* Next alloctable place here */
 	unsigned s_nleft;		/* Number of bytes left here */
 } stringdope[NSPACE];
+
+#endif /* _USR.BIN_MAIL_GLOB_H_ */

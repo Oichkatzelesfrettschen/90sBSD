@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_API_DISP_ASC_H_
+#define _USR.BIN_TN3270_API_DISP_ASC_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -41,3 +48,5 @@
 extern unsigned char
 	disp_asc[256],		/* Goes between display code and ascii */
 	asc_disp[256];		/* Goes between ascii and display code */
+
+#endif /* _USR.BIN_TN3270_API_DISP_ASC_H_ */

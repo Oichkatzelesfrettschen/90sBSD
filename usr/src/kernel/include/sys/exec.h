@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_EXEC_H_
+#define _KERNEL_INCLUDE_SYS_EXEC_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -69,3 +76,5 @@ unsigned long	a_drsize;	/* data relocation size */
 #define	MID_HPUX800     0x20B   /* hp800 HP-UX binary */
 
 #endif /* !_EXEC_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_EXEC_H_ */

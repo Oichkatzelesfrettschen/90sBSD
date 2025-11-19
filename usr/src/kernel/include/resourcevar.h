@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_RESOURCEVAR_H_
+#define _KERNEL_INCLUDE_RESOURCEVAR_H_
+
+/*
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
  *
@@ -80,3 +87,5 @@ struct plimit {
 
 /* make copy of plimit structure */
 struct	plimit *limcopy __P((struct plimit *lim));
+
+#endif /* _KERNEL_INCLUDE_RESOURCEVAR_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_SAVEFILE_H_
+#define _USR.SBIN_TCPDUMP_SAVEFILE_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -73,3 +80,5 @@ void sf_err();
 #define SFERR_BADF		3
 #define SFERR_EOF		4 /* not really an error, just a status */
 
+
+#endif /* _USR.SBIN_TCPDUMP_SAVEFILE_H_ */

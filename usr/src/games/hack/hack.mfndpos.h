@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_HACK.MFNDPOS_H_
+#define _GAMES_HACK_HACK.MFNDPOS_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* hack.mfndpos.h - version 1.0.2 */
 
@@ -10,3 +17,5 @@
 #define	ALLOW_ROCK	020000
 #define	NOTONL		040000
 #define	NOGARLIC	0100000
+
+#endif /* _GAMES_HACK_HACK.MFNDPOS_H_ */

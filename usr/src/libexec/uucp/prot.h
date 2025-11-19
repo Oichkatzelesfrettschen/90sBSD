@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_PROT_H_
+#define _LIBEXEC_UUCP_PROT_H_
+
 /* prot.h
    Protocol header file.
 
@@ -300,3 +307,5 @@ extern boolean feprocess P((boolean *pfexit));
 extern boolean fewait P((void));
 extern boolean fefile P((boolean fstart, boolean fsend, boolean *pfredo,
 			 long cbytes));
+
+#endif /* _LIBEXEC_UUCP_PROT_H_ */

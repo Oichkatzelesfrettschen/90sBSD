@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_TTYDEFAULTS_H_
+#define _KERNEL_INCLUDE_SYS_TTYDEFAULTS_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -89,3 +96,5 @@ cc_t	ttydefchars[NCCS] = {
 };
 #undef TTYDEFCHARS
 #endif /* TTYDEFCHARS */
+
+#endif /* _KERNEL_INCLUDE_SYS_TTYDEFAULTS_H_ */

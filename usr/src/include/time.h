@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_TIME_H_
+#define _INCLUDE_TIME_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -95,3 +102,5 @@ void tzsetwall __P((void));
 __END_DECLS
 
 #endif /* !_TIME_H_ */
+
+#endif /* _INCLUDE_TIME_H_ */
