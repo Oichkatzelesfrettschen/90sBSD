@@ -109,6 +109,13 @@ IDTVEC(irq13)	INTR2(13)
 IDTVEC(irq14)	INTR2(14)
 IDTVEC(irq15)	INTR2(15)
 
+/* Default interrupt handler for unassigned interrupts */
+IDTVEC(intrdefault)
+	pushl	$0
+	pushl	$T_ASTFLT
+	pushal
+	jmp	doreti
+
 	.data
 	.globl	_imen, _cpl
 	.long 0
@@ -125,3 +132,55 @@ _ttymask:	.long	0
 _biomask:	.long	0
 	.globl	_netmask
 _netmask:	.long	0
+
+/* Aliases for Xirq naming convention (ISA compatibility) */
+	.globl	Xirq0, Xirq1, Xirq2, Xirq3, Xirq4, Xirq5, Xirq6, Xirq7
+	.globl	Xirq8, Xirq9, Xirq10, Xirq11, Xirq12, Xirq13, Xirq14, Xirq15
+	.set	Xirq0, _Xirq0
+	.set	Xirq1, _Xirq1
+	.set	Xirq2, _Xirq2
+	.set	Xirq3, _Xirq3
+	.set	Xirq4, _Xirq4
+	.set	Xirq5, _Xirq5
+	.set	Xirq6, _Xirq6
+	.set	Xirq7, _Xirq7
+	.set	Xirq8, _Xirq8
+	.set	Xirq9, _Xirq9
+	.set	Xirq10, _Xirq10
+	.set	Xirq11, _Xirq11
+	.set	Xirq12, _Xirq12
+	.set	Xirq13, _Xirq13
+	.set	Xirq14, _Xirq14
+	.set	Xirq15, _Xirq15
+
+/* IRHIGH constant - all interrupts masked */
+	.equ	IRHIGH, 0x3ffff
+
+/* Additional aliases for Xintr naming (alternative interrupt naming) */
+	.globl	Xintr0, Xintr1, Xintr2, Xintr3, Xintr4, Xintr5, Xintr6, Xintr7
+	.globl	Xintr8, Xintr9, Xintr10, Xintr11, Xintr12, Xintr13, Xintr14, Xintr15
+	.set	Xintr0, _Xirq0
+	.set	Xintr1, _Xirq1
+	.set	Xintr2, _Xirq2
+	.set	Xintr3, _Xirq3
+	.set	Xintr4, _Xirq4
+	.set	Xintr5, _Xirq5
+	.set	Xintr6, _Xirq6
+	.set	Xintr7, _Xirq7
+	.set	Xintr8, _Xirq8
+	.set	Xintr9, _Xirq9
+	.set	Xintr10, _Xirq10
+	.set	Xintr11, _Xirq11
+	.set	Xintr12, _Xirq12
+	.set	Xintr13, _Xirq13
+	.set	Xintr14, _Xirq14
+	.set	Xintr15, _Xirq15
+
+/* Default interrupt handler alias */
+	.globl	Xintrdefault
+	.set	Xintrdefault, _Xintrdefault
+
+/* Export interrupt masks without underscore prefix */
+	.globl	ttymask, biomask
+	.set	ttymask, _ttymask
+	.set	biomask, _biomask

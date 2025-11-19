@@ -445,6 +445,13 @@ pccnputc(dev_t dev, unsigned c)
 	sput(c, 1);
 }
 
+/* Generic console putc wrapper */
+void
+cnputc(unsigned c)
+{
+	pccnputc(0, c);
+}
+
 /*
  * Print a character on console.
  */

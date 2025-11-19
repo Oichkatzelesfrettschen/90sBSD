@@ -60,6 +60,10 @@
 extern struct cfdata cfdata[];
 extern short cfroots[];
 
+/* Global device and event lists */
+struct device *alldevs = NULL;
+struct evcnt *allevents = NULL;
+
 #define	ROOT ((struct device *)NULL)
 
 struct matchinfo {

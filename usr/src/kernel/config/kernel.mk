@@ -20,10 +20,10 @@ DEPEND= depend_mk
 ASFLAGS= ${DEBUG}
 .if defined(GDB)
 # CFLAGS=	-m486 -O ${COPTS} -g
-CFLAGS=	-O ${COPTS} -g -fno-builtin -fno-stack-protector -Wno-implicit-int
+CFLAGS=	-O ${COPTS} -g -fno-builtin -fno-stack-protector -fno-pic -Wno-implicit-int
 .else
 # CFLAGS=	-m486 -O ${COPTS}
-CFLAGS=	-O ${COPTS} -fno-builtin -fno-stack-protector -Wno-implicit-int
+CFLAGS=	-O ${COPTS} -fno-builtin -fno-stack-protector -fno-pic -Wno-implicit-int
 .endif
 DBGCFLAGS= -O ${COPTS}
 
@@ -77,15 +77,15 @@ isym.o: $S/config/isym.c
 
 SRCS= ${KERN_SRCS} ${KERN_SRCS_DBGC} ${MACH_SRCS} ${DEV_SRCS} ${FS_SRCS} ${DOMAIN_SRCS}
 
-${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS} isym.o
+${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS}
 	@echo loading $@
 	@rm -f $@
 	@$S/config/newvers.sh
 	@${CC} -c ${CFLAGS} ${PROF} ${DEBUG} vers.c
 .if defined(DEBUGSYM)
-	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o
 .else
-	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o
 .endif
 	@echo rearranging symbols
 .if defined(GDB)

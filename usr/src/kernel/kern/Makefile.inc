@@ -16,7 +16,8 @@ KERN_SRCS+= \
 	uipc_domain.c uipc_mbuf.c uipc_proto.c uipc_socket.c uipc_socket2.c \
 	uipc_syscalls.c uipc_usrreq.c \
 	vfs_bio.c vfs_cache.c vfs_cluster.c vfs_conf.c vfs_init.c \
-	vfs_lookup.c vfs_subr.c vfs_syscalls.c vfs_vnops.c
+	vfs_lookup.c vfs_subr.c vfs_syscalls.c vfs_vnops.c \
+	vfs_vnops_stubs.c
 
 SYMBOLS+= kern.symbols
 MAN9+=	malloc.0 # kinfo.0 io.0 priv.0 process.0 config.0 lock.0
