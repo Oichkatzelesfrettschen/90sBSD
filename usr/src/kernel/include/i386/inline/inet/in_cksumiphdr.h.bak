@@ -17,7 +17,7 @@ __INLINE u_short
 in_cksumiphdr(void *ip) {
 	u_long val, acc;
 
-	__asm__ ("\
+	asm ("\
 		movl	  (%2), %0 ;	\
 		addl	 4(%2), %0 ;	\
 		adcl	 8(%2), %0 ;	\

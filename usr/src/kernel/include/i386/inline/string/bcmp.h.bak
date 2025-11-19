@@ -18,16 +18,16 @@ bcmp(const void *fromaddr, void *toaddr, size_t maxlength) {
 	extern const int zero;			/* compiler bug workaround */
 	const void *f = fromaddr + zero;	/* compiler bug workaround */
 
-	__asm__ volatile ("cld ; repe ; cmpsl ; jne 1f" :
+	asm volatile ("cld ; repe ; cmpsl ; jne 1f" :
 	    "=D" (toaddr), "=S" (f) :
 	    "0" (toaddr), "1" (f), "c" (maxlength / 4));
-	__asm__ volatile ("repe ; cmpsb ; jne 1f" :
+	asm volatile ("repe ; cmpsb ; jne 1f" :
 	    "=D" (toaddr), "=S" (f) :
 	    "0" (toaddr), "1" (f), "c" (maxlength & 3));
 	
 	return (0);	/* exact match */
 
-	__asm__ ("	1:");
+	asm ("	1:");
 	return (1);	/* failed match */
 }
 
