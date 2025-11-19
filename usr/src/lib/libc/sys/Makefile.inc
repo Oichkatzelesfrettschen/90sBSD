@@ -4,8 +4,9 @@
 .PATH: ${.CURDIR}/${MACHINE}/sys ${.CURDIR}/sys
 
 # modules with non-default implementations on at least one architecture:
-SRCS+=	Ovfork.s brk.s cerror.s exect.s fork.s pipe.s ptrace.s reboot.s \
-	sbrk.s setlogin.s sigpending.s sigprocmask.s sigreturn.s \
+# Modern C implementations (converted from assembly for maintainability)
+SRCS+=	Ovfork.c brk.c cerror.c exect.s fork.c pipe.c ptrace.s reboot.s \
+	sbrk.c setlogin.s sigpending.s sigprocmask.s sigreturn.s \
 	sigsuspend.s syscall.s
 
 # modules with default implementations on all architectures:
