@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)getsubopt.c	5.2 (Berkeley) 2/24/91";
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*
  * The SVID interface to getsubopt provides no way of figuring out which
@@ -45,6 +46,7 @@ static char sccsid[] = "@(#)getsubopt.c	5.2 (Berkeley) 2/24/91";
  * which didn't match.
  */
 char *suboptarg;
+int
 
 getsubopt(optionp, tokens, valuep)
 	register char **optionp, **valuep;

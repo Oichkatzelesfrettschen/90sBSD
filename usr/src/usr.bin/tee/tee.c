@@ -121,6 +121,7 @@ main(argc, argv)
 	exit(exitval);
 }
 
+void
 add(fd, name)
 	int fd;
 	char *name;

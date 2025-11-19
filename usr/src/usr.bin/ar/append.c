@@ -56,6 +56,7 @@ extern char *archive;			/* archive name */
  *	Append files to the archive - modifies original archive or creates
  *	a new archive if named archive does not exist.
  */
+int
 append(argv)
 	char **argv;
 {

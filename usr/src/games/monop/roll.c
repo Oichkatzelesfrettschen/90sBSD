@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)roll.c	5.5 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 /*
@@ -43,6 +44,7 @@ static char sccsid[] = "@(#)roll.c	5.5 (Berkeley) 6/1/90";
 
 # if !defined(vax) && !defined(tahoe)
 # define	MAXRAND	32767L
+int
 
 roll(ndie, nsides)
 int	ndie, nsides; {

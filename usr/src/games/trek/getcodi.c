@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)getcodi.c	5.4 (Berkeley) 6/1/90";
 **	(meaning to drop the request).
 */
 
+int
 getcodi(co, di)
 int	*co;
 double	*di;

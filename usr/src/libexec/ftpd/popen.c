@@ -139,6 +139,7 @@ pfree:	for (argc = 1; argv[argc] != NULL; argc++) {
 	return(iop);
 }
 
+int
 ftpd_pclose(iop)
 	FILE *iop;
 {
