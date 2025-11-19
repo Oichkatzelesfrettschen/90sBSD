@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)ln.c	4.15 (Berkeley) 2/24/91";
 static int	dirflag,			/* undocumented force flag */
 		sflag,				/* symbolic, not hard, link */
 		(*linkf)();			/* system link call */
+void
 static linkit(), usage();
 
 int

@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)hostname.c	5.4 (Berkeley) 5/31/90";
 
 #include <stdio.h>
 #include <sys/param.h>
+#include <stdlib.h>
+#include <string.h>
 
 int
 main(argc,argv)

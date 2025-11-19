@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)soelim.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /*
  * soelim - a filter to process n/troff input eliminating .so's
  *

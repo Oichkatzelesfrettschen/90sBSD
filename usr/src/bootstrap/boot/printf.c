@@ -65,6 +65,7 @@
  */
 #define KERNEL
 #include <machine/stdarg.h>
+#include <stdio.h>
 #undef KERNEL
 
 static void kprintn __P((u_long, int));

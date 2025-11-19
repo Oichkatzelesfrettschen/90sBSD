@@ -122,6 +122,7 @@ static void	 qprintf __P((Char *));
  * if things went well, nonzero if errors occurred.  It is not an error
  * to find no matches.
  */
+int
 glob(pattern, flags, errfunc, pglob)
 	const char *pattern;
 	int flags, (*errfunc) __P((char *, int));

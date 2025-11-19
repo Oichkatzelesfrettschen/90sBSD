@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)fstab.c	5.15 (Berkeley) 2/23/91";
 
 static FILE *_fs_fp;
 static struct fstab _fs_fstab;
+int
 static error();
 
 static
@@ -164,6 +165,7 @@ getfsfile(name)
 	return((struct fstab *)NULL);
 }
 
+int
 setfsent(void)
 {
 	if (_fs_fp) {
