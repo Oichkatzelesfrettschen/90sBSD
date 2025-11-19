@@ -70,6 +70,17 @@ build-troubleshoot-report.md
 # Kernel build analysis logs
 kernel-build-analysis.log.*
 
+# Modernization logs and metrics
+logs/
+.build-metrics/*.log
+.build-metrics/*.txt
+.build-cache/cache/
+!logs/.gitkeep
+
+# Analysis outputs
+*.csv
+docs/**/*.json
+
 # -----------------------------
 # Editor & IDE artifacts
 # -----------------------------
