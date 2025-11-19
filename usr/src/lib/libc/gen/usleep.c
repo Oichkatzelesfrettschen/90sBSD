@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)usleep.c	5.6 (Berkeley) 2/23/91";
 	vec.sv_handler = a; vec.sv_mask = vec.sv_onstack = 0
 
 static int ringring;
+static void sleephandler();
 
 void
 usleep(useconds)
@@ -55,7 +56,6 @@ usleep(useconds)
 	struct itimerval itv, oitv;
 	struct sigvec vec, ovec;
 	long omask;
-	static void sleephandler();
 
 	itp = &itv;
 	if (!useconds)

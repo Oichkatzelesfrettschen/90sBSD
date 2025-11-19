@@ -50,6 +50,8 @@ static char sccsid[] = "@(#)radixsort.c	5.7 (Berkeley) 2/23/91";
 int __rspartition = NPARTITION;
 int __rsshell_increments[] = { 4, 1, 0, 0, 0, 0, 0, 0 };
 
+static void shellsort();
+
 /*
  * Stackp points to context structures, where each structure schedules a
  * partitioning.  Radixsort exits when the stack is empty.
@@ -131,7 +133,6 @@ radixsort(l1, nmemb, tab, endbyte)
 	CONTEXT *stack, *stackp;
 	int c[NBUCKETS + 1], max;
 	u_char ltab[NBUCKETS];
-	static void shellsort();
 
 	if (nmemb <= 1)
 		return(0);

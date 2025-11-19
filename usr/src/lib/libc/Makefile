@@ -15,6 +15,8 @@ CFLAGS+=-DLIBC_SCCS -DSYSLIBC_SCCS
 CFLAGS+=-nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/13/include
 CFLAGS+=-I${.CURDIR}/../../include -I${.CURDIR}/../../include/nonstd/db
 CFLAGS+=-Wno-error=implicit-function-declaration -Wno-error=int-conversion
+# Define i386 for architecture-specific headers (setjmp.h, etc.)
+CFLAGS+=-Di386
 AINC=	-I${.CURDIR}/${MACHINE}
 
 .include "${.CURDIR}/compat-43/Makefile.inc"

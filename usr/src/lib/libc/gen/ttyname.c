@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)ttyname.c	5.10 (Berkeley) 5/6/91";
 #include <paths.h>
 
 static char buf[sizeof(_PATH_DEV) + MAXNAMLEN] = _PATH_DEV;
+static char *__oldttyname();
 
 char *
 ttyname(fd)
@@ -58,7 +59,6 @@ ttyname(fd)
 		mode_t type;
 		dev_t dev;
 	} bkey;
-	static char *__oldttyname();
 
 	/* Must be a terminal. */
 	if (ioctl(fd, TIOCGETP, &ttyb) < 0)

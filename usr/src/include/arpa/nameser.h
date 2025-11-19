@@ -1,1 +1,1 @@
-nonstd/arpa/nameser.h
+../nonstd/arpa/nameser.h

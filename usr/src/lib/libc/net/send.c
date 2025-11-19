@@ -40,7 +40,8 @@ static char sccsid[] = "@(#)send.c	5.3 (Berkeley) 2/24/91";
 #include <stdio.h>
 
 send(s, msg, len, flags)
-	int s, len, flags;
+	int s, flags;
+	size_t len;
 	const void *msg;
 {
 	return(sendto(s, msg, len, flags, (struct sockaddr *)NULL, 0));
