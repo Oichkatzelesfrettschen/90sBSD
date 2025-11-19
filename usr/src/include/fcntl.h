@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
+ * Copyright (c) 1983, 1990 The Regents of the University of California.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,25 +29,13 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
+ *
+ *	@(#)fcntl.h	5.6 (Berkeley) 2/5/91
  */
 
-#if defined(LIBC_SCCS) && !defined(lint)
-static char sccsid[] = "@(#)setpgrp.c	5.2 (Berkeley) 2/24/91";
-#endif /* LIBC_SCCS and not lint */
+#ifndef _FCNTL_H_
+#define	_FCNTL_H_
 
-#include <sys/types.h>
+#include <sys/fcntl.h>
 
-/* Forward declaration to avoid conflict with POSIX setpgrp(void) */
-int setpgid(pid_t, pid_t);
-
-#if __STDC__
-int
-setpgrp(pid_t pid, pid_t pgid)
-#else
-int
-setpgrp(pid, pgid)
-	pid_t pid, pgid;
-#endif
-{
-	return(setpgid(pid, pgid));
-}
+#endif /* !_FCNTL_H_ */
