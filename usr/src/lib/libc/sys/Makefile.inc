@@ -34,11 +34,12 @@ PSEUDO=	_exit.o _getlogin.o
 
 OBJS+=	${ASM} ${PSEUDO}
 POBJS+=	${ASM:.o=.po} ${PSEUDO:.o=.po}
-CLEANFILES+=${ASM} ${PSEUDO} ${POBJS} 
+PIOBJS+=	${ASM:.o=.pico} ${PSEUDO:.o=.pico}
+CLEANFILES+=${ASM} ${PSEUDO} ${POBJS} ${PIOBJS} 
 
 ${ASM}: ${.CURDIR}/${MACHINE}/SYS.h /usr/include/sys/syscall.h
 .if !defined(NOPROFILE)
-	@echo creating ${.PREFIX}.o ${.PREFIX}.po
+	@echo creating ${.PREFIX}.o ${.PREFIX}.po ${.PREFIX}.pico
 	@printf '#include "SYS.h"\nRSYSCALL(${.PREFIX})\n' | \
 	    ${CPP} ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.o
 	@${LD} -x -r ${.PREFIX}.o
@@ -47,16 +48,24 @@ ${ASM}: ${.CURDIR}/${MACHINE}/SYS.h /usr/include/sys/syscall.h
 	    ${CPP} -DPROF ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.po
 	@${LD} -x -r ${.PREFIX}.po
 	@mv a.out ${.PREFIX}.po
+	@printf '#include "SYS.h"\nRSYSCALL(${.PREFIX})\n' | \
+	    ${CPP} -DPIC ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.pico
+	@${LD} -x -r ${.PREFIX}.pico
+	@mv a.out ${.PREFIX}.pico
 .else
-	@echo creating ${.PREFIX}.o
+	@echo creating ${.PREFIX}.o ${.PREFIX}.pico
 	@printf '#include "SYS.h"\nRSYSCALL(${.PREFIX})\n' | \
 	    ${CPP} ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.o
 	@${LD} -x -r ${.PREFIX}.o
 	@mv a.out ${.PREFIX}.o
+	@printf '#include "SYS.h"\nRSYSCALL(${.PREFIX})\n' | \
+	    ${CPP} -DPIC ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.pico
+	@${LD} -x -r ${.PREFIX}.pico
+	@mv a.out ${.PREFIX}.pico
 .endif
 
 ${PSEUDO}: ${.CURDIR}/${MACHINE}/SYS.h /usr/include/sys/syscall.h
-	@echo creating ${.PREFIX}.o ${.PREFIX}.po
+	@echo creating ${.PREFIX}.o ${.PREFIX}.po ${.PREFIX}.pico
 	@printf '#include "SYS.h"\nPSEUDO(${.PREFIX},${.PREFIX:S/_//})\n' | \
 	    ${CPP} ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.o
 	@${LD} -x -r ${.PREFIX}.o
@@ -65,6 +74,10 @@ ${PSEUDO}: ${.CURDIR}/${MACHINE}/SYS.h /usr/include/sys/syscall.h
 	    ${CPP} -DPROF ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.po
 	@${LD} -x -r ${.PREFIX}.po
 	@mv a.out ${.PREFIX}.po
+	@printf '#include "SYS.h"\nPSEUDO(${.PREFIX},${.PREFIX:S/_//})\n' | \
+	    ${CPP} -DPIC ${CFLAGS:M-[ID]*} ${AINC} | ${AS} -o ${.PREFIX}.pico
+	@${LD} -x -r ${.PREFIX}.pico
+	@mv a.out ${.PREFIX}.pico
 
 MAN2+=	accept.0 access.0 acct.0 adjtime.0 async_daemon.0 bind.0 brk.0 \
 	chdir.0 chflags.0 chmod.0 chown.0 chroot.0 close.0 connect.0 \

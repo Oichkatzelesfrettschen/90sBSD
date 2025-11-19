@@ -42,6 +42,11 @@ memmove.po: bcopy.c
 	${CC} -DMEMMOVE ${CFLAGS} -c -p ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+memmove.pico: bcopy.c
+	${CC} -DMEMMOVE ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/bcopy.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific memcpy(3), build one out of bcopy(3).
@@ -56,6 +61,11 @@ memcpy.po: bcopy.c
 	${CC} -DMEMCOPY ${CFLAGS} -c -p ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+memcpy.pico: bcopy.c
+	${CC} -DMEMCOPY ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/bcopy.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific strchr(3), build one out of index(3).
@@ -70,6 +80,11 @@ strchr.po: index.c
 	${CC} -DSTRCHR ${CFLAGS} -c -p ${.CURDIR}/string/index.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+strchr.pico: index.c
+	${CC} -DSTRCHR ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/index.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific strrchr(3), build one out of rindex(3).
@@ -84,6 +99,11 @@ strrchr.po: rindex.c
 	${CC} -DSTRRCHR ${CFLAGS} -c -p ${.CURDIR}/string/rindex.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+strrchr.pico: rindex.c
+	${CC} -DSTRRCHR ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/rindex.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 MAN3+=	bcmp.0 bcopy.0 bstring.0 bzero.0 ffs.0 index.0 memccpy.0 memchr.0 \
