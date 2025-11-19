@@ -63,6 +63,21 @@ class ErrorCategorizer:
             r"call to undeclared function 'asm'|"
             r"use of undeclared identifier 'asm'"
         ),
+        'deprecated_non_prototype': re.compile(
+            r"function definition without a prototype is deprecated|"
+            r"deprecated.*non-prototype"
+        ),
+        'strict_prototypes': re.compile(
+            r"function declaration without a prototype is deprecated|"
+            r"without a prototype is deprecated"
+        ),
+        'missing_return': re.compile(
+            r"non-void function.*should return a value|"
+            r"should return a value"
+        ),
+        'incompatible_library_redecl': re.compile(
+            r"incompatible redeclaration of library function"
+        ),
         'incompatible_pointer': re.compile(
             r"incompatible pointer types|"
             r"incompatible function pointer types"
