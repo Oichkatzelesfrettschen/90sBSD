@@ -1741,3 +1741,52 @@ ENTRY(ntohs)
 	.set	_curpcb, curpcb
 	.set	__ucodesel, _ucodesel
 	.set	__udatasel, _udatasel
+
+/* Comprehensive underscore aliases for locore assembly code */
+	.globl	_whichqs, _qs, _cnt, _CMAP2, _want_resched, _trap, _syscall
+	.globl	IO_ICU1, IO_ICU2
+
+	.set	_whichqs, whichqs
+	.set	_qs, qs
+	.set	_cnt, cnt
+	.set	_CMAP2, CMAP2
+	.set	_want_resched, want_resched
+	.set	_trap, trap
+	.set	_syscall, syscall
+	.set	IO_ICU1, _IO_ICU1
+	.set	IO_ICU2, _IO_ICU2
+
+/* ELF compatibility: non-underscore aliases for trap/exception vectors */
+	.globl	Xprot, Xpage, Xrsvd, Xfpu, Xrsvd0, Xrsvd1, Xrsvd2, Xrsvd3
+	.globl	Xrsvd4, Xrsvd5, Xrsvd6, Xrsvd7, Xrsvd8, Xrsvd9, Xrsvd10
+	.globl	Xrsvd11, Xrsvd12, Xrsvd13, Xrsvd14, Xsyscall
+	.globl	lgdt, lidt, lldt, ltr
+	.globl	sigcode, szsigcode
+
+	.set	Xprot, _Xprot
+	.set	Xpage, _Xpage
+	.set	Xrsvd, _Xrsvd
+	.set	Xfpu, _Xfpu
+	.set	Xrsvd0, _Xrsvd0
+	.set	Xrsvd1, _Xrsvd1
+	.set	Xrsvd2, _Xrsvd2
+	.set	Xrsvd3, _Xrsvd3
+	.set	Xrsvd4, _Xrsvd4
+	.set	Xrsvd5, _Xrsvd5
+	.set	Xrsvd6, _Xrsvd6
+	.set	Xrsvd7, _Xrsvd7
+	.set	Xrsvd8, _Xrsvd8
+	.set	Xrsvd9, _Xrsvd9
+	.set	Xrsvd10, _Xrsvd10
+	.set	Xrsvd11, _Xrsvd11
+	.set	Xrsvd12, _Xrsvd12
+	.set	Xrsvd13, _Xrsvd13
+	.set	Xrsvd14, _Xrsvd14
+	.set	Xsyscall, _Xsyscall
+	.set	lgdt, _lgdt
+	.set	lidt, _lidt
+	.set	lldt, _lldt
+	.set	ltr, _ltr
+	.set	sigcode, _sigcode
+	.set	szsigcode, _szsigcode
+	

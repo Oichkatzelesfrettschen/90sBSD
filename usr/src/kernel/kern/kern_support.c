@@ -150,7 +150,15 @@ void *pmap_kernel(void) { static int dummy; return &dummy; }
 /* Global interrupt variables */
 unsigned short imen = 0xffff;  /* Interrupt mask */
 long netmask = 0;  /* Network interrupt mask */
+long ttymask = 0;  /* TTY interrupt mask */
+long biomask = 0;  /* Block I/O interrupt mask */
 char intrnames[256];  /* Interrupt names */
+long intrcnt[16];  /* Interrupt counters */
+
+/* ISA bus interrupt vectors */
+int isa_unit[16];  /* ISA device unit numbers */
+unsigned isa_mask[16];  /* ISA interrupt masks */
+void (*isa_vec[16])(void);  /* ISA interrupt vector table */
 
 /* Module scanning */
 void modscaninit(void) { /* Stub */ }
@@ -263,6 +271,13 @@ int fuword(void *addr) { return -1; /* Stub */ }
 /* Read CR2 register (page fault address) */
 unsigned long rcr2(void) { return 0; }
 
+/* Read CR3 register (page directory base) */
+unsigned long rcr3(void) {
+	unsigned long val;
+	asm volatile("movl %%cr3, %0" : "=r"(val));
+	return val;
+}
+
 /* AST off function */
 void astoff(void) { /* Stub */ }
 
@@ -307,4 +322,29 @@ int _udatasel = 0x10;  /* User data selector */
 /* Console display memory */
 void *Crtat = (void *)0xb8000;  /* CRT attribute/character */
 void *_Crtat = (void *)0xb8000;
+
+
+/* Scheduler globals */
+int whichqs = 0;  /* Run queues */
+void *qs = NULL;  /* Queue structures */
+int want_resched = 0;  /* Reschedule flag */
+
+/* CMAP2 - temporary PTE */
+void *CMAP2 = NULL;
+
+/* I/O ports */
+int _IO_ICU1 = 0x20;  /* Interrupt controller 1 */
+int _IO_ICU2 = 0xA0;  /* Interrupt controller 2 */
+
+/* Network and software interrupt handling */
+int netisr = 0;  /* Network interrupt service register */
+int softem = 0;  /* Software interrupt mask */
+
+/* User space byte access */
+int fubyte(void *addr) { return -1; /* Stub */ }
+int subyte(void *addr, int byte) { return -1; /* Stub */ }
+
+/* VM system globals */
+void *KPTphys = NULL;  /* Kernel page table physical address */
+void *kernel_object = NULL;  /* Kernel VM object */
 
