@@ -54,6 +54,8 @@ static char sccsid[] = "@(#)write.c	4.22 (Berkeley) 6/1/90";
 #include <pwd.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 extern int errno;
 
@@ -133,6 +135,7 @@ main(argc, argv)
  * utmp_chk - checks that the given user is actually logged in on
  *     the given tty
  */
+int
 utmp_chk(user, tty)
 	char *user, *tty;
 {
@@ -164,6 +167,7 @@ utmp_chk(user, tty)
  * Special case for writing to yourself - ignore the terminal you're
  * writing from, unless that's the only terminal with messages enabled.
  */
+void
 search_utmp(user, tty, mytty, myuid)
 	char *user, *tty, *mytty;
 	uid_t myuid;
@@ -225,6 +229,7 @@ search_utmp(user, tty, mytty, myuid)
  * term_chk - check that a terminal exists, and get the message bit
  *     and the access time
  */
+int
 term_chk(tty, msgsokP, atimeP, showerror)
 	char *tty;
 	int *msgsokP, showerror;
@@ -248,6 +253,7 @@ term_chk(tty, msgsokP, atimeP, showerror)
 /*
  * do_write - actually make the connection
  */
+void
 do_write(tty, mytty, myuid)
 	char *tty, *mytty;
 	uid_t myuid;

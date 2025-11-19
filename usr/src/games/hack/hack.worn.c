@@ -20,6 +20,7 @@ struct worn {
 	{ 0, 0 }
 };
 
+void
 setworn(obj, mask)
 register struct obj *obj;
 long mask;

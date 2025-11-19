@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)api.c	4.5 (Berkeley) 4/26/91";
 #include "oia.h"
 
 #include "../general/globals.h"
+#include <string.h>
 
 int apitrace = 0;
 

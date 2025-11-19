@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)morse.c	5.3 (Berkeley) 2/28/91";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 static char
 	*digit[] = {
@@ -120,6 +121,7 @@ main(argc, argv)
 		morse(ch);
 }
 
+void
 morse(c)
 	register int c;
 {
@@ -135,6 +137,7 @@ morse(c)
 		show(" ...\n");
 }
 
+void
 show(s)
 	register char *s;
 {

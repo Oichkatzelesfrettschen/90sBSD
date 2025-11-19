@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)parse.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <string.h>
 
+void
 wordinit()
 {
 	register struct wlist *w;
@@ -45,9 +47,11 @@ wordinit()
 		install(w);
 }
 
+int
 hash(s)
 	register char *s;
 {
+void
 	register hashval = 0;
 
 	while (*s) {
@@ -70,6 +74,7 @@ lookup(s)
 	return NULL;
 }
 
+void
 install(wp)
 	register struct wlist *wp;
 {
@@ -83,9 +88,11 @@ install(wp)
 		printf("Multiply defined %s.\n", wp->string);
 }
 
+void
 parse()
 {
 	register struct wlist *wp;
+void
 	register n;
 
 	wordnumber = 0;           /* for cypher */

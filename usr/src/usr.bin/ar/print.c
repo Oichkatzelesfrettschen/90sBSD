@@ -54,6 +54,7 @@ extern char *archive;			/* archive name */
  *	Prints archive members on stdout - if member names given only
  *	print those members, otherwise print all members.
  */
+int
 print(argv)
 	char **argv;
 {

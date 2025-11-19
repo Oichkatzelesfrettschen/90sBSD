@@ -146,6 +146,7 @@ struct token {
 	} tval;
 };
 
+int
 partime(astr, atm)
 char *astr;
 struct tm *atm;
@@ -329,6 +330,7 @@ coltm2:	if(!ptitoken(btoken.tcp+btoken.tcnt,&btoken))
 /* Store date/time value, return 0 if successful.
  * Fails if entry already set to a different value.
  */
+int
 ptstash(adr,val)
 int *adr;
 {	register int *a;
@@ -341,6 +343,7 @@ int *adr;
 /* This subroutine is invoked for NOON or MIDNIGHT when wrapping up
  * just prior to returning from partime.
  */
+int
 pt12hack(atp, aval)
 int *atp, aval;
 {	register int *tp, i, h;
@@ -361,6 +364,7 @@ int *atp, aval;
 
 /* Null routine for no-op tokens */
 
+int
 ptnoise() { return(1); }
 
 /* Get a token and identify it to some degree.
@@ -368,6 +372,7 @@ ptnoise() { return(1); }
  * hit error of some sort
  */
 
+int
 ptitoken(astr, tkp)
 register struct token *tkp;
 char *astr;
@@ -419,6 +424,7 @@ char *astr;
 }
 
 /* Read token from input string into token structure */
+int
 pttoken(astr,tkp)
 register struct token *tkp;
 char *astr;
@@ -461,6 +467,7 @@ char *astr;
 }
 
 
+int
 ptmatchstr(astr,cnt,astruc)
 char *astr;
 int cnt;
@@ -492,6 +499,7 @@ struct tmwent *astruc;
 
 
 
+void
 zaptime(tp)
 register int *tp;
 /* clears tm structure pointed to by tp */

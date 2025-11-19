@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)calendar.c	4.11 (Berkeley) 10/12/90";
 #include <unistd.h>
 #include <string.h>
 #include "pathnames.h"
+#include <stdlib.h>
 
 extern int errno;
 struct passwd *pw;
@@ -102,6 +103,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 cal()
 {
 	register int printing;
@@ -146,6 +148,7 @@ struct tm *tp;
 int *cumdays, offset, yrdays;
 char dayname[10];
 
+void
 settime()
 {
 	time_t now, time();
@@ -175,6 +178,7 @@ settime()
  * following a line that is matched, that starts with "whitespace", is shown
  * along with the matched line.
  */
+int
 isnow(endp)
 	char *endp;
 {
@@ -220,6 +224,7 @@ isnow(endp)
 	return(0);
 }
 
+int
 getfield(p, endp, flags)
 	char *p, **endp;
 	int *flags;
@@ -299,6 +304,7 @@ opencal()
 	return(fdopen(fd, "w+"));
 }
 
+void
 closecal(fp)
 	FILE *fp;
 {

@@ -56,6 +56,8 @@ static char sccsid[] = "@(#)sys_bsd.c	5.2 (Berkeley) 3/1/91";
 #include "defines.h"
 #include "externs.h"
 #include "types.h"
+#include <string.h>
+#include <unistd.h>
 
 #if	defined(CRAY) || (defined(USE_TERMIO) && !defined(SYSV_TERMIO))
 #define	SIG_FUNC_RET	void

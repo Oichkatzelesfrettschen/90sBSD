@@ -65,6 +65,8 @@ static char sccsid[] = "@(#)rsh.c	5.24 (Berkeley) 7/1/91";
 #ifdef KERBEROS
 #include <kerberosIV/des.h>
 #include <kerberosIV/krb.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 CREDENTIALS cred;
 Key_schedule schedule;

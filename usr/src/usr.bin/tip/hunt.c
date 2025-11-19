@@ -50,6 +50,7 @@ dead()
 	longjmp(deadline, 1);
 }
 
+int
 hunt(name)
 	char *name;
 {

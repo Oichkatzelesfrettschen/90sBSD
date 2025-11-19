@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)getpar.c	4.8 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	<stdio.h>
@@ -42,6 +43,7 @@ static char sccsid[] = "@(#)getpar.c	4.8 (Berkeley) 6/1/90";
  **	get integer parameter
  **/
 
+int
 getintpar(s)
 char	*s;
 {
@@ -97,6 +99,7 @@ struct cvntab	Yntab[] =
 	0
 };
 
+int
 getynpar(s)
 char	*s;
 {
@@ -188,6 +191,7 @@ struct cvntab	tab[];
  **	get string parameter
  **/
 
+void
 getstrpar(s, r, l, t)
 char	*s;
 char	*r;
@@ -221,6 +225,7 @@ char	*t;
  **	test if newline is next valid character
  **/
 
+int
 testnl()
 {
 	register char		c;

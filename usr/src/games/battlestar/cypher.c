@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)cypher.c	5.3 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+int
 cypher()
 {
 	register int n;

@@ -36,10 +36,13 @@ static char sccsid[] = "@(#)dr_4.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
 
+void
 ungrap(from, to)
 register struct ship *from, *to;
 {
+void
 	register k;
 	char friend;
 
@@ -54,6 +57,7 @@ register struct ship *from, *to;
 	}
 }
 
+void
 grap(from, to)
 register struct ship *from, *to;
 {

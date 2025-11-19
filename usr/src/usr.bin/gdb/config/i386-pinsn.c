@@ -840,6 +840,7 @@ struct dis386 grps[][8] = {
 
 static int prefixes;
 
+void
 ckprefix ()
 {
   prefixes = 0;
@@ -909,6 +910,7 @@ static int start_pc;
  *   100 bytes is certainly enough, unless symbol printing is added later
  * The function returns the length of this instruction in bytes.
  */
+int
 i386dis (pc, inbuf, outbuf)
      int pc;
      unsigned char *inbuf;
@@ -1275,6 +1277,7 @@ char *fgrps[][8] = {
 };
 
 
+void
 dofloat ()
 {
   struct dis386 *dp;
@@ -1312,12 +1315,14 @@ dofloat ()
 }
 
 /* ARGSUSED */
+void
 OP_ST (ignore)
 {
   oappend ("%st");
 }
 
 /* ARGSUSED */
+void
 OP_STi (ignore)
 {
   sprintf (scratchbuf, "%%st(%d)", rm);
@@ -1790,6 +1795,7 @@ OP_rm (bytemode)
 #include "symtab.h"
 #include "frame.h"
 #include "inferior.h"
+#include <string.h>
 
 #define MAXLEN 20
 print_insn (memaddr, stream)

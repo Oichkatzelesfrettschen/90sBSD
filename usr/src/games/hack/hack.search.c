@@ -5,6 +5,7 @@
 
 extern struct monst *makemon();
 
+int
 findit()	/* returns number of things found */
 {
 	int num;

@@ -259,6 +259,7 @@ main(argc, argv, arge)
 	exit (ret);
 }
 
+int
 mountfs(spec, name, flags, type, options, mntopts)
 	char *spec, *name, *type, *options, *mntopts;
 	int flags;

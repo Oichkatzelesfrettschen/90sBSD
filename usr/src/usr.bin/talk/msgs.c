@@ -56,6 +56,7 @@ disp_msg()
 	message(current_state);
 }
 
+void
 start_msgs()
 {
 	struct itimerval itimer;
@@ -67,6 +68,7 @@ start_msgs()
 	setitimer(ITIMER_REAL, &itimer, (struct itimerval *)0);
 }
 
+void
 end_msgs()
 {
 	struct itimerval itimer;

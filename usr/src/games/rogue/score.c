@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)score.c	5.5 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include "rogue.h"
 #include "pathnames.h"
+#include <string.h>
 
 extern char login_name[];
 extern char *m_names[];
@@ -60,6 +61,7 @@ extern short max_level;
 extern boolean score_only, no_skull, msg_cleared;
 extern char *byebye_string, *nick_name;
 
+void
 killed_by(monster, other)
 object *monster;
 short other;
@@ -128,6 +130,7 @@ short other;
 	put_scores(monster, other);
 }
 
+int
 win()
 {
 	unwield(rogue.weapon);		/* disarm and relax */
@@ -151,6 +154,7 @@ win()
 	put_scores((object *) 0, WIN);
 }
 
+void
 quit(from_intrpt)
 boolean from_intrpt;
 {

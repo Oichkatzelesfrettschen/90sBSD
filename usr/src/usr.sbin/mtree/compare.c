@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)compare.c	5.7 (Berkeley) 5/25/90";
 	if (!label++) \
 		(void)printf("%s: ", RP(p)); \
 
+void
 compare(name, s, p)
 	char *name;
 	register NODE *s;

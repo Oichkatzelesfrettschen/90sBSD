@@ -46,12 +46,15 @@ static char sccsid[] = "@(#)uniq.c	5.2 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 int cflag, dflag, uflag;
 int numchars, numfields, repeats;
 
 #define	MAXLINELEN	(2048 + 1)
 
+void
 main (argc,argv)
 	int argc;
 	char **argv;
@@ -167,6 +170,7 @@ negerr:				(void)fprintf(stderr,
  *	output a line depending on the flags and number of repetitions
  *	of the line.
  */
+void
 show(ofp, str)
 	FILE *ofp;
 	char *str;
@@ -208,6 +212,7 @@ file(name, mode)
 	return(fp);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

@@ -66,6 +66,7 @@ char *no_export[] =
 {
 	"TERM", "TERMCAP", "DISPLAY", "_"
 };
+void
 static send_mail = 0;
 
 /* External variables */

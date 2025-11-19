@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)snova.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -58,6 +60,7 @@ static char sccsid[] = "@(#)snova.c	5.4 (Berkeley) 6/1/90";
 **	override mode.
 */
 
+void
 snova(x, y)
 int	x, y;
 {

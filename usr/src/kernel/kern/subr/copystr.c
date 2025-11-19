@@ -31,6 +31,7 @@ copystr(void *fromaddr, void *toaddr, u_int maxlength, u_int *lencopied) {
 	}
 
 	/* buffer longer than contents */
+int
 	if (lencopied)
 		*lencopied = tally;
 	return(ENAMETOOLONG);

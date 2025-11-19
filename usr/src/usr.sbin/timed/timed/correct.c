@@ -46,6 +46,7 @@ extern FILE *fp;
  * `correct' sends to the slaves the corrections for their clocks
  */
 
+void
 correct(avdelta)
 long avdelta;
 {

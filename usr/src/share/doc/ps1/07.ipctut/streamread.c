@@ -36,6 +36,10 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <string.h>
+#include <unistd.h>
 #define TRUE 1
 
 /*
@@ -45,6 +49,7 @@
  * program accepts a new connection. 
  */
 
+void
 main()
 {
 	int sock, length;

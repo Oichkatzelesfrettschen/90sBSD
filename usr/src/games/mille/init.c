@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)init.c	5.4 (Berkeley) 6/1/90";
  * @(#)init.c	1.1 (Berkeley) 4/1/82
  */
 
+void
 init() {
 
 	reg PLAY	*pp;
@@ -84,6 +85,7 @@ init() {
 	End = 700;
 }
 
+void
 shuffle() {
 
 	reg int		i, r;
@@ -102,6 +104,7 @@ shuffle() {
 	Topcard = &Deck[DECK_SZ];
 }
 
+void
 newboard() {
 
 	register int	i;
@@ -160,6 +163,7 @@ newboard() {
 	newscore();
 }
 
+void
 newscore() {
 
 	reg int		i, new;

@@ -36,12 +36,15 @@ static char sccsid[] = "@(#)dr_1.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "driver.h"
+#include <stdlib.h>
 
+void
 unfoul()
 {
 	register struct ship *sp;
 	struct ship *to;
 	register int nat;
+void
 	register i;
 
 	foreachship(sp) {
@@ -59,6 +62,7 @@ unfoul()
 	}
 }
 
+void
 boardcomp()
 {
 	int crew[3];
@@ -123,6 +127,7 @@ boardcomp()
 	}
 }
 
+int
 fightitout(from, to, key)
 struct ship *from, *to;
 int key;

@@ -73,6 +73,7 @@ printlong(name, accpath, sb)
 	(void)putchar('\n');
 }
 
+void
 printtime(ftime)
 	time_t ftime;
 {
@@ -96,6 +97,7 @@ printtime(ftime)
 	(void)putchar(' ');
 }
 
+void
 printlink(name)
 	char *name;
 {

@@ -53,6 +53,8 @@ static char sccsid[] = "@(#)halt.c	5.10 (Berkeley) 4/3/91";
 #include <pwd.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)
@@ -147,6 +149,7 @@ dingdong()
 	/* RRRIIINNNGGG RRRIIINNNGGG */
 }
 
+void
 setalarm(n)
 	int n;
 {

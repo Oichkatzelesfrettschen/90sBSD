@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)getguess.c	5.4 (Berkeley) 6/1/90";
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"hangman.h"
@@ -41,6 +42,7 @@ static char sccsid[] = "@(#)getguess.c	5.4 (Berkeley) 6/1/90";
  * getguess:
  *	Get another guess
  */
+void
 getguess()
 {
 	register int	i;
@@ -85,6 +87,7 @@ getguess()
  * readch;
  *	Read a character from the input
  */
+int
 readch()
 {
 	register int	cnt, r;

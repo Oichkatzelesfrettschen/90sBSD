@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  *	$Id: malloc.c,v 1.1 94/10/20 00:03:04 bill Exp $
+int
  */
 
 #include "sys/param.h"
 #include "sys/errno.h"
 #include "proc.h"
 #include "malloc.h"
+int
 #include "vm.h"
 #include "kmem.h"
 
+int
 #include "prototypes.h"
 
 struct kmembuckets bucket[MINBUCKET + 16];
+int
 struct kmemstats kmemstats[M_LAST];
 struct kmemusage *kmemusage;
 char *kmembase, *kmemlimit;
@@ -51,6 +55,7 @@ char *memname[] = INITKMEMNAMES;
 /*
  * Allocate a block of memory
  */
+int
 void *
 malloc(u_long size, int type, int flags)
 {
@@ -79,6 +84,7 @@ malloc(u_long size, int type, int flags)
 			ksp->ks_limblocks++;
 		tsleep((caddr_t)ksp, PSWP+2, memname[type], 0);
 	}
+int
 #endif
 	if (kbp->kb_next == NULL) {
 		if (size >= MAXALLOCSAVE)

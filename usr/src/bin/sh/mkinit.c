@@ -59,6 +59,9 @@ static char sccsid[] = "@(#)mkinit.c	5.3 (Berkeley) 3/13/91";
 #include <sys/cdefs.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 
 /*
@@ -515,6 +518,7 @@ ckfopen(file, mode)
 }
 
 void *
+int
 ckmalloc(nbytes) {
 	register char *p;
 	char *malloc();

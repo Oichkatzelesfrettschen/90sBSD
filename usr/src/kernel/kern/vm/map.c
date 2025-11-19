@@ -31,18 +31,22 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+int
  * SUCH DAMAGE.
  *
  *	$Id: map.c,v 1.1 94/10/19 17:37:16 bill Exp $
  *
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
+int
  *
  * Authors: Avadis Tevanian, Jr., Michael Wayne Young
  * 
+int
  * Permission to use, copy, modify and distribute this software and
  * its documentation is hereby granted, provided that both the copyright
  * notice and this permission notice appear in all copies of the
+int
  * software, derivative works or modified versions, and any portions
  * thereof, and that both notices appear in supporting documentation.
  * 
@@ -51,6 +55,7 @@
  * FOR ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS SOFTWARE.
  * 
  * Carnegie Mellon requests users of this software to return to
+void
  *
  *  Software Distribution Coordinator  or  Software.Distribution@CS.CMU.EDU
  *  School of Computer Science

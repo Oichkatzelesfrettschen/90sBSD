@@ -39,12 +39,17 @@
 #include <sys/time.h>
 #include "malloc.h"
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
 struct kmembuckets bucket[MINBUCKET + 28];
 struct kmemusage *kmemusage;
 caddr_t kmembase, kmemlimit;
 
+int
 static init(void);
+int
 static panic(char *s);
 
 /*

@@ -21,6 +21,8 @@
 
 /* Last string searched for from `/' or `?'. */
 static char *vi_last_search = (char *)NULL;
+#include <string.h>
+#include <stdio.h>
 static int vi_histpos;
 
 /* *** UNCLEAN *** */
@@ -32,9 +34,11 @@ static char *vi_motion = " hl^$0ftFt;,%wbeWBE|";
 static Keymap vi_replace_map = (Keymap)NULL;
 
 /* The number of characters inserted in the last replace operation. */
+void
 static vi_replace_count = 0;
 
 /* Yank the nth arg from the previous line into this line at point. */
+void
 rl_vi_yank_arg (count)
      int count;
 {
@@ -42,6 +46,7 @@ rl_vi_yank_arg (count)
 }
 
 /* Search again for the last thing searched for. */
+void
 rl_vi_search_again (ignore, key)
      int ignore, key;
 {
@@ -58,6 +63,7 @@ rl_vi_search_again (ignore, key)
 }
 
 /* Do a vi style search. */
+void
 rl_vi_search (count, key)
      int count, key;
 {

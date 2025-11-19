@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)com7.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
 
+int
 fight(enemy,strength)
 int enemy,strength;
 {

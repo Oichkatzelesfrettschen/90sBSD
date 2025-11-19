@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)outbound.c	4.3 (Berkeley) 4/26/91";
 #include "../general/globals.h"
 #include "externs.h"
 #include "declare.h"
+#include <string.h>
 
 #define SetHighestLowest(position) { \
 					if (position < Lowest) { \
@@ -95,6 +96,7 @@ init_ctlr()
 }
 
 
+int
 FieldInc(position)
 register int	position;		/* Position in previous field */
 {
@@ -112,6 +114,7 @@ register int	position;		/* Position in previous field */
     return ptr-Host;
 }
 
+int
 FieldDec(position)
 int	position;
 {

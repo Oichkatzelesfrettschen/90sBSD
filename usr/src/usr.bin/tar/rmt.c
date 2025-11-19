@@ -64,6 +64,7 @@ void error ();
 char device[SSIZE];
 char count[SSIZE], mode[SSIZE], pos[SSIZE], op[SSIZE];
 
+void
 extern errno;
 extern char *sys_errlist[];
 char resp[BUFSIZ];

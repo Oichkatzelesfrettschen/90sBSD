@@ -58,6 +58,7 @@ static char sccsid[] = "@(#)main.c	5.16 (Berkeley) 3/27/91";
 #include <string.h>
 #include "gettytab.h"
 #include "pathnames.h"
+#include <stdio.h>
 
 struct	sgttyb tmode = {
 	0, 0, CERASE, CKILL, 0
@@ -286,6 +287,7 @@ main(argc, argv)
 	}
 }
 
+int
 getname()
 {
 	register int c;

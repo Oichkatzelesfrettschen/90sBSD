@@ -53,6 +53,8 @@ static char sccsid[] = "@(#)caesar.c	5.4 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define	LINELENGTH	2048
 #define	ROTATE(ch, perm) \
@@ -140,6 +142,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 printit(arg)
 	char *arg;
 {

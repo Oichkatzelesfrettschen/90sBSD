@@ -36,6 +36,8 @@ static char sccsid[] = "@(#)save.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "back.h"
+#include <unistd.h>
+#include <fcntl.h>
 
 extern int	errno;
 
@@ -50,6 +52,7 @@ static char	type[] = "'.\nType \"backgammon ";
 static char	rec[] = "\" to recover your game.\n\n";
 static char	cantrec[] = "Can't recover file:  ";
 
+void
 save (n)
 register int	n;
 

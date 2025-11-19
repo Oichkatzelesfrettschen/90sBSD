@@ -7,6 +7,7 @@ extern char plname[];
 
 coord
 getpos(force,goal) int force; char *goal; {
+int
 register cx,cy,i,c;
 extern char sdir[];		/* defined in hack.c */
 extern schar xdir[], ydir[];	/* idem */
@@ -44,6 +45,7 @@ coord cc;
 	return(cc);
 }
 
+int
 do_mname(){
 char buf[BUFSZ];
 coord cc;

@@ -30,6 +30,8 @@ static char RCSstorage[] = "@(#)$Header: storage.c,v 1.1 87/06/06 07:58:06 dpk B
 #include <sys/syslog.h>
 #else
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #define	LOG_ERR	0
 #endif BSD
 
@@ -145,6 +147,7 @@ calloc(num, size)
 	return (p);
 }
 
+void
 cfree(p, num, size)
 	char *p;
 	unsigned num;
@@ -154,8 +157,10 @@ cfree(p, num, size)
 }
 
 #if BSD < 43
+void
 openlog() {}
 
+void
 syslog(x, str, a, b, c, d, e, f)
 int	x;
 char	*str;

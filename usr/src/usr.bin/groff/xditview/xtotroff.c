@@ -14,6 +14,8 @@
 char *malloc();
 #else 
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 #endif
 
 #define charWidth(fi,c)	((fi)->per_char[(c) - (fi)->min_char_or_byte2].width)
@@ -42,6 +44,7 @@ int charExists (fi, c)
 
 /* Canonicalize the font name by replacing scalable parts by *s. */
 
+int
 CanonicalizeFontName (font_name, canon_font_name)
 	char *font_name, *canon_font_name;
 {
@@ -87,6 +90,7 @@ int count;
 	return 0;
 }
 
+int
 MapFont (font_name, troff_name)
 	char	*font_name;
 	char	*troff_name;
@@ -203,6 +207,7 @@ MapFont (font_name, troff_name)
 	return 1;
 }
 
+void
 static usage(prog)
 	char	*prog;
 {
@@ -226,6 +231,7 @@ int n;
 	return p;
 }
 
+void
 main (argc, argv)
 	char	**argv;
 {

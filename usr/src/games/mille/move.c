@@ -56,6 +56,7 @@ char	*Movenames[] = {
 		"M_DISCARD", "M_DRAW", "M_PLAY", "M_ORDER"
 	};
 
+void
 domove()
 {
 	reg PLAY	*pp;
@@ -159,6 +160,7 @@ acc:
  *	Check and see if either side can go.  If they cannot,
  * the game is over
  */
+void
 check_go() {
 
 	reg CARD	card;
@@ -189,6 +191,7 @@ check_go() {
 	Finished = TRUE;
 }
 
+int
 playcard(pp)
 reg PLAY	*pp;
 {

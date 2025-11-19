@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "config.h"	/* for ROWNO and COLNO */
 #include "def.flag.h"	/* for flags.nonull */
+#include <string.h>
+#include <stdlib.h>
 extern char *tgetstr(), *tgoto(), *getenv();
 extern long *alloc();
 
@@ -19,6 +21,7 @@ static char PC = '\0';
 char *CD;		/* tested in pri.c: docorner() */
 int CO, LI;		/* used in pri.c and whatis.c */
 
+void
 startup()
 {
 	register char *term;
@@ -77,12 +80,14 @@ startup()
 	free(tptr);
 }
 
+void
 start_screen()
 {
 	xputs(TI);
 	xputs(VS);
 }
 
+void
 end_screen()
 {
 	xputs(VE);
@@ -92,6 +97,7 @@ end_screen()
 /* Cursor movements */
 extern xchar curx, cury;
 
+void
 curs(x, y)
 register int x, y;	/* not xchar: perhaps xchar is unsigned and
 			   curx-x would be unsigned as well */

@@ -66,6 +66,7 @@ static char sccsid[] = "@(#)termout.c	4.3 (Berkeley) 4/26/91";
 #include "../general/globals.h"
 
 #include "../telextrn.h"
+#include <string.h>
 
 #define CorrectTerminalCursor() ((TransparentClock == OutputClock)? \
 		CursorAddress:UnLocked? CursorAddress: HighestScreen())

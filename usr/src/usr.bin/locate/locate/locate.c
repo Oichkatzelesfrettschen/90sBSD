@@ -77,6 +77,8 @@ static char sccsid[] = "@(#)locate.c	5.2 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include "locate.h"
 #include "pathnames.h"
+#include <stdlib.h>
+#include <string.h>
 
 FILE *fp;
 
@@ -99,6 +101,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 fastfind(pathpart)
 	char *pathpart;
 {

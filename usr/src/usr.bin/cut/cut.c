@@ -47,6 +47,8 @@ static char sccsid[] = "@(#)cut.c	5.4 (Berkeley) 10/30/90";
 #include <limits.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 int	cflag;
 char	dchar;
@@ -117,6 +119,7 @@ int autostart, autostop, maxval;
 
 char positions[_POSIX2_LINE_MAX + 1];
 
+void
 get_list(list)
 	char *list;
 {
@@ -177,6 +180,7 @@ get_list(list)
 }
 
 /* ARGSUSED */
+void
 c_cut(fp, fname)
 	FILE *fp;
 	char *fname;
@@ -204,6 +208,7 @@ c_cut(fp, fname)
 	}
 }
 
+void
 f_cut(fp, fname)
 	FILE *fp;
 	char *fname;
@@ -256,6 +261,7 @@ f_cut(fp, fname)
 	}
 }
 
+void
 badlist(msg)
 	char *msg;
 {
@@ -263,6 +269,7 @@ badlist(msg)
 	exit(1);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

@@ -45,6 +45,7 @@ static int col = 0;
 /*
  * Variable manipulation
  */
+void
 vinit()
 {
 	register value_t *p;
@@ -86,6 +87,7 @@ vinit()
 static int vaccess();
 
 /*VARARGS1*/
+void
 vassign(p, v)
 	register value_t *p;
 	char *v;
@@ -132,6 +134,7 @@ vassign(p, v)
 
 static void vprint();
 
+void
 vlex(s)
 	register char *s;
 {
@@ -332,6 +335,7 @@ vinterp(s, stop)
  * assign variable s with value v (for NUMBER or STRING or CHAR types)
  */
 
+int
 vstring(s,v)
 	register char *s;
 	register char *v;

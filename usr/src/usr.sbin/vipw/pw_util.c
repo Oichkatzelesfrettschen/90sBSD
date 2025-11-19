@@ -52,10 +52,13 @@ static char sccsid[] = "@(#)pw_util.c	5.4 (Berkeley) 5/21/91";
 #include <paths.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 extern char *progname;
 extern char *tempname;
 
+void
 pw_init()
 {
 	struct rlimit rlim;
@@ -87,6 +90,7 @@ pw_init()
 }
 
 static int lockfd;
+int
 pw_lock()
 {
 	/* 
@@ -104,6 +108,7 @@ pw_lock()
 	return(lockfd);
 }
 
+int
 pw_tmp()
 {
 	static char path[PATH_MAX] = _PATH_MASTERPASSWD;
@@ -124,6 +129,7 @@ pw_tmp()
 	return(fd);
 }
 
+int
 pw_mkdb()
 {
 	union wait pstat;
@@ -142,6 +148,7 @@ pw_mkdb()
 	return(1);
 }
 
+void
 pw_edit(notsetuid)
 	int notsetuid;
 {
@@ -169,6 +176,7 @@ pw_edit(notsetuid)
 		pw_error(editor, 1, 1);
 }
 
+void
 pw_prompt()
 {
 	register int c;

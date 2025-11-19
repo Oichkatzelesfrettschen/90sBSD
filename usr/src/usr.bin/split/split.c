@@ -45,6 +45,8 @@ static char sccsid[] = "@(#)split.c	4.8 (Berkeley) 6/1/90";
 #include <sys/file.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define DEFLINE	1000			/* default num lines per file */
 #define ERR	-1			/* general error */
@@ -123,6 +125,7 @@ main(argc, argv)
  * split1 --
  *	split by bytes
  */
+void
 split1()
 {
 	register long bcnt;
@@ -172,6 +175,7 @@ split1()
  * split2 --
  *	split by lines
  */
+void
 split2()
 {
 	register char *Ce, *Cs;

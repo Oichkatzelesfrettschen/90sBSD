@@ -51,6 +51,7 @@ static FILE *sync_fp;
 #define LF "/tmp/#saillock.%d"
 
 /*VARARGS3*/
+void
 makesignal(from, fmt, ship, a, b, c)
 	struct ship *from;
 	char *fmt;
@@ -69,6 +70,10 @@ makesignal(from, fmt, ship, a, b, c)
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdlib.h>
+int
 sync_exists(game)
 {
 	char buf[sizeof sync_file];
@@ -88,6 +93,7 @@ sync_exists(game)
 		return 1;
 }
 
+int
 sync_open()
 {
 	if (sync_fp != NULL)
@@ -106,6 +112,7 @@ sync_open()
 	return 0;
 }
 
+void
 sync_close(remove)
 	char remove;
 {
@@ -115,6 +122,7 @@ sync_close(remove)
 		(void) unlink(sync_file);
 }
 
+void
 Write(type, ship, isstr, a, b, c, d)
 	int type;
 	struct ship *ship;

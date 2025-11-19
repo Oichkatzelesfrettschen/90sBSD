@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)subs.c	5.5 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include "back.h"
+#include <unistd.h>
 
 int	buffnum;
 char	outbuff[BUFSIZ];
@@ -58,6 +59,7 @@ char  *descr[] = {
 	0
 };
 
+void
 errexit (s)
 register char	*s;
 {
@@ -66,12 +68,14 @@ register char	*s;
 	getout();
 }
 
+void
 strset (s1,s2)
 register char	*s1, *s2;
 {
 	while ( (*s1++ = *s2++) != '\0');
 }
 
+void
 addbuf (c)
 register char	c;
 
@@ -85,6 +89,7 @@ register char	c;
 	outbuff[buffnum] = c;
 }
 
+void
 buflush ()  {
 	if (buffnum < 0)
 		return;
@@ -94,6 +99,7 @@ buflush ()  {
 	buffnum = -1;
 }
 
+int
 readc () {
 	char	c;
 
@@ -119,6 +125,7 @@ readc () {
 	return (c);
 }
 
+void
 writec (c)
 char	c;
 {
@@ -128,6 +135,7 @@ char	c;
 		addbuf (c);
 }
 
+void
 writel (l)
 register char	*l;
 {
@@ -152,6 +160,7 @@ register char	*l;
 		writec (*l++);
 }
 
+void
 proll ()   {
 	if (d0)
 		swap;
@@ -166,6 +175,7 @@ proll ()   {
 		cline();
 }
 
+void
 wrint (n)
 int	n;
 {
@@ -181,6 +191,7 @@ int	n;
 	writec (n%10+'0');
 }
 
+void
 gwrite()  {
 	register int	r, c;
 

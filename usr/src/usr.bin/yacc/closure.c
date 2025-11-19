@@ -48,6 +48,7 @@ static unsigned *first_derives;
 static unsigned *EFF;
 
 
+void
 set_EFF()
 {
     register unsigned *row;
@@ -84,6 +85,7 @@ set_EFF()
 }
 
 
+void
 set_first_derives()
 {
   register unsigned *rrow;
@@ -141,6 +143,7 @@ set_first_derives()
 }
 
 
+void
 closure(nucleus, n)
 short *nucleus;
 int n;
@@ -216,6 +219,7 @@ int n;
 
 
 
+void
 finalize_closure()
 {
   FREE(itemset);

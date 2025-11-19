@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)main.c	5.6 (Berkeley) 3/6/91";
 #include <string.h>
 #include "mdef.h"
 #include "pathnames.h"
+#include <ctype.h>
 
 /*
  * m4 - macro processor
@@ -284,6 +285,7 @@ ndptr inspect();	/* forward ... */
  * macro - the work horse..
  *
  */
+void
 macro() {
 	char token[MAXTOK];
 	register char *s;

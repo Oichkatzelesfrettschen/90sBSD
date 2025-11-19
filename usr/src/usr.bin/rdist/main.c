@@ -42,6 +42,9 @@ static char sccsid[] = "@(#)main.c	5.6 (Berkeley) 8/27/90";
 #endif /* not lint */
 
 #include "defs.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define NHOSTS 100
 

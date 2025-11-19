@@ -72,6 +72,7 @@ int	fscale;				/* kernel _fscale variable */
 #define kread(x, v) \
 	kvm_read(psnl[x].n_value, (char *)&v, sizeof v) != sizeof(v)
 
+int
 donlist(void)
 {
 	extern int eval;
@@ -115,6 +116,7 @@ donlist(void)
 	return(rval);
 }
 
+void
 nlisterr(nl)
 	struct nlist nl[];
 {

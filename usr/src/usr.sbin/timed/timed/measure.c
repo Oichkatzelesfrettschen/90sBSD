@@ -40,6 +40,7 @@ static char sccsid[] = "@(#)measure.c	2.8 (Berkeley) 3/2/91";
 #include <netinet/in_systm.h>
 #include <netinet/ip.h>
 #include <netinet/ip_icmp.h>
+#include <string.h>
 
 #define BIASP	 	43199999
 #define BIASN		-43200000
@@ -58,6 +59,7 @@ static n_short seqno = 0;
  * ICMP timestamp messages.
  */
 
+int
 measure(wait, addr)
 struct timeval *wait;
 struct sockaddr_in *addr;

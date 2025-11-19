@@ -36,6 +36,8 @@ static char sccsid[] = "@(#)vars.c	5.6 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "rcv.h"
+#include <stdlib.h>
+#include <string.h>
 
 /*
  * Mail -- a mail program
@@ -47,6 +49,7 @@ static char sccsid[] = "@(#)vars.c	5.6 (Berkeley) 6/1/90";
  * Assign a value to a variable.
  */
 
+void
 assign(name, value)
 	char name[], value[];
 {
@@ -72,6 +75,7 @@ assign(name, value)
  * Thus, we cannot free same!
  */
 
+void
 vfree(cp)
 	char *cp;
 {

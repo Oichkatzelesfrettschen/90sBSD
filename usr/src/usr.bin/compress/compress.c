@@ -558,6 +558,7 @@ long int out_count = 0;			/* # of codes output (for debugging) */
  * questions about this implementation to ames!jaw.
  */
 
+int
 compress()
 {
     register long fcode;
@@ -694,6 +695,7 @@ char_type lmask[9] = {0xff, 0xfe, 0xfc, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00};
 char_type rmask[9] = {0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x3f, 0x7f, 0xff};
 #endif /* vax */
 
+void
 output( code )
 code_int  code;
 {

@@ -49,6 +49,8 @@ static char sccsid[] = "@(#)groups.c	5.4 (Berkeley) 6/1/90";
 #include <grp.h>
 #include <pwd.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int
 main(argc, argv)
@@ -78,6 +80,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 showgroups(user)
 	register char *user;
 {

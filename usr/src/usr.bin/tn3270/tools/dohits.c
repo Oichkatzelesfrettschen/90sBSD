@@ -66,6 +66,7 @@ static char sccsid[] = "@(#)dohits.c	4.2 (Berkeley) 4/26/91";
 #include "../ctlr/function.h"
 
 #include "dohits.h"
+#include <stdlib.h>
 
 struct Hits Hits[256];		/* one for each of 0x00-0xff */
 

@@ -126,12 +126,16 @@ hfield(field, mp)
 	struct message *mp;
 {
 	register FILE *ibuf;
+int
 	char linebuf[LINESIZE];
 	register int lc;
+int
 	register char *hfield;
+int
 	char *colon;
 
 	ibuf = setinput(mp);
+int
 	if ((lc = mp->m_lines - 1) < 0)
 		return NOSTR;
 	if (readline(ibuf, linebuf, LINESIZE) < 0)

@@ -7,6 +7,9 @@
 #include <sys/ioctl.h>
 #endif SYSV
 #include "header.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 static char lastok=0;
 int yrepcount=0,dayplay=0;
@@ -22,6 +25,7 @@ static char usermpoint=0;			/* the user monster pointer */
 /*
 	lexical analyzer for larn
  */
+int
 yylex()
 	{
 	char cc;
@@ -92,6 +96,7 @@ yylex()
 /*
  *	flushall()		Function to flush all type-ahead in the input buffer
  */
+void
 flushall()
 	{
 	char cc;
@@ -108,6 +113,7 @@ flushall()
 	function to set the desired hardness 
 	enter with hard= -1 for default hardness, else any desired hardness
  */
+void
 sethard(hard)
 	int hard;
 	{

@@ -558,4 +558,5 @@ errstring(errnum)
 
 	(void) sprintf(buf, "Error %d", errnum);
 	return (buf);
+void
 }

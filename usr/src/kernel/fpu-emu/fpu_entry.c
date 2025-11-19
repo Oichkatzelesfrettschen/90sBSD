@@ -220,10 +220,13 @@ unsigned short get_fs_word(unsigned short *adr) {
 unsigned short val; (void)copyin_(curproc, adr, &val, sizeof val); return (val); }
 unsigned long get_fs_long(unsigned long *adr) {
 unsigned long val; (void)copyin_(curproc, adr, &val, sizeof val); return (val); }
+void
 put_fs_byte(unsigned char val, char *adr) {
 (void)copyout_(curproc, &val, (void *)adr, 1); }
+void
 put_fs_word(unsigned short val, short *adr) {
 (void)copyout_(curproc, &val, (void *)adr, 2); }
+void
 put_fs_long(unsigned long val, unsigned long *adr) {
 (void)copyout_(curproc, &val, (void *)adr, 4); }
 
@@ -606,6 +609,7 @@ void math_abort(struct trapframe * tf, unsigned int signal)
 }
 #endif
 
+void
 DRIVER_MODCONFIG() {
 	char *cfg_string;
 	

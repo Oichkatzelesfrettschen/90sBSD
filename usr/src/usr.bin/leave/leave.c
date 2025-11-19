@@ -45,6 +45,8 @@ static char sccsid[] = "@(#)leave.c	5.6 (Berkeley) 3/1/91";
 #include <sys/time.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 /*
  * leave [[+]hhmm]
@@ -107,6 +109,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 doalarm(secs)
 	u_int secs;
 {
@@ -157,6 +160,7 @@ doalarm(secs)
 	exit(0);
 }
 
+void
 usage()
 {
 	fprintf(stderr, "usage: leave [[+]hhmm]\n");

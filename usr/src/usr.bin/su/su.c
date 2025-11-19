@@ -56,6 +56,7 @@ static char sccsid[] = "@(#)su.c	5.26 (Berkeley) 7/6/91";
 #include <kerberosIV/des.h>
 #include <kerberosIV/krb.h>
 #include <netdb.h>
+#include <stdlib.h>
 
 #define	ARGSTR	"-Kflm"
 
@@ -256,6 +257,7 @@ main(argc, argv)
 	exit(1);
 }
 
+int
 chshell(sh)
 	char *sh;
 {

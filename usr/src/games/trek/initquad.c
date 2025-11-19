@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)initquad.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -54,6 +55,7 @@ static char sccsid[] = "@(#)initquad.c	5.4 (Berkeley) 6/1/90";
 **	to be docked, i.e., abandon() and help().
 */
 
+void
 initquad(f)
 int	f;
 {
@@ -136,6 +138,7 @@ int	f;
 }
 
 
+void
 sector(x, y)
 int	*x, *y;
 {

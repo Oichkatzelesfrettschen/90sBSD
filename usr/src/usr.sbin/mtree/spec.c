@@ -47,6 +47,7 @@ extern NODE *root;			/* root of the tree */
 
 static int lineno;			/* current spec line number */
 
+void
 spec()
 {
 	register NODE *centry, *last;
@@ -125,6 +126,7 @@ spec()
 	}
 }
 
+void
 set(ip)
 	register NODE *ip;
 {
@@ -214,6 +216,7 @@ set(ip)
 	}
 }
 
+void
 unset(ip)
 	register NODE *ip;
 {
@@ -223,6 +226,7 @@ unset(ip)
 		ip->flags &= ~key(p);
 }
 
+int
 key(p)
 	char *p;
 {
@@ -310,6 +314,7 @@ getgroup(p)
 	/* NOTREACHED */
 }
 
+void
 noparent()
 {
 	(void)fprintf(stderr, "mtree: no parent node.\n");

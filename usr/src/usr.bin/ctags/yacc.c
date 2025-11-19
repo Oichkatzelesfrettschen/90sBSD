@@ -38,11 +38,13 @@ static char sccsid[] = "@(#)yacc.c	5.6 (Berkeley) 2/26/91";
 #include <stdio.h>
 #include <string.h>
 #include "ctags.h"
+#include <ctype.h>
 
 /*
  * y_entries:
  *	find the yacc tags and put them in.
  */
+void
 y_entries()
 {
 	register int	c;
@@ -113,6 +115,7 @@ y_entries()
  * toss_yysec --
  *	throw away lines up to the next "\n%%\n"
  */
+void
 toss_yysec()
 {
 	register int	c,			/* read character */

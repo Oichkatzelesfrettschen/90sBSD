@@ -112,6 +112,7 @@ static char rcsbaseid[] = RCSBASE;
 
 extern char * partialno();
 extern char * getcaller();          /*get login of caller                   */
+void
 extern        free();
 extern int    countnumflds();
 extern int    compartial();
@@ -181,6 +182,7 @@ struct  authors         * authorlist;
 
 
 
+void
 main (argc, argv)
 int argc;
 char * argv[];

@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)schedule.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -88,6 +89,7 @@ char	z;
 **	time plus 'offset'.
 */
 
+void
 reschedule(e1, offset)
 struct event	*e1;
 double		offset;
@@ -114,6 +116,7 @@ double		offset;
 **	The event at slot 'e' is deleted.
 */
 
+void
 unschedule(e1)
 struct event	*e1;
 {
@@ -159,6 +162,7 @@ int	x, y, z;
 **	division factor.  Look at the code to see what really happens.
 */
 
+void
 xresched(e1, ev1, factor)
 struct event	*e1;
 int		ev1;

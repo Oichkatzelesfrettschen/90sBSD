@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)chroot.c	5.8 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)
@@ -70,6 +72,7 @@ main(argc, argv)
 	/* NOTREACHED */
 }
 
+void
 fatal(msg)
 	char *msg;
 {

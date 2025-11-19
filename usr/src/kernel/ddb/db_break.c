@@ -79,6 +79,7 @@
 #include "db_sym.h"
 #include "db_break.h"
 
+int
 extern boolean_t db_map_equal();
 extern boolean_t db_map_current();
 extern vm_map_t db_map_addr();

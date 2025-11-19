@@ -34,6 +34,7 @@ static char rcsid[] =
 
 /* Hex digit to integer. */
 static inline int
+int
 xdtoi(c)
 {
 	if (isdigit(c))

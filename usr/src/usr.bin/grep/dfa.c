@@ -281,6 +281,7 @@ dfasyntax(bits, fold)
 
 static char *lexstart;		/* Pointer to beginning of input string. */
 static char *lexptr;		/* Pointer to next input character. */
+void
 static lexleft;			/* Number of characters remaining. */
 static token lasttok;		/* Previous token returned; initially END. */
 static int laststart;		/* True if we're separated from beginning or (, |

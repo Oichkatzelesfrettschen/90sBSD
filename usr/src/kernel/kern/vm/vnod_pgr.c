@@ -31,18 +31,22 @@
  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+void
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
  *	$Id: vnod_pgr.c,v 1.1 94/10/19 17:37:30 bill Exp $
  */
+void
 
 /*
  * Page to/from files (vnodes).
+void
  *
  * TODO:
  *	pageouts
+void
  *	fix credential use (uses current process credentials now)
  */
 
@@ -51,6 +55,7 @@
 #include "sys/mount.h"
 #include "uio.h"
 #include "sys/exec.h"	/* XXX */
+void
 #include "sys/errno.h"
 #include "proc.h"
 #include "malloc.h"

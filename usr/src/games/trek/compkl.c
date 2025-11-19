@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)compkl.c	5.4 (Berkeley) 6/1/90";
 **	move.
 */
 
+void
 compkldist(f)
 int	f;		/* set if new quadrant */
 {
@@ -90,6 +91,7 @@ int	f;		/* set if new quadrant */
 **	bubble sort on ascending distance
 */
 
+void
 sortkl()
 {
 	struct kling		t;

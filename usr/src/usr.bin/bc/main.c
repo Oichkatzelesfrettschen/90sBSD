@@ -30,6 +30,7 @@
 #include <signal.h>
 #include "global.h"
 #include "proto.h"
+#include <unistd.h>
 
 /* Variables for processing multiple files. */
 char   first_file;

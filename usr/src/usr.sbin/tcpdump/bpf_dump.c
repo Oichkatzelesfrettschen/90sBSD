@@ -26,6 +26,7 @@ static char rcsid[] =
 #include <sys/types.h>
 #include <sys/time.h>
 #include <net/bpf.h>
+#include <stdio.h>
 
 void
 bpf_dump(p, option)

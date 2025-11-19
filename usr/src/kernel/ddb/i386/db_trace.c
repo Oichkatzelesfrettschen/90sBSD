@@ -62,6 +62,7 @@
 #include "db_sym.h"
 #include "db_variables.h"
 #include "specialreg.h" /* XXX */
+#include <string.h>
 
 /*
  * Machine register set.

@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)byteorder.c	2.7 (Berkeley) 6/1/90";
  * messages. Protocol is defined in /usr/include/protocols/timed.h
  */
 
+void
 bytenetorder(ptr)
 struct tsp *ptr;
 {
@@ -62,6 +63,7 @@ struct tsp *ptr;
 	}
 }
 
+void
 bytehostorder(ptr)
 struct tsp *ptr;
 {

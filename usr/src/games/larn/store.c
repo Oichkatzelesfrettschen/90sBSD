@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)store.c	5.4 (Berkeley) 5/13/91";
 
 /*	store.c		Larn is copyrighted 1986 by Noah Morgan. */
 #include "header.h"
+#include <stdio.h>
 static int dndcount=0,dnditm=0;
 
 /*	this is the data for the stuff in the dnd store	*/
@@ -161,6 +162,7 @@ struct _itm itm[90] = {
 /*
 	function for the dnd store
  */
+void
 dnd_2hed()
     {
 	lprcat("Welcome to the Larn Thrift Shoppe.  We stock many items explorers find useful\n");
@@ -170,6 +172,7 @@ dnd_2hed()
 
 static void dnditem();
 
+void
 dnd_hed()
 	{
 	register int i;
@@ -200,6 +203,7 @@ static void nogold()
 	nap(2200);
 }
 
+void
 dndstore()
   {
   register int i;

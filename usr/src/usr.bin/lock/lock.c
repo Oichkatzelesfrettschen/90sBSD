@@ -58,6 +58,8 @@ static char sccsid[] = "@(#)lock.c	5.13 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define	TIMEOUT	15
 

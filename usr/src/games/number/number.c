@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)number.c	5.1 (Berkeley) 2/28/91";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define	YES		1
 #define	NO		0
@@ -92,6 +94,7 @@ main(argc,argv)
 	exit(0);
 }
 
+void
 convert(line)
 	char	*line;
 {
@@ -145,6 +148,7 @@ convert(line)
 		puts("zero.");
 }
 
+int
 unit(len,C)
 	register int	len;
 	register char	*C;
@@ -178,6 +182,7 @@ unit(len,C)
 	return(ret);
 }
 
+int
 number(C,len)
 	register char	*C;
 	int	len;
@@ -217,6 +222,7 @@ number(C,len)
 	return(ret);
 }
 
+void
 pfract(len)
 	register int	len;
 {
@@ -234,6 +240,7 @@ pfract(len)
 	}
 }
 
+void
 usage(toobig)
 	int	toobig;
 {

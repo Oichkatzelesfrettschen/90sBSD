@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)hexdump.c	5.5 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <stdio.h>
 #include "hexdump.h"
+#include <string.h>
+#include <stdlib.h>
 
 FS *fshead;				/* head of format strings */
 int blocksize;				/* data block size */

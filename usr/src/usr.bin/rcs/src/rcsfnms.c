@@ -123,6 +123,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/dir.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 extern char * rindex();
 extern char * mktemp();
@@ -202,6 +204,7 @@ struct compair comtable[] = {
 };
 
 
+void
 ffclose(fptr)
 FILE * fptr;
 /* Function: checks ferror(fptr) and aborts the program if there were
@@ -257,6 +260,7 @@ char * RCSname; int makesema;
 }
 
 
+void
 rmsema()
 /* Function: delete the semaphore file if madeseam==true;
  * sets madesema to false.
@@ -272,11 +276,13 @@ rmsema()
 
 
 
+void
 InitCleanup()
 {       freefilename =  0;  /* initialize pointer */
 }
 
 
+void
 cleanup()
 /* Function: closes input file and rewrite file.
  * Unlinks files in tfnames[], deletes semaphore file.
@@ -337,6 +343,7 @@ register char * sp, c;
 
 
 
+void
 InitAdmin()
 /* function: initializes an admin node */
 {       register char * Suffix;

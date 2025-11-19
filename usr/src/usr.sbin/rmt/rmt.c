@@ -51,6 +51,8 @@ static char sccsid[] = "@(#)rmt.c	5.6 (Berkeley) 6/1/90";
 #include <sys/mtio.h>
 #include <errno.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int	tape = -1;
 
@@ -188,6 +190,7 @@ ioerror:
 	goto top;
 }
 
+void
 getstring(bp)
 	char *bp;
 {
@@ -226,6 +229,7 @@ checkbuf(record, size)
 	return (record);
 }
 
+void
 error(num)
 	int num;
 {

@@ -32,6 +32,8 @@
  */
 
 #ifndef lint
+#include <stdlib.h>
+#include <unistd.h>
 char copyright[] =
 "@(#) Copyright (c) 1980 Regents of the University of California.\n\
  All rights reserved.\n";
@@ -174,6 +176,7 @@ quit()
  * another:
  *	See if another game is desired
  */
+int
 another()
 {
 	register int	y;

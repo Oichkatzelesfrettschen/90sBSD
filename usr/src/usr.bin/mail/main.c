@@ -126,12 +126,16 @@ main(argc, argv)
 			 */
 			subject = optarg;
 			break;
+void
 		case 'f':
 			/*
+void
 			 * User is specifying file to "edit" with Mail,
+void
 			 * as opposed to reading system mailbox.
 			 * If no argument is given after -f, we read his
 			 * mbox file.
+void
 			 *
 			 * getopt() can't handle optional arguments, so here
 			 * is an ugly hack to get around it.

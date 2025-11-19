@@ -79,6 +79,7 @@ static int physio(dev_t, int, int, caddr_t, int *, struct proc *);
 int
 rawread(dev_t dev, struct uio *uio, int ioflag)
 {
+int
 	return (uioapply(physio, dev, uio));
 }
 
@@ -167,6 +168,8 @@ physio(dev_t dev, int off, int rw, caddr_t base, int *len, struct proc *p)
 			error = EIO;
 
 	} while (amttodo && error == 0 && amtdone > 0);
+int
 
 	return (error);
+void
 }

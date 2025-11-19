@@ -97,6 +97,7 @@ struct option {
 	}
 };
 
+void
 light_up_room(rn)
 int rn;
 {
@@ -124,6 +125,7 @@ int rn;
 	}
 }
 
+void
 light_passage(row, col)
 {
 	short i, j, i_end, j_end;
@@ -143,6 +145,7 @@ light_passage(row, col)
 	}
 }
 
+void
 darken_room(rn)
 short rn;
 {
@@ -167,7 +170,9 @@ short rn;
 	}
 }
 
+int
 get_dungeon_char(row, col)
+int
 register row, col;
 {
 	register unsigned short mask = dungeon[row][col];
@@ -215,6 +220,7 @@ register row, col;
 	return(' ');
 }
 
+int
 get_mask_char(mask)
 register unsigned short mask;
 {
@@ -242,6 +248,7 @@ register unsigned short mask;
 		}
 }
 
+void
 gr_row_col(row, col, mask)
 short *row, *col;
 unsigned short mask;

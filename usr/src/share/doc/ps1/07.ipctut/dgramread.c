@@ -35,6 +35,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 
 /*
  * In the included file <netinet/in.h> a sockaddr_in is defined as follows:
@@ -48,6 +51,7 @@
  * This program creates a datagram socket, binds a name to it, then reads
  * from the socket.
  */
+void
 main()
 {
 	int sock, length;

@@ -41,49 +41,58 @@ static char sccsid[] = "@(#)cmp.c	5.4 (Berkeley) 3/8/91";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "ls.h"
+#include <string.h>
 
+int
 namecmp(a, b)
 	LS *a, *b;
 {
 	return(strcmp(a->name, b->name));
 }
 
+int
 revnamecmp(a, b)
 	LS *a, *b;
 {
 	return(strcmp(b->name, a->name));
 }
 
+int
 modcmp(a, b)
 	LS *a, *b;
 {
 	return(b->lstat.st_mtime - a->lstat.st_mtime);
 }
 
+int
 revmodcmp(a, b)
 	LS *a, *b;
 {
 	return(a->lstat.st_mtime - b->lstat.st_mtime);
 }
 
+int
 acccmp(a, b)
 	LS *a, *b;
 {
 	return(b->lstat.st_atime - a->lstat.st_atime);
 }
 
+int
 revacccmp(a, b)
 	LS *a, *b;
 {
 	return(a->lstat.st_atime - b->lstat.st_atime);
 }
 
+int
 statcmp(a, b)
 	LS *a, *b;
 {
 	return(b->lstat.st_ctime - a->lstat.st_ctime);
 }
 
+int
 revstatcmp(a, b)
 	LS *a, *b;
 {

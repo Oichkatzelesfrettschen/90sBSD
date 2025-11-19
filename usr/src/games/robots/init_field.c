@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)init_field.c	5.4 (Berkeley) 6/1/90";
+#include <string.h>
 #endif /* not lint */
 
 # include	"robots.h"
@@ -42,6 +43,7 @@ static char sccsid[] = "@(#)init_field.c	5.4 (Berkeley) 6/1/90";
  *	Lay down the initial pattern whih is constant across all levels,
  *	and initialize all the global variables.
  */
+void
 init_field()
 {
 	register int	i;

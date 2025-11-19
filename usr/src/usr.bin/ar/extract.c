@@ -61,6 +61,7 @@ extern char *archive;			/* archive name */
  *	members date otherwise date is time of extraction.  Does not modify
  *	archive.
  */
+int
 extract(argv)
 	char **argv;
 {

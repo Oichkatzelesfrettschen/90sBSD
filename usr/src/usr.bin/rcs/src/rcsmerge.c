@@ -77,6 +77,8 @@ static char rcsid[]=
  *
  */
 #include "rcsbase.h"
+#include <unistd.h>
+#include <stdlib.h>
 #ifndef lint
 static char rcsbaseid[] = RCSBASE;
 #endif
@@ -92,6 +94,7 @@ char *RCSfilename;
 char *workfilename;
 char * temp1file, * temp2file;
 
+void
 main (argc, argv)
 int argc; char **argv;
 {
@@ -207,6 +210,7 @@ end:
 }
 
 
+void
 nowork()
 {
 	faterror("Can't open %s",workfilename);

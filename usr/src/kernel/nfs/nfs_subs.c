@@ -69,6 +69,7 @@
 #define	FALSE	0
 
 /*
+void
  * Data items converted to xdr at startup, since they are constant
  * This is kinda hokey, but may save a little time doing byte swaps
  */

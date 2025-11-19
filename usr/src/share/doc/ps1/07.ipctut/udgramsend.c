@@ -35,6 +35,9 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define DATA "The sea is calm tonight, the tide is full . . ."
 
@@ -43,6 +46,7 @@
  * line arguments.  The form of the command line is udgramsend pathname 
  */
 
+void
 main(argc, argv)
 	int argc;
 	char *argv[];

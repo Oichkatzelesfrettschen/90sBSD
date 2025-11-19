@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)make_level.c	5.4 (Berkeley) 6/1/90";
+#include <string.h>
 #endif /* not lint */
 
 # include	"robots.h"
@@ -41,6 +42,7 @@ static char sccsid[] = "@(#)make_level.c	5.4 (Berkeley) 6/1/90";
  * make_level:
  *	Make the current level
  */
+void
 make_level()
 {
 	register int	i;

@@ -17,10 +17,12 @@
 extern long	atol();
 
 static regexp	*re;	/* compiled version of the pattern to search for */
+int
 static		prevsf;	/* boolean: previous search direction was forward? */
 
 #ifndef NO_EXTENSIONS
 /*ARGSUSED*/
+int
 MARK m_wsrch(word, m, cnt)
 	char	*word;	/* the word to search for */
 	MARK	m;	/* the starting point */

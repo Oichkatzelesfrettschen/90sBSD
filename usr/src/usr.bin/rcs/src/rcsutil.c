@@ -304,6 +304,7 @@ char * who;
 }
 
 
+void
 static SIGNAL_TYPE catchsig(s)
 {
 	ignoreints();
@@ -315,8 +316,10 @@ static SIGNAL_TYPE catchsig(s)
 #endif
 }
 
+void
 static sig[] = {SIGINT,SIGHUP,SIGQUIT,SIGPIPE,SIGTERM};
 #define SIGS (sizeof(sig)/sizeof(*sig))
+void
 static SIGNAL_TYPE (*catcher[SIGS])();
   
   void catchints()
@@ -382,6 +385,7 @@ FILE * inf, * outf;
 #ifdef SNOOPFILE
 
 #include "time.h"
+#include <unistd.h>
 extern struct tm* localtime();
 extern long time();
 

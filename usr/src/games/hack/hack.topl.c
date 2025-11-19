@@ -3,6 +3,7 @@
 
 #include "hack.h"
 #include <stdio.h>
+#include <stdlib.h>
 extern char *eos();
 extern int CO;
 
@@ -15,6 +16,7 @@ struct topl {
 } *old_toplines, *last_redone_topl;
 #define	OTLMAX	20		/* max nr of old toplines remembered */
 
+int
 doredotopl(){
 	if(last_redone_topl)
 		last_redone_topl = last_redone_topl->next_topl;
@@ -27,6 +29,7 @@ doredotopl(){
 	return(0);
 }
 
+void
 redotoplin() {
 	home();
 	if(index(toplines, '\n')) cl_end();
@@ -39,6 +42,7 @@ redotoplin() {
 		more();
 }
 
+void
 remember_topl() {
 register struct topl *tl;
 register int cnt = OTLMAX;
@@ -63,6 +67,7 @@ register int cnt = OTLMAX;
 	}
 }
 
+void
 addtopl(s) char *s; {
 	curs(tlx,tly);
 	if(tlx + strlen(s) > CO) putsym('\n');
@@ -72,6 +77,7 @@ addtopl(s) char *s; {
 	flags.toplin = 1;
 }
 
+int
 xmore(s)
 char *s;	/* allowed chars besides space/return */
 {

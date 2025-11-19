@@ -39,6 +39,8 @@
 #include <setjmp.h>
 #include <ttyent.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define NTTY 32			/* max ttys */
 #define NARG 16			/* max args to login/getty */

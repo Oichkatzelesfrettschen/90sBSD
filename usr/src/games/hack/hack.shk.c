@@ -71,6 +71,7 @@ register struct monst *mtmp;
 
 static void setpaid();
 
+void
 shkdead(mtmp)				/* called in mon.c */
 register struct monst *mtmp;
 {
@@ -85,6 +86,7 @@ register struct monst *mtmp;
 	}
 }
 
+void
 replshk(mtmp,mtmp2)
 register struct monst *mtmp, *mtmp2;
 {

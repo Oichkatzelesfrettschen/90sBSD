@@ -68,6 +68,7 @@ extern int errno;
 #include "../api/api_exch.h"
 
 #include "../general/globals.h"
+#include <unistd.h>
 
 #ifndef	FD_SETSIZE
 /*

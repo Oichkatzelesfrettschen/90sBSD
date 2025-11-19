@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)rcmd.c	5.24 (Berkeley) 2/24/91";
 #include <unistd.h>
 #include <string.h>
 
+int
 rcmd(ahost, rport, locuser, remuser, cmd, fd2p)
 	char **ahost;
 	u_short rport;

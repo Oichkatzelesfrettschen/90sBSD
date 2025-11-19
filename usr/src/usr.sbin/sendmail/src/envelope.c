@@ -558,12 +558,14 @@ closexscript(e)
 **	Side Effects:
 **		sets sendmail's notion of who the from person is.
 */
+int
 
 void
 setsender(from, e, delimptr, internal)
 	char *from;
 	register ENVELOPE *e;
 	char **delimptr;
+int
 	bool internal;
 {
 	register char **pvp;

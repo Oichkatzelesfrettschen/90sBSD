@@ -41,6 +41,10 @@ static char sccsid[] = "@(#)save.c	5.6 (Berkeley) 6/1/90";
 #include	<string.h>
 #ifndef	unctrl
 #include	"unctrl.h"
+#include <fcntl.h>
+#include <time.h>
+#include <unistd.h>
+#include <stdlib.h>
 #endif
 
 # ifdef	attron
@@ -62,6 +66,7 @@ int	read(), write();
  *	This routine saves the current game for use at a later date
  */
 
+int
 save() {
 
 	extern int	errno;
@@ -140,6 +145,7 @@ over:
  * backup was made on exiting, in which case certain things must
  * be cleaned up before the game starts.
  */
+int
 rest_f(file)
 reg char	*file; {
 

@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)win.c	5.5 (Berkeley) 6/26/90";
+#include <unistd.h>
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -52,6 +54,7 @@ static char sccsid[] = "@(#)win.c	5.5 (Berkeley) 6/26/90";
 **	pretty off the wall.
 */
 
+int
 win()
 {
 	long			s;

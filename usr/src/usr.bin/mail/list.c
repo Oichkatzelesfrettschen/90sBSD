@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)list.c	5.14 (Berkeley) 6/1/90";
  * Returns the count of messages picked up or -1 on error.
  */
 
+int
 getmsglist(buf, vector, flags)
 	char *buf;
 	int *vector;

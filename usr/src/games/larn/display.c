@@ -10,12 +10,16 @@ char always=0;
 
 	now for the bottom line of the display
  */
+void
 bottomline()
 	{	recalc();	bot1f=1;	}
+void
 bottomhp()
 	{	bot2f=1;	}
+void
 bottomspell()
 	{	bot3f=1;	}
+void
 bottomdo()
 	{
 	if (bot1f) { bot3f=bot1f=bot2f=0; bot_linex(); return; }
@@ -25,6 +29,7 @@ bottomdo()
 
 static void botsub();
 
+void
 bot_linex()
 	{
 	register int i;

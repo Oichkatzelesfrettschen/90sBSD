@@ -114,6 +114,7 @@ static jmp_buf  expjump;
 #define ungetch()       nxtch--
 #define getch()         *nxtch++
  
+int
 expr(expbuf)
 char *expbuf;
 {
@@ -132,6 +133,7 @@ char *expbuf;
  * query : lor | lor '?' query ':' query
  *
  */
+int
 query()
 {
         register int bool, true_val, false_val;
@@ -154,6 +156,7 @@ query()
  * lor : land { '||' land }
  *
  */
+int
 lor()
 {
         register int c, vl, vr;
@@ -174,6 +177,7 @@ lor()
  * land : bor { '&&' bor }
  *
  */
+int
 land()
 {
         register int c, vl, vr;
@@ -194,6 +198,7 @@ land()
  * bor : bxor { '|' bxor }
  *
  */
+int
 bor()
 {
         register int vl, vr, c;

@@ -49,6 +49,8 @@ static char sccsid[] = "@(#)input.c	5.4 (Berkeley) 4/30/90";
 
 #include "include.h"
 #include "pathnames.h"
+#include <string.h>
+#include <unistd.h>
 
 #define MAXRULES	6
 #define MAXDEPTH	15
@@ -190,6 +192,7 @@ int	level;
 int	tval;
 int	dest_type, dest_no, dir;
 
+int
 pop()
 {
 	if (level == 0)
@@ -204,6 +207,7 @@ pop()
 	return (0);
 }
 
+void
 rezero()
 {
 	iomove(0);
@@ -216,6 +220,7 @@ rezero()
 	strcpy(T_STR, "");
 }
 
+void
 push(ruleno, ch)
 {
 	int	newstate, newpos;
@@ -237,6 +242,7 @@ push(ruleno, ch)
 	strcpy(T_STR, "");
 }
 
+int
 getcommand()
 {
 	int	c, i, done;
@@ -295,6 +301,7 @@ getcommand()
 	return (0);
 }
 
+void
 noise()
 {
 	putchar('\07');

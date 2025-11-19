@@ -23,6 +23,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
    This needs better error-handling.
  */
 #include <stdio.h>
+#include <string.h>
 #ifdef USG
 #define bzero(s,n) memset(s,0,n)
 #endif
@@ -119,10 +120,13 @@ void (*unget)();
 		-2: flush text until a '*' '/' is seen, then go to state old_state
 	*/
 
+int
 	static state;
+int
 	static old_state;
 	static char *out_string;
 	static char out_buf[20];
+int
 	static add_newlines;
 	int ch;
 

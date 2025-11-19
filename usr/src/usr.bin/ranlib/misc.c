@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)misc.c	5.2 (Berkeley) 2/26/91";
 extern char *archive;			/* archive name */
 char *tname = "temporary file";		/* temporary file "name" */
 
+int
 tmp()
 {
 	sigset_t set, oset;
@@ -91,12 +92,14 @@ rname(path)
 	return((ind = rindex(path, '/')) ? ind + 1 : path);
 }
 
+void
 badfmt()
 {
 	errno = EFTYPE;
 	error(archive);
 }
 
+void
 error(name)
 	char *name;
 {

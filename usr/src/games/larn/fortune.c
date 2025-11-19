@@ -4,6 +4,8 @@
 #include <fcntl.h>
 
 #include "header.h"
+#include <unistd.h>
+#include <stdlib.h>
 /*
  *	function to return a random fortune from the fortune file
  */

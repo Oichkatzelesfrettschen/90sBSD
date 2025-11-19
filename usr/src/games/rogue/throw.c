@@ -56,6 +56,7 @@ extern short cur_room;
 extern char *curse_message;
 extern char hit_message[];
 
+void
 throw()
 {
 	short wch, d;

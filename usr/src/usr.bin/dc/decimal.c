@@ -48,6 +48,8 @@
    Divide in this test keeps three fraction digits. */
 
 #include "decimal.h"
+#include <stdlib.h>
+#include <string.h>
 
 #define MAX(a, b) (((a) > (b) ? (a) : (b)))
 

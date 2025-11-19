@@ -58,6 +58,7 @@ void	intcopy();		/* interrupt routine for file transfers */
  * FTP - remote ==> local
  *  get a file from the remote host
  */
+void
 getfl(c)
 	char c;
 {
@@ -88,6 +89,7 @@ getfl(c)
 /*
  * Cu-like take command
  */
+void
 cu_take(cc)
 	char cc;
 {
@@ -116,6 +118,7 @@ static	jmp_buf intbuf;
  * Bulk transfer routine --
  *  used by getfl(), cu_take(), and pipefile()
  */
+void
 transfer(buf, fd, eofchars)
 	char *buf, *eofchars;
 {

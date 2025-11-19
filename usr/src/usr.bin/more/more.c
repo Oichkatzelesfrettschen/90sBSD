@@ -63,6 +63,7 @@ static char sccsid[] = "@(#)more.c	5.26 (Berkeley) 4/18/91";
 #include <ctype.h>
 #include <regexp.h>
 #include "pathnames.h"
+#include <stdlib.h>
 
 #define Fopen(s,m)	(Currline = 0,file_pos=0,fopen(s,m))
 #define Ftell(f)	file_pos

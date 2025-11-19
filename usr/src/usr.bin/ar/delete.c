@@ -57,6 +57,7 @@ extern char *tname;                     /* temporary file "name" */
  * delete --
  *	Deletes named members from the archive.
  */
+int
 delete(argv)
 	register char **argv;
 {

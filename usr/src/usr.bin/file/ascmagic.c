@@ -30,6 +30,7 @@
 #include <ctype.h>
 #include "file.h"
 #include "names.h"
+#include <string.h>
 
 #ifndef	lint
 static char *moduleid = 
@@ -41,6 +42,7 @@ char *ckfmsg = "write error on output";
 			/* an optimisation over plain strcmp() */
 #define	STREQ(a, b)	(*(a) == *(b) && strcmp((a), (b)) == 0)
 
+int
 ascmagic(buf)
 register char	*buf;
 {

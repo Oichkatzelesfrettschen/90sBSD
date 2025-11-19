@@ -59,6 +59,8 @@ static char sccsid[] = "@(#)umount.c	5.16 (Berkeley) 6/3/91";
 #include <fstab.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 #ifdef NFS
 int xdr_dir();
@@ -138,6 +140,7 @@ main(argc, argv)
 	exit(errs);
 }
 
+void
 usage()
 {
 	fprintf(stderr,
@@ -152,6 +155,7 @@ usage()
 	exit(1);
 }
 
+void
 umountall(typelist)
 	char **typelist;
 {
@@ -198,6 +202,7 @@ allocfsent(fs)
 	return (new);
 }
 
+void
 freefsent(fs)
 	register struct fstab *fs;
 {

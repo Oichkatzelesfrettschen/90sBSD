@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)users.c	5.12 (Berkeley) 11/1/90";
 #include <sys/types.h>
 #include <utmp.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define	MAXUSERS	200
 
@@ -95,6 +97,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 scmp(p, q)
 	char *p, *q;
 {

@@ -78,9 +78,13 @@ struct match {
 	char *coldp;		/* can be no match starting before here */
 	char **lastpos;		/* [nplus+1] */
 	STATEVARS;
+void
 	states st;		/* current states */
+void
 	states fresh;		/* states for a fresh start */
+void
 	states tmp;		/* temporary */
+void
 	states empty;		/* empty set of states */
 };
 

@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)docmd.c	5.8 (Berkeley) 3/1/91";
 #include "defs.h"
 #include <setjmp.h>
 #include <netdb.h>
+#include <string.h>
 
 FILE	*lfp;			/* log file for recording files updated */
 struct	subcmd *subcmds;	/* list of sub-commands for current cmd */
@@ -48,6 +49,7 @@ void cleanup(), lostconn();
 /*
  * Do the commands in cmds (initialized by yyparse).
  */
+void
 docmds(dhosts, argc, argv)
 	char **dhosts;
 	int argc;
@@ -103,6 +105,7 @@ docmds(dhosts, argc, argv)
 /*
  * Process commands for sending files to other machines.
  */
+void
 doarrow(filev, files, rhost, cmds)
 	char **filev;
 	struct namelist *files;

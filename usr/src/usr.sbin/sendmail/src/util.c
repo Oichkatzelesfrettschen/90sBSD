@@ -558,12 +558,14 @@ safefile(fn, uid, gid, uname, flags, mode)
 	{
 		if (tTd(54, 4))
 			printf("\tOK\n");
+int
 		return 0;
 	}
 	if (tTd(54, 4))
 		printf("\tEACCES\n");
 	return EACCES;
 }
+void
 /*
 **  FIXCRLF -- fix <CR><LF> in line.
 **

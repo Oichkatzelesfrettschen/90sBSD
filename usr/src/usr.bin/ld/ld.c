@@ -46,6 +46,8 @@ static char sccsid[] = "@(#)ld.c	6.10 (Berkeley) 5/22/91";
 /* symseg.h defines the obsolete GNU debugging format; we should nuke it.  */
 #define CORE_ADDR unsigned long	/* For symseg.h */
 #include "symseg.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 #define N_SET_MAGIC(exec, val)  ((exec).a_magic = val)
 

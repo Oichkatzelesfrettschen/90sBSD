@@ -8,6 +8,7 @@ xchar scrlx, scrhx, scrly, scrhy;	/* corners of new area on screen */
 extern char *hu_stat[];	/* in eat.c */
 extern char *CD;
 
+void
 swallowed()
 {
 	char *ulook = "|@|";
@@ -32,6 +33,7 @@ swallowed()
 /*VARARGS1*/
 boolean panicking;
 
+void
 panic(str,a1,a2,a3,a4,a5,a6)
 char *str;
 {
@@ -50,7 +52,9 @@ char *str;
 	done("panicked");
 }
 
+void
 atl(x,y,ch)
+void
 register x,y;
 {
 	register struct rm *crm = &levl[x][y];
@@ -285,6 +289,7 @@ pru()
 
 #ifndef NOWORM
 #include	"def.wseg.h"
+#include <stdlib.h>
 extern struct wseg *m_atseg;
 #endif NOWORM
 

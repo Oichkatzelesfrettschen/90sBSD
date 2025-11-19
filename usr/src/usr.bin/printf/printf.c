@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)printf.c	5.9 (Berkeley) 6/1/90";
 
 #include <sys/types.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define PF(f, func) { \
 	if (fieldwidth) \
@@ -187,6 +189,7 @@ mklong(char *str, char ch)
 	return(copy);
 }
 
+int
 escape(fmt)
 	register char *fmt;
 {
@@ -247,6 +250,7 @@ escape(fmt)
 	*store = '\0';
 }
 
+int
 getchr()
 {
 	if (!*gargv)
@@ -263,6 +267,7 @@ getstr()
 }
 
 static char *number = "+-.0123456789";
+int
 getint()
 {
 	if (!*gargv)

@@ -558,12 +558,14 @@ sendenvelope(e, mode)
 **		zero in child.
 **		-1 on error.
 **
+int
 **	Side Effects:
 **		returns twice, once in parent and once in child.
 */
 
 dofork()
 {
+int
 	register int pid;
 
 	DOFORK(fork);

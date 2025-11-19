@@ -67,6 +67,7 @@ struct sockaddr_in inet_default = {
 #endif
 	AF_INET, INADDR_ANY };
 
+void
 inet_hash(sin, hp)
 	register struct sockaddr_in *sin;
 	struct afhash *hp;
@@ -82,6 +83,7 @@ inet_hash(sin, hp)
 	hp->afh_hosthash &= 0x7fffffff;
 }
 
+int
 inet_netmatch(sin1, sin2)
 	struct sockaddr_in *sin1, *sin2;
 {
@@ -92,6 +94,7 @@ inet_netmatch(sin1, sin2)
 /*
  * Verify the message is from the right port.
  */
+int
 inet_portmatch(sin)
 	register struct sockaddr_in *sin;
 {
@@ -102,6 +105,7 @@ inet_portmatch(sin)
 /*
  * Verify the message is from a "trusted" port.
  */
+int
 inet_portcheck(sin)
 	struct sockaddr_in *sin;
 {
@@ -112,6 +116,7 @@ inet_portcheck(sin)
 /*
  * Internet output routine.
  */
+void
 inet_output(s, flags, sin, size)
 	int s, flags;
 	struct sockaddr_in *sin;
@@ -134,6 +139,7 @@ inet_output(s, flags, sin, size)
  * Return 1 if the address is believed
  * for an Internet host -- THIS IS A KLUDGE.
  */
+int
 inet_checkhost(sin)
 	struct sockaddr_in *sin;
 {

@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)klmove.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -60,6 +61,7 @@ static char sccsid[] = "@(#)klmove.c	5.4 (Berkeley) 6/1/90";
 **	course around stars.
 */
 
+void
 klmove(fl)
 int	fl;
 {

@@ -46,7 +46,10 @@ static char sccsid[] = "@(#)util.c	5.14 (Berkeley) 1/17/91";
 #include <string.h>
 #include <paths.h>
 #include "finger.h"
+#include <unistd.h>
+#include <stdlib.h>
 
+void
 find_idle_and_ttywrite(w)
 	register WHERE *w;
 {
@@ -67,6 +70,7 @@ find_idle_and_ttywrite(w)
 	w->writable = ((sb.st_mode & TALKABLE) == TALKABLE);
 }
 
+void
 userinfo(pn, pw)
 	register PERSON *pn;
 	register struct passwd *pw;
@@ -107,6 +111,7 @@ userinfo(pn, pw)
 	    strdup(p) : NULL;
 }
 
+int
 match(pw, user)
 	struct passwd *pw;
 	char *user;
@@ -135,6 +140,7 @@ match(pw, user)
 	return(0);
 }
 
+void
 enter_lastlog(pn)
 	register PERSON *pn;
 {
@@ -185,6 +191,7 @@ enter_lastlog(pn)
 	}
 }
 
+void
 enter_where(ut, pn)
 	struct utmp *ut;
 	PERSON *pn;
@@ -242,6 +249,7 @@ find_person(name)
 	return(pn);
 }
 
+int
 hash(name)
 	register char *name;
 {

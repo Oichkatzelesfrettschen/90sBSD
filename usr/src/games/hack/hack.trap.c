@@ -21,6 +21,7 @@ char *traps[] = {
 
 struct trap *
 maketrap(x,y,typ)
+int
 register x,y,typ;
 {
 	register struct trap *ttmp;
@@ -36,6 +37,7 @@ register x,y,typ;
 	return(ttmp);
 }
 
+void
 dotrap(trap) register struct trap *trap; {
 	register int ttype = trap->ttyp;
 

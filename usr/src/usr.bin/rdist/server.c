@@ -36,6 +36,8 @@ static char sccsid[] = "@(#)server.c	5.15 (Berkeley) 3/1/91";
 #endif /* not lint */
 
 #include "defs.h"
+#include <unistd.h>
+#include <string.h>
 
 #define	ack() 	(void) write(rem, "\0\n", 2)
 #define	err() 	(void) write(rem, "\1\n", 2)
@@ -61,6 +63,7 @@ struct	linkbuf *savelink();
  *	Vname	- Verify if file out of date or not
  *	Qname	- Query if file exists. Return mtime & size if it does.
  */
+void
 server()
 {
 	char cmdbuf[BUFSIZ];

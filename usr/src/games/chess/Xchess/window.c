@@ -59,6 +59,7 @@ and this notice must be preserved on all copies.  */
 #include "xchess_mask.cur"
 
 #include "xchess.icon"
+#include <stdlib.h>
 
 windata *win1, *win2;
 bool win_flashmove = false;

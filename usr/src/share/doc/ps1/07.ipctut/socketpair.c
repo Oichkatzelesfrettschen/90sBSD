@@ -34,6 +34,8 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define DATA1 "In Xanadu, did Kublai Khan . . ."
 #define DATA2 "A stately pleasure dome decree . . ."
@@ -45,6 +47,7 @@
  * send messages in both directions. 
  */
 
+void
 main()
 {
 	int sockets[2], child;

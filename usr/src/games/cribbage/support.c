@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)support.c	5.6 (Berkeley) 2/28/91";
 #include	"deck.h"
 #include	"cribbage.h"
 #include	"cribcur.h"
+#include <string.h>
 
 
 #define		NTV		10		/* number scores to test */
@@ -52,6 +53,7 @@ int		tv[ NTV ]	= { 8, 7, 9, 6, 11, 12, 13, 14, 10, 5 };
  * only called if no playable card will score points
  */
 
+int
 cchose( h, n, s )
 
     CARD		h[];
@@ -112,6 +114,7 @@ cchose( h, n, s )
  * plyrhand:
  *	Evaluate and score a player hand or crib
  */
+int
 plyrhand(hand, s)
 CARD		hand[];
 char		*s;

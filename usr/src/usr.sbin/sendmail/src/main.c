@@ -558,12 +558,14 @@ main(argc, argv, envp)
 			break;
 
 		  case 'X':	/* traffic log file */
+void
 			setuid(RealUid);
 			TrafficLogFile = fopen(optarg, "a");
 			if (TrafficLogFile == NULL)
 			{
 				syserr("cannot open %s", optarg);
 				break;
+void
 			}
 #ifdef HASSETVBUF
 			setvbuf(TrafficLogFile, NULL, _IOLBF, 0);

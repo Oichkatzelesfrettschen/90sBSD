@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)error.c	5.3 (Berkeley) 6/1/90";
 #include "defs.h"
 
 
+void
 fatal(msg)
 char *msg;
 {
@@ -51,6 +52,7 @@ char *msg;
 }
 
 
+void
 no_space()
 {
     fprintf(stderr, "%s: f - out of space\n", myname);
@@ -58,6 +60,7 @@ no_space()
 }
 
 
+void
 open_error(filename)
 char *filename;
 {
@@ -66,6 +69,7 @@ char *filename;
 }
 
 
+void
 unexpected_EOF()
 {
     fprintf(stderr, "%s: e - line %d of \"%s\", unexpected end-of-file\n",
@@ -74,6 +78,7 @@ unexpected_EOF()
 }
 
 
+void
 print_pos(st_line, st_cptr)
 char *st_line;
 char *st_cptr;
@@ -101,6 +106,7 @@ char *st_cptr;
 }
 
 
+void
 syntax_error(st_lineno, st_line, st_cptr)
 int st_lineno;
 char *st_line;
@@ -113,6 +119,7 @@ char *st_cptr;
 }
 
 
+void
 unterminated_comment(c_lineno, c_line, c_cptr)
 int c_lineno;
 char *c_line;
@@ -125,6 +132,7 @@ char *c_cptr;
 }
 
 
+void
 unterminated_string(s_lineno, s_line, s_cptr)
 int s_lineno;
 char *s_line;
@@ -137,6 +145,7 @@ char *s_cptr;
 }
 
 
+void
 unterminated_text(t_lineno, t_line, t_cptr)
 int t_lineno;
 char *t_line;
@@ -149,6 +158,7 @@ char *t_cptr;
 }
 
 
+void
 unterminated_union(u_lineno, u_line, u_cptr)
 int u_lineno;
 char *u_line;

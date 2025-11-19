@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)vis.c	5.1 (Berkeley) 4/18/91";
 
 #include <stdio.h>
 #include <vis.h>
+#include <stdlib.h>
 
 int eflags, fold, foldwidth=80, none, markeol, debug;
 
@@ -120,6 +121,7 @@ main(argc, argv)
 	exit(0);
 }
 	
+void
 process(fp, filename)
 	FILE *fp;
 	char *filename;

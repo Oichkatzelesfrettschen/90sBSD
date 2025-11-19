@@ -9,11 +9,13 @@ coord utrack[UTSZ];
 int utcnt = 0;
 int utpnt = 0;
 
+void
 initrack(){
 	utcnt = utpnt = 0;
 }
 
 /* add to track */
+void
 settrack(){
 	if(utcnt < UTSZ) utcnt++;
 	if(utpnt == UTSZ) utpnt = 0;
@@ -23,6 +25,7 @@ settrack(){
 }
 
 coord *
+int
 gettrack(x,y) register x,y; {
 register int i,cnt,dist;
 coord tc;

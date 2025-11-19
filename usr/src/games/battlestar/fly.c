@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)fly.c	5.6 (Berkeley) 3/4/91";
 #include "externs.h"
 #undef UP
 #include <curses.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define abs(a)	((a) < 0 ? -(a) : (a))
 #define MIDR  (LINES/2 - 1)
@@ -63,6 +65,7 @@ succumb()
 	}
 }
 
+int
 visual()
 {
 	void moveenemy();
@@ -174,6 +177,7 @@ visual()
 	}
 }
 
+void
 screen()
 {
 	register int r,c,n;
@@ -190,6 +194,7 @@ screen()
 	refresh();
 }
 
+void
 target()
 {
 	register int n;
@@ -202,6 +207,7 @@ target()
 	}
 }
 
+void
 notarget()
 {
 	register int n;
@@ -214,6 +220,7 @@ notarget()
 	}
 }
 
+void
 blast()
 {
 	register int n;

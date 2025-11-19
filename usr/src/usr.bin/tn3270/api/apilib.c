@@ -168,6 +168,7 @@ api_ps_or_oia_modified()
  * Session Information Services
  */
 
+int
 api_query_session_id(parms)
 QuerySessionIdParms *parms;
 {
@@ -186,6 +187,7 @@ QuerySessionIdParms *parms;
 }
 
 
+int
 api_query_session_parameters(parms)
 QuerySessionParametersParms *parms;
 {
@@ -203,6 +205,7 @@ QuerySessionParametersParms *parms;
     }
 }
 
+int
 api_query_session_cursor(parms)
 QuerySessionCursorParms *parms;
 {
@@ -224,6 +227,7 @@ QuerySessionCursorParms *parms;
  * Keyboard Services
  */
 
+int
 api_connect_to_keyboard(parms)
 ConnectToKeyboardParms *parms;
 {
@@ -242,6 +246,7 @@ ConnectToKeyboardParms *parms;
 }
 
 
+int
 api_disconnect_from_keyboard(parms)
 DisconnectFromKeyboardParms *parms;
 {
@@ -260,6 +265,7 @@ DisconnectFromKeyboardParms *parms;
 }
 
 
+int
 api_write_keystroke(parms)
 WriteKeystrokeParms *parms;
 {
@@ -278,6 +284,7 @@ WriteKeystrokeParms *parms;
 }
 
 
+int
 api_disable_input(parms)
 DisableInputParms *parms;
 {
@@ -295,6 +302,7 @@ DisableInputParms *parms;
     }
 }
 
+int
 api_enable_input(parms)
 EnableInputParms *parms;
 {
@@ -316,6 +324,7 @@ EnableInputParms *parms;
  * Copy Services
  */
 
+int
 api_copy_string(parms)
 CopyStringParms *parms;
 {
@@ -337,6 +346,7 @@ CopyStringParms *parms;
  * Operator Information Area Services
  */
 
+int
 api_read_oia_group(parms)
 ReadOiaGroupParms *parms;
 {
@@ -358,6 +368,7 @@ ReadOiaGroupParms *parms;
  * The "we are done" routine.  This gets called last.
  */
 
+int
 api_finish()
 {
 #if	defined(unix)
@@ -374,6 +385,7 @@ api_finish()
  * The initialization routine.  Be sure to call this first.
  */
 
+int
 api_init()
 {
 #if	defined(MSDOS)

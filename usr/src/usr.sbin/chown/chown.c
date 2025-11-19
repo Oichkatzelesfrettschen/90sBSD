@@ -130,6 +130,7 @@ main(argc, argv)
 	exit(retval);
 }
 
+void
 a_gid(s)
 	register char *s;
 {
@@ -154,6 +155,7 @@ a_gid(s)
 	}
 }
 
+void
 a_uid(s)
 	register char *s;
 {
@@ -178,6 +180,7 @@ a_uid(s)
 	}
 }
 
+void
 chownerr(file)
 	char *file;
 {
@@ -209,6 +212,7 @@ chownerr(file)
 		error(file);
 }
 
+void
 error(name)
 	char *name;
 {
@@ -216,6 +220,7 @@ error(name)
 	retval = 1;
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: %s [-Rf] %s file ...\n", myname,

@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)util.c	5.14 (Berkeley) 2/12/91";
 #include <ctype.h>
 #include "chpass.h"
 #include "pathnames.h"
+#include <stdlib.h>
 
 static int dmsize[] =
 	{ -1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -68,6 +69,7 @@ ttoa(tval)
 	return(tbuf);
 } 
 
+int
 atot(p, store)
 	char *p;
 	time_t *store;

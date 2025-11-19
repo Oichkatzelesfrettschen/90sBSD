@@ -58,6 +58,7 @@ extern char hostname[];
  * process to any terminal that it writes on, we must fork a child
  * to protect ourselves
  */
+int
 announce(request, remote_machine)
 	CTL_MSG *request;
 	char *remote_machine;
@@ -91,6 +92,7 @@ announce(request, remote_machine)
  * See if the user is accepting messages. If so, announce that 
  * a talk is requested.
  */
+int
 announce_proc(request, remote_machine)
 	CTL_MSG *request;
 	char *remote_machine;
@@ -130,6 +132,7 @@ announce_proc(request, remote_machine)
  * try to keep the message in one piece if the recipient
  * in in vi at the time
  */
+void
 print_mesg(tf, request, remote_machine)
 	FILE *tf;
 	CTL_MSG *request;

@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)pl_4.c	5.4 (Berkeley) 6/1/90";
 
 #include "player.h"
 
+void
 changesail()
 {
 	int rig, full;
@@ -63,6 +64,7 @@ changesail()
 		Signal("Sails rent to pieces", (struct ship *)0);
 }
 
+void
 acceptsignal()
 {
 	char buf[60];
@@ -77,6 +79,7 @@ acceptsignal()
 	Write(W_SIGNAL, ms, 1, (int)buf, 0, 0, 0);
 }
 
+void
 lookout()
 {
 	register struct ship *sp;
@@ -111,6 +114,7 @@ char flag;
 		return "(computer)";
 }
 
+void
 eyeball(ship)
 register struct ship *ship;
 {

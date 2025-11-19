@@ -38,9 +38,11 @@ static char sccsid[] = "@(#)hexsyntax.c	5.2 (Berkeley) 5/8/90";
 #include <sys/types.h>
 #include <stdio.h>
 #include "hexdump.h"
+#include <stdlib.h>
 
 off_t skip;				/* bytes to skip */
 
+void
 newsyntax(argc, argvp)
 	int argc;
 	char ***argvp;
@@ -122,6 +124,7 @@ newsyntax(argc, argvp)
 	*argvp += optind;
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

@@ -53,6 +53,8 @@
 
 #include "sys/param.h"
 #include "machine/stdarg.h"
+#include <stdlib.h>
+#include <string.h>
 
 /*
  *	Character output - tracks position in line.
@@ -101,6 +103,7 @@ db_force_whitespace()
 /*
  * Output character.  Buffer whitespace.
  */
+void
 db_putchar(c)
 	int	c;		/* character to output */
 {
@@ -165,6 +168,7 @@ db_end_line(int n)
 extern int	db_radix;
 
 /*VARARGS1*/
+void
 db_printf(char *fmt, ...)
 {
 	va_list	listp;
@@ -176,6 +180,7 @@ db_printf(char *fmt, ...)
 /* alternate name */
 
 /*VARARGS1*/
+void
 kdbprintf(char *fmt, ...)
 {
 	va_list	listp;
@@ -206,6 +211,7 @@ db_ksprintn(ul, base, lenp)
 	return (p);
 }
 
+void
 db_printf_guts(fmt, ap)
 	register const char *fmt;
 	va_list ap;

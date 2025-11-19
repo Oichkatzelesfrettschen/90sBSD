@@ -10,6 +10,7 @@ int n_rumors = 0;
 int n_used_rumors = -1;
 char *usedbits;
 
+void
 init_rumors(rumf) register FILE *rumf; {
 register int i;
 	n_used_rumors = 0;
@@ -20,6 +21,7 @@ register int i;
 	for( ; i>=0; i--) usedbits[i] = 0;
 }
 
+int
 skipline(rumf) register FILE *rumf; {
 char line[COLNO];
 	while(1) {
@@ -28,6 +30,7 @@ char line[COLNO];
 	}
 }
 
+void
 outline(rumf) register FILE *rumf; {
 char line[COLNO];
 register char *ep;
@@ -37,6 +40,7 @@ register char *ep;
 	pline(line);
 }
 
+void
 outrumor(){
 register int rn,i;
 register FILE *rumf;
@@ -58,6 +62,7 @@ none:
 	(void) fclose(rumf);
 }
 
+int
 used(i) register int i; {
 	return(usedbits[i/CHARSZ] & (1 << (i % CHARSZ)));
 }

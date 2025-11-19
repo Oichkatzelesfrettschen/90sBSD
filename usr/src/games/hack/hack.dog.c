@@ -15,12 +15,14 @@ struct permonst la_dog =
 	{ "large dog", 'd',6,15,4,2,4,sizeof(struct edog) };
 
 
+void
 makedog(){
 register struct monst *mtmp = makemon(&li_dog,u.ux,u.uy);
 	if(!mtmp) return; /* dogs were genocided */
 	initedog(mtmp);
 }
 
+void
 initedog(mtmp) register struct monst *mtmp; {
 	mtmp->mtame = mtmp->mpeaceful = 1;
 	EDOG(mtmp)->hungrytime = 1000 + moves;

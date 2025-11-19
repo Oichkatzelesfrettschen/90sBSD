@@ -16,10 +16,12 @@ struct monst zeromonst;
  *	note that in this case we return only one of them (the one at [x,y]).
  */
 struct monst *
+int
 makemon(ptr,x,y)
 register struct permonst *ptr;
 {
 	register struct monst *mtmp;
+int
 	register tmp, ct;
 	boolean anything = (!ptr);
 	extern boolean in_mklev;

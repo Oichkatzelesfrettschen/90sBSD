@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  * $Id: ptrace.c,v 1.1 94/10/20 00:03:11 bill Exp $
+void
  *
  * Un*x ptrace(2) debugging mechanism, holdover from release 0.1.
  */
 
 #define IPCREG
 #include "sys/param.h"
+void
 #include "sys/user.h"
 #include "sys/file.h"
 #include "sys/ptrace.h"
+void
 #include "sys/mman.h"
 #include "resourcevar.h"
 #include "vm.h"
+void
 #include "vm_page.h"
 
 #include "machine/reg.h"
@@ -51,6 +55,7 @@
 
 #include "prototypes.h"
 
+void
 /*
  * NOTES.
  *

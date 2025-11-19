@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)swapon.c	5.5 (Berkeley) 2/27/91";
 #include <fstab.h>
 #include <errno.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int
 main(argc, argv)
@@ -86,6 +88,7 @@ main(argc, argv)
 	exit(stat);
 }
 
+int
 add(name, ignoreebusy)
 	char *name;
 	int ignoreebusy;
@@ -114,6 +117,7 @@ add(name, ignoreebusy)
 	return(0);
 }
 
+void
 usage()
 {
 	fprintf(stderr, "usage: swapon [-a] [special_file ...]\n");

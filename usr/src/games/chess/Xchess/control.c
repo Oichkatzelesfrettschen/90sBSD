@@ -29,6 +29,7 @@ and this notice must be preserved on all copies.  */
  */
 
 #include "xchess.h"
+#include <stdlib.h>
 
 move *moves;
 move *foremoves;

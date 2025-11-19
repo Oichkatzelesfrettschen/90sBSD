@@ -69,6 +69,7 @@
 #include "netisr.h"
 #define	__NO_INLINES
 #include "prototypes.h"
+void
 #undef	__NO_INLINES
 
 #include "vm.h"

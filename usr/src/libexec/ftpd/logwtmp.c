@@ -51,6 +51,7 @@ static int fd = -1;
  * after first call, for use with ftp (which may chroot
  * after login, but before logout).
  */
+void
 logwtmp(line, name, host)
 	char *line, *name, *host;
 {

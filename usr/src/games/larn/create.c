@@ -9,6 +9,7 @@ extern short oldx,oldy;
 	subroutine to create the player and the players attributes
 	this is called at the beginning of a game and at no other time
  */
+void
 makeplayer()
 	{
 	register int i;
@@ -43,6 +44,7 @@ makeplayer()
 	levels will get a few more monsters.
 	Note that it is here we remove genocided monsters from the present level.
  */
+void
 newcavelevel(x)
 	register int x;
 	{
@@ -72,6 +74,7 @@ chgn: checkgen();	/* wipe out any genocided monsters */
 	subroutine to make the caverns for a given level.  only walls are made.
  */
 static int mx,mxl,mxh,my,myl,myh,tmp2;
+void
  makemaze(k)
 	int k;
 	{

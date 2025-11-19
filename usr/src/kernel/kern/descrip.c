@@ -69,6 +69,7 @@ static int selscan(struct proc *p, fd_set *ibits, fd_set *obits, int nfd, int *r
 
 
 
+int
 
 
 /*
@@ -167,8 +168,10 @@ dup2(p, uap, retval)
 	return (0);
 }
 
+void
 
 
+void
 
 /* POSIX file control system call.  */
 int

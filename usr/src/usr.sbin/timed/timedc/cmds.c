@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)cmds.c	2.8 (Berkeley) 3/2/91";
 #define TSPTYPES
 #include <protocols/timed.h>
 #include <sys/file.h>
+#include <unistd.h>
 
 int id;
 int sock;
@@ -74,6 +75,7 @@ char *strcpy();
  * be reduced by increasing the number of messages sent in each measurement.
  */
 
+void
 clockdiff(argc, argv)
 int argc;
 char *argv[];

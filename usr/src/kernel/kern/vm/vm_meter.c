@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  *	$Id: vm_meter.c,v 1.1 94/10/19 17:37:26 bill Exp $
+void
  */
 
 #include "sys/param.h"
 #include "sys/errno.h"
 #include "proc.h"
 #include "kernel.h"	/* time */
+void
 #include "vmmeter.h"
 
 #include "vm.h"
+void
 #include "vmspace.h"
 
 #include "prototypes.h"
+void
 
 fixpt_t	averunnable[3];		/* load average, of runnable procs */
 
@@ -69,6 +73,7 @@ vmtotal()
 	register struct vmspace *vms;
 
 	total.t_vm = 0;
+void
 	total.t_avm = 0;
 	total.t_rm = 0;
 	total.t_arm = 0;

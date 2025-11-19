@@ -17,6 +17,9 @@
 #endif
 #if TOS
 #include <osbind.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #define	rename(a,b)	Frename(0,a,b)
 #endif
 

@@ -145,6 +145,7 @@ diagdrawscreen()
 	to save the game in a file
  */
 static long int zzz=0;
+int
 savegame(fname)
 	char *fname;
 	{
@@ -191,6 +192,7 @@ savegame(fname)
 	return(0);
 	}
 
+void
 restoregame(fname)
 	char *fname;
 	{

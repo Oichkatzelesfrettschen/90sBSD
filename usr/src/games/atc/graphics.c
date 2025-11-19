@@ -50,6 +50,8 @@ static char sccsid[] = "@(#)graphics.c	5.3 (Berkeley) 10/30/90";
 #include "include.h"
 #ifdef SYSV
 #include <errno.h>
+#include <string.h>
+#include <stdlib.h>
 #endif
 
 #define C_TOPBOTTOM		'-'
@@ -62,6 +64,7 @@ static char sccsid[] = "@(#)graphics.c	5.3 (Berkeley) 10/30/90";
 
 WINDOW	*radar, *cleanradar, *credit, *input, *planes;
 
+int
 getAChar()
 {
 #ifdef BSD
@@ -75,6 +78,7 @@ getAChar()
 #endif
 }
 
+void
 erase_all()
 {
 	PLANE	*pp;
@@ -89,6 +93,7 @@ erase_all()
 	}
 }
 
+int
 draw_all()
 {
 	PLANE	*pp;
@@ -108,6 +113,7 @@ draw_all()
 	fflush(stdout);
 }
 
+void
 init_gr()
 {
 	static char	buffer[BUFSIZ];
@@ -120,6 +126,7 @@ init_gr()
 	planes = newwin(LINES - INPUT_LINES, PLANE_COLS, 0, COLS - PLANE_COLS);
 }
 
+void
 setup_screen(scp)
 	C_SCREEN	*scp;
 {
@@ -211,6 +218,7 @@ setup_screen(scp)
 	fflush(stdout);
 }
 
+void
 draw_line(w, x, y, lx, ly, s)
 	WINDOW	*w;
 	char	*s;
@@ -229,6 +237,7 @@ draw_line(w, x, y, lx, ly, s)
 	}
 }
 
+void
 ioclrtoeol(pos)
 {
 	wmove(input, 0, pos);
@@ -237,6 +246,7 @@ ioclrtoeol(pos)
 	fflush(stdout);
 }
 
+void
 iomove(pos)
 {
 	wmove(input, 0, pos);
@@ -244,6 +254,7 @@ iomove(pos)
 	fflush(stdout);
 }
 
+void
 ioaddstr(pos, str)
 	char	*str;
 {

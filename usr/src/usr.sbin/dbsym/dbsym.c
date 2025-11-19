@@ -3,6 +3,8 @@
  */
 #include <stdio.h>
 #include <a.out.h>
+#include <stdlib.h>
+#include <string.h>
 
 char *malloc ();
 
@@ -25,6 +27,7 @@ int db_symtab_adr;
 int avail;
 
 
+void
 usage ()
 {
 	fprintf (stderr, "usage: dbsym file\n");
@@ -33,6 +36,7 @@ usage ()
 
 struct exec hdr;
 
+void
 main (argc, argv)
 char **argv;
 {

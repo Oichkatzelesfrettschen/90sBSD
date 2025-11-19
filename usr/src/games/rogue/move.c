@@ -63,6 +63,7 @@ extern short e_rings, regeneration, auto_search;
 extern char hunger_str[];
 extern boolean being_held, interrupted, r_teleport, passgo;
 
+int
 one_move_rogue(dirch, pickup)
 short dirch, pickup;
 {

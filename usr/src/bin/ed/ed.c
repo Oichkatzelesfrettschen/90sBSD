@@ -280,6 +280,7 @@ long line1, line2, nlines;
 
 /* getlist: get line numbers from the command buffer until an illegal
    address is seen.  return range status */
+int
 getlist(void)
 {
 	long num;
@@ -418,6 +419,7 @@ getnum(first)
 
 /* ckglob:  set lines matching a pattern in the command buffer; return
    global status  */
+int
 ckglob(void)
 {
 	pattern_t *pat;
@@ -585,6 +587,7 @@ long rows = 22;		/* scroll length: ws_row - 2 */
 
 /* docmd: execute the next command in command buffer; return print
    request, if any */
+int
 docmd(glob)
 	int glob;
 {
@@ -1028,6 +1031,7 @@ docmd(glob)
 
 
 /* ckrange: return status of line number range check */
+int
 ckrange(def1, def2)
 	long def1, def2;
 {
@@ -1114,6 +1118,7 @@ getfn(void)
 
 
 /* getrhs: extract substitution template from the command buffer */
+int
 getrhs(glob)
 	int glob;
 {
@@ -1247,6 +1252,7 @@ getshcmd(void)
 
 /* append: insert text from stdin to after line n; stop when either a
    single period is read or EOF; return status */
+int
 append(n, glob)
 	long n;
 	int  glob;
@@ -1296,6 +1302,7 @@ append(n, glob)
 
 /* subst: change all text matching a pattern in a range of lines according to
    a substitution template; return status  */
+int
 subst(pat, gflag)
 	pattern_t *pat;
 	int gflag;
@@ -1347,6 +1354,7 @@ subst(pat, gflag)
 
 /* regsub: replace text matched by a pattern according to a substitution
    template; return pointer to the modified text */
+int
 regsub(pat, lp, gflag)
 	pattern_t *pat;
 	line_t *lp;
@@ -1402,6 +1410,7 @@ regsub(pat, lp, gflag)
 
 
 /* join: replace a range of lines with the joined text of those lines */
+int
 join(from, to)
 	long from;
 	long to;
@@ -1440,6 +1449,7 @@ join(from, to)
 
 
 /* move: move a range of lines */
+int
 move(num, glob)
 	long num;
 	int glob;
@@ -1478,6 +1488,7 @@ move(num, glob)
 
 
 /* transfer: copy a range of lines; return status */
+int
 transfer(num)
 	long num;
 {
@@ -1522,6 +1533,7 @@ transfer(num)
 
 
 /* lndelete: delete a range of lines */
+int
 lndelete(from, to)
 	long from, to;
 {
@@ -1544,6 +1556,7 @@ lndelete(from, to)
 
 /* catsub: modify text according to a substitution template;
    return offset to end of modified text */
+int
 catsub(boln, rm, off)
 	char *boln;
 	regmatch_t *rm;
@@ -1578,6 +1591,7 @@ catsub(boln, rm, off)
 }
 
 /* doprint: print a range of lines to stdout */
+int
 doprint(from, to, gflag)
 	long from;
 	long to;
@@ -1839,6 +1853,7 @@ upush(type, from, to)
 
 
 /* undo: undo last change to the editor buffer */
+int
 undo(glob)
 	int glob;
 {
@@ -1962,6 +1977,7 @@ clrmark(lp)
 
 /* sgetline: read a line of text up a maximum size from a file; return
    line length */
+int
 sgetline(fp)
 	FILE *fp;
 {
@@ -1990,6 +2006,7 @@ sgetline(fp)
 
 /* getline: read a line of text up a maximum size from stdin; return
    line length */
+int
 getline(void)
 {
 	register int i = 0;

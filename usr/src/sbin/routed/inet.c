@@ -73,6 +73,7 @@ inet_makeaddr(net, host)
 /*
  * Return the network number from an internet address.
  */
+int
 inet_netof(in)
 	struct in_addr in;
 {
@@ -100,6 +101,7 @@ inet_netof(in)
 /*
  * Return the host portion of an internet address.
  */
+int
 inet_lnaof(in)
 	struct in_addr in;
 {
@@ -133,6 +135,7 @@ inet_lnaof(in)
  * for an Internet host, RTF_SUBNET for a subnet,
  * 0 for a network.
  */
+int
 inet_rtflags(sin)
 	struct sockaddr_in *sin;
 {
@@ -175,6 +178,7 @@ inet_rtflags(sin)
  * Send it only if dst is on the same logical network if not "internal",
  * otherwise only if the route is the "internal" route for the logical net.
  */
+int
 inet_sendroute(rt, dst)
 	struct rt_entry *rt;
 	struct sockaddr_in *dst;

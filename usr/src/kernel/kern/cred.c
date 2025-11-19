@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  * $Id: cred.c,v 1.1 94/10/20 00:02:48 bill Exp $
+int
  */
 
 /*
  * System calls related to process protection
  */
 
+int
 #include "sys/param.h"
 #include "sys/errno.h"
 #include "proc.h"
+int
 #include "privilege.h"
 #include "malloc.h"
 #include "prototypes.h"
+int
 
 /* if process credentials are to be modified, check if they need to unshare */
 struct pcred *
@@ -51,6 +55,7 @@ modpcred(struct proc *p) {
 
 	/* if not uniquely used, generate unique copy of process credentials */
 	if (pc->p_refcnt != 1) {
+void
 		MALLOC(pc, struct pcred *, sizeof(struct pcred),
 			M_SUBPROC, M_WAITOK);
 		*pc = *p->p_cred;

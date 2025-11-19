@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)utility.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <stdlib.h>
 #endif /* not lint */
 
 /*
@@ -71,6 +73,7 @@ int	l;
 **	returns one if equal, zero otherwise.
 */
 
+int
 sequal(a, b)
 char	*a, *b;
 {
@@ -119,6 +122,7 @@ char	*s1, *s2, *s3;
 **		terminates the string) is returned.
 */
 
+int
 length(s)
 char	*s;
 {
@@ -137,6 +141,7 @@ char	*s;
 **  SYSTEM ERROR
 */
 
+void
 syserr(p0, p1, p2, p3, p4, p5)
 {
 	extern int	errno;

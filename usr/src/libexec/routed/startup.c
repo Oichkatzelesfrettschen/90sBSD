@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)startup.c	5.19 (Berkeley) 2/28/91";
 #include <syslog.h>
 #include <stdlib.h>
 #include "pathnames.h"
+#include <unistd.h>
 
 struct	interface *ifnet;
 struct	interface **ifnext = &ifnet;
@@ -58,6 +59,7 @@ struct	sockaddr loopaddr;		/* our address on loopback */
  * ARPANET IMP), set the lookforinterfaces flag so we'll
  * come back later and look again.
  */
+void
 ifinit()
 {
 	struct interface ifs, *ifp;

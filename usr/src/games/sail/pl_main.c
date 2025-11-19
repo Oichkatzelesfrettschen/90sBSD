@@ -38,10 +38,12 @@ static char sccsid[] = "@(#)pl_main.c	5.5 (Berkeley) 2/28/91";
 #include "player.h"
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 
 void choke(), child();
 
 /*ARGSUSED*/
+int
 pl_main()
 {
 
@@ -55,6 +57,7 @@ pl_main()
 	return 0;			/* for lint,  play() never returns */
 }
 
+void
 initialize()
 {
 	register struct File *fp;

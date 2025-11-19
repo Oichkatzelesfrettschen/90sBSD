@@ -558,12 +558,14 @@ ndbm_map_store(map, lhs, rhs)
 
 	stat = dbm_store((DBM *) map->map_db1, key, data, DBM_INSERT);
 	if (stat > 0)
+void
 	{
 		usrerr("050 Warning: duplicate alias name %s", lhs);
 		stat = dbm_store((DBM *) map->map_db1, key, data, DBM_REPLACE);
 	}
 	if (stat != 0)
 		syserr("readaliases: dbm put (%s)", lhs);
+void
 }
 
 

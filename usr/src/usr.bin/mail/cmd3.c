@@ -36,6 +36,9 @@ static char sccsid[] = "@(#)cmd3.c	5.24 (Berkeley) 6/25/90";
 #endif /* not lint */
 
 #include "rcv.h"
+#include <string.h>
+#include <signal.h>
+#include <stdio.h>
 
 /*
  * Mail -- a mail program
@@ -47,6 +50,7 @@ static char sccsid[] = "@(#)cmd3.c	5.24 (Berkeley) 6/25/90";
  * Process a shell escape by saving signals, ignoring signals,
  * and forking a sh -c
  */
+int
 shell(str)
 	char *str;
 {
@@ -69,6 +73,7 @@ shell(str)
  * Fork an interactive shell.
  */
 /*ARGSUSED*/
+int
 dosh(str)
 	char *str;
 {

@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)print.c	5.4 (Berkeley) 6/1/90";
 # define	COMP_STRT	20
 # define	CARD_STRT	2
 
+void
 prboard() {
 
 	reg PLAY	*pp;
@@ -98,6 +99,7 @@ prboard() {
  * show_card:
  *	Show the given card if it is different from the last one shown
  */
+void
 show_card(y, x, c, lc)
 int		y, x;
 register CARD	c, *lc;
@@ -111,6 +113,7 @@ register CARD	c, *lc;
 
 static char	Score_fmt[] = "%4d";
 
+void
 prscore(for_real)
 reg bool	for_real; {
 
@@ -157,6 +160,7 @@ reg bool	for_real; {
  *	Show a score value if it is different from the last time we
  *	showed it.
  */
+void
 show_score(y, x, s, ls)
 int		y, x;
 register int	s, *ls;

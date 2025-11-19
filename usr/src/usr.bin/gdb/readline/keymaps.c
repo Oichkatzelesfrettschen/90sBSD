@@ -24,6 +24,7 @@
 
 #ifdef VI_MODE
 #include "vi_keymap.c"
+#include <stdlib.h>
 #endif
 
 /* Remove these declarations when we have a complete libgnu.a. */
@@ -86,7 +87,9 @@ rl_copy_keymap (map)
 Keymap
 rl_make_keymap ()
 {
+int
   extern rl_insert (), rl_rubout (), rl_do_lowercase_version ();
+int
   extern rl_digit_argument ();
   register int i;
   Keymap newmap;
@@ -104,6 +107,7 @@ rl_make_keymap ()
 }
 
 /* Free the storage associated with MAP. */
+void
 rl_discard_keymap (map)
      Keymap (map);
 {
@@ -142,6 +146,7 @@ static char *
 xmalloc (bytes)
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)malloc (bytes);
 
@@ -155,6 +160,7 @@ xrealloc (pointer, bytes)
      char *pointer;
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)realloc (pointer, bytes);
 

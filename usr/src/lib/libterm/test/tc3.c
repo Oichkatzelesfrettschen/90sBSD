@@ -57,6 +57,7 @@ char *x;
 char *UP;
 char *tgout;
 
+void
 main(argc, argv) char **argv; {
 	char *p;
 	int rc;
@@ -83,6 +84,7 @@ main(argc, argv) char **argv; {
 	}
 }
 
+void
 pr(p)
 register char *p;
 {
@@ -95,6 +97,7 @@ register char *p;
  * using ^ for control, ' for meta.
  */
 #include <ctype.h>
+#include <stdlib.h>
 char *rdchar(c)
 char c;
 {

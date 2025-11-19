@@ -31,12 +31,14 @@
  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+void
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
  *	$Id: dev_pgr.c,v 1.1 94/10/19 17:37:10 bill Exp $
  *
+void
  * Bypass lower-level of virtual memory system to map private device memory
  * independent of the RAM memory pool.
  */
@@ -79,6 +81,7 @@ dev_pager_init(void)
 vm_pager_t
 dev_pager_alloc(caddr_t handle, vm_size_t size, vm_prot_t prot)
 {
+int
 	dev_t dev;
 	vm_pager_t pager;
 	int (*mapfunc)(), nprot;
@@ -167,8 +170,10 @@ dev_pager_alloc(caddr_t handle, vm_size_t size, vm_prot_t prot)
 		       pager, devp, object);
 		vm_object_print(object, FALSE);
 	}
+int
 #endif
 	return(pager);
+void
 
 }
 

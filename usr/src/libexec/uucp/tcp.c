@@ -95,6 +95,7 @@ char tcp_rcsid[] = "$Id: tcp.c,v 1.16 1992/03/30 15:37:22 ian Rel $";
 #include "sysdep.h"
 #include "port.h"
 #include "system.h"
+#include <arpa/inet.h>
 
 /* External functions.  */
 extern int close ();

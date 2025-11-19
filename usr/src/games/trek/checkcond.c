@@ -62,6 +62,7 @@ static char sccsid[] = "@(#)checkcond.c	5.4 (Berkeley) 6/1/90";
 **	and battle conditions.
 */
 
+void
 checkcond()
 {
 	register int		i, j;

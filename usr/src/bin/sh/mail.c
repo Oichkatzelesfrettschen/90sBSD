@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)mail.c	5.1 (Berkeley) 3/7/91";
 #include "error.h"
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
 
 
 #define MAXMBOXES 10

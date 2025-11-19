@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)comp.c	5.4 (Berkeley) 6/1/90";
 
 # define	V_VALUABLE	40
 
+int
 calcmove()
 {
 	register CARD		card;
@@ -405,6 +406,7 @@ play_it:
 	mvprintw(MOVE_Y + 2, MOVE_X, "%16s", C_name[pp->hand[Card_no]]);
 }
 
+int
 onecard(pp)
 register PLAY	*pp;
 {
@@ -437,6 +439,7 @@ register PLAY	*pp;
 	return FALSE;
 }
 
+int
 canplay(pp, op, card)
 register PLAY	*pp, *op;
 register CARD	card;

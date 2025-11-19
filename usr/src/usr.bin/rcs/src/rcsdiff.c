@@ -98,6 +98,7 @@ static char rcsid[]=
  */
 #include <ctype.h>
 #include "rcsbase.h"
+#include <unistd.h>
 #define ERRCODE 2                   /*error code for exit status            */
 extern char *rindex();
 #ifndef lint
@@ -120,6 +121,7 @@ char * temp1file, * temp2file;
 char bops[10];
 char otherops[10];
 
+void
 main (argc, argv)
 int argc; char **argv;
 {
@@ -135,6 +137,7 @@ int argc; char **argv;
         int  exit_stats;
 	int  diffs_found;
 	char *argp;
+void
 	register c;
 
         catchints();

@@ -262,6 +262,7 @@ VAR var[] = {
 	{""},
 };
 
+void
 showkey(void)
 {
 	extern int termwidth;
@@ -283,6 +284,7 @@ showkey(void)
 	(void) printf("\n");
 }
 
+void
 parsefmt(p)
 	char *p;
 {
@@ -350,6 +352,7 @@ findvar(p)
 	return(v);
 }
 
+int
 vcmp(a, b)
         VAR *a, *b;
 {

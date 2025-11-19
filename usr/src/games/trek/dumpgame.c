@@ -33,6 +33,9 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)dumpgame.c	4.6 (Berkeley) 6/1/90";
+#include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -71,6 +74,7 @@ struct dump	Dump_template[] =
 **	output change.
 */
 
+int
 dumpgame()
 {
 	int			version;
@@ -106,6 +110,7 @@ dumpgame()
 **	Return value is zero for success, one for failure.
 */
 
+int
 restartgame()
 {
 	register int	fd;
@@ -135,6 +140,7 @@ restartgame()
 **	Returns zero for success, one for failure.
 */
 
+int
 readdump(fd1)
 int	fd1;
 {

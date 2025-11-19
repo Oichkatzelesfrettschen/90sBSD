@@ -110,6 +110,7 @@ main(argc, argv)
 	exit(retval);
 }
 
+void
 rmtree(argv)
 	char **argv;
 {
@@ -191,6 +192,7 @@ rmtree(argv)
 	}
 }
 
+void
 rmfile(argv)
 	char **argv;
 {
@@ -223,6 +225,7 @@ rmfile(argv)
 	}
 }
 
+int
 check(path, name, sp)
 	char *path, *name;
 	struct stat *sp;
@@ -256,6 +259,7 @@ check(path, name, sp)
 }
 
 #define ISDOT(a)	((a)[0] == '.' && (!(a)[1] || (a)[1] == '.' && !(a)[2]))
+void
 checkdot(argv)
 	char **argv;
 {
@@ -280,6 +284,7 @@ checkdot(argv)
 	}
 }
 
+void
 error(name, val)
 	char *name;
 	int val;
@@ -288,6 +293,7 @@ error(name, val)
 	retval = 1;
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr, "usage: rm [-dfiRr] file ...\n");

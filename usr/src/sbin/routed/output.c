@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)output.c	5.15 (Berkeley) 2/28/91";
  * Routing Table Management Daemon
  */
 #include "defs.h"
+#include <string.h>
 
 /*
  * Apply the function "f" to all non-passive
@@ -46,6 +47,7 @@ static char sccsid[] = "@(#)output.c	5.15 (Berkeley) 2/28/91";
  * use of broadcasting use it, otherwise address
  * the output to the known router.
  */
+void
 toall(f, rtstate, skipif)
 	int (*f)();
 	int rtstate;
@@ -71,6 +73,7 @@ toall(f, rtstate, skipif)
  * Output a preformed packet.
  */
 /*ARGSUSED*/
+void
 sndmsg(dst, flags, ifp, rtstate)
 	struct sockaddr *dst;
 	int flags;
@@ -87,6 +90,7 @@ sndmsg(dst, flags, ifp, rtstate)
  * Supply dst with the contents of the routing tables.
  * If this won't fit in one packet, chop it up into several.
  */
+void
 supply(dst, flags, ifp, rtstate)
 	struct sockaddr *dst;
 	int flags;

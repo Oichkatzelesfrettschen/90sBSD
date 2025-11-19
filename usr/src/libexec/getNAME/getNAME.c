@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)getNAME.c	5.4 (Berkeley) 1/20/91";
  */
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int tocrc;
 int intro;
@@ -84,6 +85,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 getfrom(name)
 	char *name;
 {
@@ -142,6 +144,7 @@ getfrom(name)
 	printf("\n");
 }
 
+void
 trimln(cp)
 	register char *cp;
 {
@@ -152,6 +155,7 @@ trimln(cp)
 		*cp = 0;
 }
 
+void
 doname(name)
 	char *name;
 {
@@ -175,6 +179,7 @@ again:
 	putchar(' ');
 }
 
+void
 split(line, name)
 	char *line, *name;
 {
@@ -207,6 +212,7 @@ split(line, name)
 	}
 }
 
+void
 dorefname(name)
 	char *name;
 {
@@ -228,6 +234,7 @@ again:
 		putchar (*dp++);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: getNAME [-it] file ...\n");

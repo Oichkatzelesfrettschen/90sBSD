@@ -74,6 +74,7 @@ struct state	atmata[] = {
 	'\n', 0, -1,	'.', 0, 0
 };
 
+int
 checkmove (ist)
 
 int	ist;

@@ -15,6 +15,7 @@ extern char quitchars[];
 extern char *getenv(), *getlogin();
 void done1();
 
+int
 dowhatis()
 {
 	FILE *fp;
@@ -65,6 +66,7 @@ intruph(){
 }
 
 /* simple pager, also used from dohelp() */
+void
 page_more(fp,strip)
 FILE *fp;
 int strip;	/* nr of chars to be stripped from each line (0 or 1) */
@@ -95,11 +97,13 @@ ret:
 static boolean whole_screen = TRUE;
 #define	PAGMIN	12	/* minimum # of lines for page below level map */
 
+void
 set_whole_screen() {	/* called in termcap as soon as LI is known */
 	whole_screen = (LI-ROWNO-2 <= PAGMIN || !CD);
 }
 
 #ifdef NEWS
+int
 readnews() {
 	register int ret;
 
@@ -110,6 +114,7 @@ readnews() {
 }
 #endif NEWS
 
+void
 set_pager(mode)
 register int mode;	/* 0: open  1: wait+close  2: close */
 {
@@ -368,6 +373,7 @@ union wait {		/* used only for the cast  (union wait *) 0  */
 #include	<sys/wait.h>
 #else
 #include	<wait.h>
+#include <stdlib.h>
 #endif BSD
 #endif NOWAITINCLUDE
 

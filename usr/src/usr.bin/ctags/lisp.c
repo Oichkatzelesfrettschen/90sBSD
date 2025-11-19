@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)lisp.c	5.5 (Berkeley) 2/26/91";
 #include <stdio.h>
 #include <string.h>
 #include "ctags.h"
+#include <ctype.h>
 
 extern char	*lbp;			/* pointer shared with fortran */
 
@@ -45,6 +46,7 @@ extern char	*lbp;			/* pointer shared with fortran */
  * lisp tag functions
  * just look for (def or (DEF
  */
+void
 l_entries()
 {
 	register int	special;

@@ -37,12 +37,14 @@ static char sccsid[] = "@(#)cards.c	5.5 (Berkeley) 2/28/91";
 
 #include	<stdio.h>
 #include	"deck.h"
+#include <stdlib.h>
 
 
 /*
  * initialize a deck of cards to contain one of each type
  */
 
+void
 makedeck( d )
 
     CARD	d[];
@@ -69,6 +71,7 @@ makedeck( d )
  * see Knuth, vol. 2, page 125
  */
 
+void
 shuffle( d )
 
     CARD	d[];
@@ -90,6 +93,7 @@ shuffle( d )
  * return true if the two cards are equal...
  */
 
+int
 eq( a, b )
 
     CARD		a, b;
@@ -103,6 +107,7 @@ eq( a, b )
  * isone returns TRUE if a is in the set of cards b
  */
 
+int
 isone( a, b, n )
 
     CARD		a, b[];
@@ -122,6 +127,7 @@ isone( a, b, n )
  * remove the card a from the deck d of n cards
  */
 
+void
 cremove( a, d, n )
 
     CARD		a, d[];
@@ -142,6 +148,7 @@ cremove( a, d, n )
  * sorthand:
  *	Sort a hand of n cards
  */
+void
 sorthand(h, n)
 register CARD		h[];
 int			n;

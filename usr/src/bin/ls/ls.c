@@ -52,6 +52,8 @@ static char sccsid[] = "@(#)ls.c	5.48 (Berkeley) 4/3/91";
 #include <errno.h>
 #include <stdio.h>
 #include "ls.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 int (*sortfcn)(), (*printfcn)();
 int lstat();
@@ -252,6 +254,7 @@ main(argc, argv)
 static char path[PATH_MAX + 1];
 static char *endofpath = path;
 
+void
 doargs(argc, argv)
 	int argc;
 	char **argv;
@@ -345,6 +348,7 @@ doargs(argc, argv)
 	}
 }
 
+void
 displaydir(stats, num)
 	LS *stats;
 	register int num;
@@ -382,6 +386,7 @@ displaydir(stats, num)
 	}
 }
 
+void
 subdir(lp)
 	LS *lp;
 {

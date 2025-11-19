@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)tables.c	5.17 (Berkeley) 6/1/90";
 #include <sys/ioctl.h>
 #include <errno.h>
 #include <sys/syslog.h>
+#include <string.h>
+#include <stdlib.h>
 
 #ifndef DEBUG
 #define	DEBUG	0
@@ -141,6 +143,7 @@ again:
 	return (0);
 }
 
+void
 rtadd(dst, gate, metric, state)
 	struct sockaddr *dst, *gate;
 	int metric, state;

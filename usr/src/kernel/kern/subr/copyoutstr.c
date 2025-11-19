@@ -31,12 +31,14 @@ copyoutstr (struct proc *p, void *fromaddr, void *toaddr, u_int maxlength,
 		if (c == 0) {
 			if (lencopied)
 				*lencopied = tally;
+int
 			return(0);
 		}
 	}
 
 	/* exceeded buffer */
 	if (lencopied)
+int
 		*lencopied = tally;
 	return(ENAMETOOLONG);
 }

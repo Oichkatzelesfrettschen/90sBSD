@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)passwd.c	5.5 (Berkeley) 7/6/91";
 
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #ifdef KERBEROS
 int use_kerberos = 1;
@@ -105,6 +106,7 @@ main(argc, argv)
 	exit(local_passwd(uname));
 }
 
+void
 usage()
 {
 #ifdef	KERBEROS

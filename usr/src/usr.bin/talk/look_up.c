@@ -42,10 +42,13 @@ static char sccsid[] = "@(#)look_up.c	5.7 (Berkeley) 3/1/91";
 #include <errno.h>
 #include "talk_ctl.h"
 #include "talk.h"
+#include <arpa/inet.h>
+#include <unistd.h>
 
 /*
  * See if the local daemon has an invitation for us.
  */
+int
 check_local()
 {
 	CTL_RESPONSE response;

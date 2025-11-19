@@ -91,6 +91,7 @@ getpath(sects)
 	return(pathbuf);
 }
 
+void
 cadd(add1, len1, add2)
 char *add1, *add2;
 register size_t len1;
@@ -212,6 +213,7 @@ getorder()
 	return(ar);
 }
 
+int
 getsection(sect)
 	char *sect;
 {
@@ -234,6 +236,7 @@ getsection(sect)
 	return(0);
 }
 
+void
 enomem()
 {
 	(void)fprintf(stderr, "%s: %s\n", progname, strerror(ENOMEM));

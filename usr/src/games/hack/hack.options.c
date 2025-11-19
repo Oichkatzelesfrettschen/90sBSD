@@ -5,6 +5,7 @@
 #include "hack.h"
 extern char *eos();
 
+void
 initoptions()
 {
 	register char *opts;
@@ -22,6 +23,7 @@ initoptions()
 		parseoptions(opts,TRUE);
 }
 
+void
 parseoptions(opts, from_env)
 register char *opts;
 boolean from_env;

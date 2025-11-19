@@ -59,6 +59,7 @@ rnd_pos()
 	return &pos;
 }
 
+int
 rnd(range)
 int	range;
 {

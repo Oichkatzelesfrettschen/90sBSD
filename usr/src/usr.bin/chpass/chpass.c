@@ -54,6 +54,8 @@ static char sccsid[] = "@(#)chpass.c	5.17 (Berkeley) 3/3/91";
 #include <string.h>
 #include "chpass.h"
 #include "pathnames.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 char *progname = "chpass";
 char *tempname;

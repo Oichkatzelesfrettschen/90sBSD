@@ -47,6 +47,9 @@ static char sccsid[] = "@(#)cmp.c	5.3 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include <ctype.h>
 #include <errno.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define	EXITNODIFF	0
 #define	EXITDIFF	1
@@ -121,6 +124,7 @@ endargs:
  * skip --
  *	skip first part of file
  */
+void
 skip(dist, fd, fname)
 	register u_long dist;
 	register int fd;
@@ -139,6 +143,7 @@ skip(dist, fd, fname)
 	}
 }
 
+void
 cmp()
 {
 	register u_char	*p1, *p2;

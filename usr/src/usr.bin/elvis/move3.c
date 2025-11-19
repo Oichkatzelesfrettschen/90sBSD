@@ -14,7 +14,9 @@
 #include "vi.h"
 
 #ifndef NO_CHARSEARCH
+int
 static MARK	(*prevfwdfn)();	/* function to search in same direction */
+int
 static MARK	(*prevrevfn)();	/* function to search in opposite direction */
 static char	prev_key;	/* sought cvhar from previous [fFtT] */
 

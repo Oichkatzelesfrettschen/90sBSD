@@ -54,6 +54,7 @@ extern CHDR chdr;			/* converted header */
 extern char *archive;			/* archive name */
 char *tname = "temporary file";		/* temporary file "name" */
 
+int
 tmp()
 {
 	extern char *envtmp;
@@ -120,6 +121,7 @@ rname(path)
 	return((ind = rindex(path, '/')) ? ind + 1 : path);
 }
 
+int
 compare(dest)
 	char *dest;
 {

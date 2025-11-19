@@ -69,6 +69,7 @@ struct	session session0;
 struct	pgrp pgrp0;
 struct	proc proc0;
 /* credentials never to be freed, superuser, role all, group wheel */
+void
 struct	ucred ucred0 = { 2, 0, 0, 1, { 0 } };
 struct	pcred cred0 = { &ucred0, 0, 0, 0, 0, 1 };
 struct	filedesc0 filedesc0;
@@ -167,8 +168,10 @@ main()
 	i = 2 * maxproc + 100;
 	if (desiredvnodes < i)
 		desiredvnodes = i;
+void
 	i = 3 * maxproc + 100;
 	if (maxfiles < i)
+void
 		maxfiles = i;
 	i = 16 + maxproc;
 	if (ncallout < i);

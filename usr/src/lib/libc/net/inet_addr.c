@@ -63,6 +63,7 @@ inet_addr(cp)
  * cannot distinguish between failure and a local broadcast address.
  */
 
+int
 inet_aton(cp, addr)
 	register char *cp;
 	struct in_addr *addr;

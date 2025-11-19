@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)colrm.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include <stdio.h>
+#include <stdlib.h>
 /*
 COLRM removes unwanted columns from a file
 	Jeff Schriebman  UC Berkeley 11-74
@@ -52,6 +53,7 @@ int
 main(argc,argv)
 char **argv;
 {
+void
 	register c, ct, first, last;
 
 	first = 0;
@@ -113,6 +115,7 @@ fin:
 	exit(0);
 }
 
+int
 getn(ap)
 char *ap;
 {

@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)strings.c	5.9 (Berkeley) 6/1/90";
  */
 
 char *
+int
 salloc(size)
 {
 	register char *t;

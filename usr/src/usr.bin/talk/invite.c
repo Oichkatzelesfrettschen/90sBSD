@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)invite.c	5.8 (Berkeley) 3/1/91";
 #include <setjmp.h>
 #include "talk_ctl.h"
 #include "talk.h"
+#include <arpa/inet.h>
 
 /*
  * There wasn't an invitation waiting, so send a request containing
@@ -62,6 +63,7 @@ int	local_id, remote_id;
 void	re_invite();
 jmp_buf invitebuf;
 
+void
 invite_remote()
 {
 	int nfd, read_mask, template, new_sockt;

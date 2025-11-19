@@ -22,6 +22,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "obstack.h"
 #include "frags.h"
 #include "struc-symbol.h"
+#include <string.h>
 
 struct obstack  frags;	/* All, and only, frags live here. */
 
@@ -191,6 +192,7 @@ int     nchars;
  */
 
 char   *
+int
 frag_var (type, max_chars, var, subtype, symbol, offset, opcode)
 relax_stateT	type;
 int		max_chars;

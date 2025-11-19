@@ -58,6 +58,7 @@
 
 #include "db_lex.h"
 #include "db_variables.h"
+#include <string.h>
 
 extern unsigned int	db_maxoff;
 
@@ -128,6 +129,7 @@ db_set_variable(value)
 }
 
 
+void
 db_read_variable(vp, valuep)
 	struct db_variable *vp;
 	db_expr_t	*valuep;
@@ -140,6 +142,7 @@ db_read_variable(vp, valuep)
 	    (*func)(vp, valuep, DB_VAR_GET);
 }
 
+void
 db_write_variable(vp, valuep)
 	struct db_variable *vp;
 	db_expr_t	*valuep;

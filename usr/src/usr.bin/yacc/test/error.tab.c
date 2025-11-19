@@ -1,9 +1,12 @@
 #ifndef lint
+#include <stdio.h>
 char yysccsid[] = "@(#)yaccpar	1.3 (Berkeley) 01/21/90";
 #endif
 #define YYERRCODE 256
 short yylhs[] = {                                        -1,
+void
     0,
+void
 };
 short yylen[] = {                                         2,
     1,

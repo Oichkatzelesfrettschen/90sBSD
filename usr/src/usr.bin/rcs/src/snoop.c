@@ -82,6 +82,8 @@
 
 
 #include "rcsbase.h"
+#include <fcntl.h>
+#include <unistd.h>
 #ifdef _FSTDIO
 #undef putc
 #define putc __sputc

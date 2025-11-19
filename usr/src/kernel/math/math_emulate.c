@@ -31,6 +31,7 @@ static	char *math_config =
  * in this one file: the other files don't need to know about these things.
  *
  * The other files also don't care about ST(x) etc - they just get addresses
+int
  * to 80-bit temporary reals, and do with them as they please. I wanted to
  * hide most of the 387-specific things here.
  */
@@ -69,6 +70,7 @@ static temp_real_unaligned * __st(int i);
 unsigned char get_fs_byte(char *adr) { unsigned char val; (void)copyin_(curproc, adr, &val, sizeof val); return (val); }
 unsigned short get_fs_word(unsigned short *adr) {
 unsigned short val; (void)copyin_(curproc, adr, &val, sizeof val); return (val); }
+int
 unsigned long get_fs_long(unsigned long *adr) {
 unsigned long val; (void)copyin_(curproc, adr, &val, sizeof val); return (val); }
 put_fs_byte(unsigned char val, char *adr) {
@@ -167,8 +169,10 @@ math_emulate(struct trapframe * info)
 		case 0x1ee:
 			fpush();
 			ST(0) = CONSTZ;
+int
 			return(0);
 		case 0x1ef:
+int
 			math_abort(info,SIGILL);
 		case 0x1f0: case 0x1f1: case 0x1f2: case 0x1f3:
 		case 0x1f4: case 0x1f5: case 0x1f6: case 0x1f7:

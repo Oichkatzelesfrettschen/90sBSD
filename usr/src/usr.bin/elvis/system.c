@@ -188,6 +188,9 @@ int rpclose(fd)
 #define	PROG	"wildcard "
 #define	PROGLEN	9
 #include <string.h>
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
 #else
 #define	PROG	"echo "
 #define	PROGLEN	5

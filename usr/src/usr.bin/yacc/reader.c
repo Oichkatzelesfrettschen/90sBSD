@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)reader.c	5.7 (Berkeley) 1/20/91";
 #endif /* not lint */
 
 #include "defs.h"
+#include <string.h>
 
 /*  The line size must be a positive integer.  One hundred was chosen	*/
 /*  because few lines in Yacc input grammars exceed 100 characters.	*/
@@ -74,6 +75,7 @@ char *name_pool;
 char line_format[] = "#line %d \"%s\"\n";
 
 
+void
 cachec(c)
 int c;
 {
@@ -89,6 +91,7 @@ int c;
 }
 
 
+void
 get_line()
 {
     register FILE *f = input_file;
@@ -153,6 +156,7 @@ dup_line()
 }
 
 
+void
 skip_comment()
 {
     register char *s;
@@ -308,6 +312,7 @@ keyword()
 }
 
 
+void
 copy_ident()
 {
     register int c;

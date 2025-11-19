@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)preen.c	5.7 (Berkeley) 3/19/91";
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <unistd.h>
 
 char	*rawname(), *unrawname(), *blockcheck();
 
@@ -63,6 +64,7 @@ struct disk {
 int	nrun, ndisks;
 char	hotroot;
 
+int
 checkfstab(preen, maxrun, docheck, chkit)
 	int preen, maxrun;
 	int (*docheck)(), (*chkit)();
@@ -225,6 +227,7 @@ finddisk(name)
 	return (dk);
 }
 
+void
 addpart(name, fsname, auxdata)
 	char *name, *fsname;
 	long auxdata;
@@ -256,6 +259,7 @@ addpart(name, fsname, auxdata)
 	pt->auxdata = auxdata;
 }
 
+int
 startdisk(dk, checkit)
 	register struct disk *dk;
 	int (*checkit)();

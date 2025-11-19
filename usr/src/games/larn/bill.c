@@ -1,10 +1,13 @@
 #include "header.h"
+#include <stdio.h>
+#include <unistd.h>
 /* bill.c		 "Larn is copyrighted 1986 by Noah Morgan. */
 static char mail600[32];
 /*
  *	function to create the tax bill for the user
  */
 static int pid;
+int
 static letter1()
   {
   sprintf(mail600,"/tmp/#%dmail600",pid); /* prepare path */
@@ -26,6 +29,7 @@ static letter1()
   lwclose(); return(1);
   }
 
+int
 static letter2()
   {
   sprintf(mail600,"/tmp/#%dmail600",pid); /* prepare path */
@@ -42,6 +46,7 @@ static letter2()
   lwclose(); return(1);
   }
 
+int
 static letter3()
   {
   sprintf(mail600,"/tmp/#%dmail600",pid); /* prepare path */

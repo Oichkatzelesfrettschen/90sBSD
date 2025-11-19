@@ -571,6 +571,7 @@ trim(c)
 } */
 
 
+int
 letter(c)
 	register char c;
 {
@@ -578,6 +579,7 @@ letter(c)
 	return (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '_');
 }
 
+int
 digit(c)
 	register char c;
 {
@@ -585,6 +587,7 @@ digit(c)
 	return (c >= '0' && c <= '9');
 }
 
+int
 any(c, s)
 	register int c;
 	register char *s;
@@ -595,6 +598,7 @@ any(c, s)
 			return(1);
 	return(0);
 }
+int
 blklen(av)
 	register char **av;
 {
@@ -617,6 +621,7 @@ blkcpy(oav, bv)
 	return (oav);
 }
 
+void
 blkfree(av0)
 	char **av0;
 {
@@ -668,6 +673,7 @@ strend(cp)
  * user whose home directory is sought is currently.
  * We write the home directory of the user back there.
  */
+int
 gethdir(home)
 	char *home;
 {

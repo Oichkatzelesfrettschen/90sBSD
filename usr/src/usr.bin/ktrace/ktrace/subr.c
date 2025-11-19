@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)subr.c	5.1 (Berkeley) 1/17/91";
 #include <stdio.h>
 #include "ktrace.h"
 
+int
 getpoints(s)
 	char *s;
 {
@@ -77,6 +78,7 @@ getpoints(s)
 	return (facs);
 }
 
+void
 timevaladd(t1, t2)
 	struct timeval *t1, *t2;
 {
@@ -85,6 +87,7 @@ timevaladd(t1, t2)
 	timevalfix(t1);
 }
 
+void
 timevalsub(t1, t2)
 	struct timeval *t1, *t2;
 {
@@ -93,6 +96,7 @@ timevalsub(t1, t2)
 	timevalfix(t1);
 }
 
+void
 timevalfix(t1)
 	struct timeval *t1;
 {

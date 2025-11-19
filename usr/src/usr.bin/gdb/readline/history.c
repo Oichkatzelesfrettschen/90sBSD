@@ -45,6 +45,8 @@ extern char *alloca ();
 #endif
 
 #include "history.h"
+#include <stdlib.h>
+#include <string.h>
 
 #ifndef savestring
 #define savestring(x) (char *)strcpy (xmalloc (1 + strlen (x)), (x))
@@ -1349,6 +1351,7 @@ static char *
 xmalloc (bytes)
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)malloc (bytes);
 
@@ -1362,6 +1365,7 @@ xrealloc (pointer, bytes)
      char *pointer;
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)realloc (pointer, bytes);
 

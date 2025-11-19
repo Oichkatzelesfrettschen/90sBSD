@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)pl_7.c	5.7 (Berkeley) 2/28/91";
 #endif /* not lint */
 
 #include "player.h"
+#include <string.h>
 
 /*
  * Display interface
@@ -46,6 +47,7 @@ static char *sc_prompt;
 static char *sc_buf;
 static int sc_line;
 
+void
 initscreen()
 {
 	/* initscr() already done in SCREENTEST() */
@@ -69,6 +71,7 @@ initscreen()
 	crmode();
 }
 
+void
 cleanupscreen()
 {
 	/* alarm already turned off */
@@ -133,6 +136,7 @@ newturn()
 }
 
 /*VARARGS2*/
+void
 Signal(fmt, ship, a, b, c, d)
 char *fmt;
 register struct ship *ship;
@@ -150,6 +154,7 @@ int a, b, c, d;
 	Scroll();
 }
 
+void
 Scroll()
 {
 	if (++sc_line >= SCROLL_Y)
@@ -158,6 +163,7 @@ Scroll()
 	(void) wclrtoeol(scroll_w);
 }
 
+void
 prompt(p, ship)
 register char *p;
 struct ship *ship;

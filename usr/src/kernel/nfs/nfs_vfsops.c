@@ -167,8 +167,10 @@ nfs_statfs(mp, sbp, p)
  * Mount a remote root fs via. nfs. This depends on the info in the
  * nfs_diskless structure that has been filled in properly by some primary
  * bootstrap.
+int
  * It goes something like this:
  * - do enough of "ifconfig" by calling ifioctl() so that the system
+int
  *   can talk to the server
  * - If nfs_diskless.mygateway is filled in, use that address as
  *   a default gateway.

@@ -1,3 +1,7 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <stdio.h>
 .\" Copyright (c) 1980 The Regents of the University of California.
 .\" All rights reserved.
 .\"
@@ -33,6 +37,7 @@
 .\"
 extern int	_putchar();
 
+void
 main()
 {
 	reg char	*sp;

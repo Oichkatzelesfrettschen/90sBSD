@@ -36,9 +36,11 @@ static char sccsid[] = "@(#)dr_2.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "driver.h"
+#include <stdlib.h>
 
 #define couldwin(f,t) (f->specs->crew2 > t->specs->crew2 * 1.5)
 
+void
 thinkofgrapples()
 {
 	register struct ship *sp, *sq;
@@ -69,6 +71,7 @@ thinkofgrapples()
 	}
 }
 
+void
 checkup()
 {
 	register struct ship *sp, *sq;
@@ -99,6 +102,7 @@ checkup()
 	}
 }
 
+void
 prizecheck()
 {
 	register struct ship *sp;
@@ -117,6 +121,7 @@ prizecheck()
 	}
 }
 
+int
 strend(str)
 char *str;
 {

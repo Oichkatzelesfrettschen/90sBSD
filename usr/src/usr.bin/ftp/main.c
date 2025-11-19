@@ -57,6 +57,9 @@ static char sccsid[] = "@(#)main.c	5.18 (Berkeley) 3/1/91";
 #include <ctype.h>
 #include <netdb.h>
 #include <pwd.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 uid_t	getuid();
 void	intr(), lostpeer();
@@ -214,6 +217,7 @@ tail(filename)
 /*
  * Command parser.
  */
+void
 cmdscanner(top)
 	int top;
 {
@@ -307,6 +311,7 @@ getcmd(name)
 
 int slrflag;
 
+void
 makeargv()
 {
 	char **argp;
@@ -450,6 +455,7 @@ OUT:
  * Help command.
  * Call each command handler with argc == 0 and argv[0] == name.
  */
+void
 help(argc, argv)
 	int argc;
 	char *argv[];

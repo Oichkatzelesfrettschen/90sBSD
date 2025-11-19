@@ -44,11 +44,14 @@ static char sccsid[] = "@(#)init_disp.c	5.4 (Berkeley) 6/1/90";
 #include <signal.h>
 #include <sys/ioctl.h>
 #include <sgtty.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 /* 
  * Set up curses, catch the appropriate signals,
  * and build the various windows.
  */
+void
 init_display()
 {
 	void sig_sent();
@@ -91,6 +94,7 @@ init_display()
  * the first three characters each talk transmits after
  * connection are the three edit characters.
  */
+void
 set_edit_chars()
 {
 	char buf[3];
@@ -131,6 +135,7 @@ sig_sent()
 /*
  * All done talking...hang up the phone and reset terminal thingy's
  */
+void
 quit()
 {
 

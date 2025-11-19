@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)nohup.c	5.4 (Berkeley) 6/1/90";
 #include <sys/file.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 extern int errno;
 
@@ -76,6 +77,7 @@ main(argc, argv)
 	exit(1);
 }
 
+void
 dofile()
 {
 	int fd;
@@ -105,6 +107,7 @@ dupit:	(void)lseek(fd, 0L, SEEK_END);
 	(void)fprintf(stderr, "sending output to %s\n", p);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: nohup command\n");

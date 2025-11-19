@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)pl_1.c	5.5 (Berkeley) 2/28/91";
 #include "player.h"
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdlib.h>
 
 /*
  * If we get here before a ship is chosen, then ms == 0 and
@@ -47,6 +48,7 @@ static char sccsid[] = "@(#)pl_1.c	5.5 (Berkeley) 2/28/91";
  * Of course, we don't do any more Sync()'s if we got here
  * because of a Sync() failure.
  */
+void
 leave(conditions)
 int conditions;
 {

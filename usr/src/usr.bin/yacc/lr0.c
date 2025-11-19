@@ -69,6 +69,7 @@ static short **kernel_end;
 static short *kernel_items;
 
 
+void
 allocate_itemsets()
 {
     register short *itemp;
@@ -111,6 +112,7 @@ allocate_itemsets()
 }
 
 
+void
 allocate_storage()
 {
     allocate_itemsets();
@@ -120,6 +122,7 @@ allocate_storage()
 }
 
 
+void
 append_states()
 {
     register int i;
@@ -149,6 +152,7 @@ append_states()
 }
 
 
+void
 free_storage()
 {
     FREE(shift_symbol);
@@ -162,6 +166,7 @@ free_storage()
 
 
 
+void
 generate_states()
 {
     allocate_storage();
@@ -254,6 +259,7 @@ int symbol;
 
 
 
+void
 initialize_states()
 {
     register int i;
@@ -281,6 +287,7 @@ initialize_states()
 }
 
 
+void
 new_itemsets()
 {
     register int i;
@@ -358,6 +365,7 @@ int symbol;
 
 /* show_cores is used for debugging */
 
+void
 show_cores()
 {
     core *p;
@@ -393,6 +401,7 @@ show_cores()
 
 /* show_ritems is used for debugging */
 
+void
 show_ritems()
 {
     int i;
@@ -403,6 +412,7 @@ show_ritems()
 
 
 /* show_rrhs is used for debugging */
+void
 show_rrhs()
 {
     int i;

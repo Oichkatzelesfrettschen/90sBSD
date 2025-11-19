@@ -43,6 +43,7 @@ done_hangup(){
 	done_intr();
 }
 
+void
 done_in_by(mtmp) register struct monst *mtmp; {
 static char buf[BUFSZ];
 	pline("You die ...");
@@ -63,6 +64,7 @@ static char buf[BUFSZ];
 /* called with arg "died", "drowned", "escaped", "quit", "choked", "panicked",
    "burned", "starved" or "tricked" */
 /* Be careful not to call panic from here! */
+void
 done(st1)
 register char *st1;
 {

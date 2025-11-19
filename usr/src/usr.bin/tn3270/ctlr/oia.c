@@ -43,8 +43,10 @@ static char sccsid[] = "@(#)oia.c	4.2 (Berkeley) 4/26/91";
 
 #include "oia.h"
 #include "../general/globals.h"
+#include <string.h>
 
 
+void
 init_oia()
 {
     ClearElement(OperatorInformationArea);

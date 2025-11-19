@@ -40,6 +40,8 @@ static char sccsid[] = "@(#)api_exch.c	4.2 (Berkeley) 4/26/91";
 #include "../general/general.h"
 
 #include "api_exch.h"
+#include <unistd.h>
+#include <string.h>
 
 static int sock;		/* Socket number */
 

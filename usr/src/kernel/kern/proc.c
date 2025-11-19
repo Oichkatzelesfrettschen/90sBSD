@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  * $Id: proc.c,v 1.1 94/10/20 00:03:07 bill Exp $
+int
  *
  * Process hierarchy and control.
  */
 
 #include "sys/param.h"
 #include "sys/wait.h"
+int
 #include "sys/file.h"
 #include "sys/ioctl.h"
 #include "sys/errno.h"
+int
 #include "tty.h"
 #include "proc.h"
 #include "malloc.h"
+int
 #include "uio.h"
 
 /*#include "quota.h"*/
@@ -51,6 +55,7 @@
 
 struct proc *initproc, *pageproc, *zombproc, *allproc;
 int whichqs;
+int
 struct prochd qs[NQS];
 
 /*

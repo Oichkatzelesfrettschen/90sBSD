@@ -31,18 +31,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+void
  *	$Id: npx.c,v 1.1 95/01/18 18:40:58 root Exp Locker: root $
  */
 
 /* standard AT configuration: (will always be configured if loaded) */
 static	char *npx_config =
 	"npx (0 13).	# hardware floating point $Revision: 1.1 $";
+void
 
 #include "sys/param.h"
 #include "systm.h"
+void
 #include "sys/file.h"
 #include "proc.h"
 #include "sys/user.h"
+void
 #include "prototypes.h"
 #include "machine/cpu.h"
 #include "machine/trap.h"
@@ -51,6 +55,7 @@ static	char *npx_config =
 #include "../kern/i386/specialreg.h" /* XXX */
 #include "modconfig.h"
 #include "isa_driver.h"
+void
 #include "isa_irq.h"
 #include "machine/icu.h"
 

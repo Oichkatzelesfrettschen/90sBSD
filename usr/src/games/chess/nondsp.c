@@ -42,6 +42,7 @@ int TerminateSearch(),Die();
 #include "gnuchess.h"
 #ifdef NEWMOVE
 #include "move.h"
+#include <string.h>
 #endif
 
 #define printz printf
@@ -49,6 +50,7 @@ int TerminateSearch(),Die();
 int mycnt1,mycnt2;
 
 
+void
 Initialize()
 {
   mycnt1 = mycnt2 = 0;
@@ -64,6 +66,7 @@ Initialize()
 #endif CHESSTOOL
 }
 
+void
 ExitChess()
 {
   ListGame();
@@ -71,6 +74,7 @@ ExitChess()
 }
 
 #ifndef MSDOS
+void
 Die()
 {
 char s[80];
@@ -79,6 +83,7 @@ char s[80];
   if (strcmp(s,"yes") == 0) ExitChess();
 }
 
+void
 TerminateSearch()
 {
   timeout = true;
@@ -87,6 +92,7 @@ TerminateSearch()
 #endif MSDOS
 
 
+void
 InputCommand()
 
 /*

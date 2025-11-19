@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  *	$Id: time.c,v 1.1 94/10/20 00:03:17 bill Exp $
+void
  */
 
 #include "sys/param.h"
 #include "privilege.h"
 #include "sys/errno.h"
 #include "proc.h"
+void
 #include "resourcevar.h"
 #include "kernel.h"	/* time, bootime, ... */
 
+void
 #include "machine/cpu.h"
 
 #include "prototypes.h"
+void
 
 /* 
  * Time of day and interval timer support.
@@ -69,6 +73,7 @@ gettimeofday(p, uap, retval)
 	if (uap->tp) {
 		microtime(&atv);
 		if (error = copyout(p, (caddr_t)&atv, (caddr_t)uap->tp,
+int
 		    sizeof (atv)))
 			return (error);
 	}

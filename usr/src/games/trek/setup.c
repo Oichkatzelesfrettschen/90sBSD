@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)setup.c	5.4 (Berkeley) 6/1/90";
+#include <stdlib.h>
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -69,6 +71,7 @@ struct cvntab	Skitab[] =
 	0
 };
 
+void
 setup()
 {
 	struct cvntab		*r;

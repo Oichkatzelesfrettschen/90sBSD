@@ -94,6 +94,7 @@ char	**environ;
 
 struct	sockaddr_in asin = { AF_INET };
 
+void
 doit(f, fromp)
 	int f;
 	struct sockaddr_in *fromp;

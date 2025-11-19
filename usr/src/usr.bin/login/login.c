@@ -65,6 +65,8 @@ static char sccsid[] = "@(#)login.c	5.73 (Berkeley) 6/29/91";
 #include <string.h>
 #include <tzfile.h>
 #include "pathnames.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 #define	TTYGRPNAME	"tty"		/* name of group to own ttys */
 

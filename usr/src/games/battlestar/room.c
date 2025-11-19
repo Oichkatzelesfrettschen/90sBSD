@@ -37,10 +37,12 @@ static char sccsid[] = "@(#)room.c	5.3 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+void
 writedes()
 {
 	int compass;
 	register char *p;
+void
 	register c;
 
 	printf("\n\t%s\n", location[position].name);
@@ -57,9 +59,11 @@ writedes()
 	}
 }
 
+void
 printobjs()
 {
 	register unsigned int *p = location[position].objects;
+void
 	register n;
 
 	printf("\n");
@@ -68,6 +72,7 @@ printobjs()
 			puts(objdes[n]);
 }
 
+void
 whichway(here)
 struct room here;
 {
@@ -165,6 +170,7 @@ char option;
       }
 }
 
+void
 newway(thisway)
 int thisway;
 {

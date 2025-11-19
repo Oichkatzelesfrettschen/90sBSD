@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)help.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -60,6 +62,7 @@ static char sccsid[] = "@(#)help.c	5.4 (Berkeley) 6/1/90";
 char	*Cntvect[3] =
 {"first", "second", "third"};
 
+int
 help()
 {
 	register int		i;

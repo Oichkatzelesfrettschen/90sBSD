@@ -33,6 +33,7 @@ static char rcsid[] =
 
 #include "interface.h"
 #include "gencode.h"
+#include <string.h>
 
 #define A_ATOM BPF_MEMWORDS
 #define X_ATOM (BPF_MEMWORDS+1)

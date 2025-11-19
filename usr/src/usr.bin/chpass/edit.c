@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)edit.c	5.2 (Berkeley) 3/3/91";
 #include <stdlib.h>
 #include <string.h>
 #include "chpass.h"
+#include <unistd.h>
+#include <ctype.h>
 
 extern char *tempname;
 
@@ -74,6 +76,7 @@ edit(pw)
  *	print out the file for the user to edit; strange side-effect:
  *	set conditional flag if the user gets to edit the shell.
  */
+void
 display(fd, pw)
 	int fd;
 	struct passwd *pw;
@@ -125,6 +128,7 @@ display(fd, pw)
 	(void)fclose(fp);
 }
 
+int
 verify(pw)
 	struct passwd *pw;
 {

@@ -7,10 +7,12 @@ extern char *nomovemsg;
 extern char quitchars[];
 extern char *Doname();
 
+void
 off_msg(otmp) register struct obj *otmp; {
 	pline("You were wearing %s.", doname(otmp));
 }
 
+int
 doremarm() {
 	register struct obj *otmp;
 	if(!uarm && !uarmh && !uarms && !uarmg) {
@@ -35,6 +37,7 @@ doremarm() {
 	return(1);
 }
 
+int
 doremring() {
 	if(!uleft && !uright){
 		pline("Not wearing any ring.");
@@ -68,6 +71,7 @@ doremring() {
 #endif lint
 }
 
+int
 dorr(otmp) register struct obj *otmp; {
 	if(cursed(otmp)) return(0);
 	ringoff(otmp);

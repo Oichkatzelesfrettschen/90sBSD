@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)cards.c	5.4 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	"monop.ext"
@@ -56,6 +57,7 @@ static FILE	*deckf;
  *	This routine initializes the decks from the data file,
  * which it opens.
  */
+void
 init_decks() {
 
 	if ((deckf=fopen(cardfile, "r")) == NULL) {
@@ -71,6 +73,7 @@ file_err:
 /*
  *	This routine sets up the offset pointers for the given deck.
  */
+void
 set_up(dp)
 DECK	*dp; {
 
@@ -97,6 +100,7 @@ DECK	*dp; {
 /*
  *	This routine draws a card from the given deck
  */
+void
 get_card(dp)
 DECK	*dp; {
 
@@ -195,6 +199,7 @@ DECK	*dp; {
 /*
  *	This routine prints out the message on the card
  */
+void
 printmes() {
 
 	reg char	c;

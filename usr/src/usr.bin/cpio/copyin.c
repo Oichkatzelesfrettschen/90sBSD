@@ -27,6 +27,7 @@
 #include "rmt.h"
 #ifndef	FNM_PATHNAME
 #include <fnmatch.h>
+#include <string.h>
 #endif
 
 #ifndef HAVE_LCHOWN

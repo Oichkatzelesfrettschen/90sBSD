@@ -40,7 +40,9 @@ static char sccsid[] = "@(#)logwtmp.c	5.5 (Berkeley) 6/1/90";
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <utmp.h>
+#include <unistd.h>
 
+void
 logwtmp(line, name, host)
 	char *line, *name, *host;
 {

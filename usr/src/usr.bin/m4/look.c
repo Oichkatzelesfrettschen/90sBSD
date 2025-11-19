@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)look.c	5.3 (Berkeley) 2/26/91";
  *  hash - compute hash value using the proverbial
  *	   hashing function. Taken from K&R.
  */
+int
 hash (name)
 register char *name;
 {
@@ -104,6 +105,7 @@ char *name;
  * remhash - remove an entry from the hashtable
  *
  */
+void
 remhash(name, all)
 char *name;
 int all;
@@ -140,6 +142,7 @@ int all;
  * freent - free a hashtable information block
  *
  */
+void
 freent(p)
 ndptr p;
 {

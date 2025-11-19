@@ -47,12 +47,14 @@ static char sccsid[] = "@(#)lprint.c	5.13 (Berkeley) 10/31/90";
 #include <ctype.h>
 #include <paths.h>
 #include "finger.h"
+#include <string.h>
 
 #define	LINE_LEN	80
 #define	TAB_LEN		8		/* 8 spaces between tabs */
 #define	_PATH_PLAN	".plan"
 #define	_PATH_PROJECT	".project"
 
+void
 lflag_print()
 {
 	extern int pplan;
@@ -71,6 +73,7 @@ lflag_print()
 	}
 }
 
+void
 lprint(pn)
 	register PERSON *pn;
 {
@@ -199,6 +202,7 @@ lprint(pn)
 	}
 }
 
+int
 demi_print(str, oddfield)
 	char *str;
 	int oddfield;
@@ -238,6 +242,7 @@ demi_print(str, oddfield)
 	return(oddfield);
 }
 
+int
 show_text(directory, file_name, header)
 	char *directory, *file_name, *header;
 {
@@ -256,6 +261,7 @@ show_text(directory, file_name, header)
 	return(1);
 }
 
+void
 vputc(ch)
 	register int ch;
 {

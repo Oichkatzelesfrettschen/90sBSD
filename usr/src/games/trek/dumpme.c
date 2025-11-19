@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)dumpme.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -49,6 +50,7 @@ static char sccsid[] = "@(#)dumpme.c	5.4 (Berkeley) 6/1/90";
 **	Repair of devices must be deferred.
 */
 
+void
 dumpme(flag)
 int	flag;
 {

@@ -131,6 +131,7 @@ static off_t savaddress;		/* saved address/offset in stream */
 	} \
 }
 
+void
 display()
 {
 	extern FU *endfu;
@@ -185,6 +186,7 @@ display()
 	}
 }
 
+void
 bpad(pr)
 	PR *pr;
 {
@@ -275,6 +277,7 @@ get()
 
 extern off_t skip;			/* bytes to skip */
 
+int
 next(argv)
 	char **argv;
 {
@@ -311,6 +314,7 @@ next(argv)
 	/* NOTREACHED */
 }
 
+void
 doskip(fname, statok)
 	char *fname;
 	int statok;
@@ -351,6 +355,7 @@ emalloc(size)
 	return(p);
 }
 
+void
 nomem()
 {
 	extern int errno;

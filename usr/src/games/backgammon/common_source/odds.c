@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)odds.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "back.h"
+#include <stdlib.h>
 
+void
 odds (r1,r2,val)
 register int	r1;
 int		r2, val;
@@ -62,6 +64,7 @@ int		r2, val;
 	}
 }
 
+int
 count ()  {
 	register int	i;
 	register int	j;
@@ -74,6 +77,7 @@ count ()  {
 	return (total);
 }
 
+int
 canhit (i,c)
 int	i, c;
 

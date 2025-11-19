@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)man.c	5.24 (Berkeley) 7/21/90";
 #include <string.h>
 #include <stdlib.h>
 #include "pathnames.h"
+#include <unistd.h>
 
 extern int errno;
 
@@ -169,6 +170,7 @@ main(argc, argv)
  *	that matches; check ${directory}/${dir}/{file name} and
  *	${directory}/${dir}/${machine}/${file name}.
  */
+int
 manual(path, name)
 	char *path, *name;
 {
@@ -213,6 +215,7 @@ manual(path, name)
  * how --
  *	display how information
  */
+void
 how(fname)
 	char *fname;
 {
@@ -255,6 +258,7 @@ how(fname)
  * cat --
  *	cat out the file
  */
+void
 cat(fname)
 	char *fname;
 {
@@ -282,6 +286,7 @@ cat(fname)
  * add --
  *	add a file name to the list for future paging
  */
+void
 add(fname)
 	char *fname;
 {

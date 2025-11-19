@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)timer.c	5.10 (Berkeley) 2/28/91";
  * Routing Table Management Daemon
  */
 #include "defs.h"
+#include <stdlib.h>
 
 int	faketime;
 
@@ -102,6 +103,7 @@ again:
 /*
  * On hangup, let everyone know we're going away.
  */
+void
 hup()
 {
 	register struct rthash *rh;

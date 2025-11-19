@@ -12,6 +12,7 @@ extern int nroom;
 extern char shtypes[];	/* = "=/)%?!["; 8 types: 7 specialized, 1 mixed */
 schar shprobs[] = { 3,3,5,5,10,10,14,50 };	/* their probabilities */
 
+void
 mkshop(){
 register struct mkroom *sroom;
 register int sh,sx,sy,i = -1;

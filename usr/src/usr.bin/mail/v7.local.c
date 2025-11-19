@@ -44,11 +44,16 @@ static char sccsid[] = "@(#)v7.local.c	5.12 (Berkeley) 2/3/91";
  */
 
 #include "rcv.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 /*
  * Locate the user's mailbox file (ie, the place where new, unread
  * mail is queued).
  */
+void
 findmail(user, buf)
 	char *user, *buf;
 {
@@ -58,6 +63,7 @@ findmail(user, buf)
 /*
  * Get rid of the queued mail.
  */
+void
 demail()
 {
 

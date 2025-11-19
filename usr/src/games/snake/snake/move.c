@@ -93,6 +93,8 @@ static char sccsid[] = "@(#)move.c	5.8 (Berkeley) 2/28/91";
 
 #include <stdarg.h>
 #include "snake.h"
+#include <string.h>
+#include <stdlib.h>
 
 int CMlength;
 int NDlength;
@@ -102,6 +104,7 @@ short ospeed;
 
 static char str[80];
 
+void
 move(sp)
 struct point *sp;
 {

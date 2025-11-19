@@ -69,6 +69,7 @@
 #include "kernel.h"	/* hz */
 #include "resourcevar.h"
 #include "vmmeter.h"
+void
 #include "vm.h"
 #include "vm_pageout.h"
 

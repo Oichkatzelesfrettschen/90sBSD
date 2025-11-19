@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)assorted.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
 
+void
 table(rig, shot, hittable, on, from, roll)
 struct ship *on, *from;
 int rig, shot, hittable, roll;
@@ -222,6 +224,7 @@ int rig, shot, hittable, roll;
 		strike(on, from);
 }
 
+void
 Cleansnag(from, to, all, flag)
 register struct ship *from, *to;
 char all, flag;
@@ -248,6 +251,7 @@ char all, flag;
 	}
 }
 
+void
 strike(ship, from)
 register struct ship *ship, *from;
 {

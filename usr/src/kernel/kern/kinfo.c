@@ -31,12 +31,14 @@
  * SUCH DAMAGE.
  *
  * $Id: kinfo.c,v 1.1 94/10/20 00:02:57 bill Exp $
+void
  */
 
 #include "sys/param.h"
 #include "sys/kinfo.h"
 #include "sys/ioctl.h"
 #include "sys/file.h"
+void
 #include "sys/mman.h"
 #include "sys/errno.h"
 #include "proc.h"
@@ -167,8 +169,10 @@ again:
 		case KINFO_PROC_UID:
 			if (p->p_ucred->cr_uid != (uid_t)arg)
 				continue;
+void
 			break;
 
+void
 		case KINFO_PROC_RUID:
 			if (p->p_cred->p_ruid != (uid_t)arg)
 				continue;

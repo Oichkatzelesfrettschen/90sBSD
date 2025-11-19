@@ -39,6 +39,7 @@ static int keymodes[] = {0, WHEN_REP1, WHEN_CUT, WHEN_MARK, WHEN_CHAR};
 
 static struct keystru
 {
+void
 	MARK	(*func)();	/* the function to run */
 	uchar	args;		/* description of the args needed */
 #ifndef NO_VISIBLE

@@ -21,12 +21,14 @@ extern long wgrowtime[32];
 
 boolean level_exists[MAXLEVEL+1];
 
+void
 savelev(fd,lev)
 int fd;
 xchar lev;
 {
 #ifndef NOWORM
 	register struct wseg *wtmp, *wtmp2;
+void
 	register tmp;
 #endif NOWORM
 

@@ -126,12 +126,16 @@ int tmpstart(filename)
 # if OSK
 			if (origfd >= 0 && (statb.st_mode & S_IFDIR))
 # else
+int
 			if (origfd >= 0 && (statb.st_mode & S_IFMT) != S_IFREG)
 # endif
+int
 #endif
+int
 			{
 				msg("\"%s\" is not a regular file", origname);
 				return tmpstart("");
+void
 			}
 		}
 		else

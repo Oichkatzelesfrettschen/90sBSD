@@ -52,6 +52,7 @@ static int	used[MAX_PRP];
 
 static TRADE	trades[2];
 
+void
 trade() {
 
 	reg int	tradee, i;
@@ -90,6 +91,7 @@ over:
  *	This routine gets the list of things to be trader for the
  * player, and puts in the structure given.
  */
+void
 get_list(struct_no, play_no)
 int	struct_no, play_no; {
 
@@ -141,6 +143,7 @@ once_more:
 /*
  *	This routine sets up the list of tradable property.
  */
+int
 set_list(the_list)
 reg OWN	*the_list; {
 
@@ -158,6 +161,7 @@ reg OWN	*the_list; {
 /*
  *	This routine summates the trade.
  */
+void
 summate() {
 
 	reg bool	some;
@@ -187,6 +191,7 @@ summate() {
 /*
  *	This routine actually executes the trade.
  */
+void
 do_trade() {
 
 	move_em(&trades[0], &trades[1]);

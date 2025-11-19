@@ -45,6 +45,7 @@ static int magindex;
  * (already read from /etc/magic by apprentice.c).
  * Passed the name and FILE * of one file to be typed.
  */
+int
 softmagic(buf)
 char *buf;
 {
@@ -59,6 +60,7 @@ char *buf;
  * go through the whole list, stopping if you find a match.
  * Be sure to process every continuation of this match.
  */
+int
 match(s)
 char	*s;
 {
@@ -89,6 +91,7 @@ char	*s;
 }
 
 
+void
 mprint(m,s)
 struct magic *m;
 char *s;

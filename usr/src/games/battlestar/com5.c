@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)com5.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
 
+void
 kiss()
 {
 	while (wordtype[++wordnumber] != NOUNS && wordnumber <= wordcount);
@@ -76,6 +78,7 @@ kiss()
 	else	puts("I'd prefer not to.");
 }
 
+void
 love()
 {
 	register int n;
@@ -120,6 +123,7 @@ love()
 	else puts("I't doesn't seem to work.");
 }
 
+int
 zzz()
 {
 	int oldtime;
@@ -175,6 +179,7 @@ zzz()
 	return(1);
 }
 
+void
 chime()
 {
 	if ((time / CYCLE + 1) % 2 && OUTSIDE)
@@ -229,6 +234,7 @@ chime()
 		puts("I can't tell the time in here.");
 }
 
+int
 give()
 {
 	int obj = -1, result = -1, person = 0, firstnumber, last1, last2;

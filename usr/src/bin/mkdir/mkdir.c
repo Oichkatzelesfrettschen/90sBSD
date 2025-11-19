@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)mkdir.c	5.7 (Berkeley) 5/31/90";
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 extern int errno;
 
@@ -82,6 +83,7 @@ main(argc, argv)
 	exit(exitval);
 }
 
+int
 build(path)
 	char *path;
 {
@@ -112,6 +114,7 @@ build(path)
 	return(0);
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr, "usage: mkdir [-p] dirname ...\n");

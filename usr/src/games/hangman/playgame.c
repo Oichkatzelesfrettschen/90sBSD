@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)playgame.c	5.3 (Berkeley) 4/8/91";
  * playgame:
  *	play a game
  */
+void
 playgame()
 {
 	register bool	*bp;

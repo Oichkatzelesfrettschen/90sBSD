@@ -199,6 +199,7 @@ loop:
 	goto loop;
 }
 
+int
 scankbd() {
 u_char c;
 	
@@ -220,6 +221,7 @@ u_char c;
 	return(1);
 }
 
+void
 kbdreset()
 {
 	u_char c;
@@ -258,6 +260,7 @@ u_char getchar() {
 }
 #endif
 
+void
 reset_cpu() {
 
 	while (inb(0x64)&2);	/* wait input ready */

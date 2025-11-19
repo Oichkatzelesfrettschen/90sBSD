@@ -32,6 +32,7 @@ and this notice must be preserved on all copies.  */
  */
 
 #include "xchess.h"
+#include <time.h>
 
 int movesperunit = 0;
 int timeunit = 0;

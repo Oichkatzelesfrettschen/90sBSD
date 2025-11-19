@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)pl_3.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "player.h"
+#include <stdlib.h>
 
+void
 acceptcombat()
 {
 	int men = 0;
@@ -208,6 +210,7 @@ acceptcombat()
 	unblockalarm();
 }
 
+void
 grapungrap()
 {
 	register struct ship *sp;

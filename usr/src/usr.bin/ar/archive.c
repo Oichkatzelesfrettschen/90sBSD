@@ -57,6 +57,7 @@ extern char *archive;			/* archive name */
 typedef struct ar_hdr HDR;
 static char hb[sizeof(HDR) + 1];	/* real header */
 
+int
 open_archive(mode)
 	int mode;
 {
@@ -124,6 +125,7 @@ close_archive(fd)
  * get_arobj --
  *	read the archive header for this member
  */
+int
 get_arobj(fd)
 	int fd;
 {
@@ -191,6 +193,7 @@ static int already_written;
  * put_arobj --
  *	Write an archive member to a file.
  */
+void
 put_arobj(cfp, sb)
 	CF *cfp;
 	struct stat *sb;
@@ -267,6 +270,7 @@ put_arobj(cfp, sb)
  *	because 16-bit word addressed copies were faster?)  Anyhow, it should
  *	have been ripped out long ago.
  */
+void
 copy_ar(cfp, size)
 	CF *cfp;
 	off_t size;

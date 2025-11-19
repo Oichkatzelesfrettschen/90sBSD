@@ -29,6 +29,8 @@ and this notice must be preserved on all copies.  */
  */
 
 #include "xchess.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 bool loading_flag = false;
 bool loading_paused = false;

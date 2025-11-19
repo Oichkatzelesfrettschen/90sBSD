@@ -53,6 +53,7 @@ static char rcsid[] =
 
 #ifdef KERNEL
 #include <sys/mbuf.h>
+#include <stdlib.h>
 #define MINDEX(m, k) \
 { \
 	register int len = m->m_len; \

@@ -156,6 +156,7 @@ char finaldate[datelength];
 
 int forceflag, lockflag, unlockflag, tostdout;
 char * caller;                        /* caller's login;                    */
+void
 extern quietflag;
 
 char numericrev[revlength];           /* holds expanded revision number     */
@@ -165,6 +166,7 @@ struct hshentry * targetdelta;        /* final delta to be generated        */
 char * joinlist[joinlength];          /* pointers to revisions to be joined */
 int lastjoin;                         /* index of last element in joinlist  */
 
+void
 main (argc, argv)
 int argc;
 char * argv[];

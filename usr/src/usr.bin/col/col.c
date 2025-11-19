@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)col.c	5.3 (Berkeley) 2/2/91";
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define	BS	'\b'		/* backspace */
 #define	TAB	'\t'		/* tab */
@@ -308,6 +309,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 flush_lines(nflush)
 	int nflush;
 {
@@ -334,6 +336,7 @@ flush_lines(nflush)
  * is the number of half line feeds, otherwise it is the number of whole line
  * feeds.
  */
+void
 flush_blanks()
 {
 	int half, i, nb;
@@ -362,6 +365,7 @@ flush_blanks()
  * Write a line to stdout taking care of space to tab conversion (-h flag)
  * and character set shifts.
  */
+void
 flush_line(l)
 	LINE *l;
 {

@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)prword.c	5.3 (Berkeley) 4/8/91";
  *	Print out the current state of the word
 void
  */
+void
 prword()
 {
 	move(KNOWNY, KNOWNX + sizeof "Word: ");

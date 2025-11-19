@@ -4,10 +4,12 @@
 #include	"hack.h"
 extern struct obj zeroobj;
 
+void
 setuwep(obj) register struct obj *obj; {
 	setworn(obj, W_WEP);
 }
 
+int
 dowield()
 {
 	register struct obj *wep;
@@ -44,6 +46,7 @@ dowield()
 	return(res);
 }
 
+void
 corrode_weapon(){
 	if(!uwep || uwep->olet != WEAPON_SYM) return;	/* %% */
 	if(uwep->rustfree)

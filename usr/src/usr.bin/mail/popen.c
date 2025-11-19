@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)popen.c	5.16 (Berkeley) 4/1/91";
 #include "rcv.h"
 #include <sys/signal.h>
 #include <sys/wait.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define READ 0
 #define WRITE 1
@@ -62,6 +64,7 @@ Fopen(file, mode)
 }
 
 FILE *
+int
 Fdopen(fd, mode)
 	char *mode;
 {

@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)displayq.c	5.13 (Berkeley) 6/1/90";
 
 #include "lp.h"
 #include "pathnames.h"
+#include <unistd.h>
 
 #define JOBCOL	40		/* column for job # in -l format */
 #define OWNCOL	7		/* start of Owner column in normal */
@@ -69,6 +70,7 @@ char	*head1 = "Total Size\n";
 /*
  * Display the current state of the queue. Format = 1 if long format.
  */
+void
 displayq(format)
 	int format;
 {

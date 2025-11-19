@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)whereis.c	5.5 (Berkeley) 4/18/91";
 #include <sys/dir.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 static char *bindirs[] = {
 	"/bin",
@@ -216,6 +217,7 @@ usage:
 	exit(0);
 }
 
+void
 getlist(argcp, argvp, flagp, cntp)
 	char ***argvp;
 	int *argcp;
@@ -233,6 +235,7 @@ getlist(argcp, argvp, flagp, cntp)
 }
 
 
+void
 zerof()
 {
 
@@ -243,6 +246,7 @@ int	count;
 int	print;
 
 
+void
 lookup(cp)
 	register char *cp;
 {
@@ -294,6 +298,7 @@ again:
 		printf("\n");
 }
 
+void
 looksrc(cp)
 	char *cp;
 {
@@ -303,6 +308,7 @@ looksrc(cp)
 		findv(Sflag, Scnt, cp);
 }
 
+void
 lookbin(cp)
 	char *cp;
 {
@@ -312,6 +318,7 @@ lookbin(cp)
 		findv(Bflag, Bcnt, cp);
 }
 
+void
 lookman(cp)
 	char *cp;
 {

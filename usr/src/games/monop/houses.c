@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)houses.c	5.5 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	"monop.ext"
@@ -45,6 +46,7 @@ static MON	*monops[N_MON];
 /*
  *	These routines deal with buying and selling houses
  */
+void
 buy_houses() {
 
 	reg int num_mon;
@@ -98,6 +100,7 @@ over:
 	}
 }
 
+void
 buy_h(mnp)
 MON	*mnp; {
 
@@ -155,6 +158,7 @@ err:		printf("That makes the spread too wide.  Try again\n");
 /*
  *	This routine sells houses.
  */
+void
 sell_houses() {
 
 	reg int	num_mon;
@@ -197,6 +201,7 @@ over:
 	}
 }
 
+void
 sell_h(mnp)
 MON	*mnp; {
 

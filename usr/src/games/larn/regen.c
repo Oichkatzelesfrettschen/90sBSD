@@ -8,6 +8,7 @@
 
 	subroutine to regenerate player hp and spells
  */
+int
 regen()
 	{
 	register int i,flag;

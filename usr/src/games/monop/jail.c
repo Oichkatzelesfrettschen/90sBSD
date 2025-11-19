@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)jail.c	5.3 (Berkeley) 6/1/90";
  *	This routine uses a get-out-of-jail-free card to get the
  * player out of jail.
  */
+void
 card() {
 
 	if (cur_p->loc != JAIL) {
@@ -59,6 +60,7 @@ card() {
  *	This routine returns the players get-out-of-jail-free card
  * to a deck.
  */
+void
 ret_card(plr)
 reg PLAY	*plr; {
 
@@ -71,6 +73,7 @@ reg PLAY	*plr; {
 /*
  *	This routine deals with paying your way out of jail.
  */
+void
 pay() {
 
 	if (cur_p->loc != JAIL) {
@@ -85,6 +88,7 @@ pay() {
 /*
  *	This routine deals with a move in jail
  */
+int
 move_jail(r1, r2)
 reg int	r1, r2; {
 
@@ -107,6 +111,7 @@ moveit:
 		goto moveit;
 	}
 }
+void
 printturn() {
 
 	if (cur_p->loc != JAIL)

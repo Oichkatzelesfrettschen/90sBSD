@@ -49,6 +49,9 @@
  */
 static char rcsid[] = "$Header: /usr/bill/working/sys/kern/RCS/subr_rlist.c,v 1.2 92/01/21 21:29:31 william Exp $";
 
+#include <stdlib.h>
+#include <unistd.h>
+int
 main(argc, argv) char *argv[]; {
 	int val, rv, buf;
 

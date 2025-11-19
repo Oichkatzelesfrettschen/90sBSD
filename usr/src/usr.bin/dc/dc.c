@@ -21,6 +21,8 @@
 
 #include <stdio.h>
 #include "decimal.h"  /* definitions for our decimal arithmetic package */
+#include <string.h>
+#include <stdlib.h>
 
 FILE *open_file;	/* input file now open */
 int file_count;		/* Number of input files not yet opened */
@@ -96,6 +98,7 @@ void incref ();
 void decref ();
 void binop ();
 
+void
 main (argc, argv, env)
      int argc;
      char **argv, **env;
@@ -614,6 +617,7 @@ incref (d)
   d->refcnt++;
 }
 
+void
 empty ()
 {
   error ("stack empty", 0);

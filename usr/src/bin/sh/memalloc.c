@@ -44,12 +44,15 @@ static char sccsid[] = "@(#)memalloc.c	5.2 (Berkeley) 3/13/91";
 #include "error.h"
 #include "machdep.h"
 #include "mystring.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 /*
  * Like malloc, but returns an error when out of space.
  */
 
 pointer
+int
 ckmalloc(nbytes) {
 	register pointer p;
 	pointer malloc();
@@ -65,6 +68,7 @@ ckmalloc(nbytes) {
  */
 
 pointer
+int
 ckrealloc(p, nbytes)
 	register pointer p;
 	{
@@ -119,6 +123,7 @@ int herefd = -1;
 
 
 pointer
+int
 stalloc(nbytes) {
 	register char *p;
 

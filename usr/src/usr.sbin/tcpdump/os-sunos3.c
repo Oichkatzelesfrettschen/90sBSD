@@ -25,6 +25,8 @@ static char rcsid[] =
 #endif
 
 #include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
 
 u_char *
 ETHER_hostton(name)

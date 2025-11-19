@@ -77,6 +77,7 @@ brace_subst(orig, store, path, len)
  *	print a message to standard error and then read input from standard
  *	input. If the input is 'y' then 1 is returned.
  */
+int
 queryuser(argv)
 	register char **argv;
 {

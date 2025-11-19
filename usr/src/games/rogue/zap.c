@@ -57,6 +57,7 @@ boolean wizard = 0;
 extern boolean being_held, score_only, detect_monster;
 extern short cur_room;
 
+void
 zapp()
 {
 	short wch;

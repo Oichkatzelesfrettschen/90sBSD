@@ -21,6 +21,7 @@
 #include "cpiohdr.h"
 #include "extern.h"
 #include "defer.h"
+#include <stdlib.h>
 
 struct deferment *
 create_deferment (file_hdr)

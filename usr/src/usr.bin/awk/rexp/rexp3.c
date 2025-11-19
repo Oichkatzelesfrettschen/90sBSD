@@ -38,6 +38,7 @@ the GNU General Public License, version 2, 1991.
 /*  match a string against a machine   */
 
 #include "rexp.h"
+#include <string.h>
 
 
 

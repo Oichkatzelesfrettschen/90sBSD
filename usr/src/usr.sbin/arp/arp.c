@@ -63,6 +63,7 @@ static char sccsid[] = "@(#)arp.c	5.11.1.1 (Berkeley) 7/22/91";
 #include <kvm.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
 
 extern int errno;
 

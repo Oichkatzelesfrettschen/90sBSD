@@ -43,6 +43,7 @@ static char	buf[80],		/* output buffer		*/
 /*
  *	This routine prints out the current board
  */
+void
 printboard() {
 
 	reg int	i;
@@ -57,6 +58,7 @@ printboard() {
 /*
  *	This routine lists where each player is.
  */
+void
 where() {
 
 	reg int	i;
@@ -74,6 +76,7 @@ where() {
 /*
  *	This routine prints out an individual square
  */
+void
 printsq(sqn, eoln)
 int		sqn;
 reg bool	eoln; {
@@ -154,6 +157,7 @@ spec:
 /*
  *	This routine prints out the mortgage flag.
  */
+void
 printmorg(sqp)
 reg SQUARE	*sqp; {
 
@@ -165,6 +169,7 @@ reg SQUARE	*sqp; {
 /*
  *	This routine lists the holdings of the player given
  */
+void
 printhold(pl)
 reg int	pl; {
 

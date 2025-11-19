@@ -164,6 +164,7 @@ struct hshentry hshtab[hshsize];    /*hashtable                             */
 
 
 
+void
 lookup() {
 
 /* Function: Looks up the character string pointed to by NextString in the
@@ -234,6 +235,7 @@ lookup() {
 
 
 
+void
 Lexinit()
 /* Function: Initialization of lexical analyzer:
  * initializes the hastable,
@@ -262,6 +264,7 @@ Lexinit()
 
 
 
+void
 nextlex()
 
 /* Function: Reads the next token and sets nexttok to the next token code.
@@ -271,6 +274,7 @@ nextlex()
  * For ID's and NUM's, NextString is set to the character string in the
  * string table. Assumption: nextc contains the next character.
  */
+void
 {       register c;
 	register FILE * fin, * frew;
         register char * sp;
@@ -427,10 +431,12 @@ struct hshentry * getnum()
 }
 
 
+void
 readstring()
 /* skip over characters until terminating single SDELIM        */
 /* if rewriteflag==true, copy every character read to frewrite.*/
 /* Does not advance nextlex at the end.                        */
+void
 {       register c;
 	register FILE * fin,  * frew;
 	fin=finptr; frew=frewrite;

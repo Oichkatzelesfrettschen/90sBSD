@@ -31,18 +31,22 @@
  * SUCH DAMAGE.
  *
  *	$Id: resource.c,v 1.1 94/10/20 00:03:13 bill Exp $
+void
  */
 
 #include "sys/param.h"
 #include "sys/errno.h"
 #include "proc.h"
 #include "privilege.h"
+void
 #include "resourcevar.h"
 #include "malloc.h"
 #include "vm.h"
+void
 #include "vmspace.h"
 #include "prototypes.h"
 
+void
 /*
  * Resource controls and accounting.
  */
@@ -51,6 +55,7 @@ getpriority(curp, uap, retval)
 	struct proc *curp;
 	register struct args {
 		int	which;
+void
 		int	who;
 	} *uap;
 	int *retval;

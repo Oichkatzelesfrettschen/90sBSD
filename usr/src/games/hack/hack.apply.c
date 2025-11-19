@@ -15,6 +15,7 @@ extern char pl_character[];
 static void use_camera(), use_ice_box(), use_whistle(), use_magic_whistle();
 static int use_pick_axe();
 
+int
 doapply() {
 	register struct obj *obj;
 	register int res = 1;

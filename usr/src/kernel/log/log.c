@@ -167,8 +167,10 @@ logwakeup()
 
 	if (!log_open)
 		return;
+void
 	if (logsoftc.sc_selp) {
 		selwakeup(logsoftc.sc_selp, 0);
+void
 		logsoftc.sc_selp = 0;
 	}
 	if (logsoftc.sc_state & LOG_ASYNC) {

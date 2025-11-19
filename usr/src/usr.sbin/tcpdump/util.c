@@ -35,9 +35,12 @@ static char rcsid[] =
 #include <sys/stat.h>
 
 #include "interface.h"
+#include <string.h>
+#include <unistd.h>
 
 /* Hex digit to integer. */
 static inline int
+int
 xdtoi(c)
 {
 	if (isdigit(c))

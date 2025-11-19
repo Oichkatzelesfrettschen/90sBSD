@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)printcap.c	5.7 (Berkeley) 3/4/91";
 #include <ctype.h>
 #include <stdio.h>
 #include "pathnames.h"
+#include <unistd.h>
+#include <string.h>
 
 #ifndef BUFSIZ
 #define	BUFSIZ	1024
@@ -85,6 +87,7 @@ char	*getenv();
  * Similar to tgetent except it returns the next enrty instead of
  * doing a lookup.
  */
+int
 getprent(bp)
 	register char *bp;
 {
@@ -126,6 +129,7 @@ getprent(bp)
 	}
 }
 
+void
 endprent()
 {
 	if (pfp != NULL)
@@ -137,6 +141,7 @@ endprent()
  * from the termcap file.  Parse is very rudimentary;
  * we just notice escaped newlines.
  */
+int
 tgetent(bp, name)
 	char *bp, *name;
 {
@@ -221,6 +226,7 @@ tgetent(bp, name)
  * entries to say "like an HP2621 but doesn't turn on the labels".
  * Note that this works because of the left to right scan.
  */
+int
 tnchktc()
 {
 	register char *p, *q;
@@ -268,6 +274,7 @@ tnchktc()
  * against each such name.  The normal : terminator after the last
  * name (before the first field) stops us.
  */
+int
 tnamatch(np)
 	char *np;
 {

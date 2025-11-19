@@ -80,6 +80,7 @@ extern int		db_inst_count;
 extern int		db_load_count;
 extern int		db_store_count;
 
+void
 db_trap(type, code)
 	int	type, code;
 {

@@ -83,6 +83,7 @@ static char rcsid[]= "$Id: rcsrev.c,v 4.5 89/05/01 15:13:22 narten Exp $ Purdue 
  */
 
 #include "rcsbase.h"
+#include <stdlib.h>
 
 extern FILE * finptr;   /* RCS input file */
 extern char * getid();
@@ -112,6 +113,7 @@ char * s;
         return(count);
 }
 
+void
 getbranchno(revno,branchno)
 char * revno, * branchno;
 /* Given a non-nil revision number revno, getbranchno copies the number of the branch
@@ -264,6 +266,7 @@ int     length;
 
 
 
+void
 incnum(onum,nnum)
 char * onum, *nnum;
 /* increments the last field of revision number onum by one and

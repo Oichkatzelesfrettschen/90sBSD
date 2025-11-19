@@ -53,6 +53,9 @@ static char sccsid[] = "@(#)shutdown.c	5.16 (Berkeley) 2/3/91";
 #include <stdio.h>
 #include <ctype.h>
 #include "pathnames.h"
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #ifdef DEBUG
 #undef _PATH_NOLOGIN
@@ -204,6 +207,7 @@ main(argc, argv)
 	/*NOTREACHED*/
 }
 
+void
 loop()
 {
 	u_int sltime;

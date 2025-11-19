@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)lo_main.c	5.7 (Berkeley) 2/28/91";
 #include <pwd.h>
 #include "externs.h"
 #include "pathnames.h"
+#include <stdlib.h>
 
 char *title[] = {
 	"Admiral", "Commodore", "Captain", "Captain",
@@ -51,6 +52,7 @@ char *title[] = {
 	"Commander", "Lieutenant"
 };
 
+int
 lo_main()
 {
 	FILE *fp;

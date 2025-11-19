@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)readmsg.c	2.13 (Berkeley) 3/2/91";
 
 #include "globals.h"
 #include <protocols/timed.h>
+#include <string.h>
 
 extern char *tsptype[];
 

@@ -31,6 +31,7 @@ int ttyread(buf, len, time)
 	int	time;	/* maximum time to allow for reading */
 {
 	fd_set	rd;	/* the file descriptors that we want to read from */
+void
 	static	tty;	/* 'y' if reading from tty, or 'n' if not a tty */
 	int	i;
 	struct timeval t;
@@ -174,6 +175,8 @@ int ttyread(buf, len, time)
  */
 
 #include <setjmp.h>
+#include <unistd.h>
+#include <string.h>
 
 static jmp_buf env;
 

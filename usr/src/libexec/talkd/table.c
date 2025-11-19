@@ -150,6 +150,7 @@ find_request(request)
 	return ((CTL_MSG *)0);
 }
 
+void
 insert_table(request, response)
 	CTL_MSG *request;
 	CTL_RESPONSE *response;
@@ -179,6 +180,7 @@ insert_table(request, response)
 /*
  * Generate a unique non-zero sequence number
  */
+int
 new_id()
 {
 	static int current_id = 0;
@@ -193,6 +195,7 @@ new_id()
 /*
  * Delete the invitation with id 'id_num'
  */
+int
 delete_invite(id_num)
 	int id_num;
 {
@@ -217,6 +220,7 @@ delete_invite(id_num)
 /*
  * Classic delete from a double-linked list
  */
+void
 delete(ptr)
 	register TABLE_ENTRY *ptr;
 {

@@ -33,6 +33,10 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)setup.c	5.4 (Berkeley) 4/8/91";
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"hangman.h"
@@ -41,6 +45,7 @@ static char sccsid[] = "@(#)setup.c	5.4 (Berkeley) 4/8/91";
  * setup:
  *	Set up the strings on the screen.
  */
+void
 setup()
 {
 	register char		**sp;

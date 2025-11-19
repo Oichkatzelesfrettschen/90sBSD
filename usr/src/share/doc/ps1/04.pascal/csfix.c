@@ -42,6 +42,9 @@ static char sccsid[] = "@(#)csfix.c	6.3 (Berkeley) 4/17/91";
 #endif /* not lint */
 
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 /*
  * csfix - fix constant spacing for error message flags in troff
  *
@@ -55,6 +58,7 @@ static char sccsid[] = "@(#)csfix.c	6.3 (Berkeley) 4/17/91";
 
 char	flag, dflag;
 
+void
 main(argc, argv)
 	int argc;
 	char *argv[];
@@ -92,6 +96,7 @@ main(argc, argv)
 
 char	line[160], flagee[160], *digitty();
 
+int
 getline()
 {
 	register char *cp, c;
@@ -104,6 +109,7 @@ getline()
 	return (1);
 }
 
+int
 errline()
 {
 	register int i;
@@ -115,6 +121,7 @@ errline()
 	return (0);
 }
 
+void
 reformat()
 {
 	register char *cp, c, *tail;
@@ -139,6 +146,7 @@ reformat()
 	printf("\\l'\\w`---`u\\&\\(rh'%s\n", tail+3);
 }
 
+int
 nontriv()
 {
 
@@ -153,6 +161,7 @@ nontriv()
 	return (1);
 }
 
+void
 save()
 {
 

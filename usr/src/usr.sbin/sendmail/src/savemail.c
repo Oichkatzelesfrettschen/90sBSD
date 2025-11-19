@@ -558,12 +558,14 @@ returntosender(msg, returnq, sendbody, e)
 	sendall(ee, SM_DEFAULT);
 
 	/* restore state */
+int
 	dropenvelope(ee);
 	CurEnv = oldcur;
 	returndepth--;
 
 	/* should check for delivery errors here */
 	return (0);
+void
 }
 /*
 **  ERRBODY -- output the body of an error message.

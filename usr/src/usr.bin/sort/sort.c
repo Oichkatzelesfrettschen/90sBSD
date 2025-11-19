@@ -577,6 +577,7 @@ static int
 fraccompare (a, b)
      register char *a, *b;
 {
+int
   register tmpa = UCHAR (*a), tmpb = UCHAR (*b);
 
   if (tmpa == '.' && tmpb == '.')
@@ -1717,6 +1718,7 @@ Usage: %s [-cmus] [-t separator] [-o output-file] [-bdfiMnr] [+POS1 [-POS2]]\n\
   exit (2);
 }
 
+void
 error(n,e, s,s1) {
 if(e) fprintf(stderr,"error %d:", e);
 fprintf(stderr,s, s1);

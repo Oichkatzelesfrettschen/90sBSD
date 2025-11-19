@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)rain.c	5.6 (Berkeley) 2/28/91";
 #include <sgtty.h>
 #endif
 #include <signal.h>
+#include <stdlib.h>
 
 #define	cursor(c, r)	tputs(tgoto(CM, c, r), 1, fputchar)
 

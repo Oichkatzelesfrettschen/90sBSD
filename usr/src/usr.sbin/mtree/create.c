@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)create.c	5.16 (Berkeley) 3/12/91";
 
 int ftsoptions = FTS_PHYSICAL;
 
+void
 cwalk()
 {
 	extern int dflag;
@@ -158,6 +159,7 @@ cwalk()
 #define	MAXUID	5000
 #define	MAXMODE	MBITS + 1
 
+int
 statdir(t, parent, puid, pgid, pmode, tabs)
 	FTS *t;
 	FTSENT *parent;
@@ -217,6 +219,7 @@ statdir(t, parent, puid, pgid, pmode, tabs)
 	return(0);
 }
 
+int
 dsort(p1, p2)
 	FTSENT **p1, **p2;
 {

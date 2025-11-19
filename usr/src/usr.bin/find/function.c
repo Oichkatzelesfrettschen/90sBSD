@@ -120,6 +120,7 @@ find_parsenum(plan, option, str, endch)
  *	current time is n 24 hour periods.
  *
  */
+void
 f_atime(plan, entry)
 	PLAN *plan;
 	FTSENT *entry;
@@ -148,6 +149,7 @@ c_atime(arg)
  *	True if the difference between the last change of file
  *	status information and the current time is n 24 hour periods.
  */
+void
 f_ctime(plan, entry)
 	PLAN *plan;
 	FTSENT *entry;
@@ -179,6 +181,7 @@ c_ctime(arg)
  *	itself.
  */
 /* ARGSUSED */
+int
 f_always_true(plan, entry)
 	PLAN *plan;
 	FTSENT *entry;
@@ -206,6 +209,7 @@ c_depth()
  *	The primary -ok is different in that it requests affirmation of the
  *	user before executing the utility.
  */
+int
 f_exec(plan, entry)
 	register PLAN *plan;
 	FTSENT *entry;
@@ -315,6 +319,7 @@ c_follow()
  *
  *	True if the file is of a certain type.
  */
+int
 f_fstype(plan, entry)
 	PLAN *plan;
 	FTSENT *entry;

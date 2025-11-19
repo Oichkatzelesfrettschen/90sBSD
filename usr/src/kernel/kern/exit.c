@@ -31,12 +31,14 @@
  * SUCH DAMAGE.
  *
  * $Id: exit.c,v 1.1 94/10/20 00:02:52 bill Exp $
+void
  */
 
 #include "sys/param.h"
 #include "sys/wait.h"
 #include "sys/errno.h"
 #include "kernel.h"
+void
 #include "proc.h"
 #include "malloc.h"
 #include "signalvar.h"
@@ -69,6 +71,7 @@ static void reclaimproc(struct proc *p);
  * unschedulable zombie process to hold process statistics and
  * termination status, awaiting notification of next of kin(e.g.
  * wait4() by parent). Deal pragmatically with child processes
+int
  * that are being orphaned. Never returns.
  */
 void volatile

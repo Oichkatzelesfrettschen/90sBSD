@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)lptest.c	5.4 (Berkeley) 6/1/90";
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 main(argc, argv)
@@ -53,6 +54,7 @@ main(argc, argv)
 	char **argv;
 {
 	int len, count;
+void
 	register i, j, fc, nc;
 	char outbuf[BUFSIZ];
 

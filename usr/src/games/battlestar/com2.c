@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)com2.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
 
+void
 wearit()		/* synonyms = {sheathe, sheath} */
 {
 	register int n;
@@ -98,6 +100,7 @@ wearit()		/* synonyms = {sheathe, sheath} */
 	return(firstnumber);
 }
 
+void
 put()		/* synonyms = {buckle, strap, tie} */
 {
 	if (wordvalue[wordnumber + 1] == ON){
@@ -113,11 +116,13 @@ put()		/* synonyms = {buckle, strap, tie} */
 
 }
 
+void
 draw() 			/* synonyms = {pull, carry} */
 {
 	return(take(wear));
 }
 
+int
 use()
 {
 	while (wordtype[++wordnumber] == ADJS && wordnumber < wordcount);
@@ -155,6 +160,7 @@ use()
 	return(-1);
 }
 
+void
 murder()
 {
 	register int n;
@@ -221,6 +227,7 @@ murder()
 	}
 }
 
+void
 ravage()
 {
 	while (wordtype[++wordnumber] != NOUNS && wordnumber <= wordcount);
@@ -270,6 +277,7 @@ ravage()
 		puts("Who?");
 }
 
+int
 follow()
 {
 	if (followfight == time){

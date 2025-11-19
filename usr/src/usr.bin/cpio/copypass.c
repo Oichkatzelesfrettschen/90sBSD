@@ -23,6 +23,7 @@
 #include "cpiohdr.h"
 #include "dstring.h"
 #include "extern.h"
+#include <string.h>
 
 #ifndef HAVE_LCHOWN
 #define lchown chown

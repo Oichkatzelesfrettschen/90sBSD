@@ -8,6 +8,7 @@
 
 #include "sys/types.h"
 
+int
 putchar(c)
 char c;
 {
@@ -17,6 +18,7 @@ char c;
 	return(0);
 }
 
+void
 wait(n) {
 	int v;
 

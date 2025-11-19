@@ -59,6 +59,8 @@ static char sccsid[] = "@(#)unifdef.c	4.7 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define BSS
 FILE *input;
@@ -95,6 +97,7 @@ int exitstat BSS;
 char *skipcomment ();
 char *skipquote ();
 
+void
 main (argc, argv)
 int argc;
 char **argv;
@@ -223,6 +226,7 @@ char *errs[] = {
 #define IN_IF   1
 #define IN_ELSE 2
 
+void
 pfile ()
 {
     reject = REJ_NO;
@@ -594,6 +598,7 @@ int expandtabs;
     return num;
 }
 
+void
 flushline (keep)
 Bool keep;
 {

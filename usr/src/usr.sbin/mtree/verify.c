@@ -49,12 +49,14 @@ extern NODE *root;
 
 static char path[PATH_MAX];
 
+void
 verify()
 {
 	vwalk();
 	miss(root, path);
 }
 
+void
 vwalk()
 {
 	extern int ftsoptions, dflag, eflag, rflag;
@@ -134,6 +136,7 @@ vwalk()
 	(void)fts_close(t);
 }
 
+void
 miss(p, tail)
 	register NODE *p;
 	register char *tail;

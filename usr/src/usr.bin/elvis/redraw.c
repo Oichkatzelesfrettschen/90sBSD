@@ -19,6 +19,7 @@
 
 #include "config.h"
 #include "vi.h"
+#include <stdio.h>
 
 /* This variable contains the line number that smartdrawtext() knows best */
 static long smartlno;

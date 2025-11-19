@@ -72,6 +72,8 @@ static char *rcsid = "$Id: gtest.c,v 1.10 88/07/02 13:34:45 afb Exp Locker: afb 
 #define test_exit(val) exit (val)
 #else
 #include <setjmp.h>
+#include <string.h>
+#include <unistd.h>
 jmp_buf test_exit_buf;
 int test_error_return = 0;
 #define test_exit(val) test_error_return = val, longjmp (test_exit_buf, 1)
@@ -96,6 +98,7 @@ test_syntax_error (format, arg)
   test_exit (SHELL_BOOLEAN (FALSE));
 }
 
+void
 test_io_error (name)
      char *name;
 {

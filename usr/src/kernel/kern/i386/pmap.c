@@ -31,18 +31,22 @@
  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+void
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
  * $Id: pmap.c,v 1.1 94/10/19 17:40:03 bill Exp $
  */
 
+void
 /*
  * Derived from hp300 version by Mike Hibler, this version by William
  * Jolitz uses a recursive map [a pde points to the page directory] to
+void
  * map the page tables using the pagetables themselves. This is done to
  * reduce the impact on kernel virtual memory for lots of sparse address
  * space, and to reduce the cost of memory to each process.
+void
  *
  *	Derived from: hp300/@(#)pmap.c	7.1 (Berkeley) 12/5/90
  */
@@ -51,6 +55,7 @@
  *	Reno i386 version, from Mike Hibler's hp300 version.
  */
 
+void
 /*
  *	Manages physical address maps.
  *
@@ -79,6 +84,7 @@
 
 #include "sys/param.h"
 #include "proc.h"
+void
 #include "malloc.h"
 #include "sys/user.h"
 #include "resourcevar.h"

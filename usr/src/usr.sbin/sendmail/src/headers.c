@@ -558,12 +558,14 @@ logsender(e, msgid)
 	}
 
 	/* some versions of syslog only take 5 printf args */
+void
 #  if (SYSLOG_BUFSIZE) >= 256
 	sbp = sbuf;
 	sprintf(sbp, "from=%.200s, size=%ld, class=%d, pri=%ld, nrcpts=%d",
 	    e->e_from.q_paddr, e->e_msgsize, e->e_class,
 	    e->e_msgpriority, e->e_nrcpts);
 	sbp += strlen(sbp);
+void
 	if (msgid != NULL)
 	{
 		sprintf(sbp, ", msgid=%.100s", msgid);

@@ -79,6 +79,7 @@
 #include "machine/cpu.h"
 
 #include "prototypes.h"
+int
 /* TODO
 	1.  symtab search/merge
 		local and global, no merges

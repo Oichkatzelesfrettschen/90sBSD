@@ -54,6 +54,8 @@ static char sccsid[] = "@(#)main.c	5.23 (Berkeley) 7/1/91";
 #include <sys/signal.h>
 #include <sys/syslog.h>
 #include "pathnames.h"
+#include <stdlib.h>
+#include <string.h>
 
 int	supplier = -1;		/* process should supply updates */
 int	gateway = 0;		/* 1 if we are a gateway to parts beyond */

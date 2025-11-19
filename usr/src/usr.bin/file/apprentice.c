@@ -28,6 +28,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "file.h"
+#include <string.h>
+#include <stdlib.h>
 
 #ifndef	lint
 static char *moduleid = 
@@ -47,6 +49,7 @@ struct magic magic[MAXMAGIS];
 
 char *getstr();
 
+int
 apprentice(fn, check)
 char *fn;			/* name of magic file */
 int check;		/* non-zero: checking-only run. */

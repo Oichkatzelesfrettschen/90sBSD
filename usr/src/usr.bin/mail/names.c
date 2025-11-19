@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)names.c	5.16 (Berkeley) 6/25/90";
  */
 
 #include "rcv.h"
+#include <stdio.h>
 
 /*
  * Allocate a single element of a name list,
@@ -49,6 +50,7 @@ static char sccsid[] = "@(#)names.c	5.16 (Berkeley) 6/25/90";
  * name and return it.
  */
 struct name *
+int
 nalloc(str, ntype)
 	char str[];
 {
@@ -85,6 +87,7 @@ tailof(name)
  * Return the list or NIL if none found.
  */
 struct name *
+int
 extract(line, ntype)
 	char line[];
 {

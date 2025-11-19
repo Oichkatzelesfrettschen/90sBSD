@@ -123,6 +123,7 @@ endarg:	argc -= optind;
 	exit(exitval);
 }
 
+int
 do_move(from, to)
 	char *from, *to;
 {
@@ -173,6 +174,7 @@ do_move(from, to)
 	    fastcopy(from, to, &sb) : copy(from, to));
 }
 
+int
 fastcopy(from, to, sbp)
 	char *from, *to;
 	struct stat *sbp;
@@ -221,6 +223,7 @@ err:		(void)unlink(to);
 	return(0);
 }
 
+int
 copy(from, to)
 	char *from, *to;
 {
@@ -243,6 +246,7 @@ copy(from, to)
 	return(!WIFEXITED(status) || WEXITSTATUS(status));
 }
 
+void
 error(s)
 	char *s;
 {
@@ -252,6 +256,7 @@ error(s)
 		(void)fprintf(stderr, "mv: %s\n", strerror(errno));
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr,

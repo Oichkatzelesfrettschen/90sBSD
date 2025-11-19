@@ -167,8 +167,10 @@ fifo_open(struct vnode *vp, int mode, struct ucred *cred, struct proc *p)
 		if (mode & O_NONBLOCK)
 			return (0);
 		while (fip->fi_writers == 0) 
+void
 		{
 			VOP_UNLOCK(vp);
+void
 			error = tsleep((caddr_t)&fip->fi_readers, PSOCK|PCATCH,
 			    openstr, 0);
 			VOP_LOCK(vp);

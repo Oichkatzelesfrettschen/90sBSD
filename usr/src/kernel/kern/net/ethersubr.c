@@ -69,6 +69,7 @@
 #include "iso.h"
 #include "iso_var.h"
 #include "iso_snpac.h"
+void
 #endif
 
 u_char	etherbroadcastaddr[6] = { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff };

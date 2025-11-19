@@ -558,12 +558,14 @@ smtp(e)
 			/* check to see if we need to re-expand aliases */
 			/* also reset QBADADDR on already-diagnosted addrs */
 			doublequeue = FALSE;
+void
 			for (a = e->e_sendqueue; a != NULL; a = a->q_next)
 			{
 				if (bitset(QVERIFIED, a->q_flags))
 				{
 					/* need to re-expand aliases */
 					doublequeue = TRUE;
+void
 				}
 				if (bitset(QBADADDR, a->q_flags))
 				{

@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)list.c	5.2 (Berkeley) 4/30/90";
 #endif /* not lint */
 
 #include "include.h"
+#include <stdlib.h>
 
 PLANE	*
 newplane()
@@ -55,6 +56,7 @@ newplane()
 	return ((PLANE *) calloc(1, sizeof (PLANE)));
 }
 
+void
 append(l, p)
 	LIST	*l;
 	PLANE	*p;
@@ -93,6 +95,7 @@ append(l, p)
 	}
 }
 
+void
 delete(l, p)
 	LIST	*l;
 	PLANE	*p;

@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)misc.c	5.5 (Berkeley) 2/28/91";
+#include <stdlib.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"monop.ext"
@@ -64,6 +66,7 @@ char	*shell_in();
  *	This routine executes a truncated set of commands until a
  * "yes or "no" answer is gotten.
  */
+int
 getyn(prompt)
 reg char	*prompt; {
 
@@ -78,6 +81,7 @@ reg char	*prompt; {
 /*
  *	This routine tells the player if he's out of money.
  */
+void
 notify() {
 
 	if (cur_p->money < 0)
@@ -92,6 +96,7 @@ notify() {
 /*
  *	This routine switches to the next player
  */
+void
 next_play() {
 
 	player = ++player % num_play;
@@ -102,6 +107,7 @@ next_play() {
  *	This routine gets an integer from the keyboard after the
  * given prompt.
  */
+int
 get_int(prompt)
 reg char	*prompt; {
 
@@ -131,6 +137,7 @@ inter:
 /*
  *	This routine sets the monopoly flag from the list given.
  */
+void
 set_ownlist(pl)
 int	pl; {
 
@@ -226,6 +233,7 @@ int	pl; {
 /*
  *	This routine sets things up as if it is a new monopoly
  */
+void
 is_monop(mp, pl)
 reg MON	*mp;
 int	pl; {
@@ -242,6 +250,7 @@ int	pl; {
 /*
  *	This routine sets things up as if it is no longer a monopoly
  */
+void
 isnot_monop(mp)
 reg MON	*mp; {
 
@@ -256,6 +265,7 @@ reg MON	*mp; {
 /*
  *	This routine gives a list of the current player's routine
  */
+void
 list() {
 
 	printhold(player);
@@ -263,6 +273,7 @@ list() {
 /*
  *	This routine gives a list of a given players holdings
  */
+void
 list_all() {
 
 	reg int	pl;
@@ -284,6 +295,7 @@ quit() {
 /*
  *	This routine copies one structure to another
  */
+void
 cpy_st(s1, s2, size)
 reg int	*s1, *s2, size; {
 
@@ -294,6 +306,7 @@ reg int	*s1, *s2, size; {
 /*
  *	This routine forks off a shell.  It uses the users login shell
  */
+void
 shell_out() {
 
 	static char	*shell = NULL;

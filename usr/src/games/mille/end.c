@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)end.c	5.4 (Berkeley) 6/1/90";
  *	print out the score as if it was final, and add the totals for
  * the end-of-games points to the user who deserves it (if any).
  */
+void
 finalscore(pp)
 reg PLAY	*pp; {
 
