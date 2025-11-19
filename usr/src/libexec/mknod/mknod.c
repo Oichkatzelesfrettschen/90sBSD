@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)mknod.c	4.4 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 main(argc, argv)

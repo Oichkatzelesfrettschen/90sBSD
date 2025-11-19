@@ -145,6 +145,7 @@ desinit(void)
 
 
 /* desgetc: return next char in an encrypted file */
+int
 desgetc(fp)
 	FILE *fp;
 {
@@ -159,6 +160,7 @@ desgetc(fp)
 
 
 /* desputc: write a char to an encrypted file; return char written */
+int
 desputc(c, fp)
 	int c;
 	FILE *fp;
@@ -174,6 +176,7 @@ desputc(c, fp)
 
 
 /* desflush: flush an encrypted file's output; return status */
+int
 desflush(fp)
 	FILE *fp;
 {
