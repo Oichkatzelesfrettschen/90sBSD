@@ -7,6 +7,16 @@
 
 # Object files
 *.o
+*.po
+*.pico
+*.kerno
+*.devo
+*.fso
+*.neto
+*.kernmo
+
+# Dependency files
+*.d
 
 # Static libraries
 *.a
