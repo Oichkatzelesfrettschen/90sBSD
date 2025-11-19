@@ -52,6 +52,8 @@ static char sccsid[] = "@(#)fseek.c	5.7 (Berkeley) 2/24/91";
  * Seek the given file to the given offset.
  * `Whence' must be one of the three SEEK_* macros.
  */
+int
+int
 fseek(fp, offset, whence)
 	register FILE *fp;
 	long offset;

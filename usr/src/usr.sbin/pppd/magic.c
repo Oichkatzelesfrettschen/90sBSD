@@ -26,6 +26,7 @@ static char rcsid[] = "$Id: magic.c,v 1.1 1993/11/11 03:54:25 paulus Exp $";
 #include <sys/time.h>
 
 #include "magic.h"
+#include <stdlib.h>
 
 
 static u_long next;		/* Next value to return */

@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)creat.c	5.3 (Berkeley) 2/24/91";
 #include <fcntl.h>
 
 #if __STDC__
+int
+int
 creat(const char *path, mode_t mode)
 #else
 creat(path, mode)

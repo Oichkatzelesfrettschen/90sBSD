@@ -55,6 +55,7 @@
  */
 
 #include "esym.h"
+#include <string.h>
 
 struct _esym_entry_ *_esym_elist_, *_esym_llist_;
 

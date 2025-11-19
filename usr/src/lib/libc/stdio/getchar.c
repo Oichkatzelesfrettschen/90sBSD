@@ -45,6 +45,8 @@ static char sccsid[] = "@(#)getchar.c	5.3 (Berkeley) 1/20/91";
 
 #undef getchar
 
+int
+int
 getchar(void)
 {
 	return (getc(stdin));

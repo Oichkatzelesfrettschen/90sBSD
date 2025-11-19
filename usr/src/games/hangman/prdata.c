@@ -41,6 +41,8 @@ static char sccsid[] = "@(#)prdata.c	5.3 (Berkeley) 4/8/91";
  * prdata:
  *	Print out the current guesses
  */
+void
+void
 prdata()
 {
 	register bool	*bp;

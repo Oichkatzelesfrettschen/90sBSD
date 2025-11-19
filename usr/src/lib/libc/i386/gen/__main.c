@@ -13,4 +13,6 @@
  * from making more general use of this artifice, it will probably
  * be going away or changing some time in the future. -wfj
  */
+void
+void
 __main() {}

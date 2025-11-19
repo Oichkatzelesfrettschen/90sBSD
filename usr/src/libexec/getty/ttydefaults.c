@@ -37,6 +37,8 @@ static char sccsid[] = "@(#)ttydefaults.c	5.1 (Berkeley) 1/19/91";
 
 #include <sys/termios.h>
 
+void
+void
 set_ttydefaults(fd)
 	int fd;
 {

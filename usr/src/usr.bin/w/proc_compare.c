@@ -68,6 +68,8 @@ static char sccsid[] = "@(#)proc_compare.c	5.4 (Berkeley) 2/7/91";
 #define	ONLYB	1
 #define	BOTH	3
 
+int
+int
 proc_compare(p1, p2)
 	register struct proc *p1, *p2;
 {

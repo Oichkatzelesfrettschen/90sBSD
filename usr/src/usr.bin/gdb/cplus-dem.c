@@ -59,6 +59,7 @@
 #include <string.h>
 #else
 #include <strings.h>
+#include <stdlib.h>
 #define memcpy(s1, s2, n) bcopy ((s2), (s1), (n))
 #define memcmp(s1, s2, n) bcmp ((s2), (s1), (n))
 #define strchr index 

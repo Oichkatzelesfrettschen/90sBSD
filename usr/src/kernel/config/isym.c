@@ -1,4 +1,6 @@
 
+void
+void
 dummy() {}
 #define	__ISYM__(a,b,c)	b(),
 int

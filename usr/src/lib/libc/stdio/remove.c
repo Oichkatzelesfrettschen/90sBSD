@@ -41,6 +41,8 @@ static char sccsid[] = "@(#)remove.c	5.3 (Berkeley) 2/24/91";
 #include <unistd.h>
 #include <stdio.h>
 
+int
+int
 remove(file)
 	const char *file;
 {

@@ -41,6 +41,8 @@ static char sccsid[] = "@(#)siginterrupt.c	5.5 (Berkeley) 6/1/90";
  * Set signal state to prevent restart of system calls
  * after an instance of the indicated signal.
  */
+int
+int
 siginterrupt(sig, flag)
 	int sig, flag;
 {

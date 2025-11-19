@@ -68,6 +68,7 @@ static char sccsid[] = "@(#)primes.c	5.4 (Berkeley) 6/1/90";
 #include <memory.h>
 #include <ctype.h>
 #include "primes.h"
+#include <stdlib.h>
 
 /*
  * Eratosthenes sieve table

@@ -33,6 +33,8 @@
  *	$Id: strlen.c,v 1.1 94/10/19 18:33:45 bill Exp $
  */
 
+int
+int
 strlen(char *s1)
 {
 	int len;

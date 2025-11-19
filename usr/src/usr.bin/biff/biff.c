@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)biff.c	5.3 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 char	*ttyname();
 

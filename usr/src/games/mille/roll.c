@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)roll.c	5.4 (Berkeley) 6/1/90";
  *
  */
 
+int
+int
 roll(ndie, nsides)
 reg int	ndie, nsides; {
 

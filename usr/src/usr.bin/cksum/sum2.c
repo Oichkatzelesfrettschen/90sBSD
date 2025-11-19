@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)sum2.c	5.1 (Berkeley) 4/4/91";
 #include <sys/types.h>
 #include <unistd.h>
 
+int
+int
 csum2(fd, cval, clen)
 	register int fd;
 	u_long *cval, *clen;

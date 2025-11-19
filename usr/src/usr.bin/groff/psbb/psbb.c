@@ -20,6 +20,7 @@ Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. */
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <stdlib.h>
 #ifndef errno
 extern int errno;
 #endif

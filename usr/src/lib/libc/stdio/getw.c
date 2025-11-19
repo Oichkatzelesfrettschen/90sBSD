@@ -40,6 +40,8 @@ static char sccsid[] = "@(#)getw.c	5.3 (Berkeley) 1/20/91";
 
 #include <stdio.h>
 
+int
+int
 getw(fp)
 	FILE *fp;
 {

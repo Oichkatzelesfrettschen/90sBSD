@@ -129,6 +129,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #define min(a, b)	((a) < (b) ? (a) : (b))
 
 #include "hash.h"
+#include <stdlib.h>
 char *xmalloc();
 
 #define DELETED     ((char *)1)	/* guarenteed invalid address */

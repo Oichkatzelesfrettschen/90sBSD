@@ -57,6 +57,7 @@ static char sccsid[] = "@(#)pom.c	5.3 (Berkeley) 2/28/91";
 #include <stdio.h>
 #include <tzfile.h>
 #include <math.h>
+#include <stdlib.h>
 
 #define	PI	  3.141592654
 #define	EPOCH	  85

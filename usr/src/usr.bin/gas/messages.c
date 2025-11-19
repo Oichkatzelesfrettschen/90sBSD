@@ -27,6 +27,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #ifndef NO_VARARGS
 #include <varargs.h>
+#include <stdlib.h>
 #endif
 
 /*

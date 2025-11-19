@@ -33,6 +33,8 @@
  *	$Id: ffs.c,v 1.1 94/10/19 18:33:21 bill Exp $
  */
 
+int
+int
 ffs(mask)
 	register long mask;
 {

@@ -37,6 +37,8 @@ static char sccsid[] = "@(#)yyerror.c	5.2 (Berkeley) 5/15/90";
 
 #include <stdio.h>
 
+int
+int
 yyerror(msg)
 char *msg;
 {
