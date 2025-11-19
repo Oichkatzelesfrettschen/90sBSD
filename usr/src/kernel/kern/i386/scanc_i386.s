@@ -26,3 +26,7 @@ ENTRY(scanc)
 	popl	%ebx
 	popl	%esi
 	ret
+
+/* Non-underscore alias for C code */
+	.globl	scanc
+	.set	scanc, _scanc

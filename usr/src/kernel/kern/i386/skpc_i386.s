@@ -21,3 +21,7 @@ ENTRY(skpc)
 1:	movl	%ecx, %eax
 	popl	%edi
 	ret
+
+/* Non-underscore alias for C code */
+	.globl	skpc
+	.set	skpc, _skpc

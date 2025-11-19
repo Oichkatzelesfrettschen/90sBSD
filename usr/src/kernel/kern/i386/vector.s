@@ -184,3 +184,16 @@ _netmask:	.long	0
 	.globl	ttymask, biomask
 	.set	ttymask, _ttymask
 	.set	biomask, _biomask
+
+/* SPL function aliases (from icu.s) */
+	.globl	splhigh, splclock, spltty, splimp, splnet, splbio, splsoftclock, splnone, spl0, splx
+	.set	splhigh, _splhigh
+	.set	splclock, _splclock
+	.set	spltty, _spltty
+	.set	splimp, _splimp
+	.set	splnet, _splnet
+	.set	splbio, _splbio
+	.set	splsoftclock, _splsoftclock
+	.set	splnone, _splnone
+	.set	spl0, _spl0
+	.set	splx, _splx

@@ -1482,6 +1482,9 @@ proffault:
 _cyloffset:	.long	0
 	.globl	_proc0paddr
 _proc0paddr:	.long	0
+	.globl	_zero, zero
+_zero:
+zero:	.long	0
 LF:	.asciz "Xswitch %x"
 
 .text
@@ -1702,5 +1705,24 @@ ENTRY(ntohs)
 	xchgb	%al,%ah
 	ret
 
+
 #include "vector.s"
 #include "isa/icu.s"
+
+/* Aliases for assembly support functions */
+	.globl	scanc, skpc, copyin
+	.set	scanc, _scanc
+	.set	skpc, _skpc
+	.set	copyin, _copyin
+	.globl	htonl, ntohl, htons, ntohs
+	.set	htonl, _htonl
+	.set	ntohl, _ntohl
+	.set	htons, _htons
+	.set	ntohs, _ntohs
+
+/* memmove alias */
+	.globl	memmove
+	.set	memmove, _memmove
+
+/* PMD_ONFAULT offset for profiling */
+	.equ	PMD_ONFAULT, 0

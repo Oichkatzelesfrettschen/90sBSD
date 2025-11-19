@@ -5,6 +5,7 @@
 
 .PATH:		$S/kern/i386
 MACH_SRCS+=	machdep.c pmap.c trap.c vm_machdep.c
+MACH_SRCS_S+=	scanc_i386.s skpc_i386.s memmove_i386.s locc_i386.s addupc_i386.s
 FIRSTOBJ=	locore.o
 
 I386?=		$S/kern/i386
