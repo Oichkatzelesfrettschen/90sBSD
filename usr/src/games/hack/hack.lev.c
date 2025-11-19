@@ -28,8 +28,7 @@ xchar lev;
 {
 #ifndef NOWORM
 	register struct wseg *wtmp, *wtmp2;
-void
-	register tmp;
+	register int tmp;
 #endif NOWORM
 
 	if(fd < 0) panic("Save on bad file!");	/* impossible */
