@@ -140,7 +140,8 @@ void	pmap_statistics();
 void	pmap_deactivate();
 */
 
-extern pmap_t	kernel_pmap;
+/* kernel_pmap is defined as a macro in machine/pmap.h */
+/* extern pmap_t	kernel_pmap; */
 #endif
 
 #endif	_PMAP_VM_

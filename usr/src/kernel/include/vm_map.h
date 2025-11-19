@@ -69,6 +69,8 @@
 #ifndef	_VM_MAP_
 #define	_VM_MAP_
 
+#include <sys/lock.h>
+
 /*
  *	Types defined:
  *
@@ -128,7 +130,7 @@ typedef struct vm_map_entry	*vm_map_entry_t;
  */
 struct vm_map {
 	struct pmap *		pmap;		/* Physical map */
-	lock_data_t		lock;		/* Lock for map data */
+	int			lock;		/* Lock for map data (simplified from lock_data_t) */
 	struct vm_map_entry	header;		/* List of entries */
 	int			nentries;	/* Number of entries */
 	vm_size_t		size;		/* virtual size */

@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1987, 1991 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1987, 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,17 +30,35 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)endian.h	7.8 (Berkeley) 4/3/91
+ *	@(#)endian.h	8.1 (Berkeley) 6/11/93
  */
 
-#ifndef	_ENDIAN_H_
+#ifndef _ENDIAN_H_
 #define	_ENDIAN_H_
 
-#include <sys/types.h>
+/*
+ * Define _NOQUAD if the compiler does NOT support 64-bit integers.
+ */
+/* #define _NOQUAD */
 
-#ifndef KERNEL
+/*
+ * Define the order of 32-bit words in 64-bit words.
+ */
+#define _QUAD_HIGHWORD 1
+#define _QUAD_LOWWORD 0
+
+#ifndef _POSIX_SOURCE
+/*
+ * Definitions for byte order, according to byte significance from low
+ * address to high.
+ */
+#define	LITTLE_ENDIAN	1234	/* LSB first: i386, vax */
+#define	BIG_ENDIAN	4321	/* MSB first: 68000, ibm, net */
+#define	PDP_ENDIAN	3412	/* LSB first in word, MSW first in long */
+
+#define	BYTE_ORDER	LITTLE_ENDIAN
+
 #include <sys/cdefs.h>
-#endif
 
 __BEGIN_DECLS
 unsigned long	htonl __P((unsigned long));
@@ -69,9 +87,6 @@ __END_DECLS
 #define	NTOHS(x)	(x) = ntohs((u_short)x)
 #define	HTONL(x)	(x) = htonl((u_long)x)
 #define	HTONS(x)	(x) = htons((u_short)x)
-
-#include <machine/inline/inet.h>
-
 #endif
-
-#endif	/* _ENDIAN_H_ */
+#endif /* ! _POSIX_SOURCE */
+#endif /* !_ENDIAN_H_ */

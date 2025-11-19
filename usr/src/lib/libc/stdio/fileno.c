@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)fileno.c	5.1 (Berkeley) 1/20/91";
  */
 #undef fileno
 
+int
 fileno(fp)
 	FILE *fp;
 {

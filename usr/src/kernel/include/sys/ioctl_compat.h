@@ -1,6 +1,11 @@
 /*
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,19 +35,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ioctl_compat.h	7.4 (Berkeley) 2/5/91
+ *	@(#)ioctl_compat.h	8.4 (Berkeley) 1/21/94
  */
 
-#ifndef _IOCTL_COMPAT_H_
-#define	_IOCTL_COMPAT_H_
+#ifndef _SYS_IOCTL_COMPAT_H_
+#define	_SYS_IOCTL_COMPAT_H_
 
-#ifdef KERNEL
-#include "ttychars.h"
-#include "ttydev.h"
-#else
 #include <sys/ttychars.h>
 #include <sys/ttydev.h>
-#endif
 
 struct tchars {
 	char	t_intrc;	/* interrupt */
@@ -164,4 +164,4 @@ struct sgttyb {
 #define	NETLDISC	1
 #define	NTTYDISC	2
 
-#endif /* !_IOCTL_COMPAT_H_ */
+#endif /* !_SYS_IOCTL_COMPAT_H_ */

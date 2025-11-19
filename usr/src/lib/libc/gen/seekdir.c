@@ -51,7 +51,6 @@ seekdir(dirp, loc)
 	register struct ddloc **prevlp;
 	register struct ddloc *lp;
 	struct dirent *dp;
-	extern long lseek();
 
 	prevlp = (struct ddloc **)&(dirp->dd_ddloc);
 	lp = *prevlp;

@@ -96,8 +96,8 @@ ttcompat(register struct tty *tp, int com, caddr_t data, int flag, struct proc *
 	case TIOCLBIC:
 	case TIOCLSET:
 	case OTIOCSETD:
-		while (isbackground(curproc, tp) && 
-		   p->p_pgrp->pg_jobc && (p->p_flag&SPPWAIT) == 0 &&
+		while (isbackground(curproc, tp) &&
+		   p->p_pgrp->pg_jobc && (p->p_flag&P_PPWAIT) == 0 &&
 		   (p->p_sigignore & sigmask(SIGTTOU)) == 0 &&
 		   (p->p_sigmask & sigmask(SIGTTOU)) == 0) {
 			pgsignal(p->p_pgrp, SIGTTOU, 1);

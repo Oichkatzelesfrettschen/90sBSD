@@ -9,13 +9,15 @@
 .include "$S/kern/opt/compat43/Makefile.inc"
 
 # standard socket IPC (BSD - UNIX communications domain)
-.include "$S/un/Makefile.inc"
+# Using 4.4BSD-Lite2 uipc_usrreq.c from kern/ instead of 386BSD un/unusrreq.c
+# .include "$S/un/Makefile.inc"
 
 # standard pseudo devices
 .include "$S/mem/Makefile.inc"
-.include "$S/log/Makefile.inc"
+# Removed log and devtty - functionality already in kern (subr_log.c, tty_tty.c)
+# .include "$S/log/Makefile.inc"
 .include "$S/termios/Makefile.inc"
-.include "$S/devtty/Makefile.inc"
+# .include "$S/devtty/Makefile.inc"
 
 # standard filesystems
 .include "$S/ufs/Makefile.inc"

@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1982, 1986, 1989, 1991 Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1989, 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,20 +30,23 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)user.h	7.19 (Berkeley) 5/4/91
+ *	@(#)user.h	8.2 (Berkeley) 9/23/93
  */
 
-#ifndef	_USER_H_
-#define	_USER_H_
-
 #include <machine/pcb.h>
-#include "uio.h"
-#include "proc.h"
-#include "signalvar.h"
-#include "vm.h"
-#include "vmspace.h"
-#include "sys/kinfo_proc.h"
-#include <sys/errno.h>
+#ifndef KERNEL
+/* stuff that *used* to be included by user.h, or is now needed */
+#include <errno.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <sys/ucred.h>
+#include <sys/uio.h>
+#endif
+#include <sys/resourcevar.h>
+#include <sys/signalvar.h>
+#include <vm/vm.h>		/* XXX */
+#include <sys/sysctl.h>
+
 
 /*
  * Per process structure containing data that isn't needed in core
@@ -56,18 +59,20 @@ struct	user {
 	struct	pcb u_pcb;
 
 	struct	sigacts u_sigacts;	/* p_sigacts points here (use it!) */
+	struct	pstats u_stats;		/* p_stats points here (use it!) */
 
 	/*
 	 * Remaining fields only for core dump and/or ptrace--
 	 * not valid at other times!
 	 */
 	struct	kinfo_proc u_kproc;	/* proc + eproc */
+	struct	md_coredump u_md;	/* machine dependent glop */
 };
 
 /*
- * Redefinitions to make the debuggers happy for now...
- * This subterfuge brought to you by coredump() and procxmt().
- * These fields are *only* valid at those times!
+ * Redefinitions to make the debuggers happy for now...  This subterfuge
+ * brought to you by coredump() and trace_req().  These fields are *only*
+ * valid at those times!
  */
 #define	U_ar0	u_kproc.kp_proc.p_md.md_regs /* copy of curproc->p_md.md_regs */
 #define	U_tsize	u_kproc.kp_eproc.e_vm.vm_tsize
@@ -84,5 +89,3 @@ struct	user {
 #define	u_sig	U_sig
 #define	u_code	U_code
 #endif /* KERNEL */
-
-#endif /* _USER_H_ */

@@ -134,12 +134,13 @@ cfsetispeed(t, speed)
 	return (0);
 }
 
-void
+int
 cfsetspeed(t, speed)
 	struct termios *t;
 	speed_t speed;
 {
 	t->c_ispeed = t->c_ospeed = speed;
+	return (0);
 }
 
 /*

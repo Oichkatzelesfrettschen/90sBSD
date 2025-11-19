@@ -39,6 +39,19 @@
 #include <sys/types.h>
 #include <sys/cdefs.h>
 
+/* BSD-specific open flags not available on Linux - define as 0 */
+#ifndef O_EXLOCK
+#define O_EXLOCK 0
+#endif
+#ifndef O_SHLOCK
+#define O_SHLOCK 0
+#endif
+
+/* BSD-specific errno code not available on Linux - define to reasonable value */
+#ifndef EFTYPE
+#define EFTYPE 79
+#endif
+
 #define	RET_ERROR	-1		/* Return values. */
 #define	RET_SUCCESS	 0
 #define	RET_SPECIAL	 1

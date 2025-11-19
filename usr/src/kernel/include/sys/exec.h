@@ -1,6 +1,11 @@
 /*-
- * Copyright (c) 1982, 1986 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1992, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ * (c) UNIX System Laboratories, Inc.
+ * All or some portions of this file are derived from material licensed
+ * to the University of California by American Telephone and Telegraph
+ * Co. or Unix System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,42 +35,28 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)exec.h	7.5 (Berkeley) 2/15/91
+ *	@(#)exec.h	8.4 (Berkeley) 2/19/95
  */
 
-#ifndef	_EXEC_H_
-#define	_EXEC_H_
+#include <machine/exec.h>
 
-/* Header prepended to each a.out file. */
-struct exec {
-#if !defined(vax) && !defined(tahoe) && !defined(i386)
-unsigned short	a_mid;		/* machine ID */
-unsigned short	a_magic;	/* magic number */
-#else
-	 long	a_magic;	/* magic number */
-#endif
-unsigned long	a_text;		/* text segment size */
-unsigned long	a_data;		/* initialized data size */
-unsigned long	a_bss;		/* uninitialized data size */
-unsigned long	a_syms;		/* symbol table size */
-unsigned long	a_entry;	/* entry point */
-unsigned long	a_trsize;	/* text relocation size */
-unsigned long	a_drsize;	/* data relocation size */
+/*
+ * The following structure is found at the top of the user stack of each
+ * user process. The ps program uses it to locate argv and environment
+ * strings. Programs that wish ps to display other information may modify
+ * it; normally ps_argvstr points to the text for argv[0], and ps_nargvstr
+ * is the same as the program's argc. The fields ps_envstr and ps_nenvstr
+ * are the equivalent for the environment.
+ */
+struct ps_strings {
+	char	*ps_argvstr;	/* first of 0 or more argument strings */
+	int	ps_nargvstr;	/* the number of argument strings */
+	char	*ps_envstr;	/* first of 0 or more environment strings */
+	int	ps_nenvstr;	/* the number of environment strings */
 };
-#define	a_machtype	a_mid	/* SUN compatibility */
 
-/* a_magic */
-#define	OMAGIC		0407	/* old impure format */
-#define	NMAGIC		0410	/* read-only text */
-#define	ZMAGIC		0413	/* demand load format */
-
-/* a_mid */
-#define	MID_ZERO	0	/* unknown - implementation dependent */
-#define	MID_SUN010	1	/* sun 68010/68020 binary */
-#define	MID_SUN020	2	/* sun 68020-only binary */
-#define	MID_HP200	200	/* hp200 (68010) BSD binary */
-#define	MID_HP300	300	/* hp300 (68020+68881) BSD binary */
-#define	MID_HPUX	0x20C	/* hp200/300 HP-UX binary */
-#define	MID_HPUX800     0x20B   /* hp800 HP-UX binary */
-
-#endif /* !_EXEC_H_ */
+/*
+ * Address of ps_strings structure (in user space).
+ */
+#define	PS_STRINGS \
+	((struct ps_strings *)(USRSTACK - sizeof(struct ps_strings)))

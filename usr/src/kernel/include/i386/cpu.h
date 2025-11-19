@@ -1,6 +1,6 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * William Jolitz.
@@ -33,111 +33,83 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)cpu.h	5.4 (Berkeley) 5/9/91
+ *	@(#)cpu.h	8.5 (Berkeley) 5/17/95
  */
 
-#ifndef _CPU_H_
-#define _CPU_H_
 /*
  * Definitions unique to i386 cpu support.
  */
-#include "machine/frame.h"
-
-/*
- * Selector priority, used by hardclock() to discover user/kernel mode.
- */
-#define	ISPL(s)	((s) & 3)	/* what is the priority level of a selector */
-#define	SEL_KPL	0		/* kernel priority level */	
-#define	SEL_UPL	3		/* user priority level */	
+#include <machine/frame.h>
+#include <machine/segments.h>
 
 /*
  * definitions of cpu-dependent requirements
  * referenced in generic code
  */
+#undef	COPY_SIGCODE	/* don't copy sigcode above user stack in exec */
 
-/* Thread create/destroy */
-int cpu_tfork(struct proc *, struct proc *);
-volatile void cpu_texit(struct proc *);
-
-/* POSIX specific cpu-dependant functions */
-#define cpu_wait(p)			/* recover resources after exit() */
-void cpu_execsetregs(struct proc *, caddr_t, caddr_t);	/* start program */
-int cpu_signal(struct proc *, int, int);		/* issue a signal */
-int cpu_signalreturn(struct proc *);			/* remove a signal */
-int *cpu_ptracereg(struct proc *, int);	/* return address of a register */
-
-/* implementation dependant */
-void cpu_startup(void);
-void cpu_reset(void);
-#define	inittodr(s)	/* sorry, no GMT todr, only localtime cmos clock */
-extern int (*cpu_dna)(void *);
-extern int (*cpu_dna_em)(void *);
+#define	cpu_exec(p)			/* nothing */
+#define	cpu_swapin(p)			/* nothing */
+#define cpu_setstack(p, ap)		(p)->p_md.md_regs[SP] = ap
+#define cpu_set_init_frame(p, fp)	(p)->p_md.md_regs = fp
+#define	BACKTRACE(p)			/* not implemented */
 
 /*
  * Arguments to hardclock, softclock and gatherstats
  * encapsulate the previous machine state in an opaque
- * clockframe.
+ * clockframe; for now, use generic intrframe.
  */
-struct clock_frame {
-	int cf_ipm;	/* interrupt priority mask when clock interrupted */
-	int cf_eip;	/* location in program when clock interrupted */
-	int cf_cs;	/* code selector when clock interrupted */
+struct clockframe {
+	struct intrframe	cf_if;
 };
-typedef struct clock_frame clockframe;
 
-#define	CLKF_BASEPRI(fp)	((fp)->cf_ipm == 0)
-#define	CLKF_USERMODE(fp)	(ISPL((fp)->cf_cs) == SEL_UPL)
-#define	CLKF_PC(fp)		((fp)->cf_eip)
-#define setsoftclock()		sclkpending++
-#define setsoftnet()		netpending++
+#define	CLKF_USERMODE(framep)	(ISPL((framep)->cf_if.if_cs) == SEL_UPL)
+#define	CLKF_BASEPRI(framep)	((framep)->cf_if.if_ppl == 0)
+#define	CLKF_PC(framep)		((framep)->cf_if.if_eip)
 
-#define	resettodr()			/* no todr to set */
+#define	resettodr()	/* no todr to set */
 
 /*
- * If in a process, force the process to reschedule and thus be
- * preempted.
+ * Preempt the current process if in interrupt from user mode,
+ * or after the current trap/syscall if in system mode.
  */
-#define	need_resched() \
-	if (curproc) curproc->p_md.md_flags |= MDP_AST | MDP_RESCHED
+#define	need_resched()	{ want_resched++; aston(); }
 
 /*
  * Give a profiling tick to the current process from the softclock
- * interrupt.
+ * interrupt.  On tahoe, request an ast to send us through trap(),
+ * marking the proc as needing a profiling tick.
  */
-#define	profile_tick(p, fp) addupc((fp)->cf_eip, &(p)->p_stats->p_prof, 1)
+#define	profile_tick(p, framep)	{ (p)->p_flag |= P_OWEUPC; aston(); }
 
 /*
  * Notify the current process (p) that it has a signal pending,
  * process as soon as possible.
  */
-#define	cpu_signotify(p)	(p)->p_md.md_flags |= MDP_AST
+#define	signotify(p)	aston()
 
-extern int	sclkpending;	/* need to do a softclock() on return to basepri */
-extern int	netpending;	/* need to do a netintr() on return to basepri */
-extern volatile int	cpl;	/* current priority level(mask) of interrupt controller */
+#define aston() (astpending++)
 
-/* global bit vector of options */
-extern int	cpu_option;
+extern int	astpending;		/* need to trap before returning to user mode */
+extern int	want_resched;		/* resched() was called */
 
-/* various processor dependant options, referenced during execution */
-#define	CPU_386_KR	0x00000001	/* simulate kernel read protection */
-#define	CPU_486_INVC	0x00000002	/* use instructions to invalidate cache on I/O */
-#define	CPU_486_INVTLB	0x00000004	/* invalidate TLB cache by pages */
-#define	CPU_486_NPXEXCP	0x00000008	/* npx exception instead of interrupt */
-#define	CPU_486_ALIGN	0x00000010	/* align exception */
-#define	CPU_PENT_WBACK	0x00000020	/* pentium write back cache */
-#define	CPU_PENT_4MBPG	0x00000040	/* pentium 4MB pages */
+/*
+ * Kinds of processor
+ */
 
-/* by default, a 386 should ... */
-#define	CPU_386_DEFAULT		(CPU_386_KR)
+#define	CPU_386SX	0
+#define	CPU_386		1
+#define	CPU_486SX	2
+#define	CPU_486		3
+#define	CPU_586		4
 
-/* by default, a 486 should ... */
-#define	CPU_486_DEFAULT		(CPU_486_NPXEXCP)
+/*
+ * CTL_MACHDEP definitions.
+ */
+#define	CPU_CONSDEV		1	/* dev_t: console terminal device */
+#define	CPU_MAXID		2	/* number of valid machdep ids */
 
-/* by default, a pentium should ... */
-#define	CPU_PENT_DEFAULT	(CPU_PENT_WBACK)
-
-/* which process context holds the coprocessor(NPX), if any */
-extern struct	proc	*npxproc;
-
-#endif
+#define CTL_MACHDEP_NAMES { \
+	{ 0, 0 }, \
+	{ "console_device", CTLTYPE_STRUCT }, \
+}

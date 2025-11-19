@@ -74,6 +74,10 @@
 struct	arptab arptab[ARPTAB_SIZE];
 int	arptab_size = ARPTAB_SIZE;	/* for arp command */
 
+/* Global ARP variables */
+struct ifqueue arpintrq;		/* ARP packet input queue */
+struct llinfo_arp llinfo_arp;		/* head of the llinfo queue */
+
 /*
  * ARP trailer negotiation.  Trailer protocol is not IP specific,
  * but ARP request/response use IP addresses.

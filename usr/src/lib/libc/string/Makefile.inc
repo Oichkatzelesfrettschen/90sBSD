@@ -12,7 +12,7 @@ SRCS+=	bcmp.s bcopy.s bzero.s ffs.s index.s memchr.c memcmp.c memset.c \
 	strncat.c strncmp.s strncpy.s strpbrk.c strsep.c \
 	strspn.c strstr.c
 .elif (${MACHINE} == "i386")
-SRCS+=	bcmp.c bcopy.c bzero.s ffs.c index.c memchr.c memcmp.c memset.c \
+SRCS+=	bcmp.c bcopy.c bzero.c ffs.c index.c memchr.c memcmp.c memset.c \
 	rindex.c strcat.c strcmp.c strcpy.c strcspn.c strlen.c \
 	strncat.c strncmp.c strncpy.c strpbrk.c strsep.c \
 	strspn.c strstr.c
@@ -34,56 +34,76 @@ SRCS+=	memmove.s strchr.s strrchr.s
 .if empty(SRCS:Mmemmove.s)
 OBJS+=	memmove.o
 memmove.o: bcopy.c
-	${CC} -DMEMMOVE ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMMOVE ${CFLAGS} -c ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 memmove.po: bcopy.c
-	${CC} -DMEMMOVE ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMMOVE ${CFLAGS} -c -p ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+memmove.pico: bcopy.c
+	${CC} -DMEMMOVE ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/bcopy.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific memcpy(3), build one out of bcopy(3).
 .if empty(SRCS:Mmemcpy.s)
 OBJS+=	memcpy.o
 memcpy.o: bcopy.c
-	${CC} -DMEMCOPY ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMCOPY ${CFLAGS} -c ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 memcpy.po: bcopy.c
-	${CC} -DMEMCOPY ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMCOPY ${CFLAGS} -c -p ${.CURDIR}/string/bcopy.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+memcpy.pico: bcopy.c
+	${CC} -DMEMCOPY ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/bcopy.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific strchr(3), build one out of index(3).
 .if empty(SRCS:Mstrchr.s)
 OBJS+=	strchr.o
 strchr.o: index.c
-	${CC} -DSTRCHR ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRCHR ${CFLAGS} -c ${.CURDIR}/string/index.c -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 strchr.po: index.c
-	${CC} -DSTRCHR ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRCHR ${CFLAGS} -c -p ${.CURDIR}/string/index.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+strchr.pico: index.c
+	${CC} -DSTRCHR ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/index.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 # if no machine specific strrchr(3), build one out of rindex(3).
 .if empty(SRCS:Mstrrchr.s)
 OBJS+=	strrchr.o
 strrchr.o: rindex.c
-	${CC} -DSTRRCHR ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRRCHR ${CFLAGS} -c ${.CURDIR}/string/rindex.c -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 strrchr.po: rindex.c
-	${CC} -DSTRRCHR ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRRCHR ${CFLAGS} -c -p ${.CURDIR}/string/rindex.c -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+strrchr.pico: rindex.c
+	${CC} -DSTRRCHR ${CFLAGS} -c -fpic -DPIC ${.CURDIR}/string/rindex.c -o ${.TARGET}.o
+	@${LD} -x -r ${.TARGET}.o -o ${.TARGET}
+	@rm -f ${.TARGET}.o
 .endif
 
 MAN3+=	bcmp.0 bcopy.0 bstring.0 bzero.0 ffs.0 index.0 memccpy.0 memchr.0 \

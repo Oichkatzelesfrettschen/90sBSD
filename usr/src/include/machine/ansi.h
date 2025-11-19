@@ -54,4 +54,13 @@
 #define	_VA_LIST_	char *			/* va_list */
 #define	_WCHAR_T_	unsigned short		/* wchar_t */
 
+/* BSD variants needed by kernel headers */
+#define	_BSD_CLOCK_T_	unsigned long
+#define	_BSD_PTRDIFF_T_	int
+#define	_BSD_SIZE_T_	unsigned int
+#define	_BSD_SSIZE_T_	int
+#define	_BSD_TIME_T_	long
+#define	_BSD_VA_LIST_	char *
+#define	_BSD_WCHAR_T_	unsigned short
+
 #endif	/* _ANSI_H_ */

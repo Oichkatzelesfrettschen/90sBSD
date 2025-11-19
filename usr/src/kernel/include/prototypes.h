@@ -31,7 +31,7 @@ int	_ENOTTY_ (void);
 int	_ENXIO_ (void);
 int	_EOPNOTSUPP_ (void);
 __ISYM__(int, seltrue, (dev_t dev, int which, struct proc *p))
-void	selwakeup(pid_t pid, int coll);
+/* selwakeup() is declared in sys/select.h */
 
 __ISYM__(void, panic, (const char *))
 __ISYM__(void, tablefull, (char *))
@@ -43,16 +43,16 @@ int	sprintf (char *buf, const char *, ...);
 void	ttyprintf (struct tty *, const char *, ...);
 
 int	 memcmp (const void *, const void *, size_t);
-void	*memcpy (void *, const void *, size_t);
+/* void	*memcpy (void *, const void *, size_t); */  /* now static inline */
 __ISYM__(void *, memmove, (void *, const void *, size_t))
-void	*memset (void *, int, size_t);
+/* void	*memset (void *, int, size_t); */  /* now static inline */
 
 char	*strcat (char *, const char *);
 char	*strcpy (char *, const char *);
 size_t	 strlen (const char *);
 char	*strncpy (char *, const char *, size_t);
 
-int	copystr (void *kfaddr, void *kdaddr, u_int len, u_int *done);
+/* int	copystr (void *kfaddr, void *kdaddr, u_int len, u_int *done); */  /* now static inline */
 int	copyinstr (struct proc *, void *udaddr, void *kaddr, u_int len, u_int *done);
 int	copyoutstr (struct proc *, void *kaddr, void *udaddr, u_int len, u_int *done);
 __ISYM__(int, copyin, (struct proc *, void *udaddr, void *kaddr, u_int len))

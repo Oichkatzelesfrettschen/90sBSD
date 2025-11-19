@@ -123,7 +123,7 @@ struct socket {
 /* determine the amount of space remaining in the buffer to fill it. */
 extern u_long inline
 sbspace(struct sockbuf *sb) {
-	u_long ulmin(u_long, u_long);
+	/* u_long ulmin(u_long, u_long); */  /* now static inline in kernel.h */
 
 	/* logical or physical buffer overflow ? */
 	if (sb->sb_cc > sb->sb_hiwat || sb->sb_mbcnt > sb->sb_mbmax)

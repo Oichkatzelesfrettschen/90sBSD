@@ -308,7 +308,8 @@ struct dos_partition {
 	unsigned char	dp_ecyl;	/* end cylinder */
 	unsigned long	dp_start;	/* absolute starting sector number */
 	unsigned long	dp_size;	/* partition size in sectors */
-} dos_partitions[NDOSPART];
+};
+extern struct dos_partition dos_partitions[NDOSPART];
 
 #define	DPSECT(s) ((s) & 0x3f)		/* isolate relevant bits of sector */
 #define	DPCYL(c, s) ((c) + (((s) & 0xc0)<<2)) /* and those that are cylinder */
@@ -342,12 +343,12 @@ int dkcksum(struct disklabel *);
 int setdisklabel(struct disklabel *, struct disklabel *, u_long,
 	struct dos_partition *);
 
-char *readdisklabel(int, int (*)(), struct disklabel *,
+char *readdisklabel(dev_t, int (*)(), struct disklabel *,
 	struct dos_partition *, struct dkbad *, struct buf **);
 
 void disksort(struct buf *, struct buf *);
 
-int writedisklabel(int, int (*)(), struct disklabel *,
+int writedisklabel(dev_t, int (*)(), struct disklabel *,
 		struct dos_partition *);
 
 int bounds_check_with_label(struct buf *, struct disklabel *, int);

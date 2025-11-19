@@ -1,6 +1,6 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1990, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * William Jolitz.
@@ -33,7 +33,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id$
+ *	@(#)param.h	8.3 (Berkeley) 5/14/95
  */
 
 /*
@@ -41,13 +41,14 @@
  */
 
 #define MACHINE "i386"
+#define NCPUS 1
 
 /*
- * Round p (pointer or byte index) up to a correctly-aligned value
- * for all data types (int, long, ...).   The result is u_int and
- * must be cast to any desired pointer type.
+ * Round p (pointer or byte index) up to a correctly-aligned value for all
+ * data types (int, long, ...).   The result is u_int and must be cast to
+ * any desired pointer type.
  */
-#define	ALIGNBYTES	(sizeof(int) - 1)
+#define	ALIGNBYTES	3
 #define	ALIGN(p)	(((u_int)(p) + ALIGNBYTES) &~ ALIGNBYTES)
 
 #define	NBPG		4096		/* bytes/page */
@@ -59,11 +60,8 @@
 #define	PDROFSET	(NBPDR-1)	/* byte offset into page dir */
 #define	PDRSHIFT	22		/* LOG2(NBPDR) */
 
-#ifndef	KERNBASE
-#define	KERNBASE	0xFE000000UL	/* start of kernel virtual */
-#endif
+#define	KERNBASE	0xFE000000	/* start of kernel virtual */
 #define	BTOPKERNBASE	((u_long)KERNBASE >> PGSHIFT)
-#define	ENDUSERMEM	(KERNBASE - NBPDR)
 
 #define	DEV_BSIZE	512
 #define	DEV_BSHIFT	9		/* log2(DEV_BSIZE) */
@@ -87,7 +85,7 @@
  * of the hardware page size.
  */
 #define	MSIZE		128		/* size of an mbuf */
-#define	MCLBYTES	2048		/* contains a full ethernet packet */
+#define	MCLBYTES	1024
 #define	MCLSHIFT	10
 #define	MCLOFSET	(MCLBYTES - 1)
 #ifndef NMBCLUSTERS
@@ -102,7 +100,7 @@
  * Size of kernel malloc arena in CLBYTES-sized logical pages
  */ 
 #ifndef NKMEMCLUSTERS
-#define	NKMEMCLUSTERS	(4096*1024/CLBYTES)
+#define	NKMEMCLUSTERS	(2048*1024/CLBYTES)
 #endif
 /*
  * Some macros for units conversion
@@ -123,9 +121,9 @@
 #define	btoc(x)	(((unsigned)(x)+(NBPG-1))>>PGSHIFT)
 
 #define	btodb(bytes)	 		/* calculates (bytes / DEV_BSIZE) */ \
-	((unsigned)(bytes) >> DEV_BSHIFT)
+	((bytes) >> DEV_BSHIFT)
 #define	dbtob(db)			/* calculates (db * DEV_BSIZE) */ \
-	((unsigned)(db) << DEV_BSHIFT)
+	((db) << DEV_BSHIFT)
 
 /*
  * Map a ``block device block'' to a file system block.
@@ -148,23 +146,65 @@
 #define i386_ptob(x)		((unsigned)(x) << PGSHIFT)
 
 #ifndef KERNEL
-#define	DELAY(n)	{ volatile int cnt = (n); while (--cnt > 0); }
-#else
-/* interface symbols */
-#define	__ISYM_VERSION__ "1"	/* XXX RCS major revision number of hdr file */
-#include "isym.h"		/* this header has interface symbols */
-
-__ISYM__(int, loops_per_usec,)		/*  */
-
-#undef __ISYM__
-#undef __ISYM_ALIAS__
-#undef __ISYM_VERSION__
-
-#define	DELAY(n) ({					\
-	/* extern int loops_per_usec; */			\
-	volatile int cnt = loops_per_usec * (n);	\
-							\
-	 while (--cnt > 0)				\
-		;					\
-})
+/* DELAY is in locore.s for the kernel */
+#define	DELAY(n)	{ register int N = (n); while (--N > 0); }
 #endif
+
+#ifndef _SIMPLELOCK_H_
+#define _SIMPLELOCK_H_
+/*
+ * A simple spin lock.
+ *
+ * This structure only sets one bit of data, but is sized based on the
+ * minimum word size that can be operated on by the hardware test-and-set
+ * instruction. It is only needed for multiprocessors, as uniprocessors
+ * will always run to completion or a sleep. It is an error to hold one
+ * of these locks while a process is sleeping.
+ */
+struct simplelock {
+	int	lock_data;
+};
+
+#if !defined(DEBUG) && NCPUS > 1
+/*
+ * The simple-lock routines are the primitives out of which the lock
+ * package is built. The machine-dependent code must implement an
+ * atomic test_and_set operation that indivisibly sets the simple lock
+ * to non-zero and returns its old value. It also assumes that the
+ * setting of the lock to zero below is indivisible. Simple locks may
+ * only be used for exclusive locks.
+ */
+static __inline void
+simple_lock_init(lkp)
+	struct simplelock *lkp;
+{
+
+	lkp->lock_data = 0;
+}
+
+static __inline void
+simple_lock(lkp)
+	__volatile struct simplelock *lkp;
+{
+
+	while (test_and_set(&lkp->lock_data))
+		continue;
+}
+
+static __inline int
+simple_lock_try(lkp)
+	__volatile struct simplelock *lkp;
+{
+
+	return (!test_and_set(&lkp->lock_data))
+}
+
+static __inline void
+simple_unlock(lkp)
+	__volatile struct simplelock *lkp;
+{
+
+	lkp->lock_data = 0;
+}
+#endif /* NCPUS > 1 */
+#endif /* !_SIMPLELOCK_H_ */

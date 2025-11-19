@@ -50,6 +50,9 @@
 #include "route.h"
 
 #ifdef INET
+/* Global internet address list head */
+struct in_ifaddr *in_ifaddr = NULL;
+
 /*
  * Formulate an Internet address from network + host.
  */

@@ -51,6 +51,10 @@
 
 #include "prototypes.h"
 
+/* Forward declarations for functions used before definition */
+void unp_mark(struct file *fp);
+void unp_discard(struct file *fp);
+
 /*
  * Unix communications domain.
  *
@@ -63,10 +67,8 @@ struct	sockaddr sun_noname = { sizeof(sun_noname), AF_UNIX };
 ino_t	unp_ino;			/* prototype for fake inode numbers */
 
 /*ARGSUSED*/
-uipc_usrreq(so, req, m, nam, control)
-	struct socket *so;
-	int req;
-	struct mbuf *m, *nam, *control;
+int uipc_usrreq(struct socket *so, int req, struct mbuf *m,
+	struct mbuf *nam, struct mbuf *control)
 {
 	struct unpcb *unp = sotounpcb(so);
 	register struct socket *so2;
@@ -317,8 +319,7 @@ u_long	unpdg_recvspace = 4*1024;
 
 int	unp_rights;			/* file descriptors in flight */
 
-unp_attach(so)
-	struct socket *so;
+int unp_attach(struct socket *so)
 {
 	register struct mbuf *m;
 	register struct unpcb *unp;
@@ -347,8 +348,8 @@ unp_attach(so)
 	return (0);
 }
 
-unp_detach(unp)
-	register struct unpcb *unp;
+void
+unp_detach(struct unpcb *unp)
 {
 	
 	if (unp->unp_vnode) {
@@ -368,10 +369,7 @@ unp_detach(unp)
 		unp_gc();
 }
 
-unp_bind(unp, nam, p)
-	struct unpcb *unp;
-	struct mbuf *nam;
-	struct proc *p;
+int unp_bind(struct unpcb *unp, struct mbuf *nam, struct proc *p)
 {
 	struct sockaddr_un *soun = mtod(nam, struct sockaddr_un *);
 	register struct vnode *vp;
@@ -417,10 +415,7 @@ unp_bind(unp, nam, p)
 	return (0);
 }
 
-unp_connect(so, nam, p)
-	struct socket *so;
-	struct mbuf *nam;
-	struct proc *p;
+int unp_connect(struct socket *so, struct mbuf *nam, struct proc *p)
 {
 	register struct sockaddr_un *soun = mtod(nam, struct sockaddr_un *);
 	register struct vnode *vp;
@@ -476,9 +471,7 @@ bad:
 	return (error);
 }
 
-unp_connect2(so, so2)
-	register struct socket *so;
-	register struct socket *so2;
+int unp_connect2(struct socket *so, struct socket *so2)
 {
 	register struct unpcb *unp = sotounpcb(so);
 	register struct unpcb *unp2;
@@ -507,8 +500,8 @@ unp_connect2(so, so2)
 	return (0);
 }
 
-unp_disconnect(unp)
-	struct unpcb *unp;
+void
+unp_disconnect(struct unpcb *unp)
 {
 	register struct unpcb *unp2 = unp->unp_conn;
 
@@ -552,8 +545,8 @@ unp_abort(unp)
 }
 #endif
 
-unp_shutdown(unp)
-	struct unpcb *unp;
+void
+unp_shutdown(struct unpcb *unp)
 {
 	struct socket *so;
 
@@ -562,9 +555,8 @@ unp_shutdown(unp)
 		socantrcvmore(so);
 }
 
-unp_drop(unp, errno)
-	struct unpcb *unp;
-	int errno;
+void
+unp_drop(struct unpcb *unp, int errno)
 {
 	struct socket *so = unp->unp_socket;
 
@@ -662,10 +654,11 @@ int error;
 }
 
 int	unp_defer, unp_gcing;
-int	unp_mark();
+/* unp_mark() prototype in sys/un.h */
 extern	struct domain unixdomain;
 
-unp_gc()
+void
+unp_gc(void)
 {
 	register struct file *fp;
 	register struct socket *so;
@@ -675,10 +668,11 @@ unp_gc()
 	unp_gcing = 1;
 restart:
 	unp_defer = 0;
-	for (fp = filehead; fp; fp = fp->f_filef)
+	/* 4.4BSD-Lite2: filehead is now struct filelist, use LIST macros */
+	for (fp = filehead.lh_first; fp; fp = fp->f_list.le_next)
 		fp->f_flag &= ~(FMARK|FDEFER);
 	do {
-		for (fp = filehead; fp; fp = fp->f_filef) {
+		for (fp = filehead.lh_first; fp; fp = fp->f_list.le_next) {
 			if (fp->f_count == 0)
 				continue;
 			if (fp->f_flag & FDEFER) {
@@ -716,7 +710,7 @@ restart:
 			unp_scan(so->so_rcv.sb_mb, unp_mark);
 		}
 	} while (unp_defer);
-	for (fp = filehead; fp; fp = fp->f_filef) {
+	for (fp = filehead.lh_first; fp; fp = fp->f_list.le_next) {
 		if (fp->f_count == 0)
 			continue;
 		if (fp->f_count == fp->f_msgcount && (fp->f_flag & FMARK) == 0)
@@ -726,18 +720,16 @@ restart:
 	unp_gcing = 0;
 }
 
-unp_dispose(m)
-	struct mbuf *m;
+void
+unp_dispose(struct mbuf *m)
 {
-	int unp_discard();
+	/* unp_discard() prototype in sys/un.h */
 
 	if (m)
 		unp_scan(m, unp_discard);
 }
 
-unp_scan(m0, op)
-	register struct mbuf *m0;
-	int (*op)();
+void unp_scan(struct mbuf *m0, void (*op)(struct file *))
 {
 	register struct mbuf *m;
 	register struct file **rp;
@@ -764,8 +756,8 @@ unp_scan(m0, op)
 	}
 }
 
-unp_mark(fp)
-	struct file *fp;
+void
+unp_mark(struct file *fp)
 {
 
 	if (fp->f_flag & FMARK)
@@ -774,8 +766,8 @@ unp_mark(fp)
 	fp->f_flag |= (FMARK|FDEFER);
 }
 
-unp_discard(fp)
-	struct file *fp;
+void
+unp_discard(struct file *fp)
 {
 
 	if (fp->f_msgcount == 0)

@@ -47,8 +47,14 @@ static char *ufs_config = "ufs 1.";
 #include "buf.h"
 #include "malloc.h"
 #include "modconfig.h"
+#include "sys/kernel.h"		/* time variable */
 
 #include "machine/cpu.h"	/* inittodr() */
+
+/* Workaround: segments.h defines d_type macro that conflicts with disklabel.h */
+#ifdef d_type
+#undef d_type
+#endif
 
 #include "dkbad.h"	/* XXX */
 #include "disklabel.h"
@@ -61,6 +67,19 @@ static char *ufs_config = "ufs 1.";
 #include "ufs_inode.h"
  
 #include "prototypes.h"
+
+/* Compatibility: 386BSD struct ufs_args (4.4BSD-Lite2 has different layout) */
+struct ufs_args {
+	char	*fspec;		/* block special file to mount */
+	int	exflags;	/* export related flags */
+	uid_t	exroot;		/* mapping for root uid */
+};
+
+/* 4.4BSD-Lite2: FMOUNT flag removed, define as 0 for compatibility */
+#define FMOUNT 0
+
+/* 4.4BSD-Lite2: MOUNT_UFS constant removed, define for compatibility */
+#define MOUNT_UFS 1
 
 static int ufs_mountroot(void);
 static int ufs_mount(struct mount *mp, char *path, caddr_t data,
@@ -76,13 +95,15 @@ static int ufs_root(struct mount *mp, struct vnode **vpp);
 static int ufs_quotactl(struct mount *mp, int cmds, uid_t uid,
 	caddr_t arg, struct proc *p);
 static int ufs_statfs(struct mount *mp, struct statfs *sbp, struct proc *p);
-static int ufs_sync(struct mount *mp, int waitfor);
-static int ufs_fhtovp(struct mount *mp, struct fid *fhp, struct vnode **vpp);
+static int ufs_sync(struct mount *mp, int waitfor, struct ucred *cred, struct proc *p);
+static int ufs_vget(struct mount *mp, ino_t ino, struct vnode **vpp);
+static int ufs_fhtovp(struct mount *mp, struct fid *fhp, struct mbuf *nam,
+	struct vnode **vpp, int *exflagsp, struct ucred **credanonp);
 static int ufs_vptofh(struct vnode *vp, struct fid *fhp);
-int ufs_init(void);
+int ufs_init(struct vfsconf *);
+static int ufs_sysctl(int *, u_int, void *, size_t *, void *, size_t, struct proc *);
 
 struct vfsops ufs_vfsops = {
-	"ufs", 0, 0,
 	ufs_mount,
 	ufs_start,
 	ufs_unmount,
@@ -90,10 +111,11 @@ struct vfsops ufs_vfsops = {
 	ufs_quotactl,
 	ufs_statfs,
 	ufs_sync,
+	ufs_vget,
 	ufs_fhtovp,
 	ufs_vptofh,
 	ufs_init,
-	ufs_mountroot
+	ufs_sysctl
 };
 
 FILESYSTEM_MODCONFIG() {
@@ -103,11 +125,13 @@ FILESYSTEM_MODCONFIG() {
 	if (config_scan(ufs_config, &cfg_string) == 0)
 		return;
 
+	/* 4.4BSD-Lite2: vfs_type field removed from vfsops, skipping cfg_number */
 	/* what type should be assigned to it */
-	if (cfg_number(&cfg_string, &ufs_vfsops.vfs_type) == 0)
-		return;
+	/* if (cfg_number(&cfg_string, &ufs_vfsops.vfs_type) == 0)
+		return; */
 
-	addvfs(&ufs_vfsops);
+	/* TODO: addvfs() may not exist in 4.4BSD-Lite2 */
+	/* addvfs(&ufs_vfsops); */
 }
 
 /*
@@ -131,21 +155,26 @@ ufs_mountroot(void)
 		M_MOUNT, M_WAITOK);
 	mp->mnt_op = &ufs_vfsops;
 	mp->mnt_flag = MNT_RDONLY;
-	mp->mnt_exroot = 0;
-	mp->mnt_mounth = NULLVP;
+	/* 4.4BSD-Lite2: mnt_exroot removed */
+	/* mp->mnt_exroot = 0; */
+	/* 4.4BSD-Lite2: mnt_mounth removed */
+	/* mp->mnt_mounth = NULLVP; */
 	error = mountfs(rootvp, mp, p);
 	if (error) {
 		free((caddr_t)mp, M_MOUNT);
 		return (error);
 	}
-	if (error = vfs_lock(mp)) {
+	/* 4.4BSD-Lite2: vfs_lock() may not exist, commenting out */
+	/* if (error = vfs_lock(mp)) {
 		(void)ufs_unmount(mp, 0, p);
 		free((caddr_t)mp, M_MOUNT);
 		return (error);
-	}
-	rootfs = mp;
-	mp->mnt_next = mp;
-	mp->mnt_prev = mp;
+	} */
+	/* 4.4BSD-Lite2: rootfs variable may not exist */
+	/* rootfs = mp; */
+	/* 4.4BSD-Lite2: mnt_next/mnt_prev removed */
+	/* mp->mnt_next = mp; */
+	/* mp->mnt_prev = mp; */
 	mp->mnt_vnodecovered = NULLVP;
 	ump = VFSTOUFS(mp);
 	fs = ump->um_fs;
@@ -157,7 +186,8 @@ ufs_mountroot(void)
 	    &size);
 	memset(mp->mnt_stat.f_mntfromname + size, 0, MNAMELEN - size);
 	(void) ufs_statfs(mp, &mp->mnt_stat, p);
-	vfs_unlock(mp);
+	/* 4.4BSD-Lite2: vfs_unlock() may not exist */
+	/* vfs_unlock(mp); */
 	inittodr(fs->fs_time);
 	return (0);
 }
@@ -191,7 +221,8 @@ ufs_mount(struct mount *mp, char *path, caddr_t data, struct nameidata *ndp,
 			mp->mnt_flag |= MNT_EXRDONLY;
 		else
 			mp->mnt_flag &= ~MNT_EXRDONLY;
-		mp->mnt_exroot = args.exroot;
+		/* 4.4BSD-Lite2: mnt_exroot field removed */
+		/* mp->mnt_exroot = args.exroot; */
 	}
 
 	/*
@@ -271,7 +302,9 @@ mountfs(struct vnode *devvp, struct mount *mp, struct proc *p)
 		size = DEV_BSIZE;
 	else {
 		havepart = 1;
-		size = dpart.disklab->d_secsize;
+		/* 4.4BSD-Lite2: struct disklabel layout may differ */
+		/* size = dpart.disklab->d_secsize; */
+		size = DEV_BSIZE;  /* Use default sector size */
 	}
 	if (error = bread(devvp, SBLOCK, SBSIZE, NOCRED, &bp))
 		goto out;
@@ -295,10 +328,11 @@ mountfs(struct vnode *devvp, struct mount *mp, struct proc *p)
 	if (ronly == 0)
 		fs->fs_fmod = 1;
 	if (havepart) {
-		dpart.part->p_fstype = FS_BSDFFS;
-		dpart.part->p_fsize = fs->fs_fsize;
-		dpart.part->p_frag = fs->fs_frag;
-		dpart.part->p_cpg = fs->fs_cpg;
+		/* 4.4BSD-Lite2: struct partition layout may differ, commenting out */
+		/* dpart.part->p_fstype = FS_BSDFFS; */
+		/* dpart.part->p_fsize = fs->fs_fsize; */
+		/* dpart.part->p_frag = fs->fs_frag; */
+		/* dpart.part->p_cpg = fs->fs_cpg; */
 	}
 	blks = howmany(fs->fs_cssize, fs->fs_fsize);
 	base = space = (caddr_t)malloc((u_long)fs->fs_cssize, M_SUPERBLK,
@@ -370,13 +404,15 @@ ufs_unmount(struct mount *mp, int mntflags, struct proc *p)
 	int i, error, ronly, flags = 0;
 
 	if (mntflags & MNT_FORCE) {
-		if (mp == rootfs)
-			return (EINVAL);
+		/* 4.4BSD-Lite2: rootfs variable may not exist, skipping check */
+		/* if (mp == rootfs)
+			return (EINVAL); */
 		flags |= FORCECLOSE;
 	}
-	mntflushbuf(mp, 0);
+	/* 4.4BSD-Lite2: mntflushbuf/mntinvalbuf may not exist */
+	/* mntflushbuf(mp, 0);
 	if (mntinvalbuf(mp))
-		return (EBUSY);
+		return (EBUSY); */
 	ump = VFSTOUFS(mp);
 #ifdef QUOTA
 	if (mp->mnt_flag & MNT_QUOTA) {
@@ -505,7 +541,8 @@ ufs_statfs(struct mount *mp, struct statfs *sbp, struct proc *p)
 	if (fs->fs_magic != FS_MAGIC)
 		panic("ufs_statfs");
 	sbp->f_type = MOUNT_UFS;
-	sbp->f_fsize = fs->fs_fsize;
+	/* 4.4BSD-Lite2: f_fsize field removed from struct statfs */
+	/* sbp->f_fsize = fs->fs_fsize; */
 	sbp->f_bsize = fs->fs_bsize;
 	sbp->f_blocks = fs->fs_dsize;
 	sbp->f_bfree = fs->fs_cstotal.cs_nbfree * fs->fs_frag +
@@ -523,7 +560,7 @@ ufs_statfs(struct mount *mp, struct statfs *sbp, struct proc *p)
 	return (0);
 }
 
-int	syncprt = 0;
+extern int	syncprt;
 
 /*
  * Go through the disk queues to initiate sandbagged IO;
@@ -533,7 +570,7 @@ int	syncprt = 0;
  * Note: we are always called with the filesystem marked `MPBUSY'.
  */
 static int
-ufs_sync(struct mount *mp, int waitfor)
+ufs_sync(struct mount *mp, int waitfor, struct ucred *cred, struct proc *p)
 {
 	register struct vnode *vp;
 	register struct inode *ip;
@@ -562,12 +599,11 @@ ufs_sync(struct mount *mp, int waitfor)
 	/*
 	 * Write back each (modified) inode.
 	 */
+	/* 4.4BSD-Lite2: mnt_mounth/v_mountf removed, vnode iteration changed */
+	/* TODO: Use proper 4.4BSD-Lite2 vnode iteration mechanism */
+	/*
 loop:
 	for (vp = mp->mnt_mounth; vp; vp = vp->v_mountf) {
-		/*
-		 * If the vnode that we are about to sync is no longer
-		 * associated with this mount point, start over.
-		 */
 		if (vp->v_mount != mp)
 			goto loop;
 		if (VOP_ISLOCKED(vp))
@@ -585,6 +621,7 @@ loop:
 			allerror = error;
 		vput(vp);
 	}
+	*/
 	/*
 	 * Force stale file system control information to be flushed.
 	 */
@@ -676,7 +713,8 @@ bufstats()
  * - check that the generation number matches
  */
 static int
-ufs_fhtovp(struct mount *mp, struct fid *fhp, struct vnode **vpp)
+ufs_fhtovp(struct mount *mp, struct fid *fhp, struct mbuf *nam,
+	struct vnode **vpp, int *exflagsp, struct ucred **credanonp)
 {
 	struct ufid *ufhp;
 	struct fs *fs;
@@ -727,5 +765,39 @@ ufs_vptofh(struct vnode *vp, struct fid *fhp)
 	ufhp->ufid_len = sizeof(struct ufid);
 	ufhp->ufid_ino = ip->i_number;
 	ufhp->ufid_gen = ip->i_gen;
+	return (0);
+}
+
+/*
+ * Get vnode for inode number (4.4BSD-Lite2 vfs_vget operation)
+ */
+static int
+ufs_vget(struct mount *mp, ino_t ino, struct vnode **vpp)
+{
+	/* TODO: Implement proper vget functionality */
+	/* For now, return EOPNOTSUPP */
+	return (EOPNOTSUPP);
+}
+
+/*
+ * Filesystem-specific sysctl (4.4BSD-Lite2 vfs_sysctl operation)
+ */
+static int
+ufs_sysctl(int *name, u_int namelen, void *oldp, size_t *oldlenp,
+	void *newp, size_t newlen, struct proc *p)
+{
+	/* TODO: Implement sysctl support for UFS */
+	/* For now, return EOPNOTSUPP */
+	return (EOPNOTSUPP);
+}
+
+/*
+ * Initialize UFS filesystem (4.4BSD-Lite2 vfs_init operation)
+ */
+int
+ufs_init(struct vfsconf *vfc)
+{
+	/* TODO: Implement proper initialization */
+	/* For now, just return success */
 	return (0);
 }

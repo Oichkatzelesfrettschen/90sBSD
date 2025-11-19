@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)isctype.c	5.2 (Berkeley) 6/1/90";
 #include <ctype.h>
 
 #undef isalnum
+int
 isalnum(c)
 	int c;
 {
@@ -46,6 +47,7 @@ isalnum(c)
 }
 
 #undef isalpha
+int
 isalpha(c)
 	int c;
 {
@@ -53,6 +55,7 @@ isalpha(c)
 }
 
 #undef iscntrl
+int
 iscntrl(c)
 	int c;
 {
@@ -60,6 +63,7 @@ iscntrl(c)
 }
 
 #undef isdigit
+int
 isdigit(c)
 	int c;
 {
@@ -67,6 +71,7 @@ isdigit(c)
 }
 
 #undef isgraph
+int
 isgraph(c)
 	int c;
 {
@@ -74,6 +79,7 @@ isgraph(c)
 }
 
 #undef islower
+int
 islower(c)
 	int c;
 {
@@ -81,6 +87,7 @@ islower(c)
 }
 
 #undef isprint
+int
 isprint(c)
 	int c;
 {
@@ -88,6 +95,7 @@ isprint(c)
 }
 
 #undef ispunct
+int
 ispunct(c)
 	int c;
 {
@@ -95,6 +103,7 @@ ispunct(c)
 }
 
 #undef isspace
+int
 isspace(c)
 	int c;
 {
@@ -102,6 +111,7 @@ isspace(c)
 }
 
 #undef isupper
+int
 isupper(c)
 	int c;
 {
@@ -109,6 +119,7 @@ isupper(c)
 }
 
 #undef isxdigit
+int
 isxdigit(c)
 	int c;
 {
@@ -116,6 +127,7 @@ isxdigit(c)
 }
 
 #undef tolower
+int
 tolower(c)
 	int c;
 {
@@ -126,6 +138,7 @@ tolower(c)
 }
 
 #undef toupper
+int
 toupper(c)
 	int c;
 {

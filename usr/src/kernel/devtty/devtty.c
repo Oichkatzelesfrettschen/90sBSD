@@ -55,7 +55,7 @@ static char *ctty_config =
 
 #include "prototypes.h"
 
-#define cttyvp(p) ((p)->p_flag&SCTTY ? (p)->p_session->s_ttyvp : NULL)
+#define cttyvp(p) ((p)->p_flag&P_CONTROLT ? (p)->p_session->s_ttyvp : NULL)
 
 int
 cttyopen(dev_t dev, int flag, int mode, struct proc *p)
@@ -111,7 +111,7 @@ cttyioctl(dev_t dev, int cmd, caddr_t addr, int flag, struct proc *p)
 		return (EIO);
 	if (cmd == TIOCNOTTY) {
 		if (!SESS_LEADER(p)) {
-			p->p_flag &= ~SCTTY;
+			p->p_flag &= ~P_CONTROLT;
 			return (0);
 		} else
 			return (EINVAL);

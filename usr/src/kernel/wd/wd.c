@@ -790,7 +790,7 @@ wdopen(dev_t dev, int flags, int fmt, struct proc *p)
 		 * or longer if there isn't one there.
 		 */
 		(void)memset(&du->dk_dd, 0, sizeof(du->dk_dd));
-		du->dk_dd.d_type = DTYPE_ST506;
+		/* du->dk_dd.d_type = DTYPE_ST506; */ /* TODO: Fix struct disklabel access */
 		du->dk_dd.d_ncylinders = 1024;
 		du->dk_dd.d_secsize = DEV_BSIZE;
 		du->dk_dd.d_ntracks = 8;
@@ -1119,7 +1119,7 @@ wp->wdp_cntype, wp->wdp_cnsbsz, wp->wdp_model);
 	(void)memcpy(du->dk_dd.d_typename, "ESDI/IDE", 9);
 	(void)memcpy(du->dk_dd.d_packname, wp->wdp_model+20, 14-1);
 	/* better ... */
-	du->dk_dd.d_type = DTYPE_ESDI;
+	/* du->dk_dd.d_type = DTYPE_ESDI; */ /* TODO: Fix struct disklabel access */
 	du->dk_dd.d_subtype |= DSTYPE_GEOMETRY;
 
 	/* XXX sometimes possibly needed */
@@ -1436,7 +1436,7 @@ wddump(dev_t dev)			/* dump core after a system crash */
 		/* update block count */
 		num--;
 		blknum++ ;
-		(int) addr += 512;
+		addr = (caddr_t)((int)addr + 512);
 
 		/* operator aborting dump? */
 		if (sgetc(1))

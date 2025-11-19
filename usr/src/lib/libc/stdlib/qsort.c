@@ -50,14 +50,14 @@ static char sccsid[] = "@(#)qsort.c	5.9 (Berkeley) 2/23/91";
  */
 #define	THRESH	4
 
+static void insertion_sort(), quick_sort();
+
 void
 qsort(bot, nmemb, size, compar)
 	void *bot;
 	size_t nmemb, size;
 	int (*compar) __P((const void *, const void *));
 {
-	static void insertion_sort(), quick_sort();
-
 	if (nmemb <= 1)
 		return;
 
@@ -118,7 +118,6 @@ quick_sort(bot, nmemb, size, compar)
 	register char *top, *mid, *t1, *t2;
 	register int n1, n2;
 	char *bsv;
-	static void insertion_sort();
 
 	/* bot and nmemb must already be set. */
 partition:

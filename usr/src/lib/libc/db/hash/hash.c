@@ -500,7 +500,7 @@ flush_meta(hashp)
 	else
 		if (wsize != sizeof(HASHHDR)) {
 			errno = EFTYPE;
-			hashp->errno = errno;
+			hashp->local_errno = errno;
 			return (-1);
 		}
 	for (i = 0; i < NCACHED; i++)
@@ -531,7 +531,7 @@ hash_get(dbp, key, data, flag)
 
 	hashp = (HTAB *)dbp->internal;
 	if (flag) {
-		hashp->errno = errno = EINVAL;
+		hashp->local_errno = errno = EINVAL;
 		return (ERROR);
 	}
 	return (hash_access(hashp, HASH_GET, (DBT *)key, data));
@@ -548,11 +548,11 @@ hash_put(dbp, key, data, flag)
 
 	hashp = (HTAB *)dbp->internal;
 	if (flag && flag != R_NOOVERWRITE) {
-		hashp->errno = errno = EINVAL;
+		hashp->local_errno = errno = EINVAL;
 		return (ERROR);
 	}
 	if ((hashp->flags & O_ACCMODE) == O_RDONLY) {
-		hashp->errno = errno = EPERM;
+		hashp->local_errno = errno = EPERM;
 		return (ERROR);
 	}
 	return (hash_access(hashp, flag == R_NOOVERWRITE ?
@@ -569,11 +569,11 @@ hash_delete(dbp, key, flag)
 
 	hashp = (HTAB *)dbp->internal;
 	if (flag && flag != R_CURSOR) {
-		hashp->errno = errno = EINVAL;
+		hashp->local_errno = errno = EINVAL;
 		return (ERROR);
 	}
 	if ((hashp->flags & O_ACCMODE) == O_RDONLY) {
-		hashp->errno = errno = EPERM;
+		hashp->local_errno = errno = EPERM;
 		return (ERROR);
 	}
 	return (hash_access(hashp, HASH_DELETE, (DBT *)key, NULL));
@@ -724,7 +724,7 @@ hash_seq(dbp, key, data, flag)
 
 	hashp = (HTAB *)dbp->internal;
 	if (flag && flag != R_FIRST && flag != R_NEXT) {
-		hashp->errno = errno = EINVAL;
+		hashp->local_errno = errno = EINVAL;
 		return (ERROR);
 	}
 #ifdef HASH_STATISTICS

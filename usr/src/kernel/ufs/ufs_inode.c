@@ -36,6 +36,7 @@
 #include "sys/param.h"
 #include "sys/mount.h"
 #include "sys/file.h"
+#include "sys/kernel.h"
 #include "uio.h"
 #include "sys/errno.h"
 #include "proc.h"
@@ -67,7 +68,8 @@ u_long nextgennumber;
 /*
  * Initialize hash links for inodes.
  */
-ufs_init()
+static void
+ufs_ihinit()
 {
 	int i;
 	union ihead *ih = ihead;

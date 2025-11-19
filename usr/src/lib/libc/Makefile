@@ -7,6 +7,25 @@
 # stubs, remove just -DSYSLIBC_SCCS from CFLAGS.
 LIB=c
 CFLAGS+=-DLIBC_SCCS -DSYSLIBC_SCCS
+# Complete header isolation: block system headers, use only 386BSD headers
+# -nostdinc: ignore all system include directories
+# -isystem: add back gcc compiler builtins (stddef.h, stdarg.h, etc.)
+# -I: add 386BSD include directories
+# -Wno-error flags: allow build to proceed despite compatibility warnings
+CFLAGS+=-nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/13/include
+CFLAGS+=-I${.CURDIR}/../../include -I${.CURDIR}/../../include/nonstd/db
+CFLAGS+=-Wno-error=implicit-function-declaration -Wno-error=int-conversion
+# Define i386 for architecture-specific headers (setjmp.h, etc.)
+CFLAGS+=-Di386
+# Generate 32-bit i386 code (cross-compilation from x86_64 host)
+CFLAGS+=-m32
+# Assembly file flags (for .s files compiled with cc)
+AFLAGS+=-m32
+# Assembler for 32-bit code (used by syscall stub generation via CPP)
+AS=as --32
+# Linker for 32-bit ELF (for direct ld invocations)
+LD=ld -m elf_i386
+LDFLAGS+=
 AINC=	-I${.CURDIR}/${MACHINE}
 
 .include "${.CURDIR}/compat-43/Makefile.inc"

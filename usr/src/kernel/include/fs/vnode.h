@@ -127,7 +127,7 @@ struct vattr {
 	gid_t		va_gid;		/* owner group id */
 	long		va_fsid;	/* file system id (dev for now) */
 	long		va_fileid;	/* file id */
-	u_quad		va_qsize;	/* file size in bytes */
+	u_quad_t	va_qsize;	/* file size in bytes */
 	long		va_blocksize;	/* blocksize preferred for i/o */
 	struct timeval	va_atime;	/* time of last access */
 	struct timeval	va_mtime;	/* time of last modification */
@@ -135,8 +135,13 @@ struct vattr {
 	u_long		va_gen;		/* generation number of file */
 	u_long		va_flags;	/* flags defined for file */
 	dev_t		va_rdev;	/* device the special file represents */
-	u_quad		va_qbytes;	/* bytes of disk space held by file */
+	u_quad_t	va_qbytes;	/* bytes of disk space held by file */
 };
+/* u_quad_t is now a plain 64-bit type, no .val member */
+#define	va_size		va_qsize
+#define	va_bytes	va_qbytes
+/* va_size_rsv and va_bytes_rsv removed - not used in 64-bit quad */
+#if 0  /* Old code with .val[] member access - disabled */
 #if BYTE_ORDER == LITTLE_ENDIAN
 #define	va_size		va_qsize.val[0]
 #define	va_size_rsv	va_qsize.val[1]
@@ -148,6 +153,7 @@ struct vattr {
 #define	va_bytes	va_qbytes.val[1]
 #define	va_bytes_rsv	va_qbytes.val[0]
 #endif
+#endif  /* End of old code block */
 
 /*
  * Operations on vnodes.

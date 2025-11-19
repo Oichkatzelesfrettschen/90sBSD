@@ -1,8 +1,11 @@
-# $Id: net.symbols,v 1.1 94/10/20 00:01:33 bill Exp $
+# net.symbols - network subsystem symbols for userspace tools
+# Updated for 4.4BSD-Lite2 net/
 
 #netstat
 	_rawcb
-#	_ifnet
+	_ifnet
+	_rtree
 
 #routed
 	_ifnet
+	_rt_tables

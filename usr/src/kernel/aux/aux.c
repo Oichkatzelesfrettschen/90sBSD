@@ -70,7 +70,8 @@ struct	isa_driver auxdriver = {
 };
 
 static struct ringb rcv;
-static int  auxopenf, auxflag, auxpid, auxpgid;
+static int  auxopenf, auxflag, auxpgid;
+static struct selinfo auxpid;
 
 extern auxopen(dev_t, int, int, struct proc *);
 
@@ -264,9 +265,9 @@ auxintr(dev)
 		(void) inb(0x310);
 	if(auxflag) wakeup((caddr_t)&rcv);
 	auxflag = 0;
-	if (auxpid) {
-		selwakeup(auxpid, 0);
-		auxpid= 0;
+	if (auxpid.si_pid) {
+		selwakeup(&auxpid);
+		auxpid.si_pid = 0;
 	}
 #ifdef nope
 	if (auxpgid) {
@@ -328,7 +329,7 @@ auxselect(dev_t dev, int rw, struct proc *p)
 			splx(s);
 			return (1);
 		}
-		auxpid = p->p_pid;
+		auxpid.si_pid = p->p_pid;
 		break;
 	}
 	splx(s);

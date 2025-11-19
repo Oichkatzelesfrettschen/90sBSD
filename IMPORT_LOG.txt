@@ -1,0 +1,18 @@
+=== Import: 2025-11-17 02:00:00 UTC ===
+Source: 4.4BSD-Lite2/usr/src/sys/sys
+Destination: usr/src/kernel/include/sys
+Files: 91 headers (including systm.h, kernel.h, mbuf.h, protosw.h)
+Method: cp -r
+
+=== Import: 2025-11-17 02:01:00 UTC ===
+Source: 4.4BSD-Lite2/usr/src/sys/vm
+Destination: usr/src/kernel/vm
+Files: 34 files (VM subsystem including vm.h)
+Method: cp -r
+
+=== Import: 2025-11-17 02:02:00 UTC ===
+Source: 4.4BSD-Lite2/usr/src/sys/net
+Destination: usr/src/kernel/include/net
+Files: 28 headers (network subsystem)
+Method: cp -r
+

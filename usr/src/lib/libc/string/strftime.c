@@ -58,6 +58,7 @@ static char *Bfmt[] = {
 
 static size_t gsize;
 static char *pt;
+static size_t _fmt();
 static int _add(), _conv(), _secs();
 
 size_t
@@ -67,8 +68,6 @@ strftime(s, maxsize, format, t)
 	const char *format;
 	const struct tm *t;
 {
-	static size_t _fmt();
-
 	pt = s;
 	if ((gsize = maxsize) < 1)
 		return(0);
@@ -246,7 +245,7 @@ _fmt(format, t)
 	return(gsize);
 }
 
-static
+static int
 _secs(t)
 	struct tm *t;
 {
@@ -263,7 +262,7 @@ _secs(t)
 	return(_add(++p));
 }
 
-static
+static int
 _conv(n, digits, pad)
 	int n, digits;
 	char pad;
@@ -278,7 +277,7 @@ _conv(n, digits, pad)
 	return(_add(++p));
 }
 
-static
+static int
 _add(str)
 	register char *str;
 {

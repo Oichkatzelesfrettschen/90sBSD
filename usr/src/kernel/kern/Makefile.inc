@@ -5,10 +5,20 @@
 
 .PATH:	$S/kern
 KERN_SRCS+= \
-	clock.c config.c cred.c descrip.c execve.c exit.c fork.c sysent.c \
-	host.c kinfo.c lock.c main.c malloc.c physio.c priv.c \
-	proc.c prof.c ptrace.c reboot.c resource.c sig.c synch.c time.c \
-	ldisc.c
+	init_main.c init_sysent.c \
+	kern_acct.c kern_clock.c kern_descrip.c kern_exec.c kern_exit.c \
+	kern_fork.c kern_ktrace.c kern_lock.c kern_malloc.c kern_physio.c \
+	kern_proc.c kern_prot.c kern_resource.c kern_sig.c kern_subr.c \
+	kern_synch.c kern_sysctl.c kern_time.c kern_xxx.c \
+	kern_support.c \
+	subr_autoconf.c subr_log.c subr_prof.c subr_rmap.c subr_xxx.c \
+	sys_generic.c sys_process.c sys_socket.c syscalls.c \
+	tty.c tty_conf.c tty_pty.c tty_subr.c tty_tb.c tty_tty.c \
+	uipc_domain.c uipc_mbuf.c uipc_proto.c uipc_socket.c uipc_socket2.c \
+	uipc_syscalls.c uipc_usrreq.c \
+	vfs_bio.c vfs_cache.c vfs_cluster.c vfs_conf.c vfs_init.c \
+	vfs_lookup.c vfs_subr.c vfs_syscalls.c vfs_vnops.c \
+	vfs_vnops_stubs.c
 
 SYMBOLS+= kern.symbols
 MAN9+=	malloc.0 # kinfo.0 io.0 priv.0 process.0 config.0 lock.0
@@ -16,7 +26,7 @@ MAN9+=	malloc.0 # kinfo.0 io.0 priv.0 process.0 config.0 lock.0
 MAN5+=	core.0
 MAN4+=	fd.0 # ldisc.0 kern.0
 
-.include "$S/kern/fs/Makefile.inc"
+.include "$S/kern/fs/Makefile.inc"   # Filesystem support (specfs, deadfs, etc)
 .include "$S/kern/$(MACHINE)/Makefile.inc"
 .include "$S/kern/net/Makefile.inc"
 .include "$S/kern/socket/Makefile.inc"

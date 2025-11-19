@@ -47,12 +47,12 @@ static char sccsid[] = "@(#)disklabel.c	5.17 (Berkeley) 2/23/91";
 #include <unistd.h>
 
 static	char *dgetstr();
-static	dgetent();
-static	dnamatch();
-static	dgetnum();
-static	dgetflag();
-static	gettype();
-static	error();
+static	int dgetent();
+static	int dnamatch();
+static	int dgetnum();
+static	int dgetflag();
+static	int gettype();
+static	int error();
 
 struct disklabel *
 getdiskbyname(name)
@@ -165,7 +165,7 @@ static	char *ddecode();
  * from the diskcap file.  Parse is very rudimentary;
  * we just notice escaped newlines.
  */
-static
+static int
 dgetent(bp, name)
 	char *bp, *name;
 {
@@ -225,7 +225,7 @@ dgetent(bp, name)
  * against each such name.  The normal : terminator after the last
  * name (before the first field) stops us.
  */
-static
+static int
 dnamatch(np)
 	char *np;
 {
@@ -272,7 +272,7 @@ dskip(bp)
  * a # character.  If the option is not found we return -1.
  * Note that we handle octal numbers beginning with 0.
  */
-static
+static int
 dgetnum(id)
 	char *id;
 {
@@ -306,7 +306,7 @@ dgetnum(id)
  * of the buffer.  Return 1 if we find the option, or 0 if it is
  * not given.
  */
-static
+static int
 dgetflag(id)
 	char *id;
 {
@@ -403,7 +403,7 @@ nextc:
 	return (str);
 }
 
-static
+static int
 gettype(t, names)
 	char *t;
 	char **names;
@@ -418,7 +418,7 @@ gettype(t, names)
 	return (0);
 }
 
-static
+static int
 error(err)
 	int err;
 {

@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 1982, 1986 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1982, 1986, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,11 +30,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)resource.h	7.5 (Berkeley) 3/17/91
+ *	@(#)resource.h	8.4 (Berkeley) 1/9/95
  */
 
-#ifndef _RESOURCE_H_
-#define	_RESOURCE_H_
+#ifndef _SYS_RESOURCE_H_
+#define	_SYS_RESOURCE_H_
 
 /*
  * Process priority specifications to get/setpriority.
@@ -58,8 +58,7 @@ struct	rusage {
 	struct timeval ru_stime;	/* system time used */
 	long	ru_maxrss;		/* max resident set size */
 #define	ru_first	ru_ixrss
-	long	ru_ixrss;		/* integral sharable memory size */
-/*	long	ru_ilrss;		/* integral shared memory size */
+	long	ru_ixrss;		/* integral shared memory size */
 	long	ru_idrss;		/* integral unshared data " */
 	long	ru_isrss;		/* integral unshared stack " */
 	long	ru_minflt;		/* page reclaims */
@@ -86,18 +85,32 @@ struct	rusage {
 #define	RLIMIT_RSS	5		/* resident set size */
 #define	RLIMIT_MEMLOCK	6		/* locked-in-memory address space */
 #define	RLIMIT_NPROC	7		/* number of processes */
-#define	RLIMIT_OFILE	8		/* number of open files */
+#define	RLIMIT_NOFILE	8		/* number of open files */
 
 #define	RLIM_NLIMITS	9		/* number of resource limits */
 
-#define	RLIM_INFINITY	0x7fffffff
+#define	RLIM_INFINITY	(((u_quad_t)1 << 63) - 1)
 
-struct rlimit {
-	long	rlim_cur;		/* current (soft) limit */
-	long	rlim_max;		/* maximum value for rlim_cur */
+struct orlimit {
+	int32_t	rlim_cur;		/* current (soft) limit */
+	int32_t	rlim_max;		/* maximum value for rlim_cur */
 };
 
-#ifndef KERNEL
+struct rlimit {
+	quad_t	rlim_cur;		/* current (soft) limit */
+	quad_t	rlim_max;		/* maximum value for rlim_cur */
+};
+
+/* Load average structure. */
+struct loadavg {
+	fixpt_t	ldavg[3];
+	long	fscale;
+};
+
+#ifdef KERNEL
+extern struct loadavg averunnable;
+
+#else
 #include <sys/cdefs.h>
 
 __BEGIN_DECLS
@@ -106,8 +119,7 @@ int	getrlimit __P((int, struct rlimit *));
 int	getrusage __P((int, struct rusage *));
 int	setpriority __P((int, int, int));
 int	setrlimit __P((int, const struct rlimit *));
-void	ruadd __P((struct rusage *ru, struct rusage *ru2));
 __END_DECLS
 
-#endif	/* !KERNEL */
-#endif	/* !_RESOURCE_H_ */
+#endif	/* KERNEL */
+#endif	/* !_SYS_RESOURCE_H_ */

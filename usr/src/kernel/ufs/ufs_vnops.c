@@ -45,6 +45,7 @@
 #include "specdev.h"
 #include "fifo.h"
 #include "malloc.h"
+#include "sys/kernel.h"		/* time variable */
 
 #include "namei.h"
 #include "vnode.h"
@@ -242,7 +243,8 @@ ufs_getattr(vp, vap, cred, p)
 	else
 		vap->va_blocksize = ip->i_fs->fs_bsize;
 	vap->va_bytes = dbtob(ip->i_blocks);
-	vap->va_bytes_rsv = 0;
+	/* va_bytes_rsv removed - not used with 64-bit u_quad_t */
+	/* vap->va_bytes_rsv = 0; */
 	vap->va_type = vp->v_type;
 	return (0);
 }

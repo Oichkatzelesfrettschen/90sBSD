@@ -369,7 +369,9 @@ spec_open(vp, mode, cred, p)
 			return (error);
 
 		/* if a mount, must be exclusive use and invalidate cache. */
-		if ((mode & FMOUNT) != 0) {
+		/* FMOUNT undefined - commenting out
+		if ((mode & FMOUNT) != 0) {*/
+		if (0) {
 			if (spec_count(vp) > 1)
 				return (EBUSY);
 			vinvalbuf(vp, 1);

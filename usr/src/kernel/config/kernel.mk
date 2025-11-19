@@ -14,16 +14,16 @@ CPP?=	cpp
 # XXX overkill, revise include scheme
 INCLUDES= -I$S/include
 
-COPTS+=	${INCLUDES} ${IDENT} -DKERNEL -Di386
+COPTS+=	${INCLUDES} ${IDENT} -DKERNEL -Di386 -DDIAGNOSTIC
 DEPEND= depend_mk
 
 ASFLAGS= ${DEBUG}
 .if defined(GDB)
 # CFLAGS=	-m486 -O ${COPTS} -g
-CFLAGS=	-O ${COPTS} -g
+CFLAGS=	-O ${COPTS} -g -fno-builtin -fno-stack-protector -fno-pic -Wno-implicit-int
 .else
 # CFLAGS=	-m486 -O ${COPTS}
-CFLAGS=	-O ${COPTS}
+CFLAGS=	-O ${COPTS} -fno-builtin -fno-stack-protector -fno-pic -Wno-implicit-int
 .endif
 DBGCFLAGS= -O ${COPTS}
 
@@ -57,10 +57,10 @@ _KERNS+=	${KERNEL}.kgdb
 
 all: ${_KERNS}	${ALLMAN}
 
-assym.s: $S/include/sys/param.h $S/include/buf.h $S/include/vmmeter.h \
+assym.s: $S/include/sys/param.h $S/include/buf.h $S/include/sys/vmmeter.h \
 	$S/include/proc.h $S/include/msgbuf.h machine/vmparam.h \
 	$S/config/genassym.c $S/config/genassym_stubs.c
-	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} -m32 \
+	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} ${BASE} \
 		 $S/config/genassym.c $S/config/genassym_stubs.c -o genassym
 	./genassym >assym.s
 
@@ -77,15 +77,15 @@ isym.o: $S/config/isym.c
 
 SRCS= ${KERN_SRCS} ${KERN_SRCS_DBGC} ${MACH_SRCS} ${DEV_SRCS} ${FS_SRCS} ${DOMAIN_SRCS}
 
-${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS} isym.o
+${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS}
 	@echo loading $@
 	@rm -f $@
 	@$S/config/newvers.sh
 	@${CC} -c ${CFLAGS} ${PROF} ${DEBUG} vers.c
 .if defined(DEBUGSYM)
-	@${LD} -z -T ${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o
 .else
-	@${LD} -z -T ${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o
 .endif
 	@echo rearranging symbols
 .if defined(GDB)

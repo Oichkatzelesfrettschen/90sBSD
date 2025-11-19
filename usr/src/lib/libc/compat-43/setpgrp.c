@@ -36,11 +36,15 @@ static char sccsid[] = "@(#)setpgrp.c	5.2 (Berkeley) 2/24/91";
 #endif /* LIBC_SCCS and not lint */
 
 #include <sys/types.h>
-#include <unistd.h>
+
+/* Forward declaration to avoid conflict with POSIX setpgrp(void) */
+int setpgid(pid_t, pid_t);
 
 #if __STDC__
+int
 setpgrp(pid_t pid, pid_t pgid)
 #else
+int
 setpgrp(pid, pgid)
 	pid_t pid, pgid;
 #endif

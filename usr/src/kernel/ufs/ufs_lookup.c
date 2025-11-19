@@ -50,7 +50,7 @@
 
 #include "prototypes.h"
 
-struct	nchstats nchstats;
+extern struct	nchstats nchstats;
 #ifdef DIAGNOSTIC
 int	dirchk = 1;
 #else

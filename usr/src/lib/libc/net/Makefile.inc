@@ -14,7 +14,8 @@ SRCS+=	gethostnamadr.c getnetbyaddr.c getnetbyname.c getnetent.c \
 .if   (${MACHINE} == "hp300")
 SRCS+=	htonl.s htons.s ntohl.s ntohs.s
 .elif (${MACHINE} == "i386")
-SRCS+=	htonl.s htons.s ntohl.s ntohs.s
+# Modern C implementations with compiler builtins (replaces legacy assembly)
+SRCS+=	htonl.c htons.c ntohl.c ntohs.c
 .elif (${MACHINE} == "tahoe")
 SRCS+=	htonl.s htons.s ntohl.s ntohs.s
 .elif (${MACHINE} == "vax")

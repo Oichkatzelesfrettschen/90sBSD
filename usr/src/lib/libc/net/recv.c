@@ -40,7 +40,8 @@ static char sccsid[] = "@(#)recv.c	5.3 (Berkeley) 2/24/91";
 #include <stdio.h>
 
 recv(s, buf, len, flags)
-	int s, len, flags;
+	int s, flags;
+	size_t len;
 	void *buf;
 {
 	return(recvfrom(s, buf, len, flags, (struct sockaddr *)NULL, 0));

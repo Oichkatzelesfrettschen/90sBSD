@@ -5,14 +5,15 @@
 
 KERNEL=	386bsd
 MACHINE= i386
-IDENT=	-Di486
+IDENT=	-Di486 -DINET
 
 # standard kernel with minimal configuration
 .include "$S/config/config.std.mk"		# standard configuration
 
-# essential options for basic functionality  
+# essential options for basic functionality
 .include "$S/kern/opt/ktrace/Makefile.inc"	# BSD ktrace mechanism
-.include "$S/ddb/Makefile.inc"			# kernel debugger
+# Temporarily disabled DDB (kernel debugger) due to 4.4BSD-Lite2 incompatibilities
+# .include "$S/ddb/Makefile.inc"			# kernel debugger
 
 .include "$S/config/kernel.mk"			# makefile boilerplate
 

@@ -48,7 +48,7 @@ extern struct timezone tz;			/* XXX */
 extern int phz;				/* alternate clock's frequency */
 extern int tick;
 
-extern fixpt_t	averunnable[3];
+/* averunnable is now declared in sys/resource.h as struct loadavg */
 
 #ifdef GPROF
 extern u_long s_textsize;

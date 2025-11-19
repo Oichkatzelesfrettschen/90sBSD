@@ -1,6 +1,6 @@
 /*-
- * Copyright (c) 1991 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1991, 1993
+ *	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,10 +30,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)stdarg.h	7.2 (Berkeley) 5/4/91
+ *	@(#)stdarg.h	8.1 (Berkeley) 6/10/93
  */
 
+#ifndef _STDARG_H_
+#define	_STDARG_H_
+
 typedef char *va_list;
+
+#define	__va_promote(type) \
+	(((sizeof(type) + sizeof(int) - 1) / sizeof(int)) * sizeof(int))
+
+#define	va_start(ap, last) \
+	(ap = ((char *)&(last) + __va_promote(last)))
 
 #ifdef KERNEL
 #define	va_arg(ap, type) \
@@ -46,8 +55,4 @@ typedef char *va_list;
 
 #define	va_end(ap)
 
-#define	__va_promote(type) \
-	(((sizeof(type) + sizeof(int) - 1) / sizeof(int)) * sizeof(int))
-
-#define	va_start(ap, last) \
-	(ap = ((char *)&(last) + __va_promote(last)))
+#endif /* !_STDARG_H_ */

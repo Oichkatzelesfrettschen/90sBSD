@@ -1,11 +1,12 @@
 #
 # Makefile for the socket subsystem of the kernel. -wfj
-# $Id: Makefile.inc,v 1.1 94/10/19 23:49:47 bill Exp $
+# NOTE: 4.4BSD-Lite2 uses uipc_*.c files in kern/ instead of socket/ subdirectory
+# This Makefile is disabled - socket code is in kern/Makefile.inc
 #
 
 .PATH:	$S/kern/socket
-KERN_SRCS+= \
-	domain.c mbuf.c sock_fops.c sock_sys.c sockbuf.c sockconn.c sockops.c
+
+# All socket functionality is in uipc_*.c files (already in KERN_SRCS)
+# No additional files needed here
 
 SYMBOLS+= socket.symbols
-# MAN9+=	sockbuf.0 sockops.0 domain.0 protosw.0
