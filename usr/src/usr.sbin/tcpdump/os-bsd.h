@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_OS_BSD_H_
+#define _USR.SBIN_TCPDUMP_OS_BSD_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -83,3 +90,5 @@
 #define RFS_STATFS	NFSPROC_STATFS
 #define RFS_NPROC	NFSPROC_NPROC
 /*#endif*/
+
+#endif /* _USR.SBIN_TCPDUMP_OS_BSD_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_BITSTRING_H_
+#define _INCLUDE_BITSTRING_H_
+
+/*
  * Copyright (c) 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
@@ -141,3 +148,5 @@ typedef	unsigned char bitstr_t;
 }
 
 #endif /* !_BITSTRING_H_ */
+
+#endif /* _INCLUDE_BITSTRING_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TSET_EXTERN_H_
+#define _USR.BIN_TSET_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -58,3 +65,5 @@ void	 set_control_chars __P((void));
 void	 set_conversions __P((int));
 void	 set_init __P((void));
 void	 wrtermcap __P((char *));
+
+#endif /* _USR.BIN_TSET_EXTERN_H_ */

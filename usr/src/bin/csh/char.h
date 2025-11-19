@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CSH_CHAR_H_
+#define _BIN_CSH_CHAR_H_
+
 /*-
  * Copyright (c) 1980, 1991 The Regents of the University of California.
  * All rights reserved.
@@ -94,3 +101,5 @@ extern unsigned char _cmap_lower[], _cmap_upper[];
 #define Iscntrl(c)  (cmap(c,_CTR) && !(((c) & META) && AsciiOnly))
 #define Isprint(c)  (!cmap(c,_CTR) && !(((c) & META) && AsciiOnly))
 #endif
+
+#endif /* _BIN_CSH_CHAR_H_ */

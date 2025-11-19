@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_SUBSEGS_H_
+#define _USR.BIN_GAS_SUBSEGS_H_
+
 /* subsegs.h -> subsegs.c
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -63,3 +70,5 @@ extern frchainS * data0_frchainP;
 				/* segment frchain.) */
 
 /* end: subsegs.h */
+
+#endif /* _USR.BIN_GAS_SUBSEGS_H_ */

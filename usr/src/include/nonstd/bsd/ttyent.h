@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_TTYENT_H_
+#define _INCLUDE_NONSTD_BSD_TTYENT_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -64,3 +71,5 @@ int endttyent __P((void));
 __END_DECLS
 
 #endif /* !_TTYENT_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_TTYENT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_COM_COMREG_H_
+#define _KERNEL_COM_COMREG_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -111,3 +118,5 @@
  */
 #define	CONADDR	(0x3f8)
 #define	CONUNIT	(0)
+
+#endif /* _KERNEL_COM_COMREG_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ATC_DEF_H_
+#define _GAMES_ATC_DEF_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -78,3 +85,5 @@
 
 #define INPUT_LINES	3
 #define PLANE_COLS	20
+
+#endif /* _GAMES_ATC_DEF_H_ */

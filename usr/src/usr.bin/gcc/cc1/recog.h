@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_RECOG_H_
+#define _USR.BIN_GCC_CC1_RECOG_H_
+
 /* Declarations for interface to insn recognizer and insn-output.c.
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -118,3 +125,5 @@ extern const char insn_operand_strict_low[][MAX_RECOG_OPERANDS];
 extern int (*const insn_operand_predicate[][MAX_RECOG_OPERANDS]) ();
 
 extern char * insn_name[];
+
+#endif /* _USR.BIN_GCC_CC1_RECOG_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_DEFAULTS_H_
+#define _USR.BIN_GCC_CC1_DEFAULTS_H_
+
 /* Definitions of various defaults for how to do assembler output
    (most of which are designed to be appropriate for GAS or for
    some BSD assembler).
@@ -118,3 +125,5 @@ do { fprintf (FILE, "\t%s\t", ASM_SHORT);				\
 #define ASM_IDENTIFY_LANGUAGE(FILE) output_lang_identify (FILE);
 #endif
 #endif
+
+#endif /* _USR.BIN_GCC_CC1_DEFAULTS_H_ */

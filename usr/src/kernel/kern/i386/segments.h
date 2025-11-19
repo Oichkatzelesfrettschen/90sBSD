@@ -35,15 +35,18 @@
  * SUCH DAMAGE.
  *
  *	@(#)segments.h	8.1 (Berkeley) 6/11/93
+ *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
  */
+
+#ifndef _KERNEL_KERN_I386_SEGMENTS_H_
+#define _KERNEL_KERN_I386_SEGMENTS_H_
 
 /*
  * 386 Segmentation Data Structures and definitions
  *	William F. Jolitz (william@ernie.berkeley.edu) 6/20/1989
  */
-
-#ifndef _MACHINE_SEGMENTS_H_
-#define _MACHINE_SEGMENTS_H_
 
 /*
  * Selectors
@@ -194,4 +197,122 @@ struct region_descriptor {
 				/* other bits are affected descriptor index */
 #define SEGEX_IDX(s)	((s)>>3)&0x1fff)
 
-#endif /* _MACHINE_SEGMENTS_H_ */
+/*
+ * Size of IDT table
+ */
+
+#define	NIDT	256
+#define	NRSVIDT	32		/* reserved entries for cpu exceptions */
+
+/* special selectors in the kernel */
+extern sel_t _udatasel, _ucodesel, _exit_tss_sel;
+
+/* global descriptor table */
+extern union descriptor *gdt, gdt_bootstrap[];
+
+/* global descriptor table allocation pointers/counters */
+extern struct segment_descriptor *sdfirstp_gdesc, *sdlast_gdesc,
+    *sdlastfree_gdesc;
+extern int sdngd_gdesc, sdnfree_gdesc;
+
+void expanddesctable(void);
+
+/*
+ * Allocate a global descriptor to the kernel. If no free descriptors,
+ * expand the table.
+ */
+extern inline struct segment_descriptor *
+allocdesc(void)
+{
+	struct segment_descriptor *sdp;
+	int fullsearch = 1;
+
+tryagain:
+	/* out of global descriptors? then, make more */
+	if (sdnfree_gdesc == 0)
+		expanddesctable();
+
+	/* find a free descriptor, starting with last freed descriptor */
+	for (sdp = sdlastfree_gdesc; sdp <= sdlast_gdesc && sdp->sd_p ; sdp++)
+		;
+
+	/* if did not find a descriptor, start at beginning of table again */
+	if (sdp > sdlast_gdesc && fullsearch) {
+		sdlastfree_gdesc = sdfirstp_gdesc;
+		fullsearch = 0;
+		goto tryagain;
+	}
+
+#ifdef DIAGNOSTIC
+	if(sdp->sd_p)
+		panic("allocdesc: no free descriptor");
+#endif
+
+	/* next place to try? */
+	if (sdp < sdlast_gdesc)
+		sdlastfree_gdesc = sdp + 1;
+	sdnfree_gdesc--;
+
+	/* fill in the blanks */
+	/* memset(sdp, 0, sizeof(*sdp));		/* XXX overkill */
+	*(int *) sdp = 0; /* clear lower word */
+	*(((int *) sdp) + 1) = 0; /* clear upper word */
+	sdp->sd_p = 1;
+	return (sdp);
+}
+
+/*
+ * Return a Global descriptor to free status, so it may be reused.
+ */
+extern inline void
+freedesc(struct segment_descriptor *sdp)
+{
+	sdp->sd_p = 0;		/* will generate an invalid tss if used */
+	sdnfree_gdesc++;
+	if (sdlastfree_gdesc > sdp)
+		sdlastfree_gdesc = sdp;
+	/* XXX reduce table size if nfreedesc grows to larger than half of
+	   total table side, and if we can compact the table. when we have
+	   a surplus of descriptors, restrict allocation to first half, and
+	   keep seperate counts on still allocated upper/lower halfs. We can
+	   shrink the table by half when the outstanding allocated descriptors
+	   in the top half drops to zero -- too hard for now. */
+}
+
+
+#ifdef _PROC_H_
+/*
+ * Allocate a TSS descriptor to a kernel thread, in the course of
+ * creating a new thread. Special version of allocdesc().
+ */
+extern inline
+alloctss(struct proc *p) {
+	struct segment_descriptor *sdp = allocdesc();
+	sdp->sd_lolimit = sizeof(struct i386tss) - 1;
+	sdp->sd_lobase = (int)p->p_addr;
+	sdp->sd_hibase = ((int)p->p_addr) >> 24;
+	sdp->sd_type = SDT_SYS386TSS;
+
+	/* construct selector for new tss */
+	p->p_md.md_tsel = GSEL((sdp - &gdt[0].sd), SEL_KPL);
+}
+#endif
+
+/*
+ * Return to the free pool the TSS descriptor of a thread being
+ * deallocated. Special case of freedesc().
+ */
+extern inline void
+freetss(sel_t tss_sel) {
+
+	/*
+	 * if running on this thread, change to a interim
+         * tss until we swtch()
+	 */
+	/* if (tss_sel == str()) */
+		ltr(_exit_tss_sel); /* busy until final ljmp */
+
+	freedesc(&gdt[IDXSEL(tss_sel)].sd);
+}
+
+#endif /* _KERNEL_KERN_I386_SEGMENTS_H_ */

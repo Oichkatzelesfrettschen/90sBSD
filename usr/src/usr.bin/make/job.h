@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAKE_JOB_H_
+#define _USR.BIN_MAKE_JOB_H_
+
+/*
  * Copyright (c) 1988, 1989, 1990 The Regents of the University of California.
  * Copyright (c) 1988, 1989 by Adam de Boor
  * Copyright (c) 1989 by Berkeley Softworks
@@ -230,3 +237,5 @@ extern void 	JobFinish(/* job, status */);	/* Finish out a job. If
 						 * the descriptor is placed on
 						 * the stoppedJobs list. */
 #endif /* _JOB_H_ */
+
+#endif /* _USR.BIN_MAKE_JOB_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_PROC_H_
+#define _KERNEL_INCLUDE_PROC_H_
+
 /*-
  * Copyright (c) 1986, 1989, 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -281,3 +288,5 @@ void	unsleep __P((struct proc *));
 void	wakeup __P((void *chan));
 #endif	/* KERNEL */
 #endif	/* !_SYS_PROC_H_ */
+
+#endif /* _KERNEL_INCLUDE_PROC_H_ */

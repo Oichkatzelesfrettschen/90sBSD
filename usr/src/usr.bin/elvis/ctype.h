@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_ELVIS_CTYPE_H_
+#define _USR.BIN_ELVIS_CTYPE_H_
+
 /* ctype.h */
 
 /* This file contains macros definitions and extern declarations for a
@@ -38,3 +45,5 @@ extern uchar	_ct_ctypes[];
 extern void	_ct_init(/* char *flipcase */);
 
 #endif /* ndef _CT_UPPER */
+
+#endif /* _USR.BIN_ELVIS_CTYPE_H_ */

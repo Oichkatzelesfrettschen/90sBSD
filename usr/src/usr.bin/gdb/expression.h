@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_EXPRESSION_H_
+#define _USR.BIN_GDB_EXPRESSION_H_
+
 /* Definitions for expressions stored in reversed prefix form, for GDB.
    Copyright (C) 1986, 1989 Free Software Foundation, Inc.
 
@@ -189,3 +196,5 @@ struct expression
 
 struct expression *parse_c_expression ();
 struct expression *parse_c_1 ();
+
+#endif /* _USR.BIN_GDB_EXPRESSION_H_ */

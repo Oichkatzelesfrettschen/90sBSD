@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_BUF_H_
+#define _KERNEL_INCLUDE_BUF_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -233,3 +240,5 @@ int biowait(struct buf *);
 }
 #define B_CLRBUF	0x1	/* request allocated buffer be cleared */
 #define B_SYNC		0x2	/* do all allocations synchronously */
+
+#endif /* _KERNEL_INCLUDE_BUF_H_ */

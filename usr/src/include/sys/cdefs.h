@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_SYS_CDEFS_H_
+#define _INCLUDE_SYS_CDEFS_H_
+
+/*
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
  *
@@ -116,3 +123,5 @@
 #endif
 
 #endif /* !_CDEFS_H_ */
+
+#endif /* _INCLUDE_SYS_CDEFS_H_ */

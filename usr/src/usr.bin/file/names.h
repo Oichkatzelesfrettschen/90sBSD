@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FILE_NAMES_H_
+#define _USR.BIN_FILE_NAMES_H_
+
+/*
  * Names.h - names and types used by ascmagic in file(1).
  * These tokens are here because they can appear anywhere in
  * the first HOWMANY bytes, while tokens in /etc/magic must
@@ -90,3 +97,5 @@ struct names {
 	{"Organization:",L_NEWS},
 	0};
 #define NNAMES ((sizeof(names)/sizeof(struct names)) - 1)
+
+#endif /* _USR.BIN_FILE_NAMES_H_ */

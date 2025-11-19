@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_READ_H_
+#define _USR.BIN_GAS_READ_H_
+
 /* read.h - of read.c
    Copyright (C) 1986 Free Software Foundation, Inc.
 
@@ -45,3 +52,5 @@ void		read_end();
 void		read_a_source_file();
 
 /* end: read.h */
+
+#endif /* _USR.BIN_GAS_READ_H_ */

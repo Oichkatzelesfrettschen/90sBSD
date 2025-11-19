@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_KMEM_H_
+#define _KERNEL_INCLUDE_KMEM_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -83,3 +90,5 @@ extern vm_map_t mb_map, kmem_map, phys_map, pager_map; /* kernel's submaps */
 #undef __ISYM__
 #undef __ISYM_ALIAS__
 #undef __ISYM_VERSION__
+
+#endif /* _KERNEL_INCLUDE_KMEM_H_ */

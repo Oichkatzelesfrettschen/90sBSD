@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VNODE_PAGER_H_
+#define _KERNEL_INCLUDE_VNODE_PAGER_H_
+
+/*
  * Copyright (c) 1990 University of Utah.
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -83,3 +90,5 @@ struct pagerops vnodepagerops = {
 #endif
 
 #endif	/* _VNODE_PAGER_ */
+
+#endif /* _KERNEL_INCLUDE_VNODE_PAGER_H_ */

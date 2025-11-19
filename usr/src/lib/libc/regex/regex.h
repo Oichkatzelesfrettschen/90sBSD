@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_REGEX_REGEX_H_
+#define _LIB_LIBC_REGEX_REGEX_H_
+
 /*-
  * Copyright (c) 1992 Henry Spencer.
  * Copyright (c) 1992, 1993
@@ -106,3 +113,5 @@ void	regfree __P((regex_t *));
 __END_DECLS
 
 #endif /* !_REGEX_H_ */
+
+#endif /* _LIB_LIBC_REGEX_REGEX_H_ */

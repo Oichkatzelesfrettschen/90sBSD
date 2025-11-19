@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_ESYM_H_
+#define _KERNEL_INCLUDE_ESYM_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz, TeleMuse
  * All rights reserved.
  *
@@ -102,3 +109,5 @@ void _esym_dump_(void);
 		__instance__.es_address = _esymtab_search_(&__instance__); \
 	__instance__.es_address; \
 })
+
+#endif /* _KERNEL_INCLUDE_ESYM_H_ */

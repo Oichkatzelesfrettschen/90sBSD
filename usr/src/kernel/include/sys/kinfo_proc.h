@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_KINFO_PROC_H_
+#define _KERNEL_INCLUDE_SYS_KINFO_PROC_H_
+
+/*
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
  *
@@ -80,3 +87,5 @@ void	fill_eproc __P((struct proc *, struct eproc *));
 #endif
 
 #endif	/* !_KINFO_PROC_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_KINFO_PROC_H_ */

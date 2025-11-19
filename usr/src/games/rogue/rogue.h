@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_ROGUE_ROGUE_H_
+#define _GAMES_ROGUE_ROGUE_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -488,3 +495,5 @@ char *md_gdtcf();
 #else
 #include <curses.h>
 #endif
+
+#endif /* _GAMES_ROGUE_ROGUE_H_ */

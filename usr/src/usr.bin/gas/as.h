@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_AS_H_
+#define _USR.BIN_GAS_AS_H_
+
 /* as.h - global header file
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -290,3 +297,5 @@ COMMON int	need_pass_2;	/* TRUE if we need a second pass. */
 #endif				/* #ifdef asH */
 
 /* end: as.h */
+
+#endif /* _USR.BIN_GAS_AS_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_KINFO_H_
+#define _KERNEL_INCLUDE_SYS_KINFO_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -102,3 +109,5 @@ __BEGIN_DECLS
 int	getkerninfo __P((int, void *, int *, int));
 __END_DECLS
 #endif
+
+#endif /* _KERNEL_INCLUDE_SYS_KINFO_H_ */

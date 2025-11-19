@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_STATUS_W_H_
+#define _KERNEL_FPU_EMU_STATUS_W_H_
+
+/*
  *  status_w.h
  *
  *
@@ -91,3 +98,5 @@
 #endif __ASSEMBLER__
 
 #endif _STATUS_H_
+
+#endif /* _KERNEL_FPU_EMU_STATUS_W_H_ */

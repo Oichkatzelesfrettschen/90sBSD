@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_TARHDR_H_
+#define _USR.BIN_CPIO_TARHDR_H_
+
 /* Extended tar header from POSIX.1.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -60,3 +67,5 @@ union tar_record
 };
 
 #endif /* tarhdr.h */
+
+#endif /* _USR.BIN_CPIO_TARHDR_H_ */

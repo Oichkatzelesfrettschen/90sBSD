@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_CONFIG_I386_H_
+#define _USR.BIN_GAS_CONFIG_I386_H_
+
 /* i386.h -- Header file for i386.c
    Copyright (C) 1989, Free Software Foundation.
 
@@ -294,3 +301,5 @@ typedef struct {
   modrm_byte        rm;
   base_index_byte   bi;
 } i386_insn;
+
+#endif /* _USR.BIN_GAS_CONFIG_I386_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_WEIBULL_H_
+#define _LIB_LIBG++_G++_INCLUDE_WEIBULL_H_
+
 // This may look like C code, but it is really -*- C++ -*-
 /* 
 Copyright (C) 1988 Free Software Foundation
@@ -81,3 +88,5 @@ inline double Weibull::beta(double x) {
 
 #endif
 #endif
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_WEIBULL_H_ */

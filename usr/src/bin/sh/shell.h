@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_SH_SHELL_H_
+#define _BIN_SH_SHELL_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -86,3 +93,5 @@ extern char nullstr[1];		/* null string */
 #else
 #define TRACE(param)
 #endif
+
+#endif /* _BIN_SH_SHELL_H_ */

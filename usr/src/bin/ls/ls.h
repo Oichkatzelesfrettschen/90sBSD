@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_LS_LS_H_
+#define _BIN_LS_LS_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -64,3 +71,5 @@ extern int f_size;		/* list size in short listing */
 extern int f_statustime;	/* use time of last mode change */
 extern int f_total;		/* if precede with "total" line */
 extern int f_type;		/* add type character for non-regular files */
+
+#endif /* _BIN_LS_LS_H_ */

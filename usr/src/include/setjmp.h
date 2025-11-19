@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_SETJMP_H_
+#define _INCLUDE_SETJMP_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -83,3 +90,5 @@ void	longjmperror __P((void));
 __END_DECLS
 
 #endif /* !_SETJMP_H_ */
+
+#endif /* _INCLUDE_SETJMP_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_INHERIT_H_
+#define _KERNEL_INCLUDE_VM_INHERIT_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -90,3 +97,5 @@ typedef int		vm_inherit_t;	/* might want to change this */
 #define VM_INHERIT_DEFAULT	VM_INHERIT_COPY
 
 #endif	_VM_INHERIT_
+
+#endif /* _KERNEL_INCLUDE_VM_INHERIT_H_ */

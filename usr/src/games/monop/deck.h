@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_MONOP_DECK_H_
+#define _GAMES_MONOP_DECK_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -46,3 +53,5 @@ struct dk_st {			/* deck description structure		*/
 };
 
 typedef struct dk_st	DECK;
+
+#endif /* _GAMES_MONOP_DECK_H_ */

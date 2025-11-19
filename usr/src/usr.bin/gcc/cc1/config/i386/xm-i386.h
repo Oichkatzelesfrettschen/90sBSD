@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_XM_I386_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_XM_I386_H_
+
 /* Configuration for GNU C-compiler for Intel 80386.
    Copyright (C) 1988 Free Software Foundation, Inc.
 
@@ -46,3 +53,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
    tm.h is a symbolic link to the actual target specific file.   */
 
 #include "tm.h"
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_XM_I386_H_ */

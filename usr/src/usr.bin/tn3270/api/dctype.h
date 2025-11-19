@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_API_DCTYPE_H_
+#define _USR.BIN_TN3270_API_DCTYPE_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -52,3 +59,5 @@
 #define	Disprint(c)	(dctype[(c)]&D_PRINT)
 
 extern unsigned char dctype[192];
+
+#endif /* _USR.BIN_TN3270_API_DCTYPE_H_ */

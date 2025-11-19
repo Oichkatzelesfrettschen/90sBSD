@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_IOCTL_H_
+#define _KERNEL_INCLUDE_SYS_IOCTL_H_
+
 /*-
  * Copyright (c) 1982, 1986, 1990, 1993, 1994
  *	The Regents of the University of California.  All rights reserved.
@@ -82,3 +89,6 @@ __END_DECLS
 #if defined(USE_OLD_TTY) || defined(COMPAT_43) || defined(COMPAT_SUNOS)
 #include <sys/ioctl_compat.h>
 #endif
+
+
+#endif /* _KERNEL_INCLUDE_SYS_IOCTL_H_ */

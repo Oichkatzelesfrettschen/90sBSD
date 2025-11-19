@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.TRAP_H_
+#define _GAMES_HACK_DEF.TRAP_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.trap.h - version 1.0.2 */
 
@@ -25,3 +32,5 @@ struct trap *t_at();
 #define	MIMIC		8	/* used only in mklev.c */
 #define TRAPNUM 	9	/* if not less than 32, change sizeof(ttyp) */
 				/* see also mtrapseen (bit map) */
+
+#endif /* _GAMES_HACK_DEF.TRAP_H_ */

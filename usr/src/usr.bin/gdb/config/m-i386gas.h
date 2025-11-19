@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_CONFIG_M_I386GAS_H_
+#define _USR.BIN_GDB_CONFIG_M_I386GAS_H_
+
 /* Macro definitions for i386 using the GNU object file format.
    Copyright (C) 1986, 1987, 1989 Free Software Foundation, Inc.
 
@@ -35,3 +42,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #undef COFF_FORMAT
 #define READ_DBX_FORMAT
 
+
+#endif /* _USR.BIN_GDB_CONFIG_M_I386GAS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DDB_DB_LEX_H_
+#define _KERNEL_DDB_DB_LEX_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -87,3 +94,5 @@ extern int	db_radix;
 
 
 
+
+#endif /* _KERNEL_DDB_DB_LEX_H_ */

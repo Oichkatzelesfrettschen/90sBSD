@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_HASH_EXTERN_H_
+#define _LIB_LIBC_DB_HASH_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -63,3 +70,5 @@ extern int	(*__default_hash) __P((u_char *, int));
 #ifdef HASH_STATISTICS
 extern long hash_accesses, hash_collisions, hash_expansions, hash_overflows;
 #endif
+
+#endif /* _LIB_LIBC_DB_HASH_EXTERN_H_ */

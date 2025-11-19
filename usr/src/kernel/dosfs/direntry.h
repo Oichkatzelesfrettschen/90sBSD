@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_DIRENTRY_H_
+#define _KERNEL_DOSFS_DIRENTRY_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -95,3 +102,5 @@ void dos2unixtime __P((union dosdate *ddp,
 int  dos2unixfn __P((u_char dn[11], u_char *un));
 void unix2dosfn __P((u_char *un, u_char dn[11], int unlen));
 #endif /* defined(KERNEL) */
+
+#endif /* _KERNEL_DOSFS_DIRENTRY_H_ */

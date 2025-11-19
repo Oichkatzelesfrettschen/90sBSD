@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_PORT_H_
+#define _USR.BIN_TAR_PORT_H_
+
 /* Portability declarations.  Requires sys/types.h.
    Copyright (C) 1988, 1992 Free Software Foundation
 
@@ -213,3 +220,5 @@ char *getcwd ();
 #endif /* DIRENT or _POSIX_VERSION */
 
 #endif /* not __MSDOS__ */
+
+#endif /* _USR.BIN_TAR_PORT_H_ */

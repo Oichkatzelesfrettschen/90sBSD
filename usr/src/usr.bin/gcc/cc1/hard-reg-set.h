@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_HARD_REG_SET_H_
+#define _USR.BIN_GCC_CC1_HARD_REG_SET_H_
+
 /* Sets (bit vectors) of hard registers, and operations on them.
    Copyright (C) 1987, 1992 Free Software Foundation, Inc.
 
@@ -265,3 +272,5 @@ extern int n_non_fixed_regs;
 /* Vector indexed by hardware reg giving its name.  */
 
 extern char *reg_names[FIRST_PSEUDO_REGISTER];
+
+#endif /* _USR.BIN_GCC_CC1_HARD_REG_SET_H_ */

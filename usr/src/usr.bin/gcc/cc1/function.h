@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_FUNCTION_H_
+#define _USR.BIN_GCC_CC1_FUNCTION_H_
+
 /* Structure for saving state for a nested function.
    Copyright (C) 1989, 1992 Free Software Foundation, Inc.
 
@@ -201,3 +208,5 @@ tree *identify_blocks PROTO((tree, rtx));
 #ifdef tree
 #undef tree
 #endif
+
+#endif /* _USR.BIN_GCC_CC1_FUNCTION_H_ */

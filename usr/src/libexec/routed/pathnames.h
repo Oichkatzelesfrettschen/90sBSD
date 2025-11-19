@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_ROUTED_PATHNAMES_H_
+#define _LIBEXEC_ROUTED_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -36,3 +43,5 @@
 #include <paths.h>
 
 #define	_PATH_GATEWAYS	"/etc/gateways"
+
+#endif /* _LIBEXEC_ROUTED_PATHNAMES_H_ */

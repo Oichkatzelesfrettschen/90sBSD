@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_TYPES_H_
+#define _KERNEL_INCLUDE_SYS_TYPES_H_
+
 /*-
  * Copyright (c) 1982, 1986, 1991, 1993, 1994
  *	The Regents of the University of California.  All rights reserved.
@@ -161,4 +168,4 @@ struct	uio;
 #endif
 
 #endif /* !_POSIX_SOURCE */
-#endif /* !_SYS_TYPES_H_ */
+#endif /* _KERNEL_INCLUDE_SYS_TYPES_H_ */

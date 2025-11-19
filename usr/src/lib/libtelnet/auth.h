@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBTELNET_AUTH_H_
+#define _LIB_LIBTELNET_AUTH_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -85,3 +92,5 @@ typedef struct XauthP {
 
 extern auth_debug_mode;
 #endif
+
+#endif /* _LIB_LIBTELNET_AUTH_H_ */

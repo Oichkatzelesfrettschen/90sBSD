@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.OBJECTS_H_
+#define _GAMES_HACK_DEF.OBJECTS_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.objects.h - version 1.0.3 */
 
@@ -287,3 +294,5 @@ char obj_symbols[] = {
 	BALL_SYM, CHAIN_SYM, ROCK_SYM, ARMOR_SYM, POTION_SYM, SCROLL_SYM,
 	WAND_SYM, RING_SYM, GEM_SYM, 0 };
 int bases[sizeof(obj_symbols)];
+
+#endif /* _GAMES_HACK_DEF.OBJECTS_H_ */

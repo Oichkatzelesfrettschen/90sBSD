@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_MFS_MFS_NODE_H_
+#define _KERNEL_MFS_MFS_NODE_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -194,3 +201,5 @@ int	mfs_print __P((
 		int op, \
 		struct flock *fl, \
 		int flags))) mfs_badop)
+
+#endif /* _KERNEL_MFS_MFS_NODE_H_ */

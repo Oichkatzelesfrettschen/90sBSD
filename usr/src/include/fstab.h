@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_FSTAB_H_
+#define _INCLUDE_FSTAB_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -77,3 +84,5 @@ void endfsent __P((void));
 __END_DECLS
 
 #endif /* !_FSTAB_H_ */
+
+#endif /* _INCLUDE_FSTAB_H_ */

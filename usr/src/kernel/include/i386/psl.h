@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_PSL_H_
+#define _KERNEL_INCLUDE_I386_PSL_H_
+
 /*-
  * Copyright (c) 1990, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -59,3 +66,5 @@
 
 #define	PSL_USERSET	(PSL_IOPL)
 #define	PSL_USERCLR	(PSL_I|PSL_NT)
+
+#endif /* _KERNEL_INCLUDE_I386_PSL_H_ */

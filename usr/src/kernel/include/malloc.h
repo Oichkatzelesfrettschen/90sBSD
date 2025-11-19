@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_MALLOC_H_
+#define _KERNEL_INCLUDE_MALLOC_H_
+
+/*
  * Copyright (c) 1987 Regents of the University of California.
  * All rights reserved.
  *
@@ -281,3 +288,5 @@ __ISYM__(void, free, (void *addr, int type))
 #undef __ISYM_VERSION__
 #endif /* KERNEL */
 #endif /* !_MALLOC_H_ */
+
+#endif /* _KERNEL_INCLUDE_MALLOC_H_ */

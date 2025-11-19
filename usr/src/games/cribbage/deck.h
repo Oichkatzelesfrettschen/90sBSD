@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CRIBBAGE_DECK_H_
+#define _GAMES_CRIBBAGE_DECK_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -83,3 +90,5 @@ typedef		struct  {
 
 typedef		char		BOOLEAN;
 
+
+#endif /* _GAMES_CRIBBAGE_DECK_H_ */

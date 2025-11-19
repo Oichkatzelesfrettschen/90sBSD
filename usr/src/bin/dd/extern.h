@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_DD_EXTERN_H_
+#define _BIN_DD_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -64,3 +71,5 @@ extern u_int files_cnt;
 extern u_char *ctab;
 extern u_char a2e_32V[], a2e_POSIX[], a2ibm_32V[], a2ibm_POSIX[], e2a_32V[];
 extern u_char e2a_POSIX[], l2u[], u2l[];
+
+#endif /* _BIN_DD_EXTERN_H_ */

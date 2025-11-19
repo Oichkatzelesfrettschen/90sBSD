@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_HACK.ONAMES_H_
+#define _GAMES_HACK_HACK.ONAMES_H_
+
 #define	STRANGE_OBJECT	0
 #define	AMULET_OF_YENDOR	1
 #define	FOOD_RATION	2
@@ -225,3 +232,5 @@
 #define	LAST_GEM	(JADE+1)
 #define	LAST_RING	19
 #define	NROFOBJECTS	215
+
+#endif /* _GAMES_HACK_HACK.ONAMES_H_ */

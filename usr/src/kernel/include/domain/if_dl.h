@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_DL_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_DL_H_
+
+/*
  * Copyright (c) 1990 Regents of the University of California.
  * All rights reserved.
  *
@@ -78,3 +85,5 @@ char	*link_ntoa __P((const struct sockaddr_dl *));
 __END_DECLS
 
 #endif /* !KERNEL */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_DL_H_ */

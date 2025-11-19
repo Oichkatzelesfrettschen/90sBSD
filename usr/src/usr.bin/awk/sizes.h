@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_SIZES_H_
+#define _USR.BIN_AWK_SIZES_H_
+
 
 /********************************************
 sizes.h
@@ -84,3 +91,5 @@ the GNU General Public License, version 2, 1991.
 #define  PAGE_SZ    4096
 
 #endif   /* SIZES_H */
+
+#endif /* _USR.BIN_AWK_SIZES_H_ */

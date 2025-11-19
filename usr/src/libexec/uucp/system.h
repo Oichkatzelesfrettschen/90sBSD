@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_SYSTEM_H_
+#define _LIBEXEC_UUCP_SYSTEM_H_
+
 /* system.h
    Header file for system dependent stuff in the Taylor UUCP package.
    This file is not itself system dependent.
@@ -762,3 +769,5 @@ extern void usysdep_all_status_free P((pointer phold));
 extern boolean fsysdep_lock_status P((void));
 
 #endif /* ! defined (SYSTEM_H) */
+
+#endif /* _LIBEXEC_UUCP_SYSTEM_H_ */

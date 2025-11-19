@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_SHUTDOWN_PATHNAMES_H_
+#define _SBIN_SHUTDOWN_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -39,3 +46,5 @@
 #define	_PATH_HALT	"/sbin/halt"
 #define	_PATH_REBOOT	"/sbin/reboot"
 #define	_PATH_WALL	"/usr/bin/wall"
+
+#endif /* _SBIN_SHUTDOWN_PATHNAMES_H_ */

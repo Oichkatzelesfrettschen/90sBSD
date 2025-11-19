@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_PPP_H_
+#define _USR.SBIN_PPPD_PPP_H_
+
+/*
  * ppp.h - PPP global declarations.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -39,3 +46,5 @@
 #define MTU		1500	/* Default MTU */
 
 #endif /* __PPP_H__ */
+
+#endif /* _USR.SBIN_PPPD_PPP_H_ */

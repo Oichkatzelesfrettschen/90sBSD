@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TELNET_TYPES_H_
+#define _USR.BIN_TELNET_TYPES_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -50,3 +57,5 @@ typedef struct {
 } Clocks;
 
 extern Clocks clocks;
+
+#endif /* _USR.BIN_TELNET_TYPES_H_ */

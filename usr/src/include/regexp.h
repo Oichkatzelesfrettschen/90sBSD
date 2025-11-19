@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_REGEXP_H_
+#define _INCLUDE_REGEXP_H_
+
+/*
  * Copyright (c) 1986 by University of Toronto.
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
@@ -67,3 +74,5 @@ void regerror __P((const char *));
 __END_DECLS
 
 #endif /* !_REGEXP_H_ */
+
+#endif /* _INCLUDE_REGEXP_H_ */

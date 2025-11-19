@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_ROUTED_TABLE_H_
+#define _SBIN_ROUTED_TABLE_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -104,3 +111,5 @@ struct	rthash nethash[ROUTEHASHSIZ];
 struct	rthash hosthash[ROUTEHASHSIZ];
 struct	rt_entry *rtlookup();
 struct	rt_entry *rtfind();
+
+#endif /* _SBIN_ROUTED_TABLE_H_ */

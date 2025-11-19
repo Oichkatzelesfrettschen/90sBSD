@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAIL_PATHNAMES_H_
+#define _USR.BIN_MAIL_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -41,3 +48,5 @@
 #define	_PATH_MAIL_LOG	"/var/log/maillog"
 #define	_PATH_MASTER_RC	"/etc/mail.rc"
 #define	_PATH_MORE	"/usr/bin/more"
+
+#endif /* _USR.BIN_MAIL_PATHNAMES_H_ */

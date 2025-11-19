@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_STDIO_LOCAL_H_
+#define _LIB_LIBC_STDIO_LOCAL_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -84,3 +91,5 @@ extern int __sdidinit;
 	free((char *)(fp)->_lb._base); \
 	(fp)->_lb._base = NULL; \
 }
+
+#endif /* _LIB_LIBC_STDIO_LOCAL_H_ */

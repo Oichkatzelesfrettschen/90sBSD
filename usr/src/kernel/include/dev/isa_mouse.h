@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_ISA_MOUSE_H_
+#define _KERNEL_INCLUDE_DEV_ISA_MOUSE_H_
+
 /* PS2 mouse */
 #define MSE_RESET_SCALE	0xe6	/* back to 1:1 ratio for X/Y */
 #define MSE_SET_SCALE	0xe7	/* set 2:1 ratio for X/Y */
@@ -27,3 +34,5 @@
 #define MSE_SETDEF	0xf6	/* set defaults */
 #define MSE_RESEND	0xfe	/* resend last packet */
 #define MSE_RESET	0xff	/* reset mouse */
+
+#endif /* _KERNEL_INCLUDE_DEV_ISA_MOUSE_H_ */

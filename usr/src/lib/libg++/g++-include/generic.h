@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBG++_G++_INCLUDE_GENERIC_H_
+#define _LIB_LIBG++_G++_INCLUDE_GENERIC_H_
+
 // This may look like C code, but it is really -*- C++ -*-
 /* 
 Copyright (C) 1988 Free Software Foundation
@@ -61,3 +68,5 @@ typedef int (*GPT)(int,char*);
 
 
 #endif generic_h
+
+#endif /* _LIB_LIBG++_G++_INCLUDE_GENERIC_H_ */

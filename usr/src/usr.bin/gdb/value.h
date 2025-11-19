@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_VALUE_H_
+#define _USR.BIN_GDB_VALUE_H_
+
 /* Definitions for values of C expressions, for GDB.
    Copyright (C) 1986, 1987, 1989 Free Software Foundation, Inc.
 
@@ -210,3 +217,5 @@ enum val_prettyprint {
   Val_pretty_default
   };
 
+
+#endif /* _USR.BIN_GDB_VALUE_H_ */

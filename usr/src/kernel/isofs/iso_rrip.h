@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_ISOFS_ISO_RRIP_H_
+#define _KERNEL_ISOFS_ISO_RRIP_H_
+
+/*
  * Copyright (c) 1993 Atsushi Murai (amurai@spec.co.jp)
  * All rights reserved.
  *
@@ -54,3 +61,5 @@ typedef struct {
 	char		*iso_altname;	/* Alt Name (no Null terminated ) */
 	char		*iso_symname;	/* Symbol Name (no NULL termninated )*/
 } ISO_RRIP_ANALYZE;
+
+#endif /* _KERNEL_ISOFS_ISO_RRIP_H_ */

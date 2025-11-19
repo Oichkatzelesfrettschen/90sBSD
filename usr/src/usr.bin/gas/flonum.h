@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_FLONUM_H_
+#define _USR.BIN_GAS_FLONUM_H_
+
 /* flonum.h - Floating point package
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -109,3 +116,5 @@ int	atof_generic();
 #define ERROR_EXPONENT_OVERFLOW (2)
 
 /* end: flonum.h */
+
+#endif /* _USR.BIN_GAS_FLONUM_H_ */

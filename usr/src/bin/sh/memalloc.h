@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_SH_MEMALLOC_H_
+#define _BIN_SH_MEMALLOC_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -93,3 +100,5 @@ void ungrabstackstr();
 #define grabstackstr(p)	stalloc(stackblocksize() - sstrnleft)
 
 #define ckfree(p)	free((pointer)(p))
+
+#endif /* _BIN_SH_MEMALLOC_H_ */

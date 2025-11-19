@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CHESS_GNUCHESS_H_
+#define _GAMES_CHESS_GNUCHESS_H_
+
+/*
   This file contains code for CHESS.
   Copyright (C) 1986, 1987, 1988 Free Software Foundation, Inc.
 
@@ -95,3 +102,5 @@ extern short Stcolor[64];
 extern unsigned short hint,PrVar[maxdepth];
 
 #define HZ 60
+
+#endif /* _GAMES_CHESS_GNUCHESS_H_ */

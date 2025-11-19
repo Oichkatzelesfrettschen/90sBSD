@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_TOOLS_DOHITS_H_
+#define _USR.BIN_TN3270_TOOLS_DOHITS_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -54,3 +61,5 @@ extern struct Hits Hits[256];		/* one for each of 0x00-0xff */
 extern struct thing *table[100];
 
 extern unsigned int dohash();
+
+#endif /* _USR.BIN_TN3270_TOOLS_DOHITS_H_ */

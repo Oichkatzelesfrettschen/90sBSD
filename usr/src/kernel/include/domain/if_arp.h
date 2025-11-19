@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_ARP_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_ARP_H_
+
+/*
  * Copyright (c) 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -76,3 +83,5 @@ struct arpreq {
 #define	ATF_PERM	0x04	/* permanent entry */
 #define	ATF_PUBL	0x08	/* publish entry (respond for other host) */
 #define	ATF_USETRAILERS	0x10	/* has requested trailers */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_ARP_H_ */

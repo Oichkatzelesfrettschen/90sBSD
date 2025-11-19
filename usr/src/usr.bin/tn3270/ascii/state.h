@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_ASCII_STATE_H_
+#define _USR.BIN_TN3270_ASCII_STATE_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -48,3 +55,5 @@ struct State {
     state	*next;		/* next entry in this same state */
     state	*address;	/* if goto, where is next state */
 };
+
+#endif /* _USR.BIN_TN3270_ASCII_STATE_H_ */

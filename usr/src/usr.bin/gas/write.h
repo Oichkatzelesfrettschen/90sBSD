@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_WRITE_H_
+#define _USR.BIN_GAS_WRITE_H_
+
 /* write.h -> write.c
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -75,3 +82,5 @@ COMMON fixS **	seg_fix_rootP;	/* -> one of above. */
 bit_fixS *bit_fix_new();
 /* end: write.h */
 
+
+#endif /* _USR.BIN_GAS_WRITE_H_ */

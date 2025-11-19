@@ -1,6 +1,13 @@
 /*
  * Copyright (c) 1982, 1986, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *	The Regents of the University of California.  All rights reserved. *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_ETHER_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_ETHER_H_
+
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -220,3 +227,5 @@ struct ether_multistep {
 }
 
 #endif
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_ETHER_H_ */

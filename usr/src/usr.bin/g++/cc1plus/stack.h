@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_STACK_H_
+#define _USR.BIN_G++_CC1PLUS_STACK_H_
+
 /* stack.h - structed access to object stacks
    Copyright (C) 1988 Free Software Foundation, Inc.
    Contributed by Michael Tiemann (tiemann@cygnus.com).
@@ -39,3 +46,5 @@ struct stack_level
 
 struct stack_level *push_stack_level PROTO((struct obstack *, char *, int));
 struct stack_level *pop_stack_level PROTO((struct stack_level *));
+
+#endif /* _USR.BIN_G++_CC1PLUS_STACK_H_ */

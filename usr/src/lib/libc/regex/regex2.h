@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_REGEX_REGEX2_H_
+#define _LIB_LIBC_REGEX_REGEX2_H_
+
 /*-
  * Copyright (c) 1992, 1993, 1994 Henry Spencer.
  * Copyright (c) 1992, 1993, 1994
@@ -171,3 +178,5 @@ struct re_guts {
 /* misc utilities */
 #define	OUT	(CHAR_MAX+1)	/* a non-character value */
 #define	ISWORD(c)	(isalnum(c) || (c) == '_')
+
+#endif /* _LIB_LIBC_REGEX_REGEX2_H_ */

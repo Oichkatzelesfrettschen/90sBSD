@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_UFS_MOUNT_H_
+#define _KERNEL_INCLUDE_FS_UFS_MOUNT_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -77,3 +84,5 @@ int ufs_fhtovp __P((struct mount *mp, struct fid *fhp, struct vnode **vpp));
 int ufs_vptofh __P((struct vnode *vp, struct fid *fhp));
 int ufs_init __P(());
 #endif
+
+#endif /* _KERNEL_INCLUDE_FS_UFS_MOUNT_H_ */

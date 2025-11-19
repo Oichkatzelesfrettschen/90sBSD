@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_LARN_HEADER_H_
+#define _GAMES_LARN_HEADER_H_
+
 /*	header.h		Larn is copyrighted 1986 by Noah Morgan. */
 
 #define MAXLEVEL 11
@@ -432,3 +439,5 @@ unsigned long readnum();
 #define ucc(x) (to_upper[x])
 #endif NODEFS
 
+
+#endif /* _GAMES_LARN_HEADER_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_CRON_EXTERNS_H_
+#define _LIBEXEC_CRON_EXTERNS_H_
+
 /* Copyright 1993,1994 by Paul Vixie
  * All rights reserved
  *
@@ -143,3 +150,5 @@ extern	int		setenv __P((char *, char *, int));
 #ifdef NEED_VFORK
 extern	PID_T		vfork __P((void));
 #endif
+
+#endif /* _LIBEXEC_CRON_EXTERNS_H_ */

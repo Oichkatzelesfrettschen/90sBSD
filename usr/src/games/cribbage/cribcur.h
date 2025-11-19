@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CRIBBAGE_CRIBCUR_H_
+#define _GAMES_CRIBBAGE_CRIBCUR_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -55,3 +62,5 @@ extern	WINDOW		*Compwin;		/* computer's hand window */
 extern	WINDOW		*Msgwin;		/* message window */
 extern	WINDOW		*Playwin;		/* player's hand window */
 extern	WINDOW		*Tablewin;		/* table window */
+
+#endif /* _GAMES_CRIBBAGE_CRIBCUR_H_ */

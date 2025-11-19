@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_LARN_PATHNAMES_H_
+#define _GAMES_LARN_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -39,3 +46,5 @@
 #define	_PATH_LEVELS		"/usr/share/games/larn/larnmaze"
 #define	_PATH_FORTS		"/usr/share/games/larn/lfortune"
 #define	_PATH_PLAYERIDS		"/usr/share/games/larn/playerids"
+
+#endif /* _GAMES_LARN_PATHNAMES_H_ */

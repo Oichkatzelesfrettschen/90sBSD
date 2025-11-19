@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_IS_ISREG_H_
+#define _KERNEL_IS_ISREG_H_
+
 /* Declarations specific to this driver */
 #define NTBUF 2
 #define TLEN 1
@@ -88,3 +95,5 @@ struct mds {
 #define LCOL	0x1000		/* Late collision 	*/
 #define LCAR	0x0800		/* Loss of carrier 	*/
 #define RTRY	0x0400		/* Tried 16 times 	*/
+
+#endif /* _KERNEL_IS_ISREG_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_MAGIC_H_
+#define _USR.SBIN_PPPD_MAGIC_H_
+
+/*
  * magic.h - PPP Magic Number definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -22,3 +29,5 @@
 
 void magic_init __ARGS((void));	/* Initialize the magic number generator */
 u_long magic __ARGS((void));	/* Returns the next magic number */
+
+#endif /* _USR.SBIN_PPPD_MAGIC_H_ */

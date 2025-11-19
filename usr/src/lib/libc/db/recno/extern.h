@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_RECNO_EXTERN_H_
+#define _LIB_LIBC_DB_RECNO_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -52,3 +59,5 @@ int	 __rec_sync __P((const DB *, u_int));
 int	 __rec_vmap __P((BTREE *, recno_t));
 int	 __rec_vout __P((BTREE *));
 int	 __rec_vpipe __P((BTREE *, recno_t));
+
+#endif /* _LIB_LIBC_DB_RECNO_EXTERN_H_ */

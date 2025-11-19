@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_I386_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_I386_H_
+
 /* Definitions of target machine for GNU compiler for Intel 80386.
    Copyright (C) 1988, 1992 Free Software Foundation, Inc.
 
@@ -1589,3 +1596,5 @@ Local variables:
 version-control: t
 End:
 */
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_I386_H_ */

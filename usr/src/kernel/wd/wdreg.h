@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_WD_WDREG_H_
+#define _KERNEL_WD_WDREG_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -141,3 +148,5 @@ static int wdsize(dev_t);
 static int wddump(dev_t);
 
 #endif KERNEL
+
+#endif /* _KERNEL_WD_WDREG_H_ */

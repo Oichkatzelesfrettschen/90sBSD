@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_TELNETD_DEFS_H_
+#define _LIBEXEC_TELNETD_DEFS_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -273,3 +280,5 @@ typedef struct {
 
 #define his_will_wont_is_changing	my_do_dont_is_changing
 #define his_do_dont_is_changing		my_will_wont_is_changing
+
+#endif /* _LIBEXEC_TELNETD_DEFS_H_ */

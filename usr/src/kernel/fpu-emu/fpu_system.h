@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_FPU_SYSTEM_H_
+#define _KERNEL_FPU_EMU_FPU_SYSTEM_H_
+
+/*
  *  fpu_system.h
  *
  *
@@ -129,3 +136,5 @@ struct fpu_reg {
 #endif
 
 #endif
+
+#endif /* _KERNEL_FPU_EMU_FPU_SYSTEM_H_ */

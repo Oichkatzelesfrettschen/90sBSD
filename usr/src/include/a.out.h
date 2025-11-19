@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_A.OUT_H_
+#define _INCLUDE_A.OUT_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -89,3 +96,5 @@ struct relocation_info {
 #include <nlist.h>
 
 #endif /* !_AOUT_H_ */
+
+#endif /* _INCLUDE_A.OUT_H_ */

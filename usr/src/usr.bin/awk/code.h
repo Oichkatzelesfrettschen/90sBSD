@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_CODE_H_
+#define _USR.BIN_AWK_CODE_H_
+
 
 /********************************************
 code.h
@@ -148,3 +155,5 @@ extern int exit_code ;
 
 
 #endif  /* CODE_H */
+
+#endif /* _USR.BIN_AWK_CODE_H_ */

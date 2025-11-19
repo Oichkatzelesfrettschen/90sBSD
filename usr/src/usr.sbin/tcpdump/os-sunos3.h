@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_OS_SUNOS3_H_
+#define _USR.SBIN_TCPDUMP_OS_SUNOS3_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -34,3 +41,5 @@ char *ETHER_ntohost();
 #define EDST(ep) ((ep)->ether_dhost.ether_addr_octet)
 #define ESRC(ep) ((ep)->ether_shost.ether_addr_octet)
 
+
+#endif /* _USR.SBIN_TCPDUMP_OS_SUNOS3_H_ */

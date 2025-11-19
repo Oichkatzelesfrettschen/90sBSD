@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_SED_RX_H_
+#define _USR.BIN_SED_RX_H_
+
 #if !defined(RXH) || defined(RX_WANT_SE_DEFS)
 #define RXH
 
@@ -1051,3 +1058,5 @@ extern void regfree ();
 #endif
 
 #endif
+
+#endif /* _USR.BIN_SED_RX_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_REG_CONSTANT_H_
+#define _KERNEL_FPU_EMU_REG_CONSTANT_H_
+
+/*
  *  reg_constant.h
  *
  *
@@ -67,3 +74,5 @@ extern FPU_REG CONST_MINF;
 extern FPU_REG CONST_QNaN;
 
 #endif _REG_CONSTANT_H_
+
+#endif /* _KERNEL_FPU_EMU_REG_CONSTANT_H_ */

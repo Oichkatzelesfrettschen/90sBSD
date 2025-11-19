@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_STATISTICS_H_
+#define _KERNEL_INCLUDE_VM_STATISTICS_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -107,3 +114,5 @@ struct pmap_statistics {
 
 typedef struct pmap_statistics	*pmap_statistics_t;
 #endif	_VM_STATISTICS_
+
+#endif /* _KERNEL_INCLUDE_VM_STATISTICS_H_ */

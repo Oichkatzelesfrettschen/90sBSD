@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_VNODE_H_
+#define _KERNEL_INCLUDE_FS_VNODE_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -370,3 +377,5 @@ __ISYM__(void, vnode_pager_setsize, (struct vnode *vp, u_long nsize))
  */
 extern	struct vnode *rootdir;		/* root (i.e. "/") vnode */
 #endif
+
+#endif /* _KERNEL_INCLUDE_FS_VNODE_H_ */

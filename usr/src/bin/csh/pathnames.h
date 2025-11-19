@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CSH_PATHNAMES_H_
+#define _BIN_CSH_PATHNAMES_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -39,3 +46,5 @@
 #define	_PATH_DOTLOGOUT		"/etc/csh.logout"
 #define	_PATH_LOGIN		"/usr/bin/login"
 #define	_PATH_USRBIN		"/usr/bin"
+
+#endif /* _BIN_CSH_PATHNAMES_H_ */

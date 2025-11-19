@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_IC_NEC765_H_
+#define _KERNEL_INCLUDE_IC_NEC765_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -69,3 +76,5 @@
 #define NE7CMD_SENSEI	8	/*  sense controller interrupt status */
 #define NE7CMD_SEEK	15	/*  seek drive - requires unit select byte
 					and new cyl byte */
+
+#endif /* _KERNEL_INCLUDE_IC_NEC765_H_ */

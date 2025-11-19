@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_INLINE_INET_NTOHL_H_
+#define _KERNEL_INCLUDE_I386_INLINE_INET_NTOHL_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -19,3 +26,5 @@ ntohl(unsigned long wd)
 #endif
 	return (rv);
 }
+
+#endif /* _KERNEL_INCLUDE_I386_INLINE_INET_NTOHL_H_ */

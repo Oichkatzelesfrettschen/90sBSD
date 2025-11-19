@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CSH_DIR_H_
+#define _BIN_CSH_DIR_H_
+
 /*-
  * Copyright (c) 1980, 1991 The Regents of the University of California.
  * All rights reserved.
@@ -43,3 +50,5 @@ struct directory {
     Char   *di_name;		/* actual name */
 };
 struct directory *dcwd;		/* the one we are in now */
+
+#endif /* _BIN_CSH_DIR_H_ */

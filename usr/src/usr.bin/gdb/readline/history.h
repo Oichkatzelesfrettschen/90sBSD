@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_READLINE_HISTORY_H_
+#define _USR.BIN_GDB_READLINE_HISTORY_H_
+
 /* History.h -- the names of functions that you can call in history. */
 
 typedef struct _hist_entry {
@@ -106,3 +113,5 @@ extern int history_expand ();
 extern char *history_arg_extract ();
 
 
+
+#endif /* _USR.BIN_GDB_READLINE_HISTORY_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_STDIO_FVWRITE_H_
+#define _LIB_LIBC_STDIO_FVWRITE_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -54,3 +61,5 @@ extern int __sfvwrite(FILE *, struct __suio *);
 #else
 extern int __sfvwrite();
 #endif
+
+#endif /* _LIB_LIBC_STDIO_FVWRITE_H_ */

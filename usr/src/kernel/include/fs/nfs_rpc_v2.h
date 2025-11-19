@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_NFS_RPC_V2_H_
+#define _KERNEL_INCLUDE_FS_NFS_RPC_V2_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -85,3 +92,5 @@
 #define	RPCMNT_NAMELEN	255
 #define	RPCMNT_PATHLEN	1024
 #define	RPCPROG_NFS	100003
+
+#endif /* _KERNEL_INCLUDE_FS_NFS_RPC_V2_H_ */

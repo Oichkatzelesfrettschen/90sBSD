@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CSH_EXTERN_H_
+#define _BIN_CSH_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -356,3 +363,5 @@ char	 *short2str __P((Char *));
 char	 *short2qstr __P((Char *));
 char	**short2blk __P((Char **));
 #endif
+
+#endif /* _BIN_CSH_EXTERN_H_ */

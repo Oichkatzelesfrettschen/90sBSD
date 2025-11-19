@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_UFS_LOCKF_H_
+#define _KERNEL_INCLUDE_FS_UFS_LOCKF_H_
+
+/*
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
  *
@@ -69,3 +76,5 @@ extern struct lockf *lf_getblock();	/* Return the first blocking lock */
 extern int lockf_debug;
 #endif	LOCKF_DEBUG
 #endif	KERNEL
+
+#endif /* _KERNEL_INCLUDE_FS_UFS_LOCKF_H_ */

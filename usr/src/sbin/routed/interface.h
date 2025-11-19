@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_ROUTED_INTERFACE_H_
+#define _SBIN_ROUTED_INTERFACE_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -88,3 +95,5 @@ struct	interface *if_ifwithaddr();
 struct	interface *if_ifwithdstaddr();
 struct	interface *if_ifwithnet();
 struct	interface *if_iflookup();
+
+#endif /* _SBIN_ROUTED_INTERFACE_H_ */

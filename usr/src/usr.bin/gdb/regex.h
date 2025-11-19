@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_REGEX_H_
+#define _USR.BIN_GDB_REGEX_H_
+
 /* Definitions for data structures callers pass the regex library.
    Copyright (C) 1985, 1989 Free Software Foundation, Inc.
 
@@ -183,3 +190,5 @@ extern int re_exec ();
 #ifdef SYNTAX_TABLE
 extern char *re_syntax_table;
 #endif
+
+#endif /* _USR.BIN_GDB_REGEX_H_ */

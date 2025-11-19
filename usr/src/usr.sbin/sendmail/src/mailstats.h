@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SENDMAIL_SRC_MAILSTATS_H_
+#define _USR.SBIN_SENDMAIL_SRC_MAILSTATS_H_
+
+/*
  * Copyright (c) 1983 Eric P. Allman
  * Copyright (c) 1988, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -47,3 +54,5 @@ struct statistics
 	long	stat_nt[MAXMAILERS];	/* # msgs to each mailer */
 	long	stat_bt[MAXMAILERS];	/* kbytes to each mailer */
 };
+
+#endif /* _USR.SBIN_SENDMAIL_SRC_MAILSTATS_H_ */

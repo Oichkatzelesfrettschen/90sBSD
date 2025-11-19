@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEVICE_PAGER_H_
+#define _KERNEL_INCLUDE_DEVICE_PAGER_H_
+
+/*
  * Copyright (c) 1990 University of Utah.
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -83,3 +90,5 @@ struct pagerops devicepagerops = {
 #endif
 
 #endif	/* _DEVICE_PAGER_ */
+
+#endif /* _KERNEL_INCLUDE_DEVICE_PAGER_H_ */

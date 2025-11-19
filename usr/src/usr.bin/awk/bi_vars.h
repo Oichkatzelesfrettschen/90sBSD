@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_BI_VARS_H_
+#define _USR.BIN_AWK_BI_VARS_H_
+
 
 /********************************************
 bi_vars.h
@@ -54,3 +61,5 @@ extern CELL bi_vars[NUM_BI_VAR] ;
 
 
 #endif
+
+#endif /* _USR.BIN_AWK_BI_VARS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_API_EBC_DISP_H_
+#define _USR.BIN_TN3270_API_EBC_DISP_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -36,3 +43,5 @@
 extern unsigned char
 			ebc_disp[256],
 			disp_ebc[192];
+
+#endif /* _USR.BIN_TN3270_API_EBC_DISP_H_ */

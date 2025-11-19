@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_BASIC_BLOCK_H_
+#define _USR.BIN_GCC_CC1_BASIC_BLOCK_H_
+
 /* Define control and data flow tables, and regsets.
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -66,3 +73,5 @@ extern regset *basic_block_live_at_start;
 #define REG_BLOCK_UNKNOWN -1
 #define REG_BLOCK_GLOBAL -2
 extern int *reg_basic_block;
+
+#endif /* _USR.BIN_GCC_CC1_BASIC_BLOCK_H_ */

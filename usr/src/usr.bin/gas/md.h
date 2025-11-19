@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_MD_H_
+#define _USR.BIN_GAS_MD_H_
+
 /* md.h -machine dependent- */
 
 /* Copyright (C) 1987 Free Software Foundation, Inc.
@@ -55,3 +62,5 @@ int		md_estimate_size_before_relax();
 void		md_number_to_chars();
 
 /* end: md.h */
+
+#endif /* _USR.BIN_GAS_MD_H_ */

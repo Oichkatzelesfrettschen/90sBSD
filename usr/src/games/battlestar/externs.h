@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_BATTLESTAR_EXTERNS_H_
+#define _GAMES_BATTLESTAR_EXTERNS_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -295,3 +302,5 @@ struct objs {
 };
 struct objs dayobjs[];
 struct objs nightobjs[];
+
+#endif /* _GAMES_BATTLESTAR_EXTERNS_H_ */

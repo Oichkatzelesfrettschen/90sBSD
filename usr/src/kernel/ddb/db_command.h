@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DDB_DB_COMMAND_H_
+#define _KERNEL_DDB_DB_COMMAND_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -65,3 +72,5 @@ extern db_addr_t	db_next;	/* next address to be examined
 					   or written */
 
 
+
+#endif /* _KERNEL_DDB_DB_COMMAND_H_ */

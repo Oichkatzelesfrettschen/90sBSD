@@ -1,6 +1,13 @@
 /*
  * Copyright (c) 1982, 1986, 1989, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *	The Regents of the University of California.  All rights reserved. *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+
+#ifndef _KERNEL_INCLUDE_SYS_DIR_H_
+#define _KERNEL_INCLUDE_SYS_DIR_H_
+
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -58,4 +65,4 @@
 #define DIRSIZ(dp) \
     ((sizeof (struct direct) - (MAXNAMLEN+1)) + (((dp)->d_namlen+1 + 3) &~ 3))
 
-#endif /* !_SYS_DIR_H_ */
+#endif /* _KERNEL_INCLUDE_SYS_DIR_H_ */

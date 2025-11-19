@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_BC_CONST_H_
+#define _USR.BIN_BC_CONST_H_
+
 /* const.h: Constants for bc. */
 
 /*  This file is part of bc written for MINIX.
@@ -85,3 +92,5 @@
 
 /* Include the version definition. */
 #include "version.h"
+
+#endif /* _USR.BIN_BC_CONST_H_ */

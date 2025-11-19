@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_SYMSEG_H_
+#define _USR.BIN_GDB_SYMSEG_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -521,3 +528,5 @@ struct source
   char *name;			/* Name of file */
   struct linetable contents;
 };
+
+#endif /* _USR.BIN_GDB_SYMSEG_H_ */

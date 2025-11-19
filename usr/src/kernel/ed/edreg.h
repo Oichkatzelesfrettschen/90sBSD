@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_ED_EDREG_H_
+#define _KERNEL_ED_EDREG_H_
+
+/*
  * National Semiconductor DS8390 NIC register definitions 
  *
  * Id: if_edreg.h,v 2.2 1993/11/29 16:33:39 davidg Exp davidg
@@ -876,3 +883,5 @@ struct ed_ring	{
  * Reset register; reading from this register causes a board reset
  */
 #define ED_NOVELL_RESET		0x0f
+
+#endif /* _KERNEL_ED_EDREG_H_ */

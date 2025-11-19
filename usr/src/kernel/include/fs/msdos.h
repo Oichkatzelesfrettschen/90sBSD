@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_MSDOS_H_
+#define _KERNEL_INCLUDE_FS_MSDOS_H_
+
+/*
  * msdos common header file
  * [obtained from mtools -wfj]
  * how to decipher DOS disk structures in coexisting with DOS
@@ -62,3 +69,5 @@ struct dos_partition {
 	unsigned long	dp_size;	/* partition size in sectors */
 };
 extern struct dos_partition dos_partitions[NDOSPART];
+
+#endif /* _KERNEL_INCLUDE_FS_MSDOS_H_ */

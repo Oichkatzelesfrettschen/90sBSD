@@ -31,10 +31,13 @@
  * SUCH DAMAGE.
  *
  *	@(#)signalvar.h	8.6 (Berkeley) 2/19/95
+ *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
  */
 
-#ifndef	_SYS_SIGNALVAR_H_		/* tmp for user.h */
-#define	_SYS_SIGNALVAR_H_
+#ifndef _KERNEL_INCLUDE_SIGNALVAR_H_
+#define _KERNEL_INCLUDE_SIGNALVAR_H_
 
 /*
  * Kernel signal definitions and data structures,
@@ -166,4 +169,5 @@ void	trapsignal __P((struct proc *p, int sig, u_long code));
  */
 void	sendsig __P((sig_t action, int sig, int returnmask, u_long code));
 #endif	/* KERNEL */
-#endif	/* !_SYS_SIGNALVAR_H_ */
+
+#endif /* _KERNEL_INCLUDE_SIGNALVAR_H_ */

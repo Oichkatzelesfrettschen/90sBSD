@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_ELVIS_CURSES_H_
+#define _USR.BIN_ELVIS_CURSES_H_
+
 /* curses.h */
 
 /* Author:
@@ -317,3 +324,5 @@ extern void wqrefresh();
 #define noraw()
 #define noecho()
 #define nocbreak()
+
+#endif /* _USR.BIN_ELVIS_CURSES_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_JUNK_MSD_DIR_H_
+#define _USR.BIN_TAR_JUNK_MSD_DIR_H_
+
+/*
  * @(#)msd_dir.h 1.4 87/11/06	Public Domain.
  *
  *  A public domain implementation of BSD directory routines for
@@ -42,3 +49,5 @@ extern struct dirent *readdir ();
 extern void seekdir ();
 extern long telldir ();
 extern void closedir ();
+
+#endif /* _USR.BIN_TAR_JUNK_MSD_DIR_H_ */

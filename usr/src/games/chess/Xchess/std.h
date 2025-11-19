@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_CHESS_XCHESS_STD_H_
+#define _GAMES_CHESS_XCHESS_STD_H_
+
 
 /* This file contains code for X-CHESS.
    Copyright (C) 1986 Free Software Foundation, Inc.
@@ -103,3 +110,5 @@ extern char *sys_errlist[];
 
 #endif VMS
 
+
+#endif /* _GAMES_CHESS_XCHESS_STD_H_ */

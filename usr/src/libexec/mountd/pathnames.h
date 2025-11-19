@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_MOUNTD_PATHNAMES_H_
+#define _LIBEXEC_MOUNTD_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -37,3 +44,5 @@
 #define	_PATH_EXPORTS		"/etc/exports"
 #define	_PATH_RMOUNTLIST	"/var/db/mountdtab"
 #define _PATH_MOUNTDPID		"/var/run/mountd.pid"
+
+#endif /* _LIBEXEC_MOUNTD_PATHNAMES_H_ */

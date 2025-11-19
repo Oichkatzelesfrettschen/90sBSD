@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_CPU_H_
+#define _KERNEL_INCLUDE_I386_CPU_H_
+
 /*-
  * Copyright (c) 1990, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -113,3 +120,5 @@ extern int	want_resched;		/* resched() was called */
 	{ 0, 0 }, \
 	{ "console_device", CTLTYPE_STRUCT }, \
 }
+
+#endif /* _KERNEL_INCLUDE_I386_CPU_H_ */

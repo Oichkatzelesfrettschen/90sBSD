@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAKE_LIST_H_
+#define _USR.BIN_MAKE_LIST_H_
+
+/*
  * Copyright (c) 1988, 1989, 1990 The Regents of the University of California.
  * Copyright (c) 1988, 1989 by Adam de Boor
  * Copyright (c) 1989 by Berkeley Softworks
@@ -296,3 +303,5 @@ void 	List_Move();    /* move an element elsewhere in a list */
 #define LIST_ATREAR(headerPtr) (((List_Links *) headerPtr)->prevPtr)
 
 #endif _LIST
+
+#endif /* _USR.BIN_MAKE_LIST_H_ */

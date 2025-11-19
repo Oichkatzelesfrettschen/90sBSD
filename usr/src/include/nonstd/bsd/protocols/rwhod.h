@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_PROTOCOLS_RWHOD_H_
+#define _INCLUDE_NONSTD_BSD_PROTOCOLS_RWHOD_H_
+
+/*
  * Copyright (c) 1983 The Regents of the University of California.
  * All rights reserved.
  *
@@ -66,3 +73,5 @@ struct	whod {
 #define	_PATH_RWHODIR	"/var/rwho"
 
 #endif /* !_RWHOD_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_PROTOCOLS_RWHOD_H_ */

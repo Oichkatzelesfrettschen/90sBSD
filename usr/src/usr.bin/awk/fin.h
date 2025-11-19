@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_FIN_H_
+#define _USR.BIN_AWK_FIN_H_
+
 
 /********************************************
 fin.h
@@ -51,3 +58,5 @@ void   PROTO( open_main, (void) ) ;
 
 void  PROTO(setmode, (int,int)) ;
 #endif  /* FIN_H */
+
+#endif /* _USR.BIN_AWK_FIN_H_ */

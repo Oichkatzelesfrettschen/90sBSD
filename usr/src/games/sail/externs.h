@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_SAIL_EXTERNS_H_
+#define _GAMES_SAIL_EXTERNS_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -308,3 +315,5 @@ char *strcat();
 char *strncpy();
 char *getenv();
 char *gets();
+
+#endif /* _GAMES_SAIL_EXTERNS_H_ */

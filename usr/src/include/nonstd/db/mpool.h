@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_DB_MPOOL_H_
+#define _INCLUDE_NONSTD_DB_MPOOL_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -133,3 +140,5 @@ int	 mpool_close __P((MPOOL *));
 void	 mpool_stat __P((MPOOL *));
 #endif
 __END_DECLS
+
+#endif /* _INCLUDE_NONSTD_DB_MPOOL_H_ */

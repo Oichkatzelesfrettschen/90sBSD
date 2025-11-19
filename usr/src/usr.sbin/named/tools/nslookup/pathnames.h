@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_NAMED_TOOLS_NSLOOKUP_PATHNAMES_H_
+#define _USR.SBIN_NAMED_TOOLS_NSLOOKUP_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -34,3 +41,5 @@
  */
 
 #define	_PATH_HELPFILE	"/usr/share/misc/nslookup.help"
+
+#endif /* _USR.SBIN_NAMED_TOOLS_NSLOOKUP_PATHNAMES_H_ */

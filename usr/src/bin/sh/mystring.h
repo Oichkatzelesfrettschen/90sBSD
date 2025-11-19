@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_SH_MYSTRING_H_
+#define _BIN_SH_MYSTRING_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -67,3 +74,5 @@ char *strcat();
 #define equal(s1, s2)	(strcmp(s1, s2) == 0)
 #define scopy(s1, s2)	((void)strcpy(s2, s1))
 #define bcopy(src, dst, n)	mybcopy((pointer)(src), (pointer)(dst), n)
+
+#endif /* _BIN_SH_MYSTRING_H_ */

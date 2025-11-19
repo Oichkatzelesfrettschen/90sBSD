@@ -34,10 +34,13 @@
  * SUCH DAMAGE.
  *
  *	@(#)cdefs.h	8.8 (Berkeley) 1/9/95
+ *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
  */
 
-#ifndef	_CDEFS_H_
-#define	_CDEFS_H_
+#ifndef _KERNEL_INCLUDE_SYS_CDEFS_H_
+#define _KERNEL_INCLUDE_SYS_CDEFS_H_
 
 #if defined(__cplusplus)
 #define	__BEGIN_DECLS	extern "C" {
@@ -120,4 +123,4 @@
 #define	__pure
 #endif
 
-#endif /* !_CDEFS_H_ */
+#endif /* _KERNEL_INCLUDE_SYS_CDEFS_H_ */

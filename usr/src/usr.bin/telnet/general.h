@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TELNET_GENERAL_H_
+#define _USR.BIN_TELNET_GENERAL_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -43,3 +50,5 @@
 
 #define	ClearElement(x)		memset((char *)&x, 0, sizeof x)
 #define	ClearArray(x)		memset((char *)x, 0, sizeof x)
+
+#endif /* _USR.BIN_TELNET_GENERAL_H_ */

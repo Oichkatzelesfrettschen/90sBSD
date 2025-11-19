@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_VERSION_H_
+#define _KERNEL_FPU_EMU_VERSION_H_
+
+/*
  *  version.h
  *
  *
@@ -47,3 +54,5 @@
 
 #define FPU_VERSION "wm-FPU-emu version BETA 1.4"
 
+
+#endif /* _KERNEL_FPU_EMU_VERSION_H_ */

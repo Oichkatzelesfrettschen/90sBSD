@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_BOOTP_H_
+#define _USR.SBIN_TCPDUMP_BOOTP_H_
+
 /* @(#) $Header: bootp.h,v 1.2 90/05/29 21:29:16 leres Exp $ (LBL) */
 /*
  * Bootstrap Protocol (BOOTP).  RFC951 and RFC1048.
@@ -101,3 +108,5 @@ struct cmu_vend {
 
 /* v_flags values */
 #define VF_SMASK	1	/* Subnet mask field contains valid data */
+
+#endif /* _USR.SBIN_TCPDUMP_BOOTP_H_ */

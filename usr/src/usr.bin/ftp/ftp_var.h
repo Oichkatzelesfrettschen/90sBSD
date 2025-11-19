@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_FTP_FTP_VAR_H_
+#define _USR.BIN_FTP_FTP_VAR_H_
+
+/*
  * Copyright (c) 1985, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -131,3 +138,5 @@ extern	char *strncpy();
 extern	char *strncat();
 extern	char *strcat();
 extern	char *strcpy();
+
+#endif /* _USR.BIN_FTP_FTP_VAR_H_ */

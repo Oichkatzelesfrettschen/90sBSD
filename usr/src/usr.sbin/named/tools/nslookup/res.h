@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_NAMED_TOOLS_NSLOOKUP_RES_H_
+#define _USR.SBIN_NAMED_TOOLS_NSLOOKUP_RES_H_
+
+/*
  * Copyright (c) 1985,1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -145,3 +152,5 @@ extern void ShowOptions();
 extern void FreeHostInfoPtr();
 extern FILE *OpenFile();
 extern char *res_skip();
+
+#endif /* _USR.SBIN_NAMED_TOOLS_NSLOOKUP_RES_H_ */

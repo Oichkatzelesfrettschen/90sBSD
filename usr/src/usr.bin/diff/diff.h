@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_DIFF_DIFF_H_
+#define _USR.BIN_DIFF_DIFF_H_
+
 /* Shared definitions for GNU DIFF
    Copyright (C) 1988, 89, 91, 92 Free Software Foundation, Inc.
 
@@ -330,3 +337,5 @@ void print_number_range ();
 void print_script ();
 void slurp ();
 void translate_range ();
+
+#endif /* _USR.BIN_DIFF_DIFF_H_ */

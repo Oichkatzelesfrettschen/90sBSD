@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_FSCK_FSCK_H_
+#define _SBIN_FSCK_FSCK_H_
+
+/*
  * Copyright (c) 1980, 1986 The Regents of the University of California.
  * All rights reserved.
  *
@@ -209,3 +216,5 @@ struct inoinfo *getinoinfo();
 void getblk();
 ino_t allocino();
 int findino();
+
+#endif /* _SBIN_FSCK_FSCK_H_ */

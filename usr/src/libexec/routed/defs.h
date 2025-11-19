@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_ROUTED_DEFS_H_
+#define _LIBEXEC_ROUTED_DEFS_H_
+
+/*
  * Copyright (c) 1983, 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -91,3 +98,5 @@ int	inet_addr();
 int	sndmsg();
 int	supply();
 int	cleanup();
+
+#endif /* _LIBEXEC_ROUTED_DEFS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_CLASS_H_
+#define _USR.BIN_G++_CC1PLUS_CP_CLASS_H_
+
 /* Variables and structures for overloading rules.
    Copyright (C) 1993 Free Software Foundation, Inc.
 
@@ -113,3 +120,5 @@ extern int n_convert_harshness;
 extern int n_compute_conversion_costs;
 extern int n_build_method_call;
 extern int n_inner_fields_searched;
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_CLASS_H_ */

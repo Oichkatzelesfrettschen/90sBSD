@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BOOTSTRAP_BOOT_SAIO_H_
+#define _BOOTSTRAP_BOOT_SAIO_H_
+
+/*
  * Copyright (c) 1994 William F. Jolitz.
  * 386BSD Copyright Restrictions Apply. All Other Rights Reserved.
  *
@@ -26,3 +33,5 @@ struct iob {
 };
 
 #define	BBSIZE	8192
+
+#endif /* _BOOTSTRAP_BOOT_SAIO_H_ */

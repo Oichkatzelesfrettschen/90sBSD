@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_TREK_GETPAR_H_
+#define _GAMES_TREK_GETPAR_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -43,3 +50,5 @@ struct cvntab		/* used for getcodpar() paramater list */
 
 extern double		getfltpar();
 extern struct cvntab	*getcodpar();
+
+#endif /* _GAMES_TREK_GETPAR_H_ */

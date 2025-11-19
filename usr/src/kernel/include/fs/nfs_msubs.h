@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_NFS_MSUBS_H_
+#define _KERNEL_INCLUDE_FS_NFS_MSUBS_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -299,3 +306,5 @@ extern struct mbuf *nfsm_reqh();
 	fp->fa_ctime.tv_sec = txdr_unsigned(vap->va_ctime.tv_sec); \
 	fp->fa_ctime.tv_usec = txdr_unsigned(vap->va_gen)
 
+
+#endif /* _KERNEL_INCLUDE_FS_NFS_MSUBS_H_ */

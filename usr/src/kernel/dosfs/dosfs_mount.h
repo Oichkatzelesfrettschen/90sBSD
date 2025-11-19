@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DOSFS_DOSFS_MOUNT_H_
+#define _KERNEL_DOSFS_DOSFS_MOUNT_H_
+
+/*
  *  Written by Paul Popelka (paulp@uts.amdahl.com)
  *
  *  You can do anything you want with this software,
@@ -141,3 +148,5 @@ int pcfs_sync __P((struct mount *mp, int waitfor));
 int pcfs_fhtovp __P((struct mount *mp, struct fid *fhp, struct vnode **vpp));
 int pcfs_vptofh __P((struct vnode *vp, struct fid *fhp));
 int pcfs_init __P(());
+
+#endif /* _KERNEL_DOSFS_DOSFS_MOUNT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_C_TREE_H_
+#define _USR.BIN_GCC_CC1_C_TREE_H_
+
 /* Definitions for C parsing and type checking.
    Copyright (C) 1987, 1993 Free Software Foundation, Inc.
 
@@ -445,3 +452,5 @@ extern int system_header_p;
 extern int doing_objc_thang;
 
 #endif /* not _C_TREE_H */
+
+#endif /* _USR.BIN_GCC_CC1_C_TREE_H_ */

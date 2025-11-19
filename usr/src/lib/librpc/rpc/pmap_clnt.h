@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_PMAP_CLNT_H_
+#define _LIB_LIBRPC_RPC_PMAP_CLNT_H_
+
 /* @(#)pmap_clnt.h	2.1 88/07/29 4.0 RPCSRC; from 1.11 88/02/08 SMI */
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -63,3 +70,5 @@ extern struct pmaplist	*pmap_getmaps();
 enum clnt_stat		pmap_rmtcall();
 enum clnt_stat		clnt_broadcast();
 extern u_short		pmap_getport();
+
+#endif /* _LIB_LIBRPC_RPC_PMAP_CLNT_H_ */

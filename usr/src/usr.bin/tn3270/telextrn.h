@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_TELEXTRN_H_
+#define _USR.BIN_TN3270_TELEXTRN_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -70,3 +77,5 @@ extern void
 
 extern char
 	*strsave();
+
+#endif /* _USR.BIN_TN3270_TELEXTRN_H_ */

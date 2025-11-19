@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_MACHMODE_H_
+#define _USR.BIN_GCC_CC1_MACHMODE_H_
+
 /* Machine mode definitions for GNU C-Compiler; included by rtl.h and tree.h.
    Copyright (C) 1991  Free Software Foundation, Inc.
 
@@ -164,3 +171,5 @@ extern enum machine_mode byte_mode;
 extern enum machine_mode word_mode;
 
 #endif /* not HAVE_MACHINE_MODES */
+
+#endif /* _USR.BIN_GCC_CC1_MACHMODE_H_ */

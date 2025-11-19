@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_KGDB_PROTO_H_
+#define _USR.BIN_GDB_KGDB_PROTO_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -61,3 +68,5 @@
 #define KGDB_DELTA	0x40
 #define KGDB_MORE	0x20
 #define KGDB_SEQ	0x10
+
+#endif /* _USR.BIN_GDB_KGDB_PROTO_H_ */

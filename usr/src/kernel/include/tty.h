@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_TTY_H_
+#define _KERNEL_INCLUDE_TTY_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -201,3 +208,5 @@ void ttyinfo(struct tty *);
 int tputchar(int, struct tty *);
 int ttysleep(struct tty *, caddr_t, int, char *, int);
 #endif
+
+#endif /* _KERNEL_INCLUDE_TTY_H_ */

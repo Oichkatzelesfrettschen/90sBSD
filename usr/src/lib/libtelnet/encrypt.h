@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBTELNET_ENCRYPT_H_
+#define _LIB_LIBTELNET_ENCRYPT_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -104,3 +111,5 @@ extern int encrypt_debug_mode;
 extern int (*decrypt_input) P((int));
 extern void (*encrypt_output) P((unsigned char *, int));
 #endif
+
+#endif /* _LIB_LIBTELNET_ENCRYPT_H_ */

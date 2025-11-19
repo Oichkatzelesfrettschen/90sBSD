@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_MAIL_RCV_H_
+#define _USR.BIN_MAIL_RCV_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -42,3 +49,5 @@
 
 #include "def.h"
 #include "glob.h"
+
+#endif /* _USR.BIN_MAIL_RCV_H_ */

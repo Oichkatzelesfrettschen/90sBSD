@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VADVISE_H_
+#define _KERNEL_INCLUDE_VADVISE_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -47,3 +54,5 @@
 #define	VA_ANOM		1
 #define	VA_SEQL		2
 #define	VA_FLUSH 	3
+
+#endif /* _KERNEL_INCLUDE_VADVISE_H_ */

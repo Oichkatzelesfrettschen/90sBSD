@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_ISYM_H_
+#define _KERNEL_INCLUDE_ISYM_H_
+
+/*
  * Copyright (c) 1995 William F. Jolitz, TeleMuse
  * All rights reserved.
  *
@@ -91,3 +98,5 @@
 #endif
 
 #endif
+
+#endif /* _KERNEL_INCLUDE_ISYM_H_ */

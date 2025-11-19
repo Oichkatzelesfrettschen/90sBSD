@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_YACC_DEFS_H_
+#define _USR.BIN_YACC_DEFS_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -324,3 +331,5 @@ extern char *calloc();
 extern char *malloc();
 extern char *realloc();
 extern char *strcpy();
+
+#endif /* _USR.BIN_YACC_DEFS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_PORT_H_
+#define _LIBEXEC_UUCP_PORT_H_
+
 /* port.h
    Header file for routines which manipulate ports.
 
@@ -546,3 +553,5 @@ extern long itcp_baud P((struct sport *qport));
 #endif /* HAVE_TCP */
 
 #endif
+
+#endif /* _LIBEXEC_UUCP_PORT_H_ */

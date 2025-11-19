@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_HASH_HASH_H_
+#define _LIB_LIBC_DB_HASH_HASH_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -281,3 +288,5 @@ typedef struct htab {		/* Memory resident data structure */
 #define MAGIC		hdr.magic
 #define NEXT_FREE	hdr.next_free
 #define H_CHARKEY	hdr.h_charkey
+
+#endif /* _LIB_LIBC_DB_HASH_HASH_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_GENERAL_GENERAL_H_
+#define _USR.BIN_TN3270_GENERAL_GENERAL_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -63,3 +70,5 @@
 				}
 #define	memcmp(s1,s2,n)		bcmp(s1,s2,n)
 #endif	/* defined(unix) */
+
+#endif /* _USR.BIN_TN3270_GENERAL_GENERAL_H_ */

@@ -1,6 +1,13 @@
 /*
  * Copyright (c) 1989, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *	The Regents of the University of California.  All rights reserved. *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+
+#ifndef _KERNEL_INCLUDE_SYS_UNISTD_H_
+#define _KERNEL_INCLUDE_SYS_UNISTD_H_
+
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -122,3 +129,5 @@
 #define	_CS_PATH		 1
 
 #endif /* !_SYS_UNISTD_H_ */
+
+#endif /* _KERNEL_INCLUDE_SYS_UNISTD_H_ */

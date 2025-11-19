@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_TYPECLASS_H_
+#define _USR.BIN_GCC_CC1_TYPECLASS_H_
+
 /* Values returned by __builtin_classify_type.  */
 
 enum type_class
@@ -12,3 +19,5 @@ enum type_class
   array_type_class, string_type_class, set_type_class, file_type_class,
   lang_type_class
 };
+
+#endif /* _USR.BIN_GCC_CC1_TYPECLASS_H_ */

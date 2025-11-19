@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_REGEXP_H_
+#define _USR.BIN_AWK_REGEXP_H_
+
 
 /********************************************
 regexp.h
@@ -27,3 +34,5 @@ extern  int  REerrno ;
 extern  char *REerrlist[] ;
 
 
+
+#endif /* _USR.BIN_AWK_REGEXP_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_UFS_H_
+#define _KERNEL_INCLUDE_FS_UFS_H_
+
+/*
  * Copyright (c) 1982, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -444,3 +451,5 @@ struct	ocg {
  * NINDIR is the number of indirects in a file system block.
  */
 #define	NINDIR(fs)	((fs)->fs_nindir)
+
+#endif /* _KERNEL_INCLUDE_FS_UFS_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SYS_EXEC_H_
+#define _KERNEL_INCLUDE_SYS_EXEC_H_
+
 /*-
  * Copyright (c) 1992, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -60,3 +67,5 @@ struct ps_strings {
  */
 #define	PS_STRINGS \
 	((struct ps_strings *)(USRSTACK - sizeof(struct ps_strings)))
+
+#endif /* _KERNEL_INCLUDE_SYS_EXEC_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_GAS_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_GAS_H_
+
 /* Definitions for Intel 386 running system V with gnu tools
    Copyright (C) 1988 Free Software Foundation, Inc.
 
@@ -156,3 +163,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
   fprintf (FILE, ".%s%d:\n", PREFIX, NUM)
 
 #endif /* NO_UNDERSCORES */
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_GAS_H_ */

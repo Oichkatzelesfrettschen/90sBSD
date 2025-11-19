@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_SYSTEM_H_
+#define _USR.BIN_CPIO_SYSTEM_H_
+
 /* System dependent declarations.  Requires sys/types.h.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -137,3 +144,5 @@ typedef int gid_t;
 #define UMASKED_SYMLINK(name1,name2,mode)    umasked_symlink(name1,name2,mode)
 #endif /* SYMLINK_USES_UMASK */
 
+
+#endif /* _USR.BIN_CPIO_SYSTEM_H_ */

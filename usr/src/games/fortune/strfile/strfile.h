@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_FORTUNE_STRFILE_STRFILE_H_
+#define _GAMES_FORTUNE_STRFILE_STRFILE_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -52,3 +59,5 @@ typedef struct {				/* information table */
 	unsigned char	stuff[4];		/* long aligned space */
 #define	str_delim	stuff[0]		/* delimiting character */
 } STRFILE;
+
+#endif /* _GAMES_FORTUNE_STRFILE_STRFILE_H_ */

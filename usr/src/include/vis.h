@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_VIS_H_
+#define _INCLUDE_VIS_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -82,3 +89,5 @@ int	unvis __P((char *, char, int *, int));
 __END_DECLS
 
 #endif /* !_VIS_H_ */
+
+#endif /* _INCLUDE_VIS_H_ */

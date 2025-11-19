@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_ROUTED_TRACE_H_
+#define _LIBEXEC_ROUTED_TRACE_H_
+
+/*
  * Copyright (c) 1983, 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -94,3 +101,5 @@ FILE	*ftrace;		/* output trace file */
 	  if (tracepackets) \
 		dumppacket(ftrace, "to", dst, packet, size, &now); \
 	}
+
+#endif /* _LIBEXEC_ROUTED_TRACE_H_ */

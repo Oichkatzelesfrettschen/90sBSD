@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_REGEX_CNAME_H_
+#define _LIB_LIBC_REGEX_CNAME_H_
+
 /*-
  * Copyright (c) 1992, 1993, 1994 Henry Spencer.
  * Copyright (c) 1992, 1993, 1994
@@ -139,3 +146,5 @@ static struct cname {
 	"DEL",	'\177',
 	NULL,	0,
 };
+
+#endif /* _LIB_LIBC_REGEX_CNAME_H_ */

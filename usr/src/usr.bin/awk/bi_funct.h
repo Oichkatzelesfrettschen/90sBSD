@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_BI_FUNCT_H_
+#define _USR.BIN_AWK_BI_FUNCT_H_
+
 
 /********************************************
 bi_funct.h
@@ -58,3 +65,5 @@ CELL *PROTO( bi_system, (CELL *) ) ;
 
 #endif  /* BI_FUNCT_H  */
 
+
+#endif /* _USR.BIN_AWK_BI_FUNCT_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_DDB_DB_OUTPUT_H_
+#define _KERNEL_DDB_DB_OUTPUT_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -51,3 +58,5 @@ extern void	db_force_whitespace();
 extern int	db_print_position();
 extern void	db_end_line();
 extern int	db_printf();
+
+#endif /* _KERNEL_DDB_DB_OUTPUT_H_ */

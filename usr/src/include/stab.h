@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STAB_H_
+#define _INCLUDE_STAB_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -65,3 +72,5 @@
 #define	N_ECOMM		0xe4	/* end common */
 #define	N_ECOML		0xe8	/* end common (local name) */
 #define	N_LENG		0xfe	/* length of preceding entry */
+
+#endif /* _INCLUDE_STAB_H_ */

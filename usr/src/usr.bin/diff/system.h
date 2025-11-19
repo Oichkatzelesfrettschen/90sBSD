@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_DIFF_SYSTEM_H_
+#define _USR.BIN_DIFF_SYSTEM_H_
+
 /* System dependent declarations.
    Copyright (C) 1988, 1989, 1992, 1993 Free Software Foundation, Inc.
 
@@ -78,3 +85,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #define min(a,b) ((a) <= (b) ? (a) : (b))
 #define max(a,b) ((a) >= (b) ? (a) : (b))
+
+#endif /* _USR.BIN_DIFF_SYSTEM_H_ */

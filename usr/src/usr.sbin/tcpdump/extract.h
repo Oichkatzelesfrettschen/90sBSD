@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_EXTRACT_H_
+#define _USR.SBIN_TCPDUMP_EXTRACT_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -47,3 +54,5 @@
 #define EXTRACT_SHORT(p)	(ntohs(*(u_short *)p))
 #define EXTRACT_LONG(p)		(ntohl(*(u_long *)p))
 #endif
+
+#endif /* _USR.SBIN_TCPDUMP_EXTRACT_H_ */

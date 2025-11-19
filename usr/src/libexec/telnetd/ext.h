@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_TELNETD_EXT_H_
+#define _LIBEXEC_TELNETD_EXT_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -222,3 +229,5 @@ extern int	needtermstat;
 #else
 #define DEFAULT_IM	"\r\n\r\nCray UNICOS (%h) (%t)\r\n\r\r\n\r"
 #endif
+
+#endif /* _LIBEXEC_TELNETD_EXT_H_ */

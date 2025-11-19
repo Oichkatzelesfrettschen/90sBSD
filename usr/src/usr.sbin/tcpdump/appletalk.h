@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_APPLETALK_H_
+#define _USR.SBIN_TCPDUMP_APPLETALK_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -154,3 +161,5 @@ struct zipHeader {
 	(((unsigned)((p) - 16512) < 128) || \
 	 ((unsigned)((p) - 200) < 128) || \
 	 ((unsigned)((p) - 768) < 128))
+
+#endif /* _USR.SBIN_TCPDUMP_APPLETALK_H_ */

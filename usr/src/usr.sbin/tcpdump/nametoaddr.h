@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_NAMETOADDR_H_
+#define _USR.SBIN_TCPDUMP_NAMETOADDR_H_
+
+/*
  * Copyright (c) 1988-1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -41,3 +48,5 @@ extern u_char *ETHER_aton();
  */
 #define PROTO_UNDEF		-1
 
+
+#endif /* _USR.SBIN_TCPDUMP_NAMETOADDR_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_REGS_H_
+#define _USR.BIN_GCC_CC1_REGS_H_
+
 /* Define per-register tables for data flow info and register allocation.
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -146,3 +153,5 @@ extern int caller_save_needed;
 #ifndef CALLER_SAVE_PROFITABLE
 #define CALLER_SAVE_PROFITABLE(REFS, CALLS)  (4 * (CALLS) < (REFS))
 #endif
+
+#endif /* _USR.BIN_GCC_CC1_REGS_H_ */

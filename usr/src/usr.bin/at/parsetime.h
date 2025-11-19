@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AT_PARSETIME_H_
+#define _USR.BIN_AT_PARSETIME_H_
+
+/*
  * at.h -  header for at(1)
  * Copyright (c) 1993 by Thomas Koenig
  * All rights reserved.
@@ -27,3 +34,5 @@
  */
 
 time_t parsetime	__P((int argc, char **argv));
+
+#endif /* _USR.BIN_AT_PARSETIME_H_ */

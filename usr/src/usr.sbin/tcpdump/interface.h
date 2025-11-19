@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_INTERFACE_H_
+#define _USR.SBIN_TCPDUMP_INTERFACE_H_
+
+/*
  * Copyright (c) 1988-1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -113,3 +120,5 @@ extern void ppp_if_print();
 #define BIG_ENDIAN 4321
 #define LITTLE_ENDIAN 1234
 #endif
+
+#endif /* _USR.SBIN_TCPDUMP_INTERFACE_H_ */

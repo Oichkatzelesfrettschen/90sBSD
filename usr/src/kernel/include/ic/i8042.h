@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_IC_I8042_H_
+#define _KERNEL_INCLUDE_IC_I8042_H_
+
 #define	KBSTATP		0x64	/* kbd controller status port (I) */
 #define	 KBS_DIB	0x01	/* kbd data in buffer */
 #define	 KBS_IBF	0x02	/* kbd input buffer low */
@@ -71,3 +78,5 @@
 #define	KC8_GATEA20	0x02	/* gate a20  */
 #define	KC8_RESET	0x01	/* reset */
 
+
+#endif /* _KERNEL_INCLUDE_IC_I8042_H_ */

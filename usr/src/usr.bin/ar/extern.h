@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AR_EXTERN_H_
+#define _USR.BIN_AR_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -44,3 +51,5 @@ int	 tmp __P((void));
 char	*files __P((char **argv));
 char	*rname __P((char *));
 __END_DECLS
+
+#endif /* _USR.BIN_AR_EXTERN_H_ */

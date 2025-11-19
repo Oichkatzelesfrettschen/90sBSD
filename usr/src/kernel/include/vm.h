@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_H_
+#define _KERNEL_INCLUDE_VM_H_
+
+/*
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
  *
@@ -71,3 +78,5 @@ boolean_t vm_map_is_allocated(vm_map_t map, vm_offset_t start, vm_offset_t end,
 void	vm_init_limits(struct proc *p);
 
 #endif /* VM_H */
+
+#endif /* _KERNEL_INCLUDE_VM_H_ */

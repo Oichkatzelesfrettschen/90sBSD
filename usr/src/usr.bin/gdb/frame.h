@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_FRAME_H_
+#define _USR.BIN_GDB_FRAME_H_
+
 /* Definitions for dealing with stack frames, for GDB, the GNU debugger.
    Copyright (C) 1986, 1989 Free Software Foundation, Inc.
 
@@ -113,3 +120,5 @@ extern FRAME find_relative_frame ();
 
 /* Generic pointer value indicating "I don't know."  */
 #define Frame_unknown (CORE_ADDR)-1
+
+#endif /* _USR.BIN_GDB_FRAME_H_ */

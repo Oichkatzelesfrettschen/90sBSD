@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_API_API_EXCH_H_
+#define _USR.BIN_TN3270_API_API_EXCH_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -159,3 +166,5 @@ struct storage_descriptor {
     long	location;	/* In network byte order */
     short	length;		/* In network byte order */
 };
+
+#endif /* _USR.BIN_TN3270_API_API_EXCH_H_ */

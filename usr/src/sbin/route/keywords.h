@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_ROUTE_KEYWORDS_H_
+#define _SBIN_ROUTE_KEYWORDS_H_
+
 #define	K_ADD	1
 	{"add", K_ADD},
 #define	K_CHANGE	2
@@ -76,3 +83,5 @@
 	{"xns", K_XNS},
 #define	K_XRESOLVE	39
 	{"xresolve", K_XRESOLVE},
+
+#endif /* _SBIN_ROUTE_KEYWORDS_H_ */

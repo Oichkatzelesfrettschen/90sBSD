@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_STDLIB_ATEXIT_H_
+#define _LIB_LIBC_STDLIB_ATEXIT_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -43,3 +50,5 @@ struct atexit {
 };
 
 struct atexit *__atexit;	/* points to head of LIFO stack */
+
+#endif /* _LIB_LIBC_STDLIB_ATEXIT_H_ */

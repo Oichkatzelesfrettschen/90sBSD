@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_DKBAD_H_
+#define _KERNEL_INCLUDE_DEV_DKBAD_H_
+
 /*-
  * Copyright (c) 1982, 1986 The Regents of the University of California.
  * All rights reserved.
@@ -66,3 +73,5 @@ struct dkbad {
 #define	SSE	1
 #define	BSE	2
 #define	CONT	3
+
+#endif /* _KERNEL_INCLUDE_DEV_DKBAD_H_ */

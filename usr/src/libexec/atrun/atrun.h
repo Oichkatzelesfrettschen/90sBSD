@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_ATRUN_ATRUN_H_
+#define _LIBEXEC_ATRUN_ATRUN_H_
+
+/*
  * Copyright (c) 1993 Christopher G. Demetriou
  * All rights reserved.
  *
@@ -31,3 +38,5 @@
  */
 
 #define ATRUN_MAXLOAD	1.5
+
+#endif /* _LIBEXEC_ATRUN_ATRUN_H_ */

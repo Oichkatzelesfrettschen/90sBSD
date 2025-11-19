@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AT_PANIC_H_
+#define _USR.BIN_AT_PANIC_H_
+
+/*
  * panic.h -  header for at(1)
  * Copyright (c) 1993 Thomas Koenig
  * All rights reserved.
@@ -30,3 +37,5 @@ void panic	__P((char *a));
 void perr	__P((char *a));
 void perr2	__P((char *a, char *b));
 void usage	__P((void));
+
+#endif /* _USR.BIN_AT_PANIC_H_ */

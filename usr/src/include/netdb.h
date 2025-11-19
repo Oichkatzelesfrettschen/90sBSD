@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NETDB_H_
+#define _INCLUDE_NETDB_H_
+
 /*-
  * Copyright (c) 1980, 1983, 1988 Regents of the University of California.
  * All rights reserved.
@@ -119,3 +126,5 @@ void		setservent __P((int));
 __END_DECLS
 
 #endif /* !_NETDB_H_ */
+
+#endif /* _INCLUDE_NETDB_H_ */

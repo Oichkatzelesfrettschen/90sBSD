@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IP_H_
+#define _KERNEL_INCLUDE_DOMAIN_IP_H_
+
+/*
  * Copyright (c) 1982, 1986 Regents of the University of California.
  * All rights reserved.
  *
@@ -165,3 +172,5 @@ struct	ip_timestamp {
 #define	IPTTLDEC	1		/* subtracted when forwarding */
 
 #define	IP_MSS		576		/* default maximum segment size */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IP_H_ */

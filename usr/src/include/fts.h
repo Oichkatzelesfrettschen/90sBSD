@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_FTS_H_
+#define _INCLUDE_FTS_H_
+
+/*
  * Copyright (c) 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
  *
@@ -123,3 +130,5 @@ int	 fts_set __P((FTS *, FTSENT *, int));
 __END_DECLS
 
 #endif /* !_FTS_H_ */
+
+#endif /* _INCLUDE_FTS_H_ */

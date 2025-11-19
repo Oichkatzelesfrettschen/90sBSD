@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_SH_PARSER_H_
+#define _BIN_SH_PARSER_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -72,3 +79,5 @@ int goodname(char *);
 union node *parsecmd();
 int goodname();
 #endif
+
+#endif /* _BIN_SH_PARSER_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_FISH_PATHNAMES_H_
+#define _GAMES_FISH_PATHNAMES_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -35,3 +42,5 @@
 
 #define	_PATH_INSTR	"/usr/share/games/fish.instr"
 #define	_PATH_MORE	"/usr/bin/more"
+
+#endif /* _GAMES_FISH_PATHNAMES_H_ */

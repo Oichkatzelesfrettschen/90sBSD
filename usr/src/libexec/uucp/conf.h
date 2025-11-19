@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIBEXEC_UUCP_CONF_H_
+#define _LIBEXEC_UUCP_CONF_H_
+
 /* conf.h */
 /* Configuration header file for Taylor UUCP.
    Generated on Mon Jun  1 16:01:13 PDT 1992.  */
@@ -310,3 +317,5 @@
    <signal.h>.  In both of these cases system calls can be prevented
    from restarting.  */
 #define HAVE_RESTARTABLE_SYSCALLS 1
+
+#endif /* _LIBEXEC_UUCP_CONF_H_ */

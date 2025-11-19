@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_FSM_H_
+#define _USR.SBIN_PPPD_FSM_H_
+
+/*
  * fsm.h - {Link, IP} Control Protocol Finite State Machine definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -125,3 +132,5 @@ void fsm_sdata __ARGS((fsm *, int, int, u_char *, int));
  * Variables
  */
 extern int peer_mru[];		/* currently negotiated peer MRU (per unit) */
+
+#endif /* _USR.SBIN_PPPD_FSM_H_ */

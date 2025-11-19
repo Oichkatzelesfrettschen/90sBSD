@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TALK_TALK_H_
+#define _USR.BIN_TALK_TALK_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -56,3 +63,5 @@ typedef struct xwin {
 extern	xwin_t my_win;
 extern	xwin_t his_win;
 extern	WINDOW *line_win;
+
+#endif /* _USR.BIN_TALK_TALK_H_ */

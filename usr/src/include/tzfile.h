@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_TZFILE_H_
+#define _INCLUDE_TZFILE_H_
+
+/*
  * Copyright (c) 1988 Regents of the University of California.
  * All rights reserved.
  *
@@ -149,3 +156,5 @@ struct tzhead {
 #define isleap(y) (((y) % 4) == 0 && ((y) % 100) != 0 || ((y) % 400) == 0)
 
 #endif /* !_TZFILE_H_ */
+
+#endif /* _INCLUDE_TZFILE_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AWK_MEMORY_H_
+#define _USR.BIN_AWK_MEMORY_H_
+
 
 /********************************************
 memory.h
@@ -45,3 +52,5 @@ void  PROTO( DB_free_STRING , (STRING *) ) ;
 
 
 #endif   /* MEMORY_H */
+
+#endif /* _USR.BIN_AWK_MEMORY_H_ */

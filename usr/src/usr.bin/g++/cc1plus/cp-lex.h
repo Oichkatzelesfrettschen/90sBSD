@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_G++_CC1PLUS_CP_LEX_H_
+#define _USR.BIN_G++_CC1PLUS_CP_LEX_H_
+
 /* Define constants and variables for communication with cp-parse.y.
    Copyright (C) 1987, 1992, 1993 Free Software Foundation, Inc.
    Hacked by Michael Tiemann (tiemann@cygnus.com)
@@ -105,3 +112,5 @@ extern tree make_pointer_declarator (), make_reference_declarator ();
 extern void reinit_parse_for_function ();
 extern void reinit_parse_for_method ();
 extern int yylex ();
+
+#endif /* _USR.BIN_G++_CC1PLUS_CP_LEX_H_ */

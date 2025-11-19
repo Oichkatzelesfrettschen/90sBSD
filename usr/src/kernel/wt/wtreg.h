@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_WT_WTREG_H_
+#define _KERNEL_WT_WTREG_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -93,3 +100,5 @@
 #define	REWIND	0x21
 #define	ERASE	0x22
 #define	RETENS	0x24
+
+#endif /* _KERNEL_WT_WTREG_H_ */

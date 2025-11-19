@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TN3270_GENERAL_GLOBALS_H_
+#define _USR.BIN_TN3270_GENERAL_GLOBALS_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -128,3 +135,5 @@ EXTERN int
     ps_modified;		/* Has the presentation space been modified */
 
 #endif	/* defined(INCLUDED_OIA) */
+
+#endif /* _USR.BIN_TN3270_GENERAL_GLOBALS_H_ */

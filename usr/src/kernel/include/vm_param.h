@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_PARAM_H_
+#define _KERNEL_INCLUDE_VM_PARAM_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -156,3 +163,5 @@ extern vm_offset_t	last_addr;	/* last physical page */
 #endif	ASSEMBLER
 
 #endif	_VM_PARAM_
+
+#endif /* _KERNEL_INCLUDE_VM_PARAM_H_ */

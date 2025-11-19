@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SYSLOGD_PATHNAMES_H_
+#define _USR.SBIN_SYSLOGD_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -38,3 +45,5 @@
 #define	_PATH_KLOG	"/dev/klog"
 #define	_PATH_LOGCONF	"/etc/syslog.conf"
 #define	_PATH_LOGPID	"/var/run/syslog.pid"
+
+#endif /* _USR.SBIN_SYSLOGD_PATHNAMES_H_ */

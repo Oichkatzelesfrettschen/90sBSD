@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_GEN_REGEXP_REGEXP_H_
+#define _LIB_LIBC_GEN_REGEXP_REGEXP_H_
+
+/*
  * Definitions etc. for regexp(3) routines.
  *
  * Caveat:  this is V8 regexp(3) [actually, a reimplementation thereof],
@@ -19,3 +26,5 @@ extern regexp *regcomp();
 extern int regexec();
 extern void regsub();
 extern void regerror();
+
+#endif /* _LIB_LIBC_GEN_REGEXP_REGEXP_H_ */

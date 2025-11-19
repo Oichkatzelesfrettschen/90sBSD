@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_RELOAD_H_
+#define _USR.BIN_GCC_CC1_RELOAD_H_
+
 /* Communication between reload.c and reload1.c.
    Copyright (C) 1987, 1991, 1992, 1993 Free Software Foundation, Inc.
 
@@ -245,3 +252,5 @@ extern int setup_save_areas PROTO((int *));
 
 /* Find the places where hard regs are live across calls and save them.  */
 extern void save_call_clobbered_regs PROTO((enum machine_mode));
+
+#endif /* _USR.BIN_GCC_CC1_RELOAD_H_ */

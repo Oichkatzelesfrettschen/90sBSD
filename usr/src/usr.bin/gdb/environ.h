@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_ENVIRON_H_
+#define _USR.BIN_GDB_ENVIRON_H_
+
 /* Header for environment manipulation library.
    Copyright (C) 1989, Free Software Foundation.
 
@@ -37,3 +44,5 @@ char *get_in_environ ();
 void set_in_environ ();
 void unset_in_environ ();
 char **environ_vector ();
+
+#endif /* _USR.BIN_GDB_ENVIRON_H_ */

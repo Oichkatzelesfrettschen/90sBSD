@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_PPPD_IPCP_H_
+#define _USR.SBIN_PPPD_IPCP_H_
+
+/*
  * ipcp.h - IP Control Protocol definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -66,3 +73,5 @@ void ipcp_lowerdown __ARGS((int));
 void ipcp_input __ARGS((int, u_char *, int));
 void ipcp_protrej __ARGS((int));
 int  ipcp_printpkt __ARGS((u_char *, int, void (*)(), void *));
+
+#endif /* _USR.SBIN_PPPD_IPCP_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_ARPA_INET_H_
+#define _INCLUDE_NONSTD_ARPA_INET_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -50,3 +57,5 @@ extern char		*inet_ntoa __P((struct in_addr));
 __END_DECLS
 
 #endif /* !_INET_H_ */
+
+#endif /* _INCLUDE_NONSTD_ARPA_INET_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_FRAGS_H_
+#define _USR.BIN_GAS_FRAGS_H_
+
 /* frags.h - Header file for the frag concept.
    Copyright (C) 1987 Free Software Foundation, Inc.
 
@@ -39,3 +46,5 @@ extern struct obstack	frags;
       
 
 /* end: frags.h */
+
+#endif /* _USR.BIN_GAS_FRAGS_H_ */

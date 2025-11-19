@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_LD_SYMSEG_H_
+#define _USR.BIN_LD_SYMSEG_H_
+
 /*-
  *
  * This code is derived from software copyrighted by the Free Software
@@ -356,3 +363,5 @@ struct source
   int nlines;			/* Number of lines that follow */
   struct line lines[1];	/* Information on each line */
 };
+
+#endif /* _USR.BIN_LD_SYMSEG_H_ */

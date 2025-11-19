@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_ELVIS_VI_H_
+#define _USR.BIN_ELVIS_VI_H_
+
 /* vi.h */
 
 /* Author:
@@ -594,3 +601,5 @@ extern MARK	v_start();
 # define free(ptr)	dbfree(ptr, __FILE__, __LINE__)
 extern char *dbmalloc();
 #endif
+
+#endif /* _USR.BIN_ELVIS_VI_H_ */

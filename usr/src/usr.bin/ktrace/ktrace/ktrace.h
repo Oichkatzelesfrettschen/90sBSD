@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_KTRACE_KTRACE_KTRACE_H_
+#define _USR.BIN_KTRACE_KTRACE_KTRACE_H_
+
 /*-
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
@@ -37,3 +44,5 @@
 		  KTRFAC_GENIO | KTRFAC_PSIG | KTRFAC_VM | KTRFAC_BIO)
 
 #define DEF_TRACEFILE	"ktrace.out"
+
+#endif /* _USR.BIN_KTRACE_KTRACE_KTRACE_H_ */

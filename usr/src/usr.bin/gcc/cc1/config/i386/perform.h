@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_PERFORM_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_PERFORM_H_
+
 /* Definitions for AT&T assembler syntax for the Intel 80386.
    Copyright (C) 1988 Free Software Foundation, Inc.
 
@@ -91,3 +98,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
   return ret;								\
 }
 
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_PERFORM_H_ */

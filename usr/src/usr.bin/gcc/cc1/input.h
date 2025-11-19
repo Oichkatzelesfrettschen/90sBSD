@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_INPUT_H_
+#define _USR.BIN_GCC_CC1_INPUT_H_
+
 /* Declarations for variables relating to reading the source file.
    Used by parsers, lexical analyzers, and error message routines.
 
@@ -44,3 +51,5 @@ extern struct file_stack *input_file_stack;
 
 /* Incremented on each change to input_file_stack.  */
 extern int input_file_stack_tick;
+
+#endif /* _USR.BIN_GCC_CC1_INPUT_H_ */

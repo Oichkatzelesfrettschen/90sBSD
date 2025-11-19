@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_CP_CP_H_
+#define _BIN_CP_CP_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -48,3 +55,5 @@ char	*path_append __P((PATH_T *, char *, int));
 char	*path_basename __P((PATH_T *));
 void	 path_restore __P((PATH_T *, char *));
 __END_DECLS
+
+#endif /* _BIN_CP_CP_H_ */

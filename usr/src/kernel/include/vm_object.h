@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_VM_OBJECT_H_
+#define _KERNEL_INCLUDE_VM_OBJECT_H_
+
 /* 
  * Copyright (c) 1991 Regents of the University of California.
  * All rights reserved.
@@ -163,3 +170,5 @@ void	vm_object_print(vm_object_t object, boolean_t full);
 #define	vm_object_sleep(event, object, interruptible) \
 	thread_sleep((event), &(object)->Lock, (interruptible))
 #endif	_VM_OBJECT_
+
+#endif /* _KERNEL_INCLUDE_VM_OBJECT_H_ */

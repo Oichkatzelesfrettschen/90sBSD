@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_DIFF_REGEX_H_
+#define _USR.BIN_DIFF_REGEX_H_
+
 /* Definitions for data structures and routines for the regular
    expression library, version 0.11.
 
@@ -488,3 +495,5 @@ version-control: t
 trim-versions-without-asking: nil
 End:
 */
+
+#endif /* _USR.BIN_DIFF_REGEX_H_ */

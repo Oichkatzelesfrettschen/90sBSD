@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_BTREE_BTREE_H_
+#define _LIB_LIBC_DB_BTREE_BTREE_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -343,3 +350,5 @@ typedef struct BTREE {
 #define	ISSET(t, f)	((t)->bt_flags & (f))
 
 #include "extern.h"
+
+#endif /* _LIB_LIBC_DB_BTREE_BTREE_H_ */

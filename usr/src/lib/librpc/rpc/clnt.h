@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBRPC_RPC_CLNT_H_
+#define _LIB_LIBRPC_RPC_CLNT_H_
+
 /* @(#)clnt.h	2.1 88/07/29 4.0 RPCSRC; from 1.31 88/02/08 SMI*/
 /*
  * Sun RPC is a product of Sun Microsystems, Inc. and is provided for
@@ -329,3 +336,5 @@ char *clnt_sperrno(/* enum clnt_stat num */);	/* string */
 #define RPCSMALLMSGSIZE	400	/* a more reasonable packet size */
 
 #endif /*!_CLNT_*/
+
+#endif /* _LIB_LIBRPC_RPC_CLNT_H_ */

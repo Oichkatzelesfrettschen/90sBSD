@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_TREE_H_
+#define _USR.BIN_GCC_CC1_TREE_H_
+
 /* Front-end tree definitions for GNU compiler.
    Copyright (C) 1989 Free Software Foundation, Inc.
 
@@ -1505,3 +1512,5 @@ extern void end_temporary_allocation PROTO((void));
 
 /* Pop the obstack selection stack.  */
 extern void pop_obstacks PROTO((void));
+
+#endif /* _USR.BIN_GCC_CC1_TREE_H_ */

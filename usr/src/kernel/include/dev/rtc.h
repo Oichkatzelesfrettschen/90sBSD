@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_RTC_H_
+#define _KERNEL_INCLUDE_DEV_RTC_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -84,3 +91,5 @@
 #define RTC_EXTHI	0x18	/* low byte of extended mem size */
 
 #define RTC_CENTURY	0x32	/* current century - please increment in Dec99*/
+
+#endif /* _KERNEL_INCLUDE_DEV_RTC_H_ */

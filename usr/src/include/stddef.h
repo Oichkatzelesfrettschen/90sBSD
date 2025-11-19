@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_STDDEF_H_
+#define _INCLUDE_STDDEF_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -63,3 +70,5 @@ typedef	_WCHAR_T_	wchar_t;
 #define	offsetof(type, member)	((size_t)(&((type *)0)->member))
 
 #endif /* _STDDEF_H_ */
+
+#endif /* _INCLUDE_STDDEF_H_ */

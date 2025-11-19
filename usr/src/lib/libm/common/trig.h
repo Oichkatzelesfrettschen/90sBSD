@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBM_COMMON_TRIG_H_
+#define _LIB_LIBM_COMMON_TRIG_H_
+
+/*
  * Copyright (c) 1987 Regents of the University of California.
  * All rights reserved.
  *
@@ -213,3 +220,5 @@ ic(C5, -1.1250289076471311557E-11 , -37, -1.8BD5986B2A52E)
 #endif
 
 #define cos__C(z)	(z*z*(C0+z*(C1+z*(C2+z*(C3+z*(C4+z*C5))))))
+
+#endif /* _LIB_LIBM_COMMON_TRIG_H_ */

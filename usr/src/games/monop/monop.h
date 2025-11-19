@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_MONOP_MONOP_H_
+#define _GAMES_MONOP_MONOP_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -135,3 +142,5 @@ typedef struct prp_st	RR_S;
 typedef struct prp_st	UTIL_S;
 
 int	cc(), chance(), lux_tax(), goto_jail(), inc_tax();
+
+#endif /* _GAMES_MONOP_MONOP_H_ */

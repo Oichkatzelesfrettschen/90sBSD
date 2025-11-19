@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_CONFIG_M_I386G_SV32_H_
+#define _USR.BIN_GDB_CONFIG_M_I386G_SV32_H_
+
 /* Macro defintions for i386, running System V 3.2.
    Copyright (C) 1989 Free Software Foundation, Inc.
 
@@ -26,3 +33,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 /* TIOCGETC is defined in System V 3.2 termio.h, but struct tchars
    is not.  This makes problems for inflow.c.  */
 #define TIOCGETC_BROKEN
+
+#endif /* _USR.BIN_GDB_CONFIG_M_I386G_SV32_H_ */

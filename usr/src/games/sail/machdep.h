@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_SAIL_MACHDEP_H_
+#define _GAMES_SAIL_MACHDEP_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -44,3 +51,5 @@ typedef int void;
 #define blockalarm()	((void) sighold(SIGALRM))
 #define unblockalarm()	((void) sigrelse(SIGALRM))
 */
+
+#endif /* _GAMES_SAIL_MACHDEP_H_ */

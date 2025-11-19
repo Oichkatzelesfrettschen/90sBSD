@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_DM_PATHNAMES_H_
+#define _GAMES_DM_PATHNAMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -37,3 +44,5 @@
 #define	_PATH_HIDE	"/usr/games/hide/"
 #define	_PATH_LOG	"/var/log/games.log"
 #define	_PATH_NOGAMES	"/etc/nogames"
+
+#endif /* _GAMES_DM_PATHNAMES_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_MILLE_MILLE_H_
+#define _GAMES_MILLE_MILLE_H_
+
+/*
  * Copyright (c) 1982 Regents of the University of California.
  * All rights reserved.
  *
@@ -226,3 +233,5 @@ extern WINDOW	*Board, *Miles, *Score;
  */
 
 CARD	getcard();
+
+#endif /* _GAMES_MILLE_MILLE_H_ */

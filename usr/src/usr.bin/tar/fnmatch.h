@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_FNMATCH_H_
+#define _USR.BIN_TAR_FNMATCH_H_
+
 /* Copyright (C) 1991, 1992 Free Software Foundation, Inc.
 
 This library is free software; you can redistribute it and/or
@@ -57,3 +64,5 @@ extern int fnmatch __P ((const char *__pattern, const char *__string,
 #endif
 
 #endif /* fnmatch.h */
+
+#endif /* _USR.BIN_TAR_FNMATCH_H_ */

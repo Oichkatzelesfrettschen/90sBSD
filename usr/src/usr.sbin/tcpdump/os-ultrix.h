@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_TCPDUMP_OS_ULTRIX_H_
+#define _USR.SBIN_TCPDUMP_OS_ULTRIX_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -54,3 +61,5 @@
 #ifndef	RIPCMD_POLLENTRY
 #define	RIPCMD_POLLENTRY 6
 #endif
+
+#endif /* _USR.SBIN_TCPDUMP_OS_ULTRIX_H_ */

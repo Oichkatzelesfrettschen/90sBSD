@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBM_COMMON_SOURCE_MATHIMPL_H_
+#define _LIB_LIBM_COMMON_SOURCE_MATHIMPL_H_
+
+/*
  * Copyright (c) 1988 The Regents of the University of California.
  * All rights reserved.
  *
@@ -93,3 +100,5 @@
 extern double	exp__E();
 extern double	log__L();
 
+
+#endif /* _LIB_LIBM_COMMON_SOURCE_MATHIMPL_H_ */

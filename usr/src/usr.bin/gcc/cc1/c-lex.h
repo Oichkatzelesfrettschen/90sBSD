@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_C_LEX_H_
+#define _USR.BIN_GCC_CC1_C_LEX_H_
+
 /* Define constants for communication with c-parse.y.
    Copyright (C) 1987, 1992 Free Software Foundation, Inc.
 
@@ -77,3 +84,5 @@ extern void reinit_parse_for_function ();
 extern int yylex ();
 
 extern char *get_directive_line ();
+
+#endif /* _USR.BIN_GCC_CC1_C_LEX_H_ */

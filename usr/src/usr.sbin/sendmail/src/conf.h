@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_SENDMAIL_SRC_CONF_H_
+#define _USR.SBIN_SENDMAIL_SRC_CONF_H_
+
+/*
  * Copyright (c) 1983 Eric P. Allman
  * Copyright (c) 1988, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -1189,3 +1196,5 @@ typedef void		(*sigfunc_t) __P((int));
 #if !defined(HASUNAME) && !defined(SCANF)
 # define SCANF		1
 #endif
+
+#endif /* _USR.SBIN_SENDMAIL_SRC_CONF_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_ED_ED_H_
+#define _BIN_ED_ED_H_
+
 /* ed.h: type and constant definitions for the ed editor. */
 /*
  * Copyright (c) 1993 The Regents of the University of California.
@@ -264,3 +271,5 @@ void ureset __P((void));
 extern char *sys_errlist[];
 extern int mutex;
 extern int sigflags;
+
+#endif /* _BIN_ED_ED_H_ */

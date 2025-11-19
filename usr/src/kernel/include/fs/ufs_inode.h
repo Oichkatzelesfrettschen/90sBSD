@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_UFS_INODE_H_
+#define _KERNEL_INCLUDE_FS_UFS_INODE_H_
+
+/*
  * Copyright (c) 1982, 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -222,3 +229,5 @@ int ufs_islocked __P((struct vnode *vp));
 int ufs_advlock __P((struct vnode *vp, caddr_t id, int op, struct flock *fl,
 	int flags));
 #endif /* KERNEL */
+
+#endif /* _KERNEL_INCLUDE_FS_UFS_INODE_H_ */

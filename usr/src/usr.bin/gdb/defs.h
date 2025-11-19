@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GDB_DEFS_H_
+#define _USR.BIN_GDB_DEFS_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -120,3 +127,5 @@ extern void do_command_lines();
 
 char *current_directory;
 
+
+#endif /* _USR.BIN_GDB_DEFS_H_ */

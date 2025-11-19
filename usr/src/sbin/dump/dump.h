@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _SBIN_DUMP_DUMP_H_
+#define _SBIN_DUMP_DUMP_H_
+
 /*-
  * Copyright (c) 1980 The Regents of the University of California.
  * All rights reserved.
@@ -185,3 +192,5 @@ extern char *index(), *strdup();
 extern char *ctime();
 extern int errno;
 #endif
+
+#endif /* _SBIN_DUMP_DUMP_H_ */

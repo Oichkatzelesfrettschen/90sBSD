@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _BIN_PS_EXTERN_H_
+#define _BIN_PS_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -42,3 +49,5 @@ __BEGIN_DECLS
 void	err __P((const char *, ...));
 double	getpcpu(KINFO *k);
 __END_DECLS
+
+#endif /* _BIN_PS_EXTERN_H_ */

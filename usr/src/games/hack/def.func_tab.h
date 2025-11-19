@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_HACK_DEF.FUNC_TAB_H_
+#define _GAMES_HACK_DEF.FUNC_TAB_H_
+
 /* Copyright (c) Stichting Mathematisch Centrum, Amsterdam, 1985. */
 /* def.func_tab.h - version 1.0.2 */
 
@@ -14,3 +21,5 @@ struct ext_func_tab {
 };
 
 extern struct ext_func_tab extcmdlist[];
+
+#endif /* _GAMES_HACK_DEF.FUNC_TAB_H_ */

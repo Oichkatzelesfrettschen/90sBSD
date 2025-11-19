@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_SNAKE_SNAKE_SNAKE_H_
+#define _GAMES_SNAKE_SNAKE_SNAKE_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -77,3 +84,5 @@ struct point *point();
 
 #define	same(s1, s2)	((s1)->line == (s2)->line && (s1)->col == (s2)->col)
 
+
+#endif /* _GAMES_SNAKE_SNAKE_SNAKE_H_ */

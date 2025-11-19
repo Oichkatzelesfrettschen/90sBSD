@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBREGEX_REGEX_H_
+#define _LIB_LIBREGEX_REGEX_H_
+
 /* Definitions for data structures and routines for the regular
    expression library, version 0.12.
 
@@ -488,3 +495,5 @@ version-control: t
 trim-versions-without-asking: nil
 End:
 */
+
+#endif /* _LIB_LIBREGEX_REGEX_H_ */

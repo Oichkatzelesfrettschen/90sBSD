@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_PRIMES_PRIMES_H_
+#define _GAMES_PRIMES_PRIMES_H_
+
+/*
  * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
@@ -54,3 +61,5 @@ typedef unsigned long ubig;           /* must be >=32 bit unsigned value */
 #define SEMIBIG ((ubig)0x7fffffff)    /* highest signed value */
 #define NEG_SEMIBIG ((ubig)0x80000000) /* lowest signed value */
 #define TABSIZE 256*1024 /* bytes in sieve table (must be > 3*5*7*11) */
+
+#endif /* _GAMES_PRIMES_PRIMES_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_FPU_EMU_FPU_EMU_H_
+#define _KERNEL_FPU_EMU_FPU_EMU_H_
+
 #define PARANOID
 /*
  *  fpu_emu.h
@@ -179,3 +186,5 @@ extern void round_reg(FPU_REG *arg, unsigned int extent,
 #endif __ASSEMBLER__
 
 #endif _FPU_EMU_H_
+
+#endif /* _KERNEL_FPU_EMU_FPU_EMU_H_ */

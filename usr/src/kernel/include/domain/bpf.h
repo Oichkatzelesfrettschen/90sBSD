@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_BPF_H_
+#define _KERNEL_INCLUDE_DOMAIN_BPF_H_
+
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -255,3 +262,5 @@ bpf_tap(caddr_t arg, u_char *pkt, u_int pktlen) {
  * Number of scratch memory words (for BPF_LD|BPF_MEM and BPF_ST).
  */
 #define BPF_MEMWORDS 16
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_BPF_H_ */

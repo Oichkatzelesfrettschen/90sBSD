@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_TAR_H_
+#define _USR.BIN_TAR_TAR_H_
+
 /* Declarations for tar archives.
    Copyright (C) 1988, 1992, 1993 Free Software Foundation
 
@@ -293,3 +300,5 @@ void msg_perror (char *,...);
 void msg ();
 void msg_perror ();
 #endif
+
+#endif /* _USR.BIN_TAR_TAR_H_ */

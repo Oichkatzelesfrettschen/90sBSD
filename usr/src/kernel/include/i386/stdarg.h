@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_STDARG_H_
+#define _KERNEL_INCLUDE_I386_STDARG_H_
+
 /*-
  * Copyright (c) 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -56,3 +63,5 @@ typedef char *va_list;
 #define	va_end(ap)
 
 #endif /* !_STDARG_H_ */
+
+#endif /* _KERNEL_INCLUDE_I386_STDARG_H_ */

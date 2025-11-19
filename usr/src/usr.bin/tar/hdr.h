@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_TAR_HDR_H_
+#define _USR.BIN_TAR_HDR_H_
+
 #define	RECORDSIZE	512
 #define	NAMSIZ		100
 #define	TUNMLEN		32
@@ -66,3 +73,5 @@ union record
 /* The magic field is filled with this if uname and gname are valid. */
 #define	TMAGIC		"ustar  "	/* 7 chars and a null */
 
+
+#endif /* _USR.BIN_TAR_HDR_H_ */

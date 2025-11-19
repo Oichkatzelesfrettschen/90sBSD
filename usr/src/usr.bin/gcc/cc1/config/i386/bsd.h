@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_CONFIG_I386_BSD_H_
+#define _USR.BIN_GCC_CC1_CONFIG_I386_BSD_H_
+
 /* Definitions for BSD assembler syntax for Intel 386
    (actually AT&T syntax for insns and operands,
    adapted to BSD conventions for symbol names and debugging.)
@@ -130,3 +137,5 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #undef ASM_OUTPUT_DOUBLE
 #define ASM_OUTPUT_DOUBLE(FILE,VALUE)  \
   fprintf (FILE, "\t.double 0d%.20e\n", (VALUE))
+
+#endif /* _USR.BIN_GCC_CC1_CONFIG_I386_BSD_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GCC_CC1_REAL_H_
+#define _USR.BIN_GCC_CC1_REAL_H_
+
 /* Front-end tree definitions for GNU compiler.
    Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 
@@ -361,3 +368,5 @@ do { union real_extract u;				\
 #endif
 
 #endif /* Not REAL_H_INCLUDED */
+
+#endif /* _USR.BIN_GCC_CC1_REAL_H_ */

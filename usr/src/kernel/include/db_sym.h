@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DB_SYM_H_
+#define _KERNEL_INCLUDE_DB_SYM_H_
+
 /* 
  * Mach Operating System
  * Copyright (c) 1991,1990 Carnegie Mellon University
@@ -94,3 +101,5 @@ extern int	db_eqname(/* char*, char*, char */);
 
 extern void	db_printsym(/* db_expr_t, db_strategy_t */);
 					/* print closest symbol to a value */
+
+#endif /* _KERNEL_INCLUDE_DB_SYM_H_ */

@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GAS_CONFIG_I386_OPCODE_H_
+#define _USR.BIN_GAS_CONFIG_I386_OPCODE_H_
+
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -814,3 +821,5 @@ prefix_entry i386_prefixtab[] = {
 prefix_entry *i386_prefixtab_end
   = i386_prefixtab + sizeof(i386_prefixtab)/sizeof(i386_prefixtab[0]);
 
+
+#endif /* _USR.BIN_GAS_CONFIG_I386_OPCODE_H_ */

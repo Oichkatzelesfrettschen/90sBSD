@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_CPIOHDR_H_
+#define _USR.BIN_CPIO_CPIOHDR_H_
+
 /* Extended cpio header from POSIX.1.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -88,3 +95,5 @@ struct new_cpio_header
 };
 
 #endif /* cpiohdr.h */
+
+#endif /* _USR.BIN_CPIO_CPIOHDR_H_ */

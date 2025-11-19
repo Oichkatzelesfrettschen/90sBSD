@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DEV_COMPAQ_ISA_H_
+#define _KERNEL_INCLUDE_DEV_COMPAQ_ISA_H_
+
 /*-
  * Compaq ISA bus extensions.
  *
@@ -22,3 +29,5 @@
 #define	WEITEK_FPU	0xC0000000	/* WTL 2167 */
 #define	CYRIX_EMC	0xC0000000	/* Cyrix EMC */
 #endif	/* COMPAQ_RAMRELOC */
+
+#endif /* _KERNEL_INCLUDE_DEV_COMPAQ_ISA_H_ */

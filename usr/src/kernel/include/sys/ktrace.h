@@ -1,6 +1,13 @@
 /*
  * Copyright (c) 1988, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *	The Regents of the University of California.  All rights reserved. *
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+
+#ifndef _KERNEL_INCLUDE_SYS_KTRACE_H_
+#define _KERNEL_INCLUDE_SYS_KTRACE_H_
+
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -154,3 +161,5 @@ int	ktrace __P((const char *, int, int, pid_t));
 __END_DECLS
 
 #endif	/* !KERNEL */
+
+#endif /* _KERNEL_INCLUDE_SYS_KTRACE_H_ */

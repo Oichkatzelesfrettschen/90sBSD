@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CPIO_TAR_H_
+#define _USR.BIN_CPIO_TAR_H_
+
 /* Extended tar format from POSIX.1.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Written by David J. MacKenzie.
@@ -110,3 +117,5 @@ Cambridge, MA 02139, USA.  */
 
 
 #endif	/* tar.h */
+
+#endif /* _USR.BIN_CPIO_TAR_H_ */

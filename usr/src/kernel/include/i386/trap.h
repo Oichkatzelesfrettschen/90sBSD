@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_I386_TRAP_H_
+#define _KERNEL_INCLUDE_I386_TRAP_H_
+
 /*-
  * Copyright (c) 1990, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -94,3 +101,5 @@
 
 /* Trap's coming from user mode */
 #define	T_USER	0x100
+
+#endif /* _KERNEL_INCLUDE_I386_TRAP_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_TREK_TREK_H_
+#define _GAMES_TREK_TREK_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -378,3 +385,5 @@ struct
 /* Trace info */
 # define	xTRACE		1
 int	Trace;
+
+#endif /* _GAMES_TREK_TREK_H_ */

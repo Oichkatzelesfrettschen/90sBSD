@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_SWAP_H_
+#define _KERNEL_INCLUDE_SWAP_H_
+
 
 #define NSWSIZES	16	/* size of swtab */
 #define NPENDINGIO	64	/* max # of pending cleans */
@@ -34,3 +41,5 @@ int		swap_pager_pendingio;	/* max pending async "clean" ops */
 int		swap_pager_poip;	/* pageouts in progress */
 int		swap_pager_piip;	/* pageins in progress */
 #endif
+
+#endif /* _KERNEL_INCLUDE_SWAP_H_ */

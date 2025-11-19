@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.SBIN_NAMED_DB_H_
+#define _USR.SBIN_NAMED_DB_H_
+
+/*
  * Copyright (c) 1985, 1990 Regents of the University of California.
  * All rights reserved.
  *
@@ -128,3 +135,5 @@ extern struct hashbuf *savehash();
 extern struct invbuf *saveinv();
 extern char *savestr();
 extern char *malloc(), *realloc(), *calloc();
+
+#endif /* _USR.SBIN_NAMED_DB_H_ */

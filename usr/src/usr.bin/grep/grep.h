@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_GREP_GREP_H_
+#define _USR.BIN_GREP_GREP_H_
+
 /* grep.h - interface to grep driver for searching subroutines.
    Copyright (C) 1992 Free Software Foundation, Inc.
 
@@ -51,3 +58,5 @@ extern char *matcher;
 extern int match_icase;		/* -i */
 extern int match_words;		/* -w */
 extern int match_lines;		/* -x */
+
+#endif /* _USR.BIN_GREP_GREP_H_ */

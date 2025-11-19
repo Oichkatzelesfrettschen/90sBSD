@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_AT_PRIVS_H_
+#define _USR.BIN_AT_PRIVS_H_
+
+/*
  * privs.h - header for privileged operations
  * Copyright (c) 1993 by Thomas Koenig
  * All rights reserved.
@@ -90,3 +97,5 @@ uid_t real_uid, effective_uid;
 	setuid(real_uid); \
 }
 #endif
+
+#endif /* _USR.BIN_AT_PRIVS_H_ */

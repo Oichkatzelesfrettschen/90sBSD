@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_PPP_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_PPP_H_
+
+/*
  * if_ppp.h - Point-to-Point Protocol definitions.
  *
  * Copyright (c) 1989 Carnegie Mellon University.
@@ -149,3 +156,5 @@ struct ppp_softc {
 #endif
 
 #endif /* _IF_PPP_H_ */
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_PPP_H_ */

@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _GAMES_BACKGAMMON_COMMON_SOURCE_BACK_H_
+#define _GAMES_BACKGAMMON_COMMON_SOURCE_BACK_H_
+
+/*
  * Copyright (c) 1980 Regents of the University of California.
  * All rights reserved.
  *
@@ -125,3 +132,5 @@ int	begscr;			/* 'beginning' of screen
 				   (not including board) */
 
 int	getout();		/* function to exit backgammon cleanly */
+
+#endif /* _GAMES_BACKGAMMON_COMMON_SOURCE_BACK_H_ */

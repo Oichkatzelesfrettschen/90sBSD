@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _LIB_LIBC_DB_RECNO_RECNO_H_
+#define _LIB_LIBC_DB_RECNO_RECNO_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -37,3 +44,5 @@ enum SRCHOP { SDELETE, SINSERT, SEARCH};	/* Rec_search operation. */
 
 #include "../btree/btree.h"
 #include "extern.h"
+
+#endif /* _LIB_LIBC_DB_RECNO_RECNO_H_ */

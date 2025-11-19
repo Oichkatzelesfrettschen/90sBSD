@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_DOMAIN_IF_H_
+#define _KERNEL_INCLUDE_DOMAIN_IF_H_
+
+/*
  * Copyright (c) 1982, 1986, 1989 Regents of the University of California.
  * All rights reserved.
  *
@@ -273,3 +280,5 @@ __ISYM__(int, ifioctl, (struct socket *so, int cmd, caddr_t data, struct proc *p
 #undef __ISYM_VERSION__
 
 #endif KERNEL
+
+#endif /* _KERNEL_INCLUDE_DOMAIN_IF_H_ */

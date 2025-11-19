@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_NONSTD_BSD_PROTOCOLS_TALKD_H_
+#define _INCLUDE_NONSTD_BSD_PROTOCOLS_TALKD_H_
+
+/*
  * Copyright (c) 1983 Regents of the University of California.
  * All rights reserved.
  *
@@ -112,3 +119,5 @@ typedef struct {
 #define RING_WAIT	30	/* time to wait before resending invitation */
 
 #endif /* !_TALKD_H_ */
+
+#endif /* _INCLUDE_NONSTD_BSD_PROTOCOLS_TALKD_H_ */

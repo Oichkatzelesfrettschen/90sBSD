@@ -1,4 +1,11 @@
 /*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _KERNEL_INCLUDE_FS_SPECDEV_H_
+#define _KERNEL_INCLUDE_FS_SPECDEV_H_
+
+/*
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
  *
@@ -218,3 +225,5 @@ int	spec_advlock __P((
 		int op,
 		struct flock *fl,
 		int flags));
+
+#endif /* _KERNEL_INCLUDE_FS_SPECDEV_H_ */

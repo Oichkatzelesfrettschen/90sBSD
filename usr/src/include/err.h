@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _INCLUDE_ERR_H_
+#define _INCLUDE_ERR_H_
+
 /*-
  * Copyright (c) 1993 The Regents of the University of California.
  * All rights reserved.
@@ -60,3 +67,5 @@ void		vwarnx __P((const char *, _VA_LIST_));
 __END_DECLS
 
 #endif /* !_ERR_H_ */
+
+#endif /* _INCLUDE_ERR_H_ */

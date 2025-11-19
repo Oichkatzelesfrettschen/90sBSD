@@ -1,3 +1,10 @@
+/*
+ * Include guard added by add-header-guards.sh
+ * Date: 2025-11-19
+ */
+#ifndef _USR.BIN_CKSUM_EXTERN_H_
+#define _USR.BIN_CKSUM_EXTERN_H_
+
 /*-
  * Copyright (c) 1991 The Regents of the University of California.
  * All rights reserved.
@@ -43,3 +50,5 @@ void	psum2 __P((char *, unsigned long, unsigned long));
 int	csum1 __P((int, unsigned long *, unsigned long *));
 int	csum2 __P((int, unsigned long *, unsigned long *));
 __END_DECLS
+
+#endif /* _USR.BIN_CKSUM_EXTERN_H_ */
