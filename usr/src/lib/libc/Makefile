@@ -7,8 +7,9 @@
 # stubs, remove just -DSYSLIBC_SCCS from CFLAGS.
 LIB=c
 CFLAGS+=-DLIBC_SCCS -DSYSLIBC_SCCS
-# Add nonstd includes for db, network, etc.
-CFLAGS+=-I${.CURDIR}/../../include/nonstd/db
+# Add 386BSD include directories before system includes
+# This ensures 386BSD headers are used instead of conflicting system headers
+CFLAGS+=-I${.CURDIR}/../../include -I${.CURDIR}/../../include/nonstd/db
 AINC=	-I${.CURDIR}/${MACHINE}
 
 .include "${.CURDIR}/compat-43/Makefile.inc"
