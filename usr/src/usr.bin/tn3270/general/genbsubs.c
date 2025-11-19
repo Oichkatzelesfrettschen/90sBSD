@@ -43,7 +43,6 @@ int
 bunequal(s1, s2, n)
 register char *s1, *s2;
 int
-int
 register n;
 {
     register int i = 0;

@@ -53,7 +53,6 @@ static char sccsid[] = "@(#)mkdstoas.c	4.2 (Berkeley) 4/26/91";
 
 
 int
-int
 main()
 {
     int i;

@@ -39,7 +39,6 @@ static char sccsid[] = "@(#)atoi.c	5.7 (Berkeley) 2/23/91";
 #include <stddef.h>
 
 int
-int
 atoi(str)
 	const char *str;
 {

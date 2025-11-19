@@ -105,7 +105,6 @@ u_long crctab[] = {
  *	set on failure.
  */
 int
-int
 crc(fd, cval, clen)
 	register int fd;
 	u_long *cval, *clen;

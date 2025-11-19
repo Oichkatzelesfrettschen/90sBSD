@@ -72,7 +72,6 @@ static char sccsid[] = "@(#)mkhits.c	4.2 (Berkeley) 4/26/91";
 
 
 int
-int
 main(argc, argv)
 int	argc;
 char	*argv[];

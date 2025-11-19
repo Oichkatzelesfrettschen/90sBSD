@@ -52,7 +52,6 @@ static char sccsid[] = "@(#)mkastods.c	4.2 (Berkeley) 4/26/91";
 #include "../api/ebc_disp.h"
 
 int
-int
 main()
 {
     int i;

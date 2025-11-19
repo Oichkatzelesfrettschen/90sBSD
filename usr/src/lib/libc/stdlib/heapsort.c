@@ -88,7 +88,6 @@ static char sccsid[] = "@(#)heapsort.c	5.1 (Berkeley) 6/4/91";
  * only advantage over quicksort is that it requires no additional memory.
  */
 int
-int
 heapsort(bot, nmemb, size, compar)
 	register void *bot;
 	register size_t nmemb, size;

@@ -45,7 +45,6 @@ static char sccsid[] = "@(#)killpg.c	5.3 (Berkeley) 2/24/91";
  */
 #if __STDC__
 int
-int
 killpg(pid_t pgid, int sig)
 #else
 int

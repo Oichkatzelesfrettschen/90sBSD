@@ -48,7 +48,6 @@ static char sccsid[] = "@(#)wsetup.c	5.2 (Berkeley) 2/24/91";
  * _wsetup returns 0 if OK to write, nonzero otherwise.
  */
 int
-int
 __swsetup(fp)
 	register FILE *fp;
 {

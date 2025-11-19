@@ -70,7 +70,6 @@ int	showterm;		/* display term on stderr */
 int	lines, columns;		/* window size */
 
 int
-int
 main(argc, argv)
 	int argc;
 	char *argv[];

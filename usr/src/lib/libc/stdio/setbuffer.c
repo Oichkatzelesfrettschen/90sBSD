@@ -54,7 +54,6 @@ setbuffer(fp, buf, size)
  * set line buffering
  */
 int
-int
 setlinebuf(fp)
 	FILE *fp;
 {

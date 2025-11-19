@@ -49,7 +49,6 @@ static char sccsid[] = "@(#)sprintf.c	5.7 (Berkeley) 1/20/91";
 
 #if __STDC__
 int
-int
 sprintf(char *str, char const *fmt, ...)
 #else
 sprintf(str, fmt, va_alist)

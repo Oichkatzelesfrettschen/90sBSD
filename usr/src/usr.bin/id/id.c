@@ -317,7 +317,6 @@ who(u)
 }
 
 int
-int
 gcmp(a, b)
 	const void *a, *b;
 {

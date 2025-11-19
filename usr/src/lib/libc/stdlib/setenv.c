@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)setenv.c	5.6 (Berkeley) 6/4/91";
  *	"value".  If rewrite is set, replace any current value.
  */
 int
-int
 setenv(name, value, rewrite)
 	register const char *name;
 	register const char *value;

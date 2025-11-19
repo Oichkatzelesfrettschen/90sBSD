@@ -40,7 +40,6 @@ short mawk_state ; /* 0 is compiling */
 int  exit_code ;
 
 int
-int
 main(argc , argv )
   int argc ; char **argv ;
 { 

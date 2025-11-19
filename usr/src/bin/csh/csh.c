@@ -102,7 +102,6 @@ static void	mailchk __P((void));
 static Char   **defaultpath __P((void));
 
 int
-int
 main(argc, argv)
     int     argc;
     char  **argv;

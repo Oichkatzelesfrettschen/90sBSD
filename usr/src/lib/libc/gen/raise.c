@@ -39,7 +39,6 @@ static char sccsid[] = "@(#)raise.c	5.1 (Berkeley) 2/19/91";
 #include <unistd.h>
 
 int
-int
 raise(s)
 	int s;
 {

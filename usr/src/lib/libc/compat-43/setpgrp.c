@@ -42,7 +42,6 @@ int setpgid(pid_t, pid_t);
 
 #if __STDC__
 int
-int
 setpgrp(pid_t pid, pid_t pgid)
 #else
 int

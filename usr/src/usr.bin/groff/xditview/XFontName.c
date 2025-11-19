@@ -226,7 +226,6 @@ XCompareFontName (name1, name2, fontNameAttributes)
 }
 
 int
-int
 XCopyFontName (name1, name2, fontNameAttributes)
 	XFontName	*name1, *name2;
 	unsigned int	fontNameAttributes;

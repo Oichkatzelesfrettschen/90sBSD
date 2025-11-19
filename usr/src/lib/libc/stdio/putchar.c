@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)putchar.c	5.3 (Berkeley) 1/20/91";
  * A subroutine version of the macro putchar
  */
 int
-int
 putchar(c)
 	int c;
 {

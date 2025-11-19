@@ -63,7 +63,6 @@ static struct tbl {
 } tbl[128];
 
 int
-int
 main(argc, argv)
 int	argc;
 char	*argv[];

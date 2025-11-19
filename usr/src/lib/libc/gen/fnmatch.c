@@ -51,7 +51,6 @@ static char sccsid[] = "@(#)fnmatch.c	5.6 (Berkeley) 6/28/92";
 static const char *rangematch __P((const char *, int));
 
 int
-int
 fnmatch(pattern, string, flags)
 	register const char *pattern, *string;
 	int flags;

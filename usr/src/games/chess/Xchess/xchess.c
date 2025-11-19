@@ -73,7 +73,6 @@ fprintf(stderr, "child proc changed status?!\n");
 }
 #endif
 
-void
 int
 main(ac, av)
 	char **av;

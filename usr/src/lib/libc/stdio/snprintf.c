@@ -47,7 +47,6 @@ static char sccsid[] = "@(#)snprintf.c	5.1 (Berkeley) 1/20/91";
 
 #if __STDC__
 int
-int
 snprintf(char *str, size_t n, char const *fmt, ...)
 #else
 snprintf(str, n, fmt, va_alist)
