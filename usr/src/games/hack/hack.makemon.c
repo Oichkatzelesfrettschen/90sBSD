@@ -16,7 +16,6 @@ struct monst zeromonst;
  *	note that in this case we return only one of them (the one at [x,y]).
  */
 struct monst *
-int
 makemon(ptr,x,y)
 register struct permonst *ptr;
 {
