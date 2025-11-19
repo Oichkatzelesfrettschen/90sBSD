@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)tgoto.c	5.4 (Berkeley) 6/1/90";
+#include <string.h>
 #endif /* not lint */
 
 #define	CTRL(c)	((c) & 037)

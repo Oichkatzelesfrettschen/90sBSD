@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)machine.c	5.5 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include <sys/param.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int
 main()

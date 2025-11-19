@@ -31,6 +31,7 @@
  * SUCH DAMAGE.
  */
 
+#include <setjmp.h>
 #ifndef lint
 static char sccsid[] = "@(#)extern.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */

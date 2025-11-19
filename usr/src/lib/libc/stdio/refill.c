@@ -57,6 +57,7 @@ lflush(fp)
  * Refill a stdio buffer.
  * Return EOF on eof or error, 0 otherwise.
  */
+int
 __srefill(fp)
 	register FILE *fp;
 {

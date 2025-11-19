@@ -48,6 +48,7 @@ extern char	searchar;		/* ex search character */
  *	get the line the token of interest occurred on,
  *	prepare it for printing.
  */
+void
 getline()
 {
 	register long	saveftell;
@@ -92,6 +93,7 @@ getline()
  * put_entries --
  *	write out the tags
  */
+void
 put_entries(node)
 	register NODE	*node;
 {

@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)cmdtab.c	5.6 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "tip.h"
+#include <setjmp.h>
 
 extern	int shell(), getfl(), sendfile(), chdirectory();
 extern	int finish(), help(), pipefile(), pipeout(), consh(), variable();

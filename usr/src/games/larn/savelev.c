@@ -5,6 +5,7 @@ extern struct cel *cell;
 /*
  *	routine to save the present level into storage
  */
+void
 savelevel()
 	{
 	register struct cel *pcel;
@@ -27,6 +28,7 @@ savelevel()
 /*
  *	routine to restore a level from storage
  */
+void
 getlevel()
 	{
 	register struct cel *pcel;

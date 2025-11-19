@@ -41,12 +41,14 @@ static char sccsid[] = "@(#)types.c	5.4 (Berkeley) 6/1/90";
  * @(#)types.c	1.1 (Berkeley) 4/1/82
  */
 
+int
 isrepair(card)
 reg CARD	card; {
 
 	return card == C_GAS || card == C_SPARE || card == C_REPAIRS || card == C_INIT;
 }
 
+int
 safety(card)
 reg CARD	card; {
 

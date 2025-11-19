@@ -34,6 +34,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)convtime.c	8.1 (Berkeley) 6/7/93";
+#include <stdio.h>
+#include <string.h>
 #endif /* not lint */
 
 # include <ctype.h>

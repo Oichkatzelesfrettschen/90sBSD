@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)globals.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <setjmp.h>
 
 struct scenario scene[] = {
 	/*
