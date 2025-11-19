@@ -39,8 +39,7 @@ makelevel()
 {
 	register struct mkroom *croom, *troom;
 	register unsigned tryct;
-void
-	register x,y;
+	register int x, y;
 
 	nroom = 0;
 	doorindex = 0;
