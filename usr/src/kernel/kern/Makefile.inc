@@ -24,7 +24,7 @@ MAN9+=	malloc.0 # kinfo.0 io.0 priv.0 process.0 config.0 lock.0
 MAN5+=	core.0
 MAN4+=	fd.0 # ldisc.0 kern.0
 
-# .include "$S/kern/fs/Makefile.inc"   # Using 4.4BSD-Lite2 vfs_*.c instead
+.include "$S/kern/fs/Makefile.inc"   # Filesystem support (specfs, deadfs, etc)
 .include "$S/kern/$(MACHINE)/Makefile.inc"
 .include "$S/kern/net/Makefile.inc"
 .include "$S/kern/socket/Makefile.inc"

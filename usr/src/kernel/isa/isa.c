@@ -687,8 +687,8 @@ extern int hz;
  * processing.
  */
 
-void
-microtime(tvp)
+static void
+isa_microtime(tvp)
 	register struct timeval *tvp;
 {
 	extern unsigned it_ticksperintr;

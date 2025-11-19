@@ -68,7 +68,8 @@ u_long nextgennumber;
 /*
  * Initialize hash links for inodes.
  */
-ufs_init()
+static void
+ufs_ihinit()
 {
 	int i;
 	union ihead *ih = ihead;

@@ -97,10 +97,10 @@ mmrw(dev_t dev, struct uio *uio, int flags)
 /* minor device 1 is kernel memory */
 		case 1:
 			c = iov->iov_len;
-			if (!vmspace_access(&kernspace, (caddr_t)uio->uio_offset, c,
+			if (!vmspace_access(&kernspace, (caddr_t)(vm_offset_t)uio->uio_offset, c,
 			    uio->uio_rw == UIO_READ ? PROT_READ : PROT_WRITE))
 				return(EFAULT);
-			error = uiomove((caddr_t)uio->uio_offset, (int)c, uio);
+			error = uiomove((caddr_t)(vm_offset_t)uio->uio_offset, (int)c, uio);
 			continue;
 
 /* minor device 2 is EOF/RATHOLE */

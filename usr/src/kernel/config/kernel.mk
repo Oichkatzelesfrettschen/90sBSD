@@ -20,10 +20,10 @@ DEPEND= depend_mk
 ASFLAGS= ${DEBUG}
 .if defined(GDB)
 # CFLAGS=	-m486 -O ${COPTS} -g
-CFLAGS=	-O ${COPTS} -g -fno-builtin
+CFLAGS=	-O ${COPTS} -g -fno-builtin -fno-stack-protector -Wno-implicit-int
 .else
 # CFLAGS=	-m486 -O ${COPTS}
-CFLAGS=	-O ${COPTS} -fno-builtin
+CFLAGS=	-O ${COPTS} -fno-builtin -fno-stack-protector -Wno-implicit-int
 .endif
 DBGCFLAGS= -O ${COPTS}
 
@@ -83,9 +83,9 @@ ${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS} isym.o
 	@$S/config/newvers.sh
 	@${CC} -c ${CFLAGS} ${PROF} ${DEBUG} vers.c
 .if defined(DEBUGSYM)
-	@${LD} -z -T ${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o isym.o
 .else
-	@${LD} -z -T ${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o isym.o
+	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -x ${FIRSTOBJ} ${OBJS} vers.o isym.o
 .endif
 	@echo rearranging symbols
 .if defined(GDB)

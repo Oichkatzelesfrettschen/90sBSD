@@ -191,8 +191,8 @@ void		pmap_clear_modify();
 /*
  * All those kernel PT submaps that BSD is so fond of
  */
-struct pte	*CMAP1, *CMAP2, *mmap;
-caddr_t		CADDR1, CADDR2, vmmap;
+struct pte	*CMAP1, *CMAP2, *pmap_mmap;
+caddr_t		CADDR1, CADDR2, vpmap_mmap;
 struct pte	*msgbufmap;
 struct msgbuf	*msgbufp;
 #endif
@@ -285,7 +285,7 @@ printf("ps %x pe %x ", firstaddr, maxmem <<PG_SHIFT);
 
 	SYSMAP(caddr_t		,CMAP1		,CADDR1	   ,1		)
 	SYSMAP(caddr_t		,CMAP2		,CADDR2	   ,1		)
-	SYSMAP(caddr_t		,mmap		,vmmap	   ,1		)
+	SYSMAP(caddr_t		,pmap_mmap		,vpmap_mmap	   ,1		)
 	SYSMAP(struct msgbuf *	,msgbufmap	,msgbufp   ,1		)
 	virtual_avail = va;
 #endif

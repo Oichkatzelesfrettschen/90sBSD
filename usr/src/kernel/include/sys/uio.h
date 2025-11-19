@@ -70,6 +70,9 @@ struct uio {
  */
 #define UIO_MAXIOV	1024		/* max 1K of iov's */
 #define UIO_SMALLIOV	8		/* 8 on stack, else malloc */
+
+/* Kernel function prototypes */
+int	uiomove __P((caddr_t, int, struct uio *));
 #endif /* KERNEL */
 
 #ifndef	KERNEL

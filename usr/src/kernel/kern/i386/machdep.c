@@ -96,7 +96,8 @@ int	msgbufmapped;		/* set when safe to use msgbuf */
 /*
  * Machine-dependent startup code
  */
-int boothowto = 0, Maxmem = 0;
+extern int boothowto;
+int Maxmem = 0;
 long dumplo;
 int physmem, maxmem;
 extern int bootdev;
