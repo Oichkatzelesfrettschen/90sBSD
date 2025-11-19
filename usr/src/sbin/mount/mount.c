@@ -104,6 +104,7 @@ int retrycnt;
 int opflags = 0;
 #endif
 
+int
 main(argc, argv, arge)
 	int argc;
 	char **argv;

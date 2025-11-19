@@ -83,6 +83,7 @@ long small_fact();	/* find smallest factor of a value */
 char *read_num_buf();	/* read a number buffer */
 char *program;		/* name of this program */
 
+int
 main(argc, argv)
 	int argc;	/* arg count */
 	char *argv[];	/* the args */

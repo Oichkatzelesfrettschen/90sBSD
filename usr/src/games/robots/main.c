@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)main.c	5.5 (Berkeley) 2/28/91";
 # include	<signal.h>
 # include	<ctype.h>
 
+int
 main(ac, av)
 int	ac;
 char	**av;

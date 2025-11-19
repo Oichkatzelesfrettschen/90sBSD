@@ -57,6 +57,7 @@ static char sccsid[] = "@(#)chown.c	5.18 (Berkeley) 3/9/91";
 int ischown, uid, gid, fflag, rflag, retval;
 char *gname, *myname;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

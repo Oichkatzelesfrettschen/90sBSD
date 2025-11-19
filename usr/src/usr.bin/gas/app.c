@@ -374,6 +374,7 @@ void (*unget)();
 char comment_chars[] = "|";
 char line_comment_chars[] = "#";
 
+int
 main()
 {
 	int	ch;

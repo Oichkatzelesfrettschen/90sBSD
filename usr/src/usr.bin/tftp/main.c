@@ -124,6 +124,7 @@ char	*tail();
 char	*index();
 char	*rindex();
 
+int
 main(argc, argv)
 	char *argv[];
 {

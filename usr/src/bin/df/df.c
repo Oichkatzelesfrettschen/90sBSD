@@ -62,6 +62,7 @@ int	iflag, kflag, nflag;
 struct	ufs_args mdev;
 
 int
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -165,6 +165,7 @@ struct afswtch {
 
 struct afswtch *afp;	/*the address family being set or asked about*/
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -79,6 +79,7 @@ extern char *krb_realmofhost();
 extern int errno;
 int rfd2;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

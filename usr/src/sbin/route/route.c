@@ -141,6 +141,7 @@ quit(s)
 	((a) > 0 ? (1 + (((a) - 1) | (sizeof(long) - 1))) : sizeof(long))
 #define ADVANCE(x, n) (x += ROUNDUP((n)->sa_len))
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

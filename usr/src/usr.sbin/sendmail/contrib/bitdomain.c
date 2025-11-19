@@ -45,6 +45,7 @@ extern int optind;
 
 char *lookup();
 
+int
 main(argc, argv)
 int argc;
 char **argv;

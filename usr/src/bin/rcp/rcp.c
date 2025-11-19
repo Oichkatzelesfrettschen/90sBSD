@@ -101,6 +101,7 @@ typedef struct _buf {
 
 void lostconn();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

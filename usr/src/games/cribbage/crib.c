@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)crib.c	5.6 (Berkeley) 2/28/91";
 # include	"cribcur.h"
 # include	"pathnames.h"
 
+int
 main(argc, argv)
 int	argc;
 char	*argv[];

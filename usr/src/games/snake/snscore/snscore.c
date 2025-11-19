@@ -56,6 +56,7 @@ struct	player	{
 	char	*name;
 } players[MAXPLAYERS], temp;
 
+int
 main()
 {
 	char	buf[80], cp;

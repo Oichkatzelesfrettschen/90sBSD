@@ -55,6 +55,7 @@ int isxargs;			/* don't permit xargs delimiting chars */
 
 static void usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

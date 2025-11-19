@@ -115,6 +115,7 @@ int debug = 0;
  * default: _PATH_EXPORTS
  * and "-n" to allow nonroot mount.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

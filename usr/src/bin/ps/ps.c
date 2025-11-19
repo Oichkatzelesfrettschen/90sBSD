@@ -89,6 +89,7 @@ char ufmt[] = "user pid %cpu %mem vsz rss tt state start time command";
 char vfmt[] =
 	"pid state time sl re pagein vsz rss lim tsiz trs %cpu %mem command";
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

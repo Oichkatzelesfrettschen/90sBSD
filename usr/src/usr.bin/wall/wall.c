@@ -63,6 +63,7 @@ int mbufsize;
 char *mbuf;
 
 /* ARGSUSED */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

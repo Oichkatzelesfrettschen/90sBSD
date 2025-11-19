@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)mailstats.c	8.3 (Berkeley) 12/27/93";
 
 #define MNAMELEN	20	/* max length of mailer name */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

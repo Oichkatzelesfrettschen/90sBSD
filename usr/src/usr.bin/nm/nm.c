@@ -79,6 +79,7 @@ void *emalloc();
  *	parse command line, execute process_file() for each file
  *	specified on the command line.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

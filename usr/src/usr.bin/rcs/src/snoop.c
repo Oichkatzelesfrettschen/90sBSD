@@ -95,6 +95,7 @@ int lockfile;
 
 #define MAXTRIES 20
 
+int
 main(argc,argv)
 int argc; char * argv[];
 /* writes argv[1] to SNOOPFILE and appends a newline. Invoked as follows:

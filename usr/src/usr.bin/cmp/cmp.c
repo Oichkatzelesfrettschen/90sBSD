@@ -56,6 +56,7 @@ int	all, fd1, fd2, silent;
 u_char	buf1[MAXBSIZE], buf2[MAXBSIZE];
 char	*file1, *file2;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)main.c	5.27 (Berkeley) 8/7/90";
 void	catch(), catchquit(), voidquit();
 int	returntosingle;
 
+int
 main(argc, argv)
 	int	argc;
 	char	*argv[];

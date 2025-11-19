@@ -72,6 +72,7 @@ char *kmemf = _PATH_KMEM;
 off_t klseek();
 void intpr(), printhdr(), sidewaysintpr(), usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

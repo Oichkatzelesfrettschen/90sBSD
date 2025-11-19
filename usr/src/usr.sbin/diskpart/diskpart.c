@@ -110,6 +110,7 @@ int	dflag;			/* print disktab entry */
 
 struct	disklabel *promptfordisk();
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -743,6 +743,7 @@ fail:   VOID fclose(file);
 char * workfilename, *RCSfilename;
 extern int quietflag;
 
+int
 main(argc, argv)
 int argc; char *argv[];
 {

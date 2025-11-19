@@ -100,6 +100,7 @@ NODE *hashtable[HASHSIZE];
 NODE **cycle_buf;
 NODE **longest_cycle;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

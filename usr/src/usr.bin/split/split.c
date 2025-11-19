@@ -60,6 +60,7 @@ static short	file_open;		/* if a file open */
 static char	bfr[MAXBSIZE],		/* I/O buffer */
 		fname[PATH_MAX];	/* file name */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

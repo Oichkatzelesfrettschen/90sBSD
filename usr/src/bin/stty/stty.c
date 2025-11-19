@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)stty.c	5.28 (Berkeley) 6/5/91";
 
 char *usage = "usage: stty: [-eg] [-f file] [options]";
 
+int
 main(argc, argv) 
 	int argc;
 	char **argv;

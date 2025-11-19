@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)makekey.c	5.3 (Berkeley) 2/25/91";
 
 static void error(), get();
 
+int
 main()
 {
 	int len;

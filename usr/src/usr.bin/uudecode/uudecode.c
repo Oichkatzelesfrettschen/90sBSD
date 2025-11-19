@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)uudecode.c	5.10 (Berkeley) 6/1/90";
 char *filename;
 
 /* ARGSUSED */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

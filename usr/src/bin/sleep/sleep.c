@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)sleep.c	5.5 (Berkeley) 4/8/91";
 #include <stdio.h>
 #include <stdlib.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

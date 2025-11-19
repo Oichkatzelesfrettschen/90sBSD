@@ -288,6 +288,7 @@ int verbose;
 int waittime = 5;		/* time to wait for response (in seconds) */
 int nflag;			/* print addresses numerically */
 
+int
 main(argc, argv)
 	char *argv[];
 {

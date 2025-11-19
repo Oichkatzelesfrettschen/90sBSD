@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)leave.c	5.6 (Berkeley) 3/1/91";
  * Leave prompts for input and goes away if you hit return.
  * It nags you like a mother hen.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

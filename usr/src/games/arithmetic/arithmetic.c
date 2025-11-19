@@ -95,6 +95,7 @@ time_t qtime;
  * so far are printed.
  */
 void
+int
 main(argc, argv)
 	int argc;
 	char **argv;

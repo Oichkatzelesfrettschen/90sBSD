@@ -79,6 +79,7 @@ char	*progname;
 char	usagestr[] =	"usage: %s [ - ] mesgfile prefix file ...\n";
 char	name[100], *np;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

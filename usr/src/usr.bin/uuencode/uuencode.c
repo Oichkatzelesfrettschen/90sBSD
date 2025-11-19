@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)uuencode.c	5.9 (Berkeley) 6/1/90";
 #include <sys/stat.h>
 #include <stdio.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

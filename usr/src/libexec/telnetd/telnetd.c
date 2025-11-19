@@ -72,6 +72,7 @@ char *progname;
 
 extern void usage P((void));
 
+int
 main(argc, argv)
 	char *argv[];
 {

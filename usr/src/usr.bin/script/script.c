@@ -69,6 +69,7 @@ int	l;
 char	line[] = "/dev/ptyXX";
 int	aflg;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

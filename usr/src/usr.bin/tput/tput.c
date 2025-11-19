@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)tput.c	5.7 (Berkeley) 6/7/90";
 #include <stdio.h>
 #include <unistd.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

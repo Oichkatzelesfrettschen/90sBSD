@@ -59,6 +59,7 @@ struct nlist nl[] = {
 void usage(), vputc();
 void err __P((const char *, ...));
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

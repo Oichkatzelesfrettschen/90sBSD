@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)monop.c	5.7 (Berkeley) 6/1/90";
 /*
  *	This program implements a monopoly game
  */
+int
 main(ac, av)
 reg int		ac;
 reg char	*av[]; {

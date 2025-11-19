@@ -41,6 +41,7 @@ char copyright[] =
 static char sccsid[] = "@(#)pagesize.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
+int
 main()
 {
 	printf("%d\n", getpagesize());

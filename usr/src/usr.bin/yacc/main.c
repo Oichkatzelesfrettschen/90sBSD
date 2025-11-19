@@ -394,6 +394,7 @@ open_files()
 
 
 int
+int
 main(argc, argv)
 int argc;
 char *argv[];

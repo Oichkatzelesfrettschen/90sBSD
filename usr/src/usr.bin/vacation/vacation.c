@@ -86,6 +86,7 @@ DB *db;
 
 char from[MAXLINE];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

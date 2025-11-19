@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)users.c	5.12 (Berkeley) 11/1/90";
 
 #define	MAXUSERS	200
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

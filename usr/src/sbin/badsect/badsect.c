@@ -77,6 +77,7 @@ long	dev_bsize = 1;
 char buf[MAXBSIZE];
 
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

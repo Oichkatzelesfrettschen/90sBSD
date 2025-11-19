@@ -56,6 +56,7 @@ static char sccsid[] = "@(#)mesg.c	4.7 (Berkeley) 3/1/91";
 
 static char *tty;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

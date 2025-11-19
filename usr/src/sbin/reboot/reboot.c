@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)reboot.c	5.11 (Berkeley) 2/27/91";
 #include <stdio.h>
 #include <errno.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

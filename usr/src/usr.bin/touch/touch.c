@@ -64,6 +64,7 @@ void	usage __P((void));
 #define TIMET_TO_TIMEVAL(timevalp, tp) (timevalp)->tv_sec = *(tp);
 
 int
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

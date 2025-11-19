@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)update.c	5.1 (Berkeley) 6/6/91";
 #include <stdio.h>
 #include <unistd.h>
 
+int
 main()
 {
 	struct itimerval value;

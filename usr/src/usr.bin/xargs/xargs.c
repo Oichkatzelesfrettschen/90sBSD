@@ -58,6 +58,7 @@ int fflag, tflag;
 void err __P((const char *, ...));
 void run(), usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

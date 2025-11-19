@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)nohup.c	5.4 (Berkeley) 6/1/90";
 
 extern int errno;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

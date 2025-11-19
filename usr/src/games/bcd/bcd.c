@@ -106,6 +106,7 @@ u_short holes[256] = {
  */
 #define	bit(w,i)	((w)&(1<<(i)))
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

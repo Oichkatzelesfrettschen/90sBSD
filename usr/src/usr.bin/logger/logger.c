@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)logger.c	6.15 (Berkeley) 3/1/91";
 **	result on the system log, along with a useful tag.
 */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

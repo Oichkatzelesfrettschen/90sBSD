@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)head.c	5.5 (Berkeley) 6/1/90";
  * Bill Joy UCB August 24, 1977
  */
 
+int
 main(argc, argv)
 	int	argc;
 	char	**argv;

@@ -71,6 +71,7 @@ DECK	deck[2];
 
 FILE	*inf, *outf;
 
+int
 main(ac, av)
 int	ac;
 char	*av[]; {

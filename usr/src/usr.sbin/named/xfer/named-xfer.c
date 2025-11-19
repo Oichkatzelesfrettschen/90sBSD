@@ -90,6 +90,7 @@ int	domain_len;			/* strlen(domain) */
 
 extern	int errno;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

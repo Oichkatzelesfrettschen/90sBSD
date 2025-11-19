@@ -65,6 +65,7 @@ void	cleanup();
 char	*sname();
 char	PNbuf[256];			/* This limits the size of a number */
 
+int
 main(argc, argv)
 	char *argv[];
 {

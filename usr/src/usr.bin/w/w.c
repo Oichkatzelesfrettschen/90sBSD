@@ -110,6 +110,7 @@ struct nlist nl[] = {
 #define USAGE "[ -hi ] [ user ]"
 #define usage()	fprintf(stderr, "usage: %s: %s\n", program, USAGE)
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

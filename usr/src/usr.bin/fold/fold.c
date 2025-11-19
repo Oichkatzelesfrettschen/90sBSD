@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)fold.c	5.5 (Berkeley) 6/1/90";
 
 #define	DEFLINEWIDTH	80
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

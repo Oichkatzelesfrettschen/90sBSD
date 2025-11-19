@@ -120,6 +120,7 @@ ERROR %%%%   Cannot have daemon mode without SMTP   %%%% ERROR
 
 #define MAXCONFIGLEVEL	5	/* highest config version level known */
 
+int
 main(argc, argv, envp)
 	int argc;
 	char **argv;

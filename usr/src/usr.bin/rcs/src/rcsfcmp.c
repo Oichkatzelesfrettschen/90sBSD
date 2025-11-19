@@ -209,6 +209,7 @@ char * RCSfilename, * workfilename;
 
 char * Comment;
 
+int
 main(argc, argv)
 int  argc; char  *argv[];
 /* first argument: comment leader; 2nd: log message, 3rd: expanded file,

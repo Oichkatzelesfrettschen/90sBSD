@@ -72,6 +72,7 @@ union dbent
 
 #define BUFSIZE		1024
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

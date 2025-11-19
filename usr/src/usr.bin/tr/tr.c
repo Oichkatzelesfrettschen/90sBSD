@@ -54,6 +54,7 @@ typedef struct {
 	enum { NORM, INRANGE, EOS } state;
 } STR;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -65,6 +65,7 @@ char	*person;		/* name of person doing lprm */
 
 static char	luser[16];	/* buffer for person */
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

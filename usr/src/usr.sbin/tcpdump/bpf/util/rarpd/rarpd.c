@@ -114,6 +114,7 @@ void lookup_eaddr();
 void lookup_ipaddr();
 
 void
+int
 main(argc, argv)
 	int argc;
 	char **argv;

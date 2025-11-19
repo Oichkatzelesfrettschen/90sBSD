@@ -80,6 +80,7 @@ static long	currentout,			/* current logout value */
 		maxrec;				/* records to display */
 static char	*file = _PATH_WTMP;		/* wtmp file */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

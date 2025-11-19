@@ -46,6 +46,7 @@
 
 /* #define eflag 1 */
 
+int
 main(argc, argv)  char **argv; {
 	register char **ap;
 	register char *p;

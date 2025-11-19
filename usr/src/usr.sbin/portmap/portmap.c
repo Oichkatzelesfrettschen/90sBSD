@@ -101,6 +101,7 @@ struct pmaplist *pmaplist;
 int debugging = 0;
 extern int errno;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

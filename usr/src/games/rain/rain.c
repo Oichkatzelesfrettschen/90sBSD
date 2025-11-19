@@ -66,6 +66,7 @@ static struct sgttyb sg, old_tty;
 int	fputchar();
 char	*LL, *TE, *tgoto();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -84,6 +84,7 @@ int	kmem;
 int	bflag, hflag, kflag, rflag, pflag;
 int	debug = 0;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

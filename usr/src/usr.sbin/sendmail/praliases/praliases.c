@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)praliases.c	8.3 (Berkeley) 3/6/94";
 #endif
 
 int
+int
 main(argc, argv)
 	int argc;
 	char **argv;

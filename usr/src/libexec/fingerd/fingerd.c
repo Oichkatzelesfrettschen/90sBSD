@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)fingerd.c	5.6 (Berkeley) 6/1/90";
 #include <stdio.h>
 #include "pathnames.h"
 
+int
 main()
 {
 	register FILE *fp;

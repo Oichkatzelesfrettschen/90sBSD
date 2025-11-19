@@ -1668,6 +1668,7 @@ askquit()
 /*
  * Can you tell that this used to be a Pascal program?
  */
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

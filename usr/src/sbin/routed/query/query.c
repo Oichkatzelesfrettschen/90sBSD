@@ -65,6 +65,7 @@ void	timeout();
 char	packet[MAXPACKETSIZE];
 int	nflag;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

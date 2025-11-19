@@ -179,6 +179,7 @@ static struct	worm {
 	short *xpos, *ypos;
 } *worm;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

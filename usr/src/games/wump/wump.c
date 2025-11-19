@@ -104,6 +104,7 @@ int arrow_num = NUMBER_OF_ARROWS;	/* arrow inventory */
 
 char answer[20];			/* user input */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

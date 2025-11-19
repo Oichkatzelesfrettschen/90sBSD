@@ -64,6 +64,7 @@ int use_kerberos = 1;
 #define	ARGSTR	"-flm"
 #endif
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -57,6 +57,7 @@ static char sccsid[] = "@(#)talk.c	5.5 (Berkeley) 6/1/90";
  *		Modified to run under 4.1c by Peter Moore 3/17/83
  */
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

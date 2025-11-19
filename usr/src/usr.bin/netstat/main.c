@@ -202,6 +202,7 @@ int	unit;
 
 int	af = AF_UNSPEC;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

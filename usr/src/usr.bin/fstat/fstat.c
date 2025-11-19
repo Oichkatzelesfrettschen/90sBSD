@@ -148,6 +148,7 @@ int maxfiles;
 void dofiles(), getinetproto(), socktrans(), nfs_filestat(), ufs_filestat();
 void usage(), vtrans();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

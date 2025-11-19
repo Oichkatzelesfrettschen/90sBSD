@@ -178,6 +178,7 @@ int	re_exec();
 #endif
 #endif
 
+int
 main(ac, av)
 int	ac;
 char	*av[];

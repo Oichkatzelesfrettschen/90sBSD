@@ -164,6 +164,7 @@ void	dovmstat(), kread(), usage();
 void	dotimes(), doforkst();
 #endif
 
+int
 main(argc, argv)
 	register int argc;
 	register char **argv;

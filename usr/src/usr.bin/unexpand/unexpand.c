@@ -50,6 +50,7 @@ char	genbuf[BUFSIZ];
 char	linebuf[BUFSIZ];
 int	all;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

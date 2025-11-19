@@ -59,6 +59,7 @@ static char	*game,			/* requested game */
 		*gametty;		/* from tty? */
 
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	char **argv;

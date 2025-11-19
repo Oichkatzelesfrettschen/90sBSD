@@ -54,6 +54,7 @@ char *progname;
 
 static int *found, foundman;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

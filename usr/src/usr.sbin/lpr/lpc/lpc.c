@@ -63,6 +63,7 @@ struct	cmd *getcmd();
 
 jmp_buf	toplevel;
 
+int
 main(argc, argv)
 	char *argv[];
 {

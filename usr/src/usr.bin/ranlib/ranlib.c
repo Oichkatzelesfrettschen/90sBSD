@@ -54,6 +54,7 @@ CHDR chdr;
 u_int options;				/* UNUSED -- keep open_archive happy */
 char *archive;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

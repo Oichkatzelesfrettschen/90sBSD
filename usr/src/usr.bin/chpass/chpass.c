@@ -59,6 +59,7 @@ char *progname = "chpass";
 char *tempname;
 uid_t uid;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

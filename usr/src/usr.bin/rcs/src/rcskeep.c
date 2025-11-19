@@ -294,6 +294,7 @@ register char * sp; int fields;
 #ifdef KEEPTEST
 char * RCSfilename, * workfilename;
 
+int
 main(argc, argv)
 int  argc; char  *argv[];
 {

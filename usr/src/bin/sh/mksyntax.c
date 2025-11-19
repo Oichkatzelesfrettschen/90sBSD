@@ -104,6 +104,7 @@ int nbits;		/* number of bits in a character */
 int digit_contig;	/* true if digits are contiguous */
 
 
+int
 main() {
 	char c;
 	char d;

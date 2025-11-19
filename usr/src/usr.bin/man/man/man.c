@@ -56,6 +56,7 @@ int f_all, f_cat, f_how, f_where;
 char *command, *machine, *p_augment, *p_path, *pager, *progname;
 extern char **arorder, *pathbuf;
 
+int
 main(argc, argv)
 	int argc;
 	register char **argv;

@@ -164,6 +164,7 @@ void recover(basename, outname)
 #endif
 }
 
+int
 main(argc, argv)
 	int	argc;
 	char	**argv;

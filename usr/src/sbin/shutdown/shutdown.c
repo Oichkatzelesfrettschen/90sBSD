@@ -81,6 +81,7 @@ static time_t offset, shuttime;
 static int dofast, dohalt, doreboot, killflg, mbuflen;
 static char *nosync, *whom, mbuf[BUFSIZ];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

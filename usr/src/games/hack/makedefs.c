@@ -10,6 +10,7 @@
 int fd;
 char string[STRSZ];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

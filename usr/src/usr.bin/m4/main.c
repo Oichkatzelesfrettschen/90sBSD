@@ -211,6 +211,7 @@ extern void onintr();
 extern int optind;
 extern char *optarg;
 
+int
 main(argc,argv)
 	int argc;
 	char **argv;

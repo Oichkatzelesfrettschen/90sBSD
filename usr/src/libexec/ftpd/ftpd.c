@@ -144,6 +144,7 @@ char	*LastArgv = NULL;	/* end of argv */
 char	proctitle[BUFSIZ];	/* initial part of title */
 #endif /* SETPROCTITLE */
 
+int
 main(argc, argv, envp)
 	int argc;
 	char *argv[];

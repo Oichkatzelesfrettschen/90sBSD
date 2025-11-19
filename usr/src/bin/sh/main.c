@@ -94,6 +94,7 @@ char *getenv();
  * is used to figure out how far we had gotten.
  */
 
+int
 main(argc, argv)  char **argv; {
 	struct jmploc jmploc;
 	struct stackmark smark;

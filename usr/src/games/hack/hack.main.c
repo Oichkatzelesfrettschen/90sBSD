@@ -39,6 +39,7 @@ extern long wailmsg;
 static void chdirx();
 #endif
 
+int
 main(argc,argv)
 int argc;
 char *argv[];

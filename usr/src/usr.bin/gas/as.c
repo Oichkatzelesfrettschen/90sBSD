@@ -71,6 +71,7 @@ long int gdb_begin();
 char *myname;		/* argv[0] */
 extern char version_string[];
 
+int
 main(argc,argv)
 int	argc;
 char	**argv;

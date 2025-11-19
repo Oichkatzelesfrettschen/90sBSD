@@ -187,6 +187,7 @@ int	MarkSeq = 0;		/* mark sequence number */
 extern	int errno;
 extern	char *ctime(), *index(), *calloc();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

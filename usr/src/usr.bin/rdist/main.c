@@ -72,6 +72,7 @@ int	groupid;	/* user's group ID */
 struct	passwd *pw;	/* pointer to static area used by getpwent */
 struct	group *gr;	/* pointer to static area used by getgrent */
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

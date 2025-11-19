@@ -155,6 +155,7 @@ char writer[] = "\
 
 
 
+int
 main(argc, argv)  char **argv; {
 	FILE *cfile, *hfile;	
 	struct sig *sigp;

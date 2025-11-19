@@ -83,6 +83,7 @@ int	fromlen;
 #define MAXARG	4
 char	*dirs[MAXARG+1];
 
+int
 main(ac, av)
 	char **av;
 {

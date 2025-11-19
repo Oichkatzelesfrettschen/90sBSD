@@ -810,6 +810,7 @@ char    command;
 int     number;			/* number 0:TABLES-1 of current hashed */
 				/* symbol table */
 
+int
 main()
 {
   char (*applicatee());

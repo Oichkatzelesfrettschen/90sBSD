@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)mille.c	5.5 (Berkeley) 2/28/91";
 
 void	rub();
 
+int
 main(ac, av)
 reg int		ac;
 reg char	*av[]; {

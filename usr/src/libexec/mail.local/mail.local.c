@@ -66,6 +66,7 @@ void	notifybiff __P((char *));
 int	store __P((char *));
 void	usage __P((void));
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

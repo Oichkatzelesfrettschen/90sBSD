@@ -124,6 +124,7 @@ int	force;
 int	clear;
 extern	int errno;
 
+int
 main(argc, argv)
 	char **argv;
 	int argc;

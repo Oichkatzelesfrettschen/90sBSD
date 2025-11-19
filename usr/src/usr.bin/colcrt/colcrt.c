@@ -67,6 +67,7 @@ char	printall;
 char	*progname;
 FILE	*f;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

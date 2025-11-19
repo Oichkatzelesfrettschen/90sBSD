@@ -87,6 +87,7 @@ int f_type;			/* add type character for non-regular files */
 
 int (*statfcn)(), stat(), lstat();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

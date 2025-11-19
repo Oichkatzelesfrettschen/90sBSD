@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)mkdir.c	5.7 (Berkeley) 5/31/90";
 
 extern int errno;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

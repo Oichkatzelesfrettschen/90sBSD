@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)pwd.c	5.4 (Berkeley) 2/20/91";
 #include <stdio.h>
 #include <string.h>
 
+int
 main(void)
 {
 	char *p;

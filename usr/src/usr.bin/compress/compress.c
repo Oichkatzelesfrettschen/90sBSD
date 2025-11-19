@@ -266,6 +266,7 @@ int do_decomp = 0;
  * procedure needs no input table, but tracks the way the table was built.
  */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

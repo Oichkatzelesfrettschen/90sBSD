@@ -113,6 +113,7 @@ char *j_day_headings = "  S   M  Tu   W  Th   F   S";
 
 int julian;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

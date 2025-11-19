@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)main.c	5.4 (Berkeley) 2/28/91";
 /*
  * This game written by Ken Arnold.
  */
+int
 main()
 {
 	void die();

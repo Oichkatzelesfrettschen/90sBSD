@@ -69,6 +69,7 @@ static char sccsid[] = "@(#)pom.c	5.3 (Berkeley) 2/28/91";
 
 double dtor(), potm(), adj360();
 
+int
 main()
 {
 	extern int errno;

@@ -97,6 +97,7 @@ struct nets {
  * Authors: Riccardo Gusella & Stefano Zatti
  */
 
+int
 main(argc, argv)
 int argc;
 char **argv;

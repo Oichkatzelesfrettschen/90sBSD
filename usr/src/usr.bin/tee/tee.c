@@ -57,6 +57,7 @@ typedef struct _list {
 } LIST;
 LIST *head;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

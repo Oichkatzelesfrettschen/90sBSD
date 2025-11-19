@@ -141,6 +141,7 @@ ststp(sig)
 
 /* init [-[s][f]] */
 
+int
 main(argc, argv)
 char **argv;
 {

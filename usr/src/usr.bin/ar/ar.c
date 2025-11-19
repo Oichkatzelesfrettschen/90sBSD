@@ -66,6 +66,7 @@ static void badoptions(), usage();
  *	functions.  Some hacks that let us be backward compatible with 4.3 ar
  *	option parsing and sanity checking.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;
