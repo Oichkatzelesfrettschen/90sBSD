@@ -34,12 +34,12 @@ SRCS+=	memmove.s strchr.s strrchr.s
 .if empty(SRCS:Mmemmove.s)
 OBJS+=	memmove.o
 memmove.o: bcopy.c
-	${CC} -DMEMMOVE ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMMOVE ${CFLAGS} -c $< -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 memmove.po: bcopy.c
-	${CC} -DMEMMOVE ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMMOVE ${CFLAGS} -c -p $< -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
 .endif
@@ -48,12 +48,12 @@ memmove.po: bcopy.c
 .if empty(SRCS:Mmemcpy.s)
 OBJS+=	memcpy.o
 memcpy.o: bcopy.c
-	${CC} -DMEMCOPY ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMCOPY ${CFLAGS} -c $< -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 memcpy.po: bcopy.c
-	${CC} -DMEMCOPY ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DMEMCOPY ${CFLAGS} -c -p $< -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
 .endif
@@ -62,12 +62,12 @@ memcpy.po: bcopy.c
 .if empty(SRCS:Mstrchr.s)
 OBJS+=	strchr.o
 strchr.o: index.c
-	${CC} -DSTRCHR ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRCHR ${CFLAGS} -c $< -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 strchr.po: index.c
-	${CC} -DSTRCHR ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRCHR ${CFLAGS} -c -p $< -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
 .endif
@@ -76,12 +76,12 @@ strchr.po: index.c
 .if empty(SRCS:Mstrrchr.s)
 OBJS+=	strrchr.o
 strrchr.o: rindex.c
-	${CC} -DSTRRCHR ${CFLAGS} -c ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRRCHR ${CFLAGS} -c $< -o ${.TARGET}
 	@${LD} -x -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
 strrchr.po: rindex.c
-	${CC} -DSTRRCHR ${CFLAGS} -c -p ${.ALLSRC} -o ${.TARGET}
+	${CC} -DSTRRCHR ${CFLAGS} -c -p $< -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
 .endif
