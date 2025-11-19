@@ -44,9 +44,9 @@ static char sccsid[] = "@(#)fstab.c	5.15 (Berkeley) 2/23/91";
 
 static FILE *_fs_fp;
 static struct fstab _fs_fstab;
-static error();
+static int error();
 
-static
+static int
 fstabscan()
 {
 	register char *cp;
@@ -135,7 +135,6 @@ bad:		/* no way to distinguish between EOF and syntax error */
 }
 
 struct fstab *
-int
 getfsent()
 {
 	if (!_fs_fp && !setfsent() || !fstabscan())
@@ -187,7 +186,7 @@ endfsent()
 	}
 }
 
-static
+static int
 error(err)
 	int err;
 {

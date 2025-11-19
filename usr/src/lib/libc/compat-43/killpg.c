@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)killpg.c	5.3 (Berkeley) 2/24/91";
 #endif /* LIBC_SCCS and not lint */
 
 #include <sys/types.h>
+#include <unistd.h>
 #include <signal.h>
 #include <errno.h>
 

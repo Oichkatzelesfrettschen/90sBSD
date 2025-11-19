@@ -101,7 +101,6 @@ start_gr()
 }
 
 int
-int
 setgrent()
 {
 	return(setgroupent(0));
