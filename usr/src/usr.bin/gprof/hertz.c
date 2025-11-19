@@ -44,7 +44,6 @@ static char sccsid[] = "@(#)hertz.c	5.4 (Berkeley) 6/1/90";
 #define	HZ_WRONG	0
 
 int
-int
 hertz()
 {
 	struct itimerval tim;

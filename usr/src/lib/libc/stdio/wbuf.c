@@ -47,7 +47,6 @@ static char sccsid[] = "@(#)wbuf.c	5.6 (Berkeley) 1/20/91";
  * or if c=='\n' and the file is line buffered.
  */
 int
-int
 __swbuf(c, fp)
 	register int c;
 	register FILE *fp;

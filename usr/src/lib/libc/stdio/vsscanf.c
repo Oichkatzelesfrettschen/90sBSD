@@ -53,7 +53,6 @@ eofread(cookie, buf, len)
 }
 
 int
-int
 vsscanf(str, fmt, ap)
 	const char *str;
 	const char *fmt;

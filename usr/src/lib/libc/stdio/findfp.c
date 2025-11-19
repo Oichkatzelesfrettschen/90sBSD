@@ -127,7 +127,6 @@ found:
  * but documented historically for certain applications.  Bad applications.
  */
 void
-void
 f_prealloc(void)
 {
 	int n = getdtablesize() - NSTATIC + 20;		/* 20 for slop */

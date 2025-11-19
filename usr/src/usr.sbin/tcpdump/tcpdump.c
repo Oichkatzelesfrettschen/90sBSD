@@ -96,7 +96,6 @@ void
 	/* NOTREACHED */
 }
 
-void
 int
 main(argc, argv)
 	int argc;

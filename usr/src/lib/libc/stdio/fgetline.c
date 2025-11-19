@@ -49,7 +49,6 @@ static char sccsid[] = "@(#)fgetline.c	5.2 (Berkeley) 5/4/91";
  * so we add 1 here.
  */
 int
-int
 __slbexpand(fp, newsize)
 	FILE *fp;
 	size_t newsize;

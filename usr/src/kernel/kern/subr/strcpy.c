@@ -34,7 +34,6 @@
  */
 
 void
-void
 strcpy(char *to, const char *from)
 {
 

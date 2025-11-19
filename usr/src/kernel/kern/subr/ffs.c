@@ -34,7 +34,6 @@
  */
 
 int
-int
 ffs(mask)
 	register long mask;
 {

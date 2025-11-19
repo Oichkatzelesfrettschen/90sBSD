@@ -80,7 +80,6 @@ int (*statfcn)();
 char *buf, *progname;
 
 int
-int
 main(argc, argv)
 	int argc;
 	char **argv;

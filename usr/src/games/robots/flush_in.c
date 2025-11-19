@@ -42,7 +42,6 @@ static char sccsid[] = "@(#)flush_in.c	5.4 (Berkeley) 6/1/90";
  *	Flush all pending input.
  */
 void
-void
 flush_in()
 {
 # ifdef TIOCFLUSH

@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)putc.c	5.1 (Berkeley) 1/20/91";
 #undef putc
 
 int
-int
 putc(c, fp)
 	int c;
 	register FILE *fp;

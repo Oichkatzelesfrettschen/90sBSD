@@ -40,7 +40,6 @@ static char sccsid[] = "@(#)setpgrp.c	5.2 (Berkeley) 2/24/91";
 
 #if __STDC__
 int
-int
 setpgrp(pid_t pid, pid_t pgid)
 #else
 setpgrp(pid, pgid)

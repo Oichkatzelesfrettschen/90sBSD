@@ -50,7 +50,6 @@ static char sccsid[] = "@(#)fvwrite.c	5.3 (Berkeley) 5/4/91";
  * to the three different kinds of output buffering is handled here.
  */
 int
-int
 __sfvwrite(fp, uio)
 	register FILE *fp;
 	register struct __suio *uio;

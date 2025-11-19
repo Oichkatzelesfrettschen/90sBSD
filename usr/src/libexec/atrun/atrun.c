@@ -234,7 +234,6 @@ run_file(filename, uid, gid)
 /* Global functions */
 
 int
-int
 main(argc, argv)
 	int argc;
 	char *argv[];

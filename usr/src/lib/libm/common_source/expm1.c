@@ -115,7 +115,6 @@ double x;
 	static prec=56;
 #else	/* defined(vax)||defined(tahoe) */
 int
-int
 	static prec=53;
 #endif	/* defined(vax)||defined(tahoe) */
 

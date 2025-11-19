@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)fputs.c	5.6 (Berkeley) 2/24/91";
  * Write the given string to the given file.
  */
 int
-int
 fputs(s, fp)
 	const char *s;
 	FILE *fp;

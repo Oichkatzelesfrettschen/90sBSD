@@ -40,7 +40,6 @@ static char sccsid[] = "@(#)send.c	5.3 (Berkeley) 2/24/91";
 #include <stdio.h>
 
 int
-int
 send(s, msg, len, flags)
 	int s, len, flags;
 	const void *msg;

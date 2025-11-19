@@ -44,7 +44,6 @@ static char sccsid[] = "@(#)fwalk.c	5.2 (Berkeley) 2/24/91";
 #include "glue.h"
 
 int
-int
 _fwalk(function)
 	register int (*function)();
 {

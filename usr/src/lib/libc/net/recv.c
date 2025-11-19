@@ -40,7 +40,6 @@ static char sccsid[] = "@(#)recv.c	5.3 (Berkeley) 2/24/91";
 #include <stdio.h>
 
 int
-int
 recv(s, buf, len, flags)
 	int s, len, flags;
 	void *buf;

@@ -58,7 +58,6 @@ char buf1[PATH_MAX] = " ";
 char buf2[PATH_MAX];
 
 void
-void
 main ( )
 {
   	register char *cp;

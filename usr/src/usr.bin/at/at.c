@@ -456,7 +456,6 @@ delete_jobs(argc, argv)
 /* Global functions */
 
 int
-int
 main(argc, argv)
 	int argc;
 	char **argv;

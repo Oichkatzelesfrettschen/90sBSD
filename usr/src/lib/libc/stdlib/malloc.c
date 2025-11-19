@@ -369,7 +369,6 @@ realloc(cp, nbytes)
  */
 static
 int
-int
 findbucket(freep, srchlen)
 	union overhead *freep;
 	int srchlen;

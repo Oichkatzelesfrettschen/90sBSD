@@ -43,7 +43,6 @@ static char sccsid[] = "@(#)prman.c	5.3 (Berkeley) 4/8/91";
  *	of incorrect guesses.
  */
 void
-void
 prman()
 {
 	register int	i;

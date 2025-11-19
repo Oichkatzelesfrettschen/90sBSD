@@ -34,7 +34,6 @@
  */
 
 int
-int
 strlen(char *s1)
 {
 	int len;

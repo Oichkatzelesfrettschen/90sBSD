@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)instr.c	5.2 (Berkeley) 2/28/91";
 #include "pathnames.h"
 
 void
-void
 instructions()
 {
 	extern int errno;

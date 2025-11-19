@@ -60,7 +60,6 @@ static char sccsid[] = "@(#)path.c	5.1 (Berkeley) 4/3/91";
  * semantics for a null path.  Strip trailing slashes.
  */
 int
-int
 path_set(p, string)
 	register PATH_T *p;
 	char *string;

@@ -316,7 +316,6 @@ char *trailer[] =
 
 
 void
-void
 write_section(section)
 char *section[];
 {

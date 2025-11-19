@@ -60,7 +60,6 @@ eofread(cookie, buf, len)
 
 #if __STDC__
 int
-int
 sscanf(char *str, char const *fmt, ...)
 #else
 sscanf(str, fmt, va_alist)

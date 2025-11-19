@@ -46,7 +46,6 @@ static char sccsid[] = "@(#)puts.c	5.6 (Berkeley) 2/24/91";
  * Write the given string to stdout, appending a newline.
  */
 int
-int
 puts(s)
 	char const *s;
 {
