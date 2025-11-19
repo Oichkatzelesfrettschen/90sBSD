@@ -85,6 +85,7 @@ struct	{
 	int	mov[4];
 } moves[MAXIMOVES];
 
+int
 main()
 {
 	int	go[5], tvec[2];

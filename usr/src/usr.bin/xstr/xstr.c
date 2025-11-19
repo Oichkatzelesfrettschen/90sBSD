@@ -72,6 +72,7 @@ int	cflg;
 int	vflg;
 int	readstd;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

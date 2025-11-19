@@ -98,6 +98,7 @@ char *savestr();
 #define equal(s1, s2)	(strcmp(s1, s2) == 0)
 
 
+int
 main(argc, argv)
 	char **argv;
 	{

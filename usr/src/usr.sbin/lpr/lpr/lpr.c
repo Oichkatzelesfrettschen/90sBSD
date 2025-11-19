@@ -101,6 +101,7 @@ char	*linked();
 void	cleanup();
 
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -156,6 +156,7 @@ char *savestr();
 void *ckmalloc __P((int));
 void error();
 
+int
 main(argc, argv)
 	char **argv;
 	{

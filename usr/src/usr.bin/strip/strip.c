@@ -61,6 +61,7 @@ void usage __P((void));
 
 int eval;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

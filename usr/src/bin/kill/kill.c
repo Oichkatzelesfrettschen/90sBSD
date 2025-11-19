@@ -57,6 +57,7 @@ static char *signals[] = {
 	"usr2", NULL,						/* 31 - 32 */
 };
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -111,6 +111,7 @@ int	check_all = 0;
 
 struct	passwd *pwd;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

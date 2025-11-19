@@ -73,6 +73,7 @@ char	hostname[32];
 #define TIMEOUT 30
 #define MAXIDLE 120
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

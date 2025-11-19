@@ -655,6 +655,7 @@ char * source, * target;
 
 #ifdef REVTEST
 
+int
 main(argc,argv)
 int argc; char * argv[];
 {

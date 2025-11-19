@@ -58,6 +58,7 @@ struct betinfo {
 
 int dbfd;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

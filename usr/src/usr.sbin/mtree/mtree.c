@@ -52,6 +52,7 @@ NODE *root;
 int exitval;
 int cflag, dflag, eflag, rflag, uflag;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

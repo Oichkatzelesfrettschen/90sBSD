@@ -109,6 +109,7 @@ int n_aborts = 0, abort_next = 0, timeout_next = 0;
  *
  *	Perform a UUCP-dialer-like chat script on stdin and stdout.
  */
+int
 main(argc, argv)
 int argc;
 char **argv;

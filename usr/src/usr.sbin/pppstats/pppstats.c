@@ -111,6 +111,7 @@ int	unit;
 
 extern	char *malloc();
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

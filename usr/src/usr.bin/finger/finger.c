@@ -66,6 +66,7 @@ time_t now;
 int lflag, sflag, mflag, pplan;
 char tbuf[1024];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

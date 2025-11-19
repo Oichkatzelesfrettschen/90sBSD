@@ -289,6 +289,7 @@ short PawnAdvance[64]=
      0, 0, 0, 0, 0, 0, 0, 0};
      
 
+int
 main(argc,argv)
 int argc; char *argv[];
 {

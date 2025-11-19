@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)kvm_mkdb.c	5.11 (Berkeley) 4/27/91";
 char *tmp;
 #define basename(cp)	((tmp=rindex((cp), '/')) ? tmp+1 : (cp))
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

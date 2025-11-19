@@ -57,6 +57,7 @@ int	users;			/* # of users in user array */
 int	requ[MAXREQUESTS];	/* job number of spool entries */
 int	requests;		/* # of spool requests */
 
+int
 main(argc, argv)
 	register int	argc;
 	register char	**argv;

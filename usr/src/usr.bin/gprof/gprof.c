@@ -50,6 +50,7 @@ char	*whoami = "gprof";
      */
 char	*defaultEs[] = { "mcount" , "__mcleanup" , 0 };
 
+int
 main(argc, argv)
     int argc;
     char **argv;

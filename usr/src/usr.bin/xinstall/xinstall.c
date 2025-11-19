@@ -56,6 +56,7 @@ static struct group *gp;
 static int docopy, dostrip, mode = 0755;
 static char *group, *owner, pathbuf[PATH_MAX];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

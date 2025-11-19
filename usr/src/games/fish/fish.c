@@ -70,6 +70,7 @@ int promode;
 int asked[RANKS], comphand[RANKS], deck[RANKS];
 int userasked[RANKS], userhand[RANKS];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

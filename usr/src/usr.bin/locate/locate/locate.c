@@ -80,6 +80,7 @@ static char sccsid[] = "@(#)locate.c	5.2 (Berkeley) 6/1/90";
 
 FILE *fp;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

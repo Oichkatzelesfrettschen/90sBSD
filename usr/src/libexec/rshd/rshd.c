@@ -100,6 +100,7 @@ Key_schedule	schedule;
 #endif
 
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	char **argv;

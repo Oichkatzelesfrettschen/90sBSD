@@ -62,6 +62,7 @@ int debug = 0;
  * It does not have to be running for correct operation, but will improve
  * throughput. The one optional argument is the number of children to fork.
  */
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

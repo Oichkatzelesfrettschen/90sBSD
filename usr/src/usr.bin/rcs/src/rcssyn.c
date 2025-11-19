@@ -533,6 +533,7 @@ char * num, * log, * srcfilename; FILE * fout;
 
 #ifdef SYNTEST
 
+int
 main(argc,argv)
 int argc; char * argv[];
 {

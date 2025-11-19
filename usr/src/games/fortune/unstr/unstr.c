@@ -76,6 +76,7 @@ FILE	*Inf, *Dataf;
 char	*strcat(), *strcpy();
 
 /* ARGSUSED */
+int
 main(ac, av)
 int	ac;
 char	**av;

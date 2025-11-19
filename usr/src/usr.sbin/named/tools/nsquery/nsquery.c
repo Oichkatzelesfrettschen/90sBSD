@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)nsquery.c	4.8 (Berkeley) 6/1/90";
 #include <resolv.h>
 #include <stdio.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

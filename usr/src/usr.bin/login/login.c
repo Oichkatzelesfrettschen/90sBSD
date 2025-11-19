@@ -85,6 +85,7 @@ struct	passwd *pwd;
 int	failures;
 char	term[64], *envinit[1], *hostname, *username, *tty;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

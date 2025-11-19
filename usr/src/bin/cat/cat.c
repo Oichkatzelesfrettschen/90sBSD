@@ -65,6 +65,7 @@ void raw_cat	__P((int));
 void err	__P((int, const char *, ...));
 
 int
+int
 main(argc, argv)
 	int argc;
 	char **argv;

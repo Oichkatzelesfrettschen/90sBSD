@@ -69,6 +69,7 @@ struct sgttyb	tty, ntty;
 long	nexttime;			/* keep the timeout time */
 
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	char **argv;

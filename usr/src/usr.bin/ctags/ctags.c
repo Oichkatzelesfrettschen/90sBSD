@@ -71,6 +71,7 @@ char	*curfile,		/* current input file name */
 	searchar = '/',		/* use /.../ searches by default */
 	lbuf[BUFSIZ];
 
+int
 main(argc,argv)
 	int	argc;
 	char	**argv;

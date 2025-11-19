@@ -57,6 +57,7 @@ void error __P((char *));
 void usage __P((void));
 
 int
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

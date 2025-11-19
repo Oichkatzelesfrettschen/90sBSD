@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)size.c	4.7 (Berkeley) 6/1/90";
 #include <a.out.h>
 #include <stdio.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

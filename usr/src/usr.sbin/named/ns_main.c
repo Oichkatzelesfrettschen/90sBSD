@@ -166,6 +166,7 @@ getdtablesize()
 }
 #endif SYSV
 
+int
 main(argc, argv, envp)
 	int argc;
 	char *argv[], *envp[];

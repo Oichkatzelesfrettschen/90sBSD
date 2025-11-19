@@ -117,6 +117,7 @@ struct	winsize winsize;
 
 void exit();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

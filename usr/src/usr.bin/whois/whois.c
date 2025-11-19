@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)whois.c	5.11 (Berkeley) 3/2/91";
 
 #define	NICHOST	"nic.ddn.mil"
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -176,6 +176,7 @@ int	unlabeled;
 char	device[PATH_MAX];
 char	*progname;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

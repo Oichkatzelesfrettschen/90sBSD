@@ -88,6 +88,7 @@ static char
 
 static int sflag;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

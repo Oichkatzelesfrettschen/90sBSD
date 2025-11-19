@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)cksum.c	5.3 (Berkeley) 4/4/91";
 #include <string.h>
 #include "extern.h"
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

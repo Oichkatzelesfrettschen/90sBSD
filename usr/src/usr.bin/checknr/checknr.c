@@ -173,6 +173,7 @@ int	slot;		/* slot in knowncmds found by binsrch */
 
 char	*malloc();
 
+int
 main(argc, argv)
 int argc;
 char **argv;

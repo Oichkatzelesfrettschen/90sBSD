@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)getNAME.c	5.4 (Berkeley) 1/20/91";
 int tocrc;
 int intro;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

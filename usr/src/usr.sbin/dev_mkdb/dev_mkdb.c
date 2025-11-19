@@ -58,6 +58,7 @@ static char sccsid[] = "@(#)dev_mkdb.c	5.9 (Berkeley) 5/17/91";
 
 void error(), usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -76,6 +76,7 @@ char	*headnames[] = {"To", "Subject", "Cc", 0};
  * at the end.
  */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

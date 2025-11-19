@@ -56,6 +56,7 @@ static char sccsid[] = "@(#)main.c	5.4 (Berkeley) 3/5/91";
 #include "include.h"
 #include "pathnames.h"
 
+int
 main(ac, av)
 	char	*av[];
 {

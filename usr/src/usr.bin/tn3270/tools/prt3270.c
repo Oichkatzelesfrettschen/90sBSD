@@ -574,6 +574,7 @@ int old,
     }
 }
 
+int
 main()
 {
     int location;

@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)main.c	5.28 (Berkeley) 4/1/91";
 
 jmp_buf	hdrjmp;
 
+int
 main(argc, argv)
 	char **argv;
 {

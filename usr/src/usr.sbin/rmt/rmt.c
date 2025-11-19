@@ -71,6 +71,7 @@ FILE	*debug;
 #define	DEBUG1(f,a)	if (debug) fprintf(debug, f, a)
 #define	DEBUG2(f,a1,a2)	if (debug) fprintf(debug, f, a1, a2)
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

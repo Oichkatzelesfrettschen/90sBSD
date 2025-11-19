@@ -108,6 +108,7 @@ escape(const char *str)
 }
 
 /* ARGSUSED */
+int
 main(argc, argv)
         int argc;
         char **argv;

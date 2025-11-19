@@ -202,6 +202,7 @@ static struct protent {
 
 #define N_PROTO		(sizeof(prottbl) / sizeof(prottbl[0]))
 
+int
 main(argc, argv)
     int argc;
     char *argv[];

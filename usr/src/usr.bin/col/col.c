@@ -101,6 +101,7 @@ int no_backspaces;		/* if not to output any backspaces */
 	if (putchar(ch) == EOF) \
 		wrerr();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

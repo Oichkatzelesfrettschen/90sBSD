@@ -53,6 +53,7 @@ static char sccsid[] = "@(#)paste.c	5.7 (Berkeley) 10/30/90";
 char *delim;
 int delimcnt;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

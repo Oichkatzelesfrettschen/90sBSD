@@ -136,6 +136,7 @@ struct dos_partition *dosdp;	/* 386BSD DOS partition, if found */
 struct dos_partition *readmbr(int);
 #endif
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -71,6 +71,7 @@ time_t	lastmsgtime, time();
 int	nutmp, uf;
 
 /* ARGSUSED */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

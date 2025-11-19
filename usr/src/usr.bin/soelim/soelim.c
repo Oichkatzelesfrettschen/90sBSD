@@ -60,6 +60,7 @@ static char sccsid[] = "@(#)soelim.c	5.3 (Berkeley) 6/1/90";
  */
 #define	STDIN_NAME	"-"
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

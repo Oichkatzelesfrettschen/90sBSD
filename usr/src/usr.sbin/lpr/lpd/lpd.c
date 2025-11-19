@@ -78,6 +78,7 @@ int	from_remote;			/* from remote socket */
 
 void mcleanup(), reapchild();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

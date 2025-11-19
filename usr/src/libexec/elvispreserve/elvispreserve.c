@@ -242,6 +242,7 @@ void preserve(tname, when)
 	}
 }
 
+int
 main(argc, argv)
 	int	argc;
 	char	**argv;

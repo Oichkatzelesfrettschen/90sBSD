@@ -54,6 +54,7 @@ static int	dirflag,			/* undocumented force flag */
 		(*linkf)();			/* system link call */
 static linkit(), usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

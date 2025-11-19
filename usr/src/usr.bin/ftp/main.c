@@ -63,6 +63,7 @@ void	intr(), lostpeer();
 extern	char *home;
 char	*getlogin();
 
+int
 main(argc, argv)
 	char *argv[];
 {

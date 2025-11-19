@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)passwd.c	5.5 (Berkeley) 7/6/91";
 int use_kerberos = 1;
 #endif
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

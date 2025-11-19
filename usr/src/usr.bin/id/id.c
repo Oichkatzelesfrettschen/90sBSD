@@ -64,6 +64,7 @@ PW     *who __P((char *));
 
 int Gflag, gflag, nflag, rflag, uflag;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

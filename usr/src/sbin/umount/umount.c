@@ -75,6 +75,7 @@ char	*getmntname();
 
 int *typelist, *maketypelist();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

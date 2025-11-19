@@ -63,6 +63,7 @@ struct ktr_header ktr_header;
 
 #define eqs(s1, s2)	(strcmp((s1), (s2)) == 0)
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

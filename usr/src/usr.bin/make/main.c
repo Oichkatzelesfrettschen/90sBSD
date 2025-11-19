@@ -338,6 +338,7 @@ Main_ParseArgLine(line)
  * Side Effects:
  *	The program exits when done. Targets are created. etc. etc. etc.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

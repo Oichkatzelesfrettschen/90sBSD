@@ -103,6 +103,7 @@ char *read_num_buf();	 /* read a number buffer */
 void primes();		 /* print the primes in range */
 char *program;		 /* our name */
 
+int
 main(argc, argv)
 	int argc;	/* arg count */
 	char *argv[];	/* args */

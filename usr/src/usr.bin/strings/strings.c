@@ -64,6 +64,7 @@ static u_char	hbfr[sizeof(EXEC)];	/* buffer for struct exec */
 
 static void usage();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

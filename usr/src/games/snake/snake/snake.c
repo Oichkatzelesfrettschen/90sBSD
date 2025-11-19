@@ -90,6 +90,7 @@ int repeat=1;
 long tv;
 char *tn;
 
+int
 main(argc,argv)
 int argc;
 char **argv;

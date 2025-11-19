@@ -73,6 +73,7 @@ static void unwrap	__P((char *fn));
  * main - parse arguments and handle options
  */
 int
+int
 main(argc, argv)
 int argc;
 char *argv[];

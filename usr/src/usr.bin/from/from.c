@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)from.c	5.7 (Berkeley) 3/1/91";
 #include <stdio.h>
 #include <paths.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

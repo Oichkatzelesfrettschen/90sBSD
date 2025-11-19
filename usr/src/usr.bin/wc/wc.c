@@ -56,6 +56,7 @@ static char sccsid[] = "@(#)wc.c	5.7 (Berkeley) 3/2/91";
 static long	tlinect, twordct, tcharct;
 static int	doline, doword, dochar;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)nice.c	5.4 (Berkeley) 6/1/90";
 #define	DEFNICE	10
 
 /* ARGSUSED */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

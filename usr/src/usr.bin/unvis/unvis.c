@@ -48,6 +48,7 @@ char	*Program;
 #define usage()	fprintf(stderr, "usage: %s %s\n", Program, USAGE)
 #define USAGE "[file...]"
 
+int
 main(argc, argv)
 	char *argv[];
 {

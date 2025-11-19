@@ -15,6 +15,7 @@
 #define setreuid(r, e)	setresuid(r, e, -1)
 #endif
 
+int
 main()
 {
 	uid_t realuid = getuid();

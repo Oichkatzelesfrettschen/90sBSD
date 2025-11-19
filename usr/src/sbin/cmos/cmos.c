@@ -12,6 +12,7 @@ int i;
 	return ((i >> 4) * 10 + (i & 0xF));
 }
 
+int
 main() {
 	int isa;
 

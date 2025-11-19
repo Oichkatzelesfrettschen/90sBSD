@@ -68,6 +68,7 @@ char	*name;		/* user's login name */
 char	*host;		/* user's machine name */
 char	*acctfile;	/* accounting information file */
 
+int
 main(argc, argv) 
 	int argc;
 	char *argv[];

@@ -59,6 +59,7 @@ static char sccsid[] = "@(#)printf.c	5.9 (Berkeley) 6/1/90";
 char *mklong(char *str, char ch);
 char **gargv;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

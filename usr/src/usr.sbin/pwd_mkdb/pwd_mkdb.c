@@ -63,6 +63,7 @@ static enum state { FILE_INSECURE, FILE_SECURE, FILE_ORIG } clean;
 static struct passwd pwd;			/* password structure */
 static char *pname;				/* password file name */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

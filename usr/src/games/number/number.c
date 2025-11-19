@@ -71,6 +71,7 @@ static char	*name1[] = {
 	"novemdecillion",		"vigintillion",
 };
 
+int
 main(argc,argv)
 	int	argc;
 	char	**argv;

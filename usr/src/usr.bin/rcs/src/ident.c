@@ -86,6 +86,7 @@ extern enum markers trymatch();
 
 int quietflag;
 
+int
 main(argc, argv)
 int  argc; char  *argv[];
 /*  Ident searches the named files for all occurrences

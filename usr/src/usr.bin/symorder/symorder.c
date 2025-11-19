@@ -70,6 +70,7 @@ off_t	sa;
 int	nsym, strtabsize, symfound, small; 
 char	*kfile, *newstrings, *strings, asym[BUFSIZ];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

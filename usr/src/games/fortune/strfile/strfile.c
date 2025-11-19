@@ -140,6 +140,7 @@ void	*malloc(), *realloc();
  *	CHUNKSIZE blocks; if the latter, we just write each pointer,
  *	and then seek back to the beginning to write in the table.
  */
+int
 main(ac, av)
 int	ac;
 char	**av;

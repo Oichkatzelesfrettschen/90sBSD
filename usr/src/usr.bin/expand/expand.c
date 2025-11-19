@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)expand.c	5.3 (Berkeley) 6/1/90";
 int	nstops;
 int	tabstops[100];
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)vipw.c	5.16 (Berkeley) 3/3/91";
 char *progname = "vipw";
 char *tempname;
 
+int
 main()
 {
 	register int pfd, tfd;

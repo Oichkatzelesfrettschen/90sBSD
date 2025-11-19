@@ -80,6 +80,7 @@ char outbuf[BUFSIZ];
 
 void leave(), wake(), suspend();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)what.c	5.5 (Berkeley) 3/2/91";
  * what
  */
 /* ARGSUSED */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

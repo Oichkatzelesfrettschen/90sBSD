@@ -57,6 +57,7 @@ static char sccsid[] = "@(#)write.c	4.22 (Berkeley) 6/1/90";
 
 extern int errno;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

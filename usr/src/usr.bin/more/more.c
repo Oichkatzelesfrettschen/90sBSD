@@ -135,6 +135,7 @@ extern char	PC;		/* pad character */
 extern short	ospeed;
 
 
+int
 main(argc, argv)
 int argc;
 char *argv[];

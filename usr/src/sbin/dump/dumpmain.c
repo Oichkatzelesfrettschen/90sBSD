@@ -74,6 +74,7 @@ char	*host;
 int	rmthost();
 #endif
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

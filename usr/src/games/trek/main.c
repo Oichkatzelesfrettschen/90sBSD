@@ -149,6 +149,7 @@ int	Mother	= 51 + (51 << 8);
 
 jmp_buf env;
 
+int
 main(argc, argv)
 int	argc;
 char	**argv;

@@ -56,6 +56,7 @@ struct utimbuf {	/* for utime(2), belongs in a .h file */
 /*
  * main - parse arguments and handle options
  */
+int
 main(argc, argv)
 int argc;
 char *argv[];

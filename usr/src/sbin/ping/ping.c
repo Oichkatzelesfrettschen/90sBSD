@@ -139,6 +139,7 @@ u_long tsum;			/* sum of all times, for doing average */
 char *pr_addr();
 void catcher(), finish();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

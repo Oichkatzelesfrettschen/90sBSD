@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)printenv.c	5.4 (Berkeley) 6/1/90";
  * Bill Joy, UCB
  * February, 1979
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

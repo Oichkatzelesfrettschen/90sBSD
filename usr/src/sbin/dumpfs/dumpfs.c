@@ -66,6 +66,7 @@ union {
 
 long	dev_bsize = 1;
 
+int
 main(argc, argv)
 	char **argv;
 {

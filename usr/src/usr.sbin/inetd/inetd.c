@@ -172,6 +172,7 @@ char	*CONFIG = _PATH_INETDCONF;
 char	**Argv;
 char 	*LastArg;
 
+int
 main(argc, argv, envp)
 	int argc;
 	char *argv[], *envp[];

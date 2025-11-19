@@ -155,6 +155,7 @@ char	uflag;
  * whereis name
  * look for source, documentation and binaries
  */
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

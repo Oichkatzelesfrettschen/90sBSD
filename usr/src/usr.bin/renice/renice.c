@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)renice.c	5.3 (Berkeley) 6/1/90";
  * or groups of processes which are already
  * running.
  */
+int
 main(argc, argv)
 	char **argv;
 {

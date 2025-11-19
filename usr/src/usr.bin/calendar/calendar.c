@@ -59,6 +59,7 @@ extern int errno;
 struct passwd *pw;
 int doall;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

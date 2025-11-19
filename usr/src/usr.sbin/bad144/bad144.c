@@ -87,6 +87,7 @@ char	name[BUFSIZ];
 char	*malloc();
 off_t	lseek();
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

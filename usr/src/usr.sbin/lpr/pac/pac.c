@@ -92,6 +92,7 @@ double	atof();
 char	*getenv();
 char	*pgetstr();
 
+int
 main(argc, argv)
 	char **argv;
 {

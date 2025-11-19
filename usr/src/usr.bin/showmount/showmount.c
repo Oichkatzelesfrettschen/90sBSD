@@ -92,6 +92,7 @@ int xdr_mntdump(), xdr_exports();
  * See "NFS: Network File System Protocol Specification, RFC1094, Appendix A"
  * for detailed information on the protocol.
  */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

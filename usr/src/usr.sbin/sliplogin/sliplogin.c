@@ -249,6 +249,7 @@ hup_handler(s)
 	/* NOTREACHED */
 }
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

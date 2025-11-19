@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)battlestar.c	5.3 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+int
 main(argc,argv)
 int  argc;
 char **argv;

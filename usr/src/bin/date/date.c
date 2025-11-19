@@ -54,6 +54,7 @@ static char rcsid[] = "$Id$";
 time_t tval;
 int retval, nflag;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

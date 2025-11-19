@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)ktrace.c	5.2 (Berkeley) 3/5/91";
 #include <stdio.h>
 #include "ktrace.h"
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

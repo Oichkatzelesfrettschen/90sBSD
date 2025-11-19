@@ -63,6 +63,7 @@ int	bufspace = 127*1024;	/* max. input buffer size to request */
 struct	rip *msg = (struct rip *)packet;
 void	hup(), rtdeleteall(), sigtrace(), timer();
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

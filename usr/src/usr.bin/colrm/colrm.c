@@ -48,6 +48,7 @@ COLRM removes unwanted columns from a file
 */
 
 
+int
 main(argc,argv)
 char **argv;
 {

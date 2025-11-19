@@ -60,6 +60,7 @@ int	slipdisc = SLIPDISC;
 char	devname[32];
 char	hostname[MAXHOSTNAMELEN];
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

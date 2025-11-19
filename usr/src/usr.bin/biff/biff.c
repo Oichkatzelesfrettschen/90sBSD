@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)biff.c	5.3 (Berkeley) 6/1/90";
 
 char	*ttyname();
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

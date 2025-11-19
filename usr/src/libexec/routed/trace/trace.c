@@ -55,6 +55,7 @@ static char sccsid[] = "@(#)trace.c	5.9 (Berkeley) 4/16/91";
 struct	sockaddr_in myaddr;
 char	packet[MAXPACKETSIZE];
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

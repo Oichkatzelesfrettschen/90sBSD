@@ -33,6 +33,7 @@ static char *termtypes[] = { "vt100", "vt101", "vt102", "vt103", "vt125",
 	MAIN PROGRAM
 	************
  */
+int
 main(argc,argv)
 	int argc;
 	char **argv;

@@ -49,6 +49,7 @@ extern unsigned char ectype[256];
 
 
 void
+int
 main()
 {
     static unsigned char dctype[192] = { 0 };

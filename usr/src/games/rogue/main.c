@@ -60,6 +60,7 @@ static char sccsid[] = "@(#)main.c	5.3 (Berkeley) 6/1/90";
 
 extern short party_room;
 
+int
 main(argc, argv)
 int argc;
 char *argv[];

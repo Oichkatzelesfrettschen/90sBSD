@@ -58,6 +58,7 @@ static char sccsid[] = "@(#)mv.c	5.11 (Berkeley) 4/3/91";
 
 int fflg, iflg;
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

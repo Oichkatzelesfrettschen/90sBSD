@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)whoami.c	5.5 (Berkeley) 3/2/91";
 #include <sys/types.h>
 #include <pwd.h>
 
+int
 main()
 {
 	struct passwd *p;

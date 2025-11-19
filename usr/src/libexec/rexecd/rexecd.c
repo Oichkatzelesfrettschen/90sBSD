@@ -67,6 +67,7 @@ int error();
  *	data
  */
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	char **argv;

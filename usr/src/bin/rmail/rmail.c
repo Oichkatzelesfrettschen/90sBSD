@@ -65,6 +65,7 @@ extern char *rindex();
 
 char *Domain = "UUCP";		/* Default "Domain" */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

@@ -41,6 +41,7 @@ char copyright[] =
 static char sccsid[] = "@(#)sync.c	4.4 (Berkeley) 5/31/90";
 #endif /* not lint */
 
+int
 main(void)
 {
 	sync();

@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)main.c	5.5 (Berkeley) 6/1/90";
 #include "externs.h"
 
 /*ARGSUSED*/
+int
 main(argc, argv)
 	int argc;
 	register char **argv;

@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)lptest.c	5.4 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

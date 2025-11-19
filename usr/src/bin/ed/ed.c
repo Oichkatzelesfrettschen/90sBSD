@@ -130,6 +130,7 @@ extern int optind;
 extern char *optarg;
 
 /* ed: line editor */
+int
 main(argc, argv)
 	int argc;
 	char **argv;

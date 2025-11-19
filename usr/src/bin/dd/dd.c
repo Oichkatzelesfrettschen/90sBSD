@@ -77,6 +77,7 @@ int	errstats;		/* show statistics on error */
 u_char	*ctab;			/* conversion table */
 
 int
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

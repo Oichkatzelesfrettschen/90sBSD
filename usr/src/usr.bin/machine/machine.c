@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)machine.c	5.5 (Berkeley) 6/1/90";
 
 #include <sys/param.h>
 
+int
 main()
 {
 	puts(MACHINE);

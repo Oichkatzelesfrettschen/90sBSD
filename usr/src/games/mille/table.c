@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)table.c	5.4 (Berkeley) 6/1/90";
 
 # include	"mille.h"
 
+int
 main() {
 
 	reg int	i, j, count;

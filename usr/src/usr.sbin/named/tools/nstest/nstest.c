@@ -52,6 +52,7 @@ extern char *inet_ntoa();
 char *progname;
 FILE *log;
 #define MAXDATA		256   /* really should get definition from named/db.h */
+int
 main(argc, argv)
 	char **argv;
 {

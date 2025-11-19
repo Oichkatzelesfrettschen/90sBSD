@@ -78,6 +78,7 @@ int	iflag;
 int	outchar();
 #define	PRINT(s)	if (s == NULL) /* void */; else tputs(s, 1, outchar)
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

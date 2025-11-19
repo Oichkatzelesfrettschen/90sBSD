@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)comm.c	5.7 (Berkeley) 11/1/90";
 
 char *tabs[] = { "", "\t", "\t\t" };
 
+int
 main(argc,argv)
 	int argc;
 	char *argv[];

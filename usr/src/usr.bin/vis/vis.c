@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)vis.c	5.1 (Berkeley) 4/18/91";
 
 int eflags, fold, foldwidth=80, none, markeol, debug;
 
+int
 main(argc, argv) 
 	char *argv[];
 {

@@ -94,6 +94,7 @@ void	reapchild();
  * -t - support tcp nfs clients
  * -u - support udp nfs clients
  */
+int
 main(argc, argv, envp)
 	int argc;
 	char *argv[], *envp[];

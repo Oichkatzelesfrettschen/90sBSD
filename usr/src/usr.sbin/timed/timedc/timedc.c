@@ -58,6 +58,7 @@ int priv_resources();
 struct	cmd *getcmd();
 
 
+int
 main(argc, argv)
 	char *argv[];
 {

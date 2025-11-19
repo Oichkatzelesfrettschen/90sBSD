@@ -60,6 +60,7 @@ int dflag, fflag, iflag, retval, stdin_ok;
  * 	file removal.
  */
 
+int
 main(argc, argv)
 	int argc;
 	char **argv;

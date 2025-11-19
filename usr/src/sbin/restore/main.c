@@ -77,6 +77,7 @@ time_t	dumptime;
 time_t	dumpdate;
 FILE 	*terminal;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];

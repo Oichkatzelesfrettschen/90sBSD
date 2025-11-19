@@ -60,6 +60,7 @@ union {
 int fi;
 long dev_bsize = 1;
 
+int
 main(argc, argv)
 	int argc;
 	char *argv[];
