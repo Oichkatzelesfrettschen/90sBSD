@@ -68,8 +68,7 @@ getcom(buf, size, prompt, error)
 char *
 getword(buf1, buf2, flag)
 	register char *buf1, *buf2;
-int
-	register flag;
+	register int flag;
 {
 	while (isspace(*buf1))
 		buf1++;
