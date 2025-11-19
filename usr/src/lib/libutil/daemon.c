@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)daemon.c	5.3 (Berkeley) 12/28/90";
 #include <sys/fcntl.h>
 #include <unistd.h>
 #include <paths.h>
+#include <stdlib.h>
+int
 
 daemon(nochdir, noclose)
 	int nochdir, noclose;

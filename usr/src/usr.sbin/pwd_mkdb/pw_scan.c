@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)pw_scan.c	5.1 (Berkeley) 2/12/91";
 
 extern char *progname;
 
+int
 pw_scan(bp, pw)
 	char *bp;
 	struct passwd *pw;

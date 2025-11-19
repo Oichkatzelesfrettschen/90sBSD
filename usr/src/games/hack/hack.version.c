@@ -4,6 +4,7 @@
 
 #include	"date.h"
 
+int
 doversion(){
 	pline("%s 1.0.3 - last edit %s.", (
 #ifdef QUEST

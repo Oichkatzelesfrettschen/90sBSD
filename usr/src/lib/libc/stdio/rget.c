@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)rget.c	5.1 (Berkeley) 1/20/91";
  * Refill, then return the first character
  * in the newly-filled buffer.
  */
+int
 __srget(fp)
 	register FILE *fp;
 {

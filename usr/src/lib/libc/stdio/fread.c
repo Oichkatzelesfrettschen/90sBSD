@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)fread.c	5.4 (Berkeley) 5/4/91";
 #include <stdio.h>
 #include <string.h>
 
+int
 fread(buf, size, count, fp)
 	void *buf;
 	size_t size, count;

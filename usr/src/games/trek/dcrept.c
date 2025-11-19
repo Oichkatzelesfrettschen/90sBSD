@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)dcrept.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -48,6 +49,7 @@ static char sccsid[] = "@(#)dcrept.c	5.4 (Berkeley) 6/1/90";
 **	magic number DAMFAC is used to tell how much faster you can
 **	fix things if you are docked.
 */
+void
 
 dcrept()
 {

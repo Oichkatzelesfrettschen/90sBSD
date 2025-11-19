@@ -72,6 +72,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: logname\n");

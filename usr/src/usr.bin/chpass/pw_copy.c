@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)pw_copy.c	5.3 (Berkeley) 5/2/91";
 
 extern char *progname, *tempname;
 
+void
 pw_copy(ffd, tfd, pw)
 	int ffd, tfd;
 	struct passwd *pw;

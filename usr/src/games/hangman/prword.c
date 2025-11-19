@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)prword.c	5.3 (Berkeley) 4/8/91";
+#include <string.h>
 #endif /* not lint */
 
 # include	"hangman.h"
@@ -40,6 +41,7 @@ static char sccsid[] = "@(#)prword.c	5.3 (Berkeley) 4/8/91";
 /*
  * prword:
  *	Print out the current state of the word
+void
  */
 prword()
 {
