@@ -68,8 +68,7 @@ convert(tothis)		/* Converts day to night and vice versa. 	    */
 int tothis;		/* Day objects are permanent.  Night objects are added*/
 {			/* at dusk, and subtracted at dawn.		*/
 	register struct objs *p;
-void
-	register i, j;
+	register int i, j;
 
 	if (tothis == TONIGHT) {
 		for (i = 1; i <= NUMOFROOMS; i++)
