@@ -91,8 +91,7 @@ void
 parse()
 {
 	register struct wlist *wp;
-void
-	register n;
+	register int n;
 
 	wordnumber = 0;           /* for cypher */
 	for (n = 0; n <= wordcount; n++) {
