@@ -57,6 +57,17 @@ tmp/
 # Build troubleshooting reports
 build-troubleshoot-report.md
 
+# Modernization logs and metrics
+logs/
+.build-metrics/*.log
+.build-metrics/*.txt
+.build-cache/cache/
+!logs/.gitkeep
+
+# Analysis outputs
+*.csv
+docs/**/*.json
+
 # -----------------------------
 # Editor & IDE artifacts
 # -----------------------------
