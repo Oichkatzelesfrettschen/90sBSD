@@ -52,6 +52,8 @@ static char sccsid[] = "@(#)lpf.c	5.4 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define MAXWIDTH  132
 #define MAXREP    10

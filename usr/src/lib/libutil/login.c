@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)login.c	5.4 (Berkeley) 6/1/90";
 #include <sys/file.h>
 #include <utmp.h>
 #include <stdio.h>
+#include <unistd.h>
 
 void
 login(ut)

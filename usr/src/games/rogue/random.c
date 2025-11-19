@@ -68,6 +68,7 @@ static int rand_deg = 31;
 static int rand_sep = 3;
 static long *end_ptr = &rntb[32];
 
+void
 srrandom(x)
 int x;
 {
@@ -109,6 +110,7 @@ rrandom()
 	return(i);
 }
 
+int
 get_rand(x, y)
 register int x, y;
 {
@@ -127,12 +129,14 @@ register int x, y;
 	return(r);
 }
 
+int
 rand_percent(percentage)
 register int percentage;
 {
 	return(get_rand(1, 100) <= percentage);
 }
 
+int
 coin_toss()
 {
 

@@ -49,6 +49,8 @@ static char sccsid[] = "@(#)nfsiod.c	5.4 (Berkeley) 6/29/90";
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /* Global defs */
 #ifdef DEBUG

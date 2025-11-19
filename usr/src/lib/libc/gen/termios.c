@@ -88,6 +88,7 @@ tcsetpgrp(fd, pgrp)
 }
 
 pid_t
+int
 tcgetpgrp(fd)
 {
 	int s;
@@ -160,6 +161,7 @@ cfmakeraw(t)
 	/* set MIN/TIME */
 }
 
+int
 tcsendbreak(fd, len)
 	int fd, len;
 {
@@ -176,6 +178,7 @@ tcsendbreak(fd, len)
 	return (0);
 }
 
+int
 tcdrain(fd)
 	int fd;
 {
@@ -185,6 +188,7 @@ tcdrain(fd)
 	return (0);
 }
 
+int
 tcflush(fd, which)
 	int fd, which;
 {
@@ -210,6 +214,7 @@ tcflush(fd, which)
 	return (0);
 }
 
+int
 tcflow(fd, action)
 	int fd, action;
 {

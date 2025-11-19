@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)vars.c	5.5 (Berkeley) 6/1/90";
 
 #include "tip.h"
 #include "pathnames.h"
+#include <setjmp.h>
 
 /*
  * Definition of variables
