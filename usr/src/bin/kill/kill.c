@@ -142,7 +142,7 @@ printsig(fp)
 	(void)fprintf(fp, "\n");
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: kill [-l] [-sig] pid ...\n");
 	exit(1);

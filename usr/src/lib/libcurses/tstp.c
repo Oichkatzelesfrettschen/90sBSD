@@ -109,7 +109,7 @@ static void (*otstpfn)() = SIG_DFL;
  * Set the TSTP handler.
  */
 void
-__set_stophandler()
+__set_stophandler(void)
 {
 	otstpfn = signal(SIGTSTP, __stop_signal_handler);
 }
@@ -118,7 +118,7 @@ __set_stophandler()
  * Restore the TSTP handler.
  */
 void
-__restore_stophandler()
+__restore_stophandler(void)
 {
 	(void)signal(SIGTSTP, otstpfn);
 }

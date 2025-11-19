@@ -93,7 +93,7 @@ usleep(useconds)
 }
 
 static void
-sleephandler()
+sleephandler(void)
 {
 	ringring = 1;
 }

@@ -402,7 +402,7 @@ typedef struct
 
 #else /* not __STDC__ */
 
-#define _RE_ARGS(args) ()
+#define _RE_ARGS(args) (void)
 
 #endif /* not __STDC__ */
 

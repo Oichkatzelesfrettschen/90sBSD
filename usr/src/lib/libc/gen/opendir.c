@@ -60,7 +60,7 @@ opendir(name)
 	 * If CLSIZE is an exact multiple of DIRBLKSIZ, use a CLSIZE
 	 * buffer that it cluster boundary aligned.
 	 * Hopefully this can be a big win someday by allowing page trades
-	 * to user space to be done by getdirentries()
+	 * to user space to be done by getdirentries(void)
 	 */
 	if ((CLSIZE % DIRBLKSIZ) == 0) {
 		dirp->dd_buf = malloc(CLSIZE);

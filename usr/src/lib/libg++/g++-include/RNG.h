@@ -70,7 +70,7 @@ public:
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
 
-inline float RNG::asFloat()
+inline float RNG::asFloat(void)
 {
     PrivateRNGSingleType result;
     result.s = 1.0;
@@ -80,7 +80,7 @@ inline float RNG::asFloat()
     return( result.s );
 }
 	
-inline double RNG::asDouble()
+inline double RNG::asDouble(void)
 {
     PrivateRNGDoubleType result;
     result.d = 1.0;

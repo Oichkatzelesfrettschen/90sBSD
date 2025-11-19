@@ -42,7 +42,7 @@ extern  void _exit(int);
 #endif
 
 int
-__main ()
+__main (void)
 {
   /* Gross hack for GNU ld.  This is defined in `builtin.cc'
      from libg++.  */
@@ -81,7 +81,7 @@ exit (status)
 #endif
 
 void
-__do_global_init ()
+__do_global_init (void)
 {
   register int i, len;
   register void (**ppf)() = (void (**)())__CTOR_LIST__.vector;
@@ -92,7 +92,7 @@ __do_global_init ()
 }
 
 void
-__do_global_cleanup ()
+__do_global_cleanup (void)
 {
   while (__dlp)
     {

@@ -41,7 +41,7 @@ static char sccsid[] = "@(#)localeconv.c	5.1 (Berkeley) 2/18/91";
  * Return the current locale conversion.
  */
 struct lconv *
-localeconv()
+localeconv(void)
 {
 	extern struct lconv *__lconv;
 

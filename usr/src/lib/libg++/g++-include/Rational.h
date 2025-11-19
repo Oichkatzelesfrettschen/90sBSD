@@ -186,7 +186,7 @@ inline int sign(const Rational& x)
   return sign(x.num);
 }
 
-inline void Rational::negate()
+inline void Rational::negate(void)
 {
   num.negate();
 }

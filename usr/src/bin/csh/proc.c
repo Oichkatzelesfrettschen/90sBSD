@@ -194,7 +194,7 @@ found:
 }
 
 void
-pnote()
+pnote(void)
 {
     register struct process *pp;
     int     flags;
@@ -218,7 +218,7 @@ pnote()
  *	of current and previous job indicators.
  */
 void
-pwait()
+pwait(void)
 {
     register struct process *fp, *pp;
     sigset_t omask;
@@ -333,7 +333,7 @@ pjwait(pp)
  * dowait - wait for all processes to finish
  */
 void
-dowait()
+dowait(void)
 {
     register struct process *pp;
     sigset_t omask;
@@ -355,7 +355,7 @@ loop:
  * pflushall - flush all jobs from list (e.g. at fork())
  */
 static void
-pflushall()
+pflushall(void)
 {
     register struct process *pp;
 
@@ -589,7 +589,7 @@ pads(cp)
  *	and `` in globbing.
  */
 void
-psavejob()
+psavejob(void)
 {
 
     pholdjob = pcurrjob;
@@ -601,7 +601,7 @@ psavejob()
  *	somewhere, but pendjob cleans up anyway.
  */
 void
-prestjob()
+prestjob(void)
 {
 
     pcurrjob = pholdjob;
@@ -613,7 +613,7 @@ prestjob()
  *	or is about to begin.
  */
 void
-pendjob()
+pendjob(void)
 {
     register struct process *pp, *tp;
 
@@ -1245,7 +1245,7 @@ pfork(t, wanttty)
 }
 
 static void
-okpcntl()
+okpcntl(void)
 {
     if (tpgrp == -1)
 	stderror(ERR_JOBCONTROL);

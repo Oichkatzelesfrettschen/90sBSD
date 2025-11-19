@@ -51,7 +51,7 @@ static char *members[MAXGRP];
 static char line[MAXLINELENGTH];
 
 struct group *
-getgrent()
+getgrent(void)
 {
 	if (!_gr_fp && !start_gr() || !grscan(0, 0, NULL))
 		return(NULL);
@@ -91,7 +91,7 @@ getgrgid(gid)
 }
 
 static
-start_gr()
+start_gr(void)
 {
 	if (_gr_fp) {
 		rewind(_gr_fp);
@@ -101,7 +101,7 @@ start_gr()
 }
 
 int
-setgrent()
+setgrent(void)
 {
 	return(setgroupent(0));
 }
@@ -117,7 +117,7 @@ setgroupent(stayopen)
 }
 
 void
-endgrent()
+endgrent(void)
 {
 	if (_gr_fp) {
 		(void)fclose(_gr_fp);

@@ -45,7 +45,7 @@ static char sccsid[] = "@(#)getlogin.c	5.9 (Berkeley) 2/23/91";
 int	_logname_valid;		/* known to setlogin() */
 
 char *
-getlogin()
+getlogin(void)
 {
 	static char logname[MAXLOGNAME + 1];
 

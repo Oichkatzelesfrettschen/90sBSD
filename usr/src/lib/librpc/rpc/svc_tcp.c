@@ -249,7 +249,7 @@ rendezvous_request(xprt)
 }
 
 static enum xprt_stat
-rendezvous_stat()
+rendezvous_stat(void)
 {
 
 	return (XPRT_IDLE);

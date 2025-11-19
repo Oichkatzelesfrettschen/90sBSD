@@ -287,7 +287,7 @@ error(name, val)
 	retval = 1;
 }
 
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: rm [-dfiRr] file ...\n");
 	exit(1);

@@ -333,7 +333,7 @@ inline BitString::BitString(const BitString& x) :rep(BStr_copy(0, x.rep)) {}
 inline BitString::BitString(const BitSubString& y) 
    :rep (BStr_alloc(0, y.S.rep->s, y.pos, y.pos+y.len, y.len)) {}
 
-inline BitString::~BitString()
+inline BitString::~BitString(void)
 { 
   if (rep != &_nilBitStrRep) delete rep;
 }
@@ -497,7 +497,7 @@ inline void BitString::operator += (unsigned int y)
   cat(*this, y, *this);
 }
 
-inline void BitString::complement()
+inline void BitString::complement(void)
 {
   ::complement(*this, *this);
 }

@@ -279,7 +279,7 @@ long line1, line2, nlines;
 
 /* getlist: get line numbers from the command buffer until an illegal
    address is seen.  return range status */
-getlist()
+getlist(void)
 {
 	long num;
 
@@ -304,7 +304,7 @@ getlist()
 
 /*  getone: return the next line number in the command buffer */
 long
-getone()
+getone(void)
 {
 	int c;
 	long i, num;
@@ -417,7 +417,7 @@ getnum(first)
 
 /* ckglob:  set lines matching a pattern in the command buffer; return
    global status  */
-ckglob()
+ckglob(void)
 {
 	pattern_t *pat;
 	char c, delim;
@@ -1070,7 +1070,7 @@ patscan(pat, dir)
 
 /* getfn: return pointer to copy of filename in the command buffer */
 char *
-getfn()
+getfn(void)
 {
 	static char *file = NULL;
 	static int filesz = 0;
@@ -1181,7 +1181,7 @@ makesub(glob)
 /* getshcmd: read a shell command up a maximum size from stdin; return
    substitution status */
 int
-getshcmd()
+getshcmd(void)
 {
 	static char *buf = NULL;
 	static int n = 0;
@@ -1890,7 +1890,7 @@ undo(glob)
 
 /* ureset: clear the undo stack */
 void
-ureset()
+ureset(void)
 {
 	line_t *lp, *ep, *tl;
 
@@ -1989,7 +1989,7 @@ sgetline(fp)
 
 /* getline: read a line of text up a maximum size from stdin; return
    line length */
-getline()
+getline(void)
 {
 	register int i = 0;
 	register int oi = 0;

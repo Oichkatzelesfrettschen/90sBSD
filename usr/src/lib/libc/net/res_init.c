@@ -67,7 +67,7 @@ struct state _res = {
  *
  * Return 0 if completes successfully, -1 on error
  */
-res_init()
+res_init(void)
 {
 	register FILE *fp;
 	register char *cp, **pp;

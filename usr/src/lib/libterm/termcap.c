@@ -208,7 +208,7 @@ nextfile:
  * entries to say "like an HP2621 but doesn't turn on the labels".
  * Note that this works because of the left to right scan.
  */
-tnchktc()
+tnchktc(void)
 {
 	register char *p, *q;
 	char tcname[16];	/* name of similar terminal */

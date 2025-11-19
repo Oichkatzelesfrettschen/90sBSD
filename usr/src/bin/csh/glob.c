@@ -481,7 +481,7 @@ globall(v)
 }
 
 void
-ginit()
+ginit(void)
 {
     gargsiz = GLOBSPACE;
     gargv = (Char **) xmalloc((size_t) sizeof(Char *) * gargsiz);
@@ -717,7 +717,7 @@ psave(c)
 }
 
 static void
-pword()
+pword(void)
 {
     psave(0);
     if (pargc == pargsiz - 1) {

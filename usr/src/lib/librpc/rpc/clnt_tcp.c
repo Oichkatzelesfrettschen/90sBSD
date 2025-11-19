@@ -341,7 +341,7 @@ clnttcp_freeres(cl, xdr_res, res_ptr)
 }
 
 static void
-clnttcp_abort()
+clnttcp_abort(void)
 {
 }
 

@@ -52,7 +52,7 @@ public:
 
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
-inline void LogNormal::setState()
+inline void LogNormal::setState(void)
 {
     double m2 = logMean * logMean;
     pMean = log(m2 / sqrt(logVariance + m2) );

@@ -49,7 +49,7 @@ sethostent(stayopen)
 }
 
 void
-endhostent()
+endhostent(void)
 {
 	_res.options &= ~(RES_STAYOPEN | RES_USEVC);
 	_res_close();

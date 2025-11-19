@@ -538,7 +538,7 @@ notty:
 }
 
 void
-untty()
+untty(void)
 {
     if (tpgrp > 0) {
 	(void) setpgid(0, opgrp);
@@ -730,7 +730,7 @@ srcunit(unit, onlyown, hflg)
 }
 
 void
-rechist()
+rechist(void)
 {
     Char    buf[BUFSIZ];
     int     fp, ftmp, oldidfds;
@@ -757,7 +757,7 @@ rechist()
 }
 
 void
-goodbye()
+goodbye(void)
 {
     rechist();
 
@@ -778,7 +778,7 @@ goodbye()
 }
 
 void
-exitstat()
+exitstat(void)
 {
 
 #ifdef PROF
@@ -900,7 +900,7 @@ process(catch)
 	    (void) sigsetmask(sigblock((sigset_t) 0) & ~sigmask(SIGINT));
 
 	/*
-	 * For the sake of reset()
+	 * For the sake of reset(void)
 	 */
 	freelex(&paraml);
 	freesyn(t);
@@ -1039,7 +1039,7 @@ dosource(t)
  * "You have mail."
  */
 static void
-mailchk()
+mailchk(void)
 {
     register struct varent *v;
     register Char **vp;
@@ -1113,7 +1113,7 @@ gethdir(home)
  * resting places, closin all other units.
  */
 void
-initdesc()
+initdesc(void)
 {
 
     didfds = 0;			/* 0, 1, 2 aren't set up */
@@ -1138,7 +1138,7 @@ xexit(i)
 }
 
 static Char **
-defaultpath()
+defaultpath(void)
 {
     char   *ptr;
     Char  **blk, **blkp;
@@ -1161,7 +1161,7 @@ defaultpath()
 }
 
 void
-printprompt()
+printprompt(void)
 {
     register Char *cp;
 

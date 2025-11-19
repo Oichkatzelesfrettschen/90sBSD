@@ -62,7 +62,7 @@ setservent(f)
 }
 
 void
-endservent()
+endservent(void)
 {
 	if (servf) {
 		fclose(servf);
@@ -72,7 +72,7 @@ endservent()
 }
 
 struct servent *
-getservent()
+getservent(void)
 {
 	char *p;
 	register char *cp, **q;

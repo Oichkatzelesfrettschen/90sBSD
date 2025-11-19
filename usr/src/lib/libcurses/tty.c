@@ -71,7 +71,7 @@ static int useraw;
  *	Do terminal type initialization.
  */
 int
-gettmode()
+gettmode(void)
 {
 	useraw = 0;
 	
@@ -121,7 +121,7 @@ gettmode()
 }
 
 int
-raw()
+raw(void)
 {
 	useraw = __pfast = __rawmode = 1;
 	curt = &rawt;
@@ -130,7 +130,7 @@ raw()
 }
 
 int
-noraw()
+noraw(void)
 {
 	useraw = __pfast = __rawmode = 0;
 	curt = &__baset;
@@ -139,7 +139,7 @@ noraw()
 }
 
 int
-cbreak()
+cbreak(void)
 {
 
 	__rawmode = 1;
@@ -149,7 +149,7 @@ cbreak()
 }
 
 int
-nocbreak()
+nocbreak(void)
 {
 
 	__rawmode = 0;
@@ -159,7 +159,7 @@ nocbreak()
 }
 	
 int
-echo()
+echo(void)
 {
 	rawt.c_lflag |= ECHO;
 	cbreakt.c_lflag |= ECHO;
@@ -171,7 +171,7 @@ echo()
 }
 
 int
-noecho()
+noecho(void)
 {
 	rawt.c_lflag &= ~ECHO;
 	cbreakt.c_lflag &= ~ECHO;
@@ -183,7 +183,7 @@ noecho()
 }
 
 int
-nl()
+nl(void)
 {
 	rawt.c_iflag |= ICRNL;
 	rawt.c_oflag |= ONLCR;
@@ -198,7 +198,7 @@ nl()
 }
 
 int
-nonl()
+nonl(void)
 {
 	rawt.c_iflag &= ~ICRNL;
 	rawt.c_oflag &= ~ONLCR;
@@ -213,7 +213,7 @@ nonl()
 }
 
 void
-__startwin()
+__startwin(void)
 {
 	(void)fflush(stdout);
 	(void)setvbuf(stdout, NULL, _IOFBF, 0);
@@ -223,7 +223,7 @@ __startwin()
 }
 
 int
-endwin()
+endwin(void)
 {
 	__restore_stophandler();
 
@@ -251,13 +251,13 @@ endwin()
  */
 static struct termios savedtty;
 int
-savetty()
+savetty(void)
 {
 	return (tcgetattr(STDIN_FILENO, &savedtty));
 }
 
 int
-resetty()
+resetty(void)
 {
 	return (tcsetattr(STDIN_FILENO, __tcaction ?
 	    TCSASOFT | TCSADRAIN : TCSADRAIN, &savedtty));

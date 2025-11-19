@@ -42,7 +42,7 @@ static char sccsid[] = "@(#)regexec.c	8.2 (Berkeley) 3/16/94";
 #endif /* LIBC_SCCS and not lint */
 
 /*
- * the outer shell of regexec()
+ * the outer shell of regexec(void)
  *
  * This file includes engine.c *twice*, after muchos fiddling with the
  * macros that code uses.  This lets the same code operate on two different

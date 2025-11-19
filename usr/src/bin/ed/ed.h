@@ -193,7 +193,7 @@ if ((i) > (n)) { \
 
 #ifndef __P
 # ifndef __STDC__
-#  define __P(proto) ()
+#  define __P(proto) (void)
 # else
 #  define __P(proto) proto
 # endif

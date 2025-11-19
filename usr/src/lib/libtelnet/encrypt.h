@@ -85,7 +85,7 @@ typedef	struct {
 #ifdef	__STDC__
 #define P(x)	x
 #else
-#define P(x)	()
+#define P(x)	(void)
 #endif
 #endif
 

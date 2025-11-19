@@ -375,7 +375,7 @@ nroot(t)
 }
 
 static int
-tmp()
+tmp(void)
 {
 	sigset_t set, oset;
 	int fd;
@@ -395,7 +395,7 @@ tmp()
 }
 
 static int
-byteorder()
+byteorder(void)
 {
 	u_long x;			/* XXX: 32-bit assumption. */
 	u_char *p;

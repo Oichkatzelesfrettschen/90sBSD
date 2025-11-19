@@ -163,7 +163,7 @@ setterm(type)
  *	Gets all the terminal flags from the termcap database.
  */
 static void
-zap()
+zap(void)
 {
 	register char *namp, ***sp;
 	register char **fp;

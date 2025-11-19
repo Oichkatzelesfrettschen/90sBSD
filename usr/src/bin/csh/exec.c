@@ -231,7 +231,7 @@ cont:
 }
 
 static void
-pexerr()
+pexerr(void)
 {
     /* Couldn't find the damn thing */
     if (expath) {
@@ -403,7 +403,7 @@ xechoit(t)
 
 /*VARARGS0*/
 void
-dohash()
+dohash(void)
 {
     DIR    *dirp;
     register struct dirent *dp;
@@ -440,13 +440,13 @@ dohash()
 }
 
 void
-dounhash()
+dounhash(void)
 {
     havhash = 0;
 }
 
 void
-hashstat()
+hashstat(void)
 {
     if (hits + misses)
 	xprintf("%d hits, %d misses, %d%%\n",

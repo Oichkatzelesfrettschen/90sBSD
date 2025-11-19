@@ -42,7 +42,7 @@ static char sccsid[] = "@(#)pause.c	5.7 (Berkeley) 2/23/91";
  * Backwards compatible pause.
  */
 int
-pause()
+pause(void)
 {
 
 	return sigpause(sigblock(0L));

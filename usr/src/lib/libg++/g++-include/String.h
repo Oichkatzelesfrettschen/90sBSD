@@ -925,25 +925,25 @@ inline void String::prepend(const SubString& y)
 // misc transformations
 
 
-inline void String::reverse()
+inline void String::reverse(void)
 {
   rep = Sreverse(rep, rep);
 }
 
 
-inline void String::upcase()
+inline void String::upcase(void)
 {
   rep = Supcase(rep, rep);
 }
 
 
-inline void String::downcase()
+inline void String::downcase(void)
 {
   rep = Sdowncase(rep, rep);
 }
 
 
-inline void String::capitalize()
+inline void String::capitalize(void)
 {
   rep = Scapitalize(rep, rep);
 }

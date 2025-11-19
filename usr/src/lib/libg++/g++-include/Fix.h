@@ -177,7 +177,7 @@ extern int Fix_set_default_length(int);
 
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
-inline void Fix::unique()
+inline void Fix::unique(void)
 {
   if ( rep->ref > 1 )
   {
@@ -210,7 +210,7 @@ inline Fix::Fix(_Fix f)
   rep = f;
 }
 
-inline Fix::Fix()
+inline Fix::Fix(void)
 {
   rep = new_Fix(Fix_default_length);
 }
@@ -253,7 +253,7 @@ inline Fix::Fix(int len, double& d)
   rep = new_Fix((uint16 )len,d);
 }
 
-inline Fix::~Fix()
+inline Fix::~Fix(void)
 {
   if ( --rep->ref <= 0 ) delete rep;
 }
@@ -310,12 +310,12 @@ inline int operator >= (Fix&  x, Fix&  y)
   return compare(x.rep, y.rep) >= 0; 
 }
 
-inline Fix& Fix::operator +  ()
+inline Fix& Fix::operator +  (void)
 {
   return *this;
 }
 
-inline Fix Fix::operator -  ()
+inline Fix Fix::operator -  (void)
 {
   _Fix r = negate(rep); return r;
 }

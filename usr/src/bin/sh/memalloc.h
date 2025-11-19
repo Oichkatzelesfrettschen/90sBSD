@@ -89,7 +89,7 @@ void ungrabstackstr();
 
 #define stackblock() stacknxt
 #define stackblocksize() stacknleft
-#define STARTSTACKSTR(p)	p = stackblock(), sstrnleft = stackblocksize()
+#define STARTSTACKSTR(p)	p = stackblock(), sstrnleft = stackblocksize(void)
 #define STPUTC(c, p)	(--sstrnleft >= 0? (*p++ = (c)) : (p = growstackstr(), *p++ = (c)))
 #define CHECKSTRSPACE(n, p)	if (sstrnleft < n) p = makestrspace(); else
 #define USTPUTC(c, p)	(--sstrnleft, *p++ = (c))

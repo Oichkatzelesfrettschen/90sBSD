@@ -160,37 +160,37 @@ inline void ostream::unset(state_value flag)
   state = state_value(int(state) & ~int(flag));
 }
 
-inline int ostream::rdstate()
+inline int ostream::rdstate(void)
 {
   return int(state);
 }
 
-inline int ostream::good()
+inline int ostream::good(void)
 {
   return state == _good;
 }
 
-inline int ostream::eof()
+inline int ostream::eof(void)
 {
   return int(state) & int(_eof);
 }
 
-inline int ostream::fail()
+inline int ostream::fail(void)
 {
   return int(state) & int(_fail);
 }
 
-inline int ostream::bad()
+inline int ostream::bad(void)
 {
   return int(state) & int(_bad);
 }
 
-inline ostream::operator void*()
+inline ostream::operator void*(void)
 {
   return (state == _good)? this : 0;
 }
 
-inline int ostream::operator !()
+inline int ostream::operator !(void)
 {
   return (state != _good);
 }
@@ -200,33 +200,33 @@ inline ostream& ostream::failif(int cond)
   if (cond) set(_fail); return *this;
 }
 
-inline int ostream::is_open()
+inline int ostream::is_open(void)
 {
   return bp->is_open();
 }
 
-inline int ostream::readable()
+inline int ostream::readable(void)
 {
   return 0;
 }
 
-inline int ostream::writable()
+inline int ostream::writable(void)
 {
   return (bp != 0) && (state == _good);
 }
 
 
-inline char* ostream::bufptr()
+inline char* ostream::bufptr(void)
 {
   return bp->base;
 }
 
-inline ostream& ostream::flush()
+inline ostream& ostream::flush(void)
 {
   bp->overflow(); return *this;
 }
 
-inline ostream& ostream::close()
+inline ostream& ostream::close(void)
 {
   bp->overflow(); bp->close();  return *this;
 }

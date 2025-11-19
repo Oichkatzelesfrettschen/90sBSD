@@ -99,7 +99,7 @@ hsearch(item, action)
 }
 
 extern void
-hdestroy()
+hdestroy(void)
 {
 	if (dbp) {
 		(void)(dbp->close)(dbp);

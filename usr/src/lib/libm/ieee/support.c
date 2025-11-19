@@ -452,7 +452,7 @@ static const unsigned long table[] = {
 double newsqrt(x)
 double x;
 {
-        double y,z,t,addc(),subc()
+        double y,z,t,addc(),subc(void)
 	double const b54=134217728.*134217728.; /* b54=2**54 */
         long mx,scalx;
 	long const mexp=0x7ff00000;

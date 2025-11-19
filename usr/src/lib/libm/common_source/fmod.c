@@ -119,7 +119,7 @@ double x,y;
 	}
 }
 
-main()
+main(void)
 {
 	register int i,cases;
 	double x,y;

@@ -213,7 +213,7 @@ encrypt_init(name, server)
 }
 
 	void
-encrypt_list_types()
+encrypt_list_types(void)
 {
 	Encryptions *ep = encryptions;
 
@@ -328,7 +328,7 @@ EncryptStart(mode)
 }
 
 	int
-EncryptStartInput()
+EncryptStartInput(void)
 {
 	if (decrypt_mode) {
 		encrypt_send_request_start();
@@ -339,7 +339,7 @@ EncryptStartInput()
 }
 
 	int
-EncryptStartOutput()
+EncryptStartOutput(void)
 {
 	if (encrypt_mode) {
 		encrypt_start_output(encrypt_mode);
@@ -372,21 +372,21 @@ EncryptStop(mode)
 }
 
 	int
-EncryptStopInput()
+EncryptStopInput(void)
 {
 	encrypt_send_request_end();
 	return(1);
 }
 
 	int
-EncryptStopOutput()
+EncryptStopOutput(void)
 {
 	encrypt_send_end();
 	return(1);
 }
 
 	void
-encrypt_display()
+encrypt_display(void)
 {
 	if (encrypt_output)
 		printf("Currently encrypting output with %s\r\n",
@@ -397,7 +397,7 @@ encrypt_display()
 }
 
 	int
-EncryptStatus()
+EncryptStatus(void)
 {
 	if (encrypt_output)
 		printf("Currently encrypting output with %s\r\n",
@@ -419,7 +419,7 @@ EncryptStatus()
 }
 
 	void
-encrypt_send_support()
+encrypt_send_support(void)
 {
 	if (str_suplen) {
 		/*
@@ -680,7 +680,7 @@ encrypt_session_key(key, server)
  * Called when ENCRYPT END is received.
  */
 	void
-encrypt_end()
+encrypt_end(void)
 {
 	decrypt_input = 0;
 	if (encrypt_debug_mode)
@@ -693,7 +693,7 @@ encrypt_end()
  * Called when ENCRYPT REQUEST-END is received.
  */
 	void
-encrypt_request_end()
+encrypt_request_end(void)
 {
 	encrypt_send_end();
 }
@@ -881,7 +881,7 @@ encrypt_start_output(type)
 }
 
 	void
-encrypt_send_end()
+encrypt_send_end(void)
 {
 	if (!encrypt_output)
 		return;
@@ -902,7 +902,7 @@ encrypt_send_end()
 }
 
 	void
-encrypt_send_request_start()
+encrypt_send_request_start(void)
 {
 	register unsigned char *p;
 	register int i;
@@ -922,7 +922,7 @@ encrypt_send_request_start()
 }
 
 	void
-encrypt_send_request_end()
+encrypt_send_request_end(void)
 {
 	str_end[3] = ENCRYPT_REQEND;
 	net_write(str_end, sizeof(str_end));
@@ -933,7 +933,7 @@ encrypt_send_request_end()
 }
 
 	void
-encrypt_wait()
+encrypt_wait(void)
 {
 	register int encrypt, decrypt;
 	if (encrypt_debug_mode)

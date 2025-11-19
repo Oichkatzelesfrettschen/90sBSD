@@ -167,32 +167,32 @@ public:
 #if defined(__OPTIMIZE__) || defined(USE_LIBGXX_INLINES)
 
 
-inline int CursesWindow::begx()
+inline int CursesWindow::begx(void)
 {
   return w->_begx;
 }
 
-inline int CursesWindow::begy()
+inline int CursesWindow::begy(void)
 {
   return w->_begy;
 }
 
-inline int CursesWindow::maxx()
+inline int CursesWindow::maxx(void)
 {
   return w->_maxx;
 }
 
-inline int CursesWindow::maxy()
+inline int CursesWindow::maxy(void)
 {
   return w->_maxy;
 }
 
-inline int CursesWindow::height()
+inline int CursesWindow::height(void)
 {
   return maxy() - begy() + 1;
 }
 
-inline int CursesWindow::width()
+inline int CursesWindow::width(void)
 {
   return maxx() - begx() + 1;
 }
@@ -384,17 +384,17 @@ inline int CursesWindow::cols()
   return COLS; 
 }
 
-inline CursesWindow* CursesWindow::child()
+inline CursesWindow* CursesWindow::child(void)
 {
   return subwins;
 }
 
-inline CursesWindow* CursesWindow::parent()
+inline CursesWindow* CursesWindow::parent(void)
 {
   return par;
 }
 
-inline CursesWindow* CursesWindow::sibling()
+inline CursesWindow* CursesWindow::sibling(void)
 {
   return sib;
 }

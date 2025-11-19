@@ -585,7 +585,7 @@ inline void  Integer::operator += (long y)
   add(*this, y, *this);
 }
 
-inline void Integer::operator ++ ()
+inline void Integer::operator ++ (void)
 {
   add(*this, 1, *this);
 }
@@ -601,7 +601,7 @@ inline void  Integer::operator -= (long y)
   sub(*this, y, *this);
 }
 
-inline void Integer::operator -- ()
+inline void Integer::operator -- (void)
 {
   add(*this, -1, *this);
 }
@@ -708,18 +708,18 @@ inline Integer operator >? (const Integer& x, const Integer& y)
 #endif
 
 
-inline void Integer::abs()
+inline void Integer::abs(void)
 {
   ::abs(*this, *this);
 }
 
-inline void Integer::negate()
+inline void Integer::negate(void)
 {
   ::negate(*this, *this);
 }
 
 
-inline void Integer::complement()
+inline void Integer::complement(void)
 {
   ::complement(*this, *this);
 }

@@ -411,7 +411,7 @@ skip:
 
 #ifdef MSTAT
 void
-domem()
+domem(void)
 {
 	register struct kmembuckets *kp;
 	/* register struct kmemstats *ks; */

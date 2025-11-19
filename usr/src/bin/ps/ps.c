@@ -319,7 +319,7 @@ main(argc, argv)
 	exit(eval);
 }
 
-scanvars()
+scanvars(void)
 {
 	register struct varent *vent;
 	register VAR *v;
@@ -484,7 +484,7 @@ err(fmt, va_alist)
 	/* NOTREACHED */
 }
 
-usage()
+usage(void)
 {
 	(void) fprintf(stderr,
 "usage: ps [-aChjlmrSTuvwx] [-O|o fmt] [-p pid] [-t tty]\n\t  [-M core] [-N system] [-W swap]\n       ps [-L]\n");

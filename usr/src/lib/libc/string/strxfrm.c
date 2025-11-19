@@ -43,7 +43,7 @@ static char sccsid[] = "@(#)strxfrm.c	5.2 (Berkeley) 1/26/91";
 
 /*
  * Transform src, storing the result in dst, such that
- * strcmp() on transformed strings returns what strcoll()
+ * strcmp() on transformed strings returns what strcoll(void)
  * on the original untransformed strings would return.
  */
 size_t

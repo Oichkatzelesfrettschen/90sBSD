@@ -262,7 +262,7 @@ VAR var[] = {
 	{""},
 };
 
-showkey()
+showkey(void)
 {
 	extern int termwidth;
 	register VAR *v;

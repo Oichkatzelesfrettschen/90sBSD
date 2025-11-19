@@ -161,13 +161,13 @@ putpure(c)
 }
 
 void
-draino()
+draino(void)
 {
     linp = linbuf;
 }
 
 void
-flush()
+flush(void)
 {
     register int unit;
 

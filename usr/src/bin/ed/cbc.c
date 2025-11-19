@@ -126,7 +126,7 @@ int des_n = 0;			/* index for desputc/desgetc */
 
 /* desinit: initialize DES */
 void
-desinit()
+desinit(void)
 {
 #ifdef DES
 	int i;
@@ -190,7 +190,7 @@ desflush(fp)
 /*
  * get keyword from tty or stdin
  */
-getkey()
+getkey(void)
 {
 	register char *p;		/* used to obtain the key */
 	Desbuf msgbuf;			/* I/O buffer */

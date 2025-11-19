@@ -89,7 +89,7 @@ moreglue(n)
  * Find a free FILE for fopen et al.
  */
 FILE *
-__sfp()
+__sfp(void)
 {
 	register FILE *fp;
 	register int n;
@@ -126,7 +126,7 @@ found:
  * XXX.  Force immediate allocation of internal memory.  Not used by stdio,
  * but documented historically for certain applications.  Bad applications.
  */
-f_prealloc()
+f_prealloc(void)
 {
 	int n = getdtablesize() - NSTATIC + 20;		/* 20 for slop */
 	register struct glue *g;
@@ -145,7 +145,7 @@ f_prealloc()
  * The name `_cleanup' is, alas, fairly well known outside stdio.
  */
 void
-_cleanup()
+_cleanup(void)
 {
 	/* (void) _fwalk(fclose); */
 	(void) _fwalk(__sflush);		/* `cheating' */
@@ -155,7 +155,7 @@ _cleanup()
  * __sinit() is called whenever stdio's internal variables must be set up.
  */
 void
-__sinit()
+__sinit(void)
 {
 	/* make sure we clean up on exit */
 	__cleanup = _cleanup;		/* conservative */

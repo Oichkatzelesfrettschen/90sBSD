@@ -47,7 +47,7 @@ static struct fstab _fs_fstab;
 static error();
 
 static
-fstabscan()
+fstabscan(void)
 {
 	register char *cp;
 #define	MAXLINELENGTH	1024
@@ -135,7 +135,7 @@ bad:		/* no way to distinguish between EOF and syntax error */
 }
 
 struct fstab *
-getfsent()
+getfsent(void)
 {
 	if (!_fs_fp && !setfsent() || !fstabscan())
 		return((struct fstab *)NULL);
@@ -164,7 +164,7 @@ getfsfile(name)
 	return((struct fstab *)NULL);
 }
 
-setfsent()
+setfsent(void)
 {
 	if (_fs_fp) {
 		rewind(_fs_fp);
@@ -177,7 +177,7 @@ setfsent()
 }
 
 void
-endfsent()
+endfsent(void)
 {
 	if (_fs_fp) {
 		(void)fclose(_fs_fp);

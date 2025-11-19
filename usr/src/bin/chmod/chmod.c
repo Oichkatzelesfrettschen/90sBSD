@@ -148,7 +148,7 @@ error(name)
 }
 
 void
-usage()
+usage(void)
 {
 	(void)fprintf(stderr, "usage: chmod [-R] mode file ...\n");
 	exit(1);

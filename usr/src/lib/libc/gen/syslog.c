@@ -225,7 +225,7 @@ openlog(ident, logstat, logfac)
 }
 
 void
-closelog()
+closelog(void)
 {
 	(void)close(LogFile);
 	LogFile = -1;

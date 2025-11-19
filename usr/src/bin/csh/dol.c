@@ -213,7 +213,7 @@ Dpack(wbuf, wp)
  * Rather, DgetC will return a DEOF when we hit the end-of-input.
  */
 static int
-Dword()
+Dword(void)
 {
     register int c, c1;
     Char    wbuf[BUFSIZ];
@@ -388,7 +388,7 @@ dolerror(s)
  * Ugh.
  */
 static void
-Dgetdol()
+Dgetdol(void)
 {
     register Char *np;
     register struct varent *vp = NULL;
@@ -607,7 +607,7 @@ eatbrac:
 }
 
 static void
-fixDolMod()
+fixDolMod(void)
 {
     register int c;
 
@@ -658,7 +658,7 @@ unDredc(c)
 }
 
 static int
-Dredc()
+Dredc(void)
 {
     register int c;
 

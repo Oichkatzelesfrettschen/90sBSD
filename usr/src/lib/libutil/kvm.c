@@ -223,7 +223,7 @@ kvm_init(uf, mf, sf)
 	return (0);
 }
 
-kvm_close()
+kvm_close(void)
 {
 	if (unixx != -1) {
 		close(unixx);
@@ -559,7 +559,7 @@ again:
 }
 
 struct proc *
-kvm_nextproc()
+kvm_nextproc(void)
 {
 
 	if (!kvmprocbase && kvm_getprocs(0, 0) == -1)
@@ -578,12 +578,12 @@ kvm_geteproc(p)
 	return ((struct eproc *)(((char *)p) + sizeof (struct proc)));
 }
 
-kvm_setproc()
+kvm_setproc(void)
 {
 	kvmprocptr = kvmprocbase;
 }
 
-kvm_freeprocs()
+kvm_freeprocs(void)
 {
 
 	if (kvmprocbase) {
@@ -812,7 +812,7 @@ retucomm:
 
 
 static
-getkvars()
+getkvars(void)
 {
 	if (kvm_nlist(nl) == -1)
 		return (-1);
@@ -1047,7 +1047,7 @@ setsyserr(va_alist)
 }
 
 char *
-kvm_geterr()
+kvm_geterr(void)
 {
 	return (errbuf);
 }
