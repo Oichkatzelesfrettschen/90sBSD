@@ -51,8 +51,7 @@ int
 hash(s)
 	register char *s;
 {
-void
-	register hashval = 0;
+	register int hashval = 0;
 
 	while (*s) {
 		hashval += *s++;
