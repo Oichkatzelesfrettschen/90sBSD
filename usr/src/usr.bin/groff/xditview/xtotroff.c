@@ -232,7 +232,7 @@ int n;
 }
 
 void
-main (argc, argv)
+int main(argc, argv)
 	char	**argv;
 {
 	char	troff_name[1024];

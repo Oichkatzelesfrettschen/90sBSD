@@ -37,7 +37,7 @@ usage ()
 struct exec hdr;
 
 void
-main (argc, argv)
+int main(argc, argv)
 char **argv;
 {
 	FILE *f;

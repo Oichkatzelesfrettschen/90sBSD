@@ -183,7 +183,7 @@ struct  authors         * authorlist;
 
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc;
 char * argv[];
 {

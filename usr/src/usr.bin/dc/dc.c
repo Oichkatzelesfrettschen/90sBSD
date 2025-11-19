@@ -99,7 +99,7 @@ void decref ();
 void binop ();
 
 void
-main (argc, argv, env)
+int main(argc, argv, env)
      int argc;
      char **argv, **env;
 {

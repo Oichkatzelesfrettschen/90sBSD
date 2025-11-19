@@ -95,7 +95,7 @@ char *workfilename;
 char * temp1file, * temp2file;
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc; char **argv;
 {
         char * cmdusage;

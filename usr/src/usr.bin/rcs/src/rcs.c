@@ -225,7 +225,7 @@ enum    stringwork {copy, edit, empty}; /* expand and edit_expand not needed */
 
 
 void
-main (argc, argv)
+int main(argc, argv)
 int argc;
 char * argv[];
 {

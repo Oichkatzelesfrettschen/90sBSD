@@ -39,7 +39,7 @@ struct test2
 };
 
 void
-main ()
+int main()
 {
   struct test1 t1;
   struct test2 t2;

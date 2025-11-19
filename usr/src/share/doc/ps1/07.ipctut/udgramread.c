@@ -55,7 +55,7 @@
  * then reads from the socket. 
  */
 void
-main()
+int main()
 {
 	int sock, length;
 	struct sockaddr_un name;

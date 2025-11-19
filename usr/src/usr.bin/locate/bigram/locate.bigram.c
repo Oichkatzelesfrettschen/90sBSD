@@ -58,7 +58,7 @@ char buf1[PATH_MAX] = " ";
 char buf2[PATH_MAX];
 
 void
-main ( )
+int main( )
 {
   	register char *cp;
 	register char *oldpath = buf1, *path = buf2;

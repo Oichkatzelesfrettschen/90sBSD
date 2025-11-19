@@ -49,7 +49,7 @@
  * accepts a new connection. 
  */
 void
-main()
+int main()
 {
 	int sock, msgsock, rval;
 	struct sockaddr_un server;

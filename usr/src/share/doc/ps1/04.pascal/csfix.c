@@ -59,7 +59,7 @@ static char sccsid[] = "@(#)csfix.c	6.3 (Berkeley) 4/17/91";
 char	flag, dflag;
 
 void
-main(argc, argv)
+int main(argc, argv)
 	int argc;
 	char *argv[];
 {

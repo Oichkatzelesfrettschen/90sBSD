@@ -55,7 +55,7 @@ int numchars, numfields, repeats;
 #define	MAXLINELEN	(2048 + 1)
 
 void
-main (argc,argv)
+int main(argc,argv)
 	int argc;
 	char **argv;
 {
