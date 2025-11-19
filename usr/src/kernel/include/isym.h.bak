@@ -75,7 +75,7 @@
 
 /* modules use registered, versioned symbol instead of kernel internal name */
 #ifdef __MODULE__
-#define __ISYM__(d, s, a)		extern d s a __asm__(# s __ISYM_VERSION__);
+#define __ISYM__(d, s, a)		extern d s a asm(# s __ISYM_VERSION__);
 #else
 #define __ISYM__(d, s, a)		extern d s a;
 #endif

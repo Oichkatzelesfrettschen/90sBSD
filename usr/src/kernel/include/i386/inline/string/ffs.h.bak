@@ -17,10 +17,10 @@ __INLINE int
 ffs(int bits) {
 	int rv;
 
-	__asm__ volatile ("bsfl %1, %0 ; je 1f" :  "=r" (rv) : "m" (bits));
+	asm volatile ("bsfl %1, %0 ; je 1f" :  "=r" (rv) : "m" (bits));
 	return (rv + 1);
 
-	__asm__ ("1:");
+	asm ("1:");
 	return (0);
 }
 
