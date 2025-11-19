@@ -7,9 +7,14 @@
 # stubs, remove just -DSYSLIBC_SCCS from CFLAGS.
 LIB=c
 CFLAGS+=-DLIBC_SCCS -DSYSLIBC_SCCS
-# Add 386BSD include directories before system includes
-# This ensures 386BSD headers are used instead of conflicting system headers
+# Complete header isolation: block system headers, use only 386BSD headers
+# -nostdinc: ignore all system include directories
+# -isystem: add back gcc compiler builtins (stddef.h, stdarg.h, etc.)
+# -I: add 386BSD include directories
+# -Wno-error flags: allow build to proceed despite compatibility warnings
+CFLAGS+=-nostdinc -isystem /usr/lib/gcc/x86_64-linux-gnu/13/include
 CFLAGS+=-I${.CURDIR}/../../include -I${.CURDIR}/../../include/nonstd/db
+CFLAGS+=-Wno-error=implicit-function-declaration -Wno-error=int-conversion
 AINC=	-I${.CURDIR}/${MACHINE}
 
 .include "${.CURDIR}/compat-43/Makefile.inc"
