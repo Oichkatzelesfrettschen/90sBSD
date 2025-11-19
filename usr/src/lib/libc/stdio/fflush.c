@@ -57,6 +57,7 @@ fflush(fp)
 	return (__sflush(fp));
 }
 
+int
 __sflush(fp)
 	register FILE *fp;
 {

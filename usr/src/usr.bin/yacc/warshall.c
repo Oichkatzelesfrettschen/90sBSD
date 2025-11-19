@@ -40,6 +40,7 @@ static char sccsid[] = "@(#)warshall.c	5.3 (Berkeley) 6/1/90";
 
 #include "defs.h"
 
+void
 transitive_closure(R, n)
 unsigned *R;
 int n;
@@ -93,6 +94,7 @@ int n;
     }
 }
 
+void
 reflexive_transitive_closure(R, n)
 unsigned *R;
 int n;

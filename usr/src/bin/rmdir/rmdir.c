@@ -45,6 +45,8 @@ static char sccsid[] = "@(#)rmdir.c	5.3 (Berkeley) 5/31/90";
  * Remove directory
  */
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)

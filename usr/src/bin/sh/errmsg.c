@@ -114,6 +114,7 @@ STATIC const struct errname errormsg[] = {
  */
 
 char *
+int
 errmsg(e, action) {
 	struct errname const *ep;
 	static char buf[12];

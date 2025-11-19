@@ -23,6 +23,7 @@ the GNU General Public License, version 2, 1991.
 
 #include "rexp.h"
 #include <ctype.h>
+#include <setjmp.h>
 
 /*  print a machine for debugging  */
 

@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)misc.c	5.3 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+int
 card(array, size)		/* for beenthere, injuries */
 	register char *array;
 	int size;
@@ -50,6 +51,7 @@ card(array, size)		/* for beenthere, injuries */
 	return (i);
 }
 
+int
 ucard(array)
 	register unsigned *array;
 {

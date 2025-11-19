@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)acutab.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "tip.h"
+#include <setjmp.h>
 
 extern int df02_dialer(), df03_dialer(), df_disconnect(), df_abort(),
 	   biz31f_dialer(), biz31_disconnect(), biz31_abort(),

@@ -102,6 +102,7 @@ char * const		old;
 const char * const	new;
 {
 	register char *	result;
+int
 	register	oldsize, newsize;
 
 	newsize = NULLMAL(new) ? 0 : strlen(new);

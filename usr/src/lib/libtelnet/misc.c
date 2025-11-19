@@ -55,6 +55,8 @@ static char sccsid[] = "@(#)misc.c	5.1 (Berkeley) 2/28/91";
  */
 
 #include "misc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 char *RemoteHostName;
 char *LocalHostName;

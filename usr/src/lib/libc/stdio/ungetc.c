@@ -81,6 +81,7 @@ __submore(fp)
 	return (0);
 }
 
+int
 ungetc(c, fp)
 	int c;
 	register FILE *fp;

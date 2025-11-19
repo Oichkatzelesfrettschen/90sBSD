@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)log.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "tip.h"
+#include <setjmp.h>
 
 #ifdef ACULOG
 static	FILE *flog = NULL;

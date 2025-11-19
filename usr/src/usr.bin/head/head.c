@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)head.c	5.5 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 /*
  * head - give the first few lines of a stream or of each of a set of files
  *

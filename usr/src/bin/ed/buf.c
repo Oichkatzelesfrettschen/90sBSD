@@ -208,6 +208,7 @@ getlp(n)
 char sfn[15] = "";				/* scratch file name */
 
 /* sbopen: open scratch file */
+int
 sbopen(void)
 {
 	strcpy(sfn, "/tmp/ed.XXXXXX");
@@ -221,6 +222,7 @@ sbopen(void)
 
 
 /* sbclose: close scratch file */
+int
 sbclose(void)
 {
 	if (sfp) {
