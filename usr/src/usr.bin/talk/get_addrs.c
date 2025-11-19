@@ -42,7 +42,12 @@ static char sccsid[] = "@(#)get_addrs.c	5.7 (Berkeley) 3/1/91";
 #include <netdb.h>
 #include <stdio.h>
 #include "talk_ctl.h"
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
+void
 get_addrs(my_machine_name, his_machine_name)
 	char *my_machine_name, *his_machine_name;
 {

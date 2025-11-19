@@ -56,6 +56,8 @@ main()
 
 #ifdef LOGGING					/* unused for now */
 #include <netinet/in.h>
+#include <stdlib.h>
+#include <unistd.h>
 	struct sockaddr_in sin;
 	int sval;
 
@@ -106,6 +108,7 @@ main()
 	exit(0);
 }
 
+void
 fatal(msg)
 	char *msg;
 {

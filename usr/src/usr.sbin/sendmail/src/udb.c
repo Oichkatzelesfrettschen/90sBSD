@@ -558,12 +558,14 @@ udbmatch(user, field)
 		return NULL;
 
 	/*
+int
 	**  Nothing yet.  Search again for a default case.  But only
 	**  use it if we also have a forward (:maildrop) pointer already
 	**  in the database.
 	*/
 
 	/* build database key */
+int
 	(void) strcpy(keybuf, user);
 	(void) strcat(keybuf, ":maildrop");
 	keylen = strlen(keybuf);

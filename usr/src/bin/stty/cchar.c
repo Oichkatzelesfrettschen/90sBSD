@@ -78,6 +78,7 @@ struct cchar cchars2[] = {
 	NULL,
 };
 
+int
 csearch(argvp, ip)
 	char ***argvp;
 	struct info *ip;

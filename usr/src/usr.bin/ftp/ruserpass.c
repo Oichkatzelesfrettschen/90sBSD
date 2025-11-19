@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)ruserpass.c	5.3 (Berkeley) 3/1/91";
 #include <sys/stat.h>
 #include <errno.h>
 #include "ftp_var.h"
+#include <string.h>
 
 char	*renvlook(), *malloc(), *index(), *getenv(), *getpass(), *getlogin();
 char	*strcpy();
@@ -72,6 +73,7 @@ static struct toktab {
 	0,		0
 };
 
+int
 ruserpass(host, aname, apass, aacct)
 	char *host, **aname, **apass, **aacct;
 {

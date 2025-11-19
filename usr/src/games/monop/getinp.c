@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)getinp.c	5.4 (Berkeley) 2/28/91";
+#include <string.h>
 #endif /* not lint */
 
 # include	<stdio.h>
@@ -44,6 +45,7 @@ static char sccsid[] = "@(#)getinp.c	5.4 (Berkeley) 2/28/91";
 
 static char	buf[257];
 
+int
 getinp(prompt, list)
 char	*prompt, *list[]; {
 

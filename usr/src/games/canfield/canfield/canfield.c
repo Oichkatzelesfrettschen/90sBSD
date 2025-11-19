@@ -195,6 +195,7 @@ int dbfd = -1;
  *
  * procedure to set the move command box
  */
+void
 movebox()
 {
 	switch (status) {
@@ -229,6 +230,7 @@ movebox()
 /*
  * print directions above move box
  */
+void
 printtopinstructions()
 {
 	    move(tboxrow, boxcol);
@@ -262,6 +264,7 @@ printtopinstructions()
 /*
  * Print the betting box.
  */
+void
 printtopbettingbox()
 {
 
@@ -296,6 +299,7 @@ printtopbettingbox()
 /*
  * clear info above move box
  */
+void
 clearabovemovebox()
 {
 	int i;
@@ -311,6 +315,7 @@ clearabovemovebox()
 /*
  * print instructions below move box
  */
+void
 printbottominstructions()
 {
 	    move(bboxrow, boxcol);
@@ -324,6 +329,7 @@ printbottominstructions()
 /*
  * print betting information below move box
  */
+void
 printbottombettingbox()
 {
 	    move(bboxrow, boxcol);
@@ -337,6 +343,7 @@ printbottombettingbox()
 /*
  * clear info below move box
  */
+void
 clearbelowmovebox()
 {
 	int i;
@@ -352,6 +359,7 @@ clearbelowmovebox()
 /*
  * procedure to put the board on the screen using addressable cursor
  */
+void
 makeboard()
 {
 	clear();
@@ -390,6 +398,7 @@ makeboard()
 /*
  * clean up the board for another game
  */
+void
 cleanupboard()
 {
 	int cnt, row, col;
@@ -445,6 +454,7 @@ cleanupboard()
 /*
  * procedure to create a deck of cards
  */
+void
 initdeck(deck)
 	struct cardtype *deck[];
 {
@@ -470,6 +480,7 @@ initdeck(deck)
 /*
  * procedure to shuffle the deck
  */
+void
 shuffle(deck)
 	struct cardtype *deck[];
 {

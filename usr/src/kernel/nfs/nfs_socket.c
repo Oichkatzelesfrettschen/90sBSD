@@ -69,6 +69,7 @@
 #include "socketvar.h"
 
 #define	TRUE	1
+void
 #define	FALSE	0
 
 /*

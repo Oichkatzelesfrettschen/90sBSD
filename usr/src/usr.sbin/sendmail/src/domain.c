@@ -558,12 +558,14 @@ cnameloop:
 			}
 
 			/* otherwise, try the next name */
+void
 			dp++;
 			qtype = T_ANY;
 			continue;
 		}
 		else if (tTd(8, 7))
 			printf("\tYES\n");
+int
 
 		/*
 		**  This might be a bogus match.  Search for A or

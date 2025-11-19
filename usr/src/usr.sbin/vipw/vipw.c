@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)vipw.c	5.16 (Berkeley) 3/3/91";
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 char *progname = "vipw";
 char *tempname;
@@ -80,6 +81,7 @@ main()
 	exit(0);
 }
 
+void
 copyfile(from, to)
 	register int from, to;
 {

@@ -39,6 +39,8 @@ static  char rcsid[] =
 #include <string.h>
 
 #include "interface.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 extern int errno;
 
@@ -117,6 +119,7 @@ readloop(cnt, if_fd, fp, printit)
 	wrapup(if_fd);
 }
 
+void
 wrapup(fd)
 	int fd;
 {

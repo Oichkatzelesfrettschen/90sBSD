@@ -170,6 +170,11 @@ logwakeup()
 	if (logsoftc.sc_selp.si_pid) {
 		selwakeup(&logsoftc.sc_selp);
 		logsoftc.sc_selp.si_pid = 0;
+void
+	if (logsoftc.sc_selp) {
+		selwakeup(logsoftc.sc_selp, 0);
+void
+		logsoftc.sc_selp = 0;
 	}
 	if (logsoftc.sc_state & LOG_ASYNC) {
 #ifdef nope

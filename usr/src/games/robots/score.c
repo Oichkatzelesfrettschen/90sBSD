@@ -33,6 +33,9 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)score.c	5.6 (Berkeley) 6/1/90";
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #endif /* not lint */
 
 # include	"robots.h"
@@ -59,6 +62,7 @@ static SCORE	Top[MAXSCORES];
  *	Post the player's score, if reasonable, and then print out the
  *	top list.
  */
+void
 score()
 {
 	register int	inf;
@@ -136,6 +140,7 @@ score()
 	close(inf);
 }
 
+void
 set_name(scp)
 register SCORE	*scp;
 {
@@ -150,6 +155,7 @@ register SCORE	*scp;
  * cmp_sc:
  *	Compare two scores.
  */
+int
 cmp_sc(s1, s2)
 register SCORE	*s1, *s2;
 {

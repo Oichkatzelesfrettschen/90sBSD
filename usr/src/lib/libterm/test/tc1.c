@@ -47,9 +47,11 @@ static char sccsid[] = "@(#)tc1.c	5.3 (Berkeley) 4/12/91";
  * gets entry, counts it, and prints it.
  */
 #include <stdio.h>
+#include <string.h>
 char buf[1024];
 char *getenv();
 
+void
 main(argc, argv) char **argv; {
 	char *p;
 	int rc;

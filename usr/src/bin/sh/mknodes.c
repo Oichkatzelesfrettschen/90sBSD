@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)mknodes.c	5.1 (Berkeley) 3/7/91";
  */
 
 #include <stdio.h>
+#include <string.h>
 
 
 #define MAXTYPES 50		/* max number of node types */
@@ -117,6 +118,7 @@ main(argc, argv)
 
 
 
+void
 parsenode() {
 	char name[BUFLEN];
 	char tag[BUFLEN];
@@ -145,6 +147,7 @@ parsenode() {
 }
 
 
+void
 parsefield() {
 	char name[BUFLEN];
 	char type[BUFLEN];
@@ -196,6 +199,7 @@ char writer[] = "\
  */\n\
 \n";
 
+void
 output(file)
 	char *file;
 	{
@@ -258,6 +262,7 @@ output(file)
 
 
 
+void
 outsizes(cfile)
 	FILE *cfile;
 	{

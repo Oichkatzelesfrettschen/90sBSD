@@ -130,6 +130,7 @@ main(argc, argv)
 	doinput();
 }
 
+void
 doinput()
 {
 	register int cc;
@@ -142,6 +143,8 @@ doinput()
 }
 
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 void
 finish()
@@ -158,6 +161,7 @@ finish()
 		done();
 }
 
+void
 dooutput()
 {
 	register int cc;

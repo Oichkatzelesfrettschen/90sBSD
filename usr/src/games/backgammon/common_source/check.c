@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)check.c	5.4 (Berkeley) 6/1/90";
 
 #include "back.h"
 
+void
 getmove ()  {
 	register int	i, c;
 
@@ -100,6 +101,7 @@ getmove ()  {
 	}
 }
 
+int
 movokay (mv)
 register int	mv;
 

@@ -33,8 +33,10 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)foldit.c	5.1 (Berkeley) 4/18/91";
+#include <stdio.h>
 #endif /* not lint */
 
+int
 foldit(chunk, col, max)
 	char *chunk;
 {

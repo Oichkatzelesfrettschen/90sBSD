@@ -57,6 +57,7 @@ static int lowzero;
 static int high;
 
 
+void
 output()
 {
     free_itemsets();
@@ -79,6 +80,7 @@ output()
 }
 
 
+void
 output_rule_data()
 {
     register int i;
@@ -126,6 +128,7 @@ output_rule_data()
 }
 
 
+void
 output_yydefred()
 {
     register int i, j;
@@ -153,6 +156,7 @@ output_yydefred()
 }
 
 
+void
 output_actions()
 {
     nvectors = 2*nstates + nvars;

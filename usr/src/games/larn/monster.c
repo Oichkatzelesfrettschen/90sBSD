@@ -97,6 +97,7 @@
  *
  */
 #include "header.h"
+#include <stdio.h>
 
 struct isave	/* used for altar reality */
 	{
@@ -112,6 +113,7 @@ struct isave	/* used for altar reality */
  *	Enter with the monster number (1 to MAXMONST+8)
  *	Returns no value.
  */
+void
 createmonster(mon)
 	int mon;
 	{
@@ -170,6 +172,7 @@ int cgood(x,y,itm,monst)
  *	Enter with the item number and its argument (iven[], ivenarg[])
  *	Returns no value, thus we don't know about createitem() failures.
  */
+void
 createitem(it,arg)
 	int it,arg;
 	{
@@ -192,6 +195,7 @@ createitem(it,arg)
  *	No arguments and no return value.
  */
 static char eys[] = "\nEnter your spell: ";
+void
 cast()
 	{
 	register int i,j,a,b,d;

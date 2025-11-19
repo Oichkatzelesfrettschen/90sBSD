@@ -32,6 +32,8 @@
  */
 
 #ifndef lint
+#include <stdlib.h>
+#include <string.h>
 char copyright[] =
 "@(#) Copyright (c) 1980 Regents of the University of California.\n\
  All rights reserved.\n";
@@ -140,6 +142,7 @@ char	*argv[];
  * makeboard:
  *	Print out the initial board on the screen
  */
+void
 makeboard()
 {
     mvaddstr(SCORE_Y + 0, SCORE_X, "+---------------------------------------+");
@@ -158,6 +161,7 @@ makeboard()
  * gamescore:
  *	Print out the current game score
  */
+void
 gamescore()
 {
     extern int	Lastscore[];
@@ -175,6 +179,7 @@ gamescore()
  *	Play one game up to glimit points.  Actually, we only ASK the
  *	player what card to turn.  We do a random one, anyway.
  */
+void
 game()
 {
 	register int		i, j;

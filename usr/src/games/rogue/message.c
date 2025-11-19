@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)message.c	5.3 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include "rogue.h"
+#include <string.h>
 
 char msgs[NMESSAGES][DCOLS] = {"", "", "", "", ""};
 short msg_col = 0, imsg = -1;
@@ -63,6 +64,7 @@ extern boolean cant_int, did_int, interrupted, save_is_interactive;
 extern short add_strength;
 extern short cur_level;
 
+void
 message(msg, intrpt)
 char *msg;
 boolean intrpt;
@@ -101,6 +103,7 @@ boolean intrpt;
 	}
 }
 
+void
 remessage(c)
 short c;
 {
@@ -117,6 +120,7 @@ short c;
 	}
 }
 
+void
 check_message()
 {
 	if (msg_cleared) {
@@ -128,6 +132,7 @@ check_message()
 	msg_cleared = 1;
 }
 
+int
 get_input_line(prompt, insert, buf, if_cancelled, add_blank, do_echo)
 char *prompt, *buf, *insert;
 char *if_cancelled;
@@ -186,8 +191,10 @@ boolean do_echo;
 	return(i);
 }
 
+int
 rgetchar()
 {
+int
 	register ch;
 
 	for(;;) {
@@ -217,7 +224,9 @@ Level: 99 Gold: 999999 Hp: 999(999) Str: 99(99) Arm: 99 Exp: 21/10000000 Hungry
 0    5    1    5    2    5    3    5    4    5    5    5    6    5    7    5
 */
 
+void
 print_stats(stat_mask)
+void
 register stat_mask;
 {
 	char buf[16];

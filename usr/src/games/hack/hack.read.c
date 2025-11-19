@@ -7,6 +7,7 @@ extern struct monst *makemon();
 extern struct obj *mkobj_at();
 int identify();
 
+int
 doread() {
 	register struct obj *scroll;
 	register boolean confused = (Confusion != 0);

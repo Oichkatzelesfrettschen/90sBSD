@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)hit.c	5.3 (Berkeley) 6/1/90";
  */
 
 #include "rogue.h"
+#include <string.h>
 
 object *fight_monster = 0;
 char hit_message[80] = "";
@@ -59,6 +60,7 @@ extern short halluc, blind, cur_level;
 extern short add_strength, ring_exp, r_rings;
 extern boolean being_held, interrupted, wizard, con_mon;
 
+void
 mon_hit(monster)
 register object *monster;
 {
@@ -120,6 +122,7 @@ register object *monster;
 	}
 }
 
+void
 rogue_hit(monster, force_hit)
 register object *monster;
 boolean force_hit;

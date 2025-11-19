@@ -48,6 +48,8 @@ static char sccsid[] = "@(#)cal.c	5.2 (Berkeley) 4/19/91";
 #include <sys/time.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define	THURSDAY		4		/* for reformation */
 #define	SATURDAY 		6		/* 1 Jan 1 was a Saturday */
@@ -183,6 +185,7 @@ main(argc, argv)
 #define	HEAD_SEP	2		/* spaces between day headings */
 #define	J_HEAD_SEP	2
 
+void
 monthly(month, year)
 	int month, year;
 {
@@ -205,6 +208,7 @@ monthly(month, year)
 	}
 }
 
+void
 j_yearly(year)
 	int year;
 {
@@ -239,6 +243,7 @@ j_yearly(year)
 	(void)printf("\n");
 }
 
+void
 yearly(year)
 	int year;
 {

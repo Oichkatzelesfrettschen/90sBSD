@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)nice.c	5.4 (Berkeley) 6/1/90";
 #include <sys/resource.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #define	DEFNICE	10
 
@@ -91,6 +92,7 @@ main(argc, argv)
 	exit(1);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

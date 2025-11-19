@@ -40,6 +40,7 @@ static char sccsid[] = "@(#)rent.c	5.3 (Berkeley) 6/1/90";
 /*
  *	This routine has the player pay rent
  */
+void
 rent(sqp)
 reg SQUARE	*sqp; {
 

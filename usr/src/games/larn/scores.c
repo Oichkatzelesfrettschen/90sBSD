@@ -94,6 +94,7 @@ static char *whydead[] = {
  *
  *	returns -1 if unable to read in the scoreboard, returns 0 if all is OK
  */
+int
 readboard()
 	{
 	if (lopen(scorefile)<0)
@@ -107,6 +108,7 @@ readboard()
  *
  *	returns -1 if unable to write the scoreboard, returns 0 if all is OK
  */
+int
 writeboard()
 	{
 	set_score_output();
@@ -121,6 +123,7 @@ writeboard()
  *
  *	returns -1 if unable to write the scoreboard, returns 0 if all is OK
  */
+int
 makeboard()
 	{
 	register int i;
@@ -142,6 +145,7 @@ makeboard()
  *	scoreboard.  This function also sets outstanding_taxes to the value in
  *	the winners scoreboard.
  */
+int
 hashewon()
 	{
 	register int i;
@@ -189,6 +193,7 @@ long paytaxes(x)
  *
  *	Returns the number of players on scoreboard that were shown 
  */
+int
 winshou()
 	{
 	register struct wscofmt *p;

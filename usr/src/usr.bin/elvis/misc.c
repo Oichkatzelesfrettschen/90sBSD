@@ -12,6 +12,7 @@
 
 #include "config.h"
 #include "vi.h"
+#include <string.h>
 
 
 /* find a particular line & return a pointer to a copy of its text */

@@ -46,6 +46,7 @@ static void hash_entry();
  * c_entries --
  *	read .c and .h files and call appropriate routines
  */
+void
 c_entries()
 {
 	extern int	tflag;		/* -t: create tags for typedefs */
@@ -363,6 +364,7 @@ str_entry(c)
  * skip_comment --
  *	skip over comment
  */
+void
 skip_comment()
 {
 	register int	c,		/* character read */
@@ -390,6 +392,7 @@ skip_comment()
  * skip_key --
  *	skip to next char "key"
  */
+int
 skip_key(key)
 	register int	key;
 {

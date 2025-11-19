@@ -175,6 +175,7 @@ char **argv;
 /*
  *	We got an error parsing the command line.
  */
+void
 usage()
     {
     fprintf(stderr,
@@ -187,6 +188,7 @@ usage()
  *	Print a warning message.
  */
 /*VARARGS1*/
+void
 warn(format, arg1, arg2, arg3, arg4)
 char *format;
 int arg1, arg2, arg3, arg4;
@@ -200,6 +202,7 @@ int arg1, arg2, arg3, arg4;
  *	Print an error message and terminate.
  */
 /*VARARGS1*/
+void
 fatal(format, arg1, arg2, arg3, arg4)
 char *format;
 int arg1, arg2, arg3, arg4;
@@ -866,6 +869,7 @@ va_dcl
 #ifdef ultrix
 #include <sys/types.h>
 #include <sys/time.h>
+#include <stdlib.h>
 
 /*
   usleep -- support routine for 4.2BSD system call emulations

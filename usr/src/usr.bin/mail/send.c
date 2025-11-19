@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)send.c	5.23 (Berkeley) 2/9/91";
  * If doign is given, suppress ignored header fields.
  * prefix is a string to prepend to each output line.
  */
+int
 send(mp, obuf, doign, prefix)
 	register struct message *mp;
 	FILE *obuf;
@@ -225,6 +226,7 @@ send(mp, obuf, doign, prefix)
 /*
  * Output a reasonable looking status field.
  */
+void
 statusput(mp, obuf, prefix)
 	register struct message *mp;
 	FILE *obuf;
@@ -247,6 +249,7 @@ statusput(mp, obuf, prefix)
  * Interface between the argument list and the mail1 routine
  * which does all the dirty work.
  */
+int
 mail(to, cc, bcc, smopts, subject)
 	struct name *to, *cc, *bcc, *smopts;
 	char *subject;
@@ -267,6 +270,7 @@ mail(to, cc, bcc, smopts, subject)
  * Send mail to a bunch of user names.  The interface is through
  * the mail routine below.
  */
+int
 sendmail(str)
 	char *str;
 {

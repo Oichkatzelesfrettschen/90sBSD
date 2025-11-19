@@ -61,6 +61,7 @@ extern boolean detect_monster, mon_disappeared;
 extern boolean sustain_strength, maintain_armor;
 extern char *you_can_move_again;
 
+void
 special_hit(monster)
 object *monster;
 {
@@ -92,6 +93,7 @@ object *monster;
 	}
 }
 
+void
 rust(monster)
 object *monster;
 {
@@ -111,6 +113,7 @@ object *monster;
 	}
 }
 
+void
 freeze(monster)
 object *monster;
 {

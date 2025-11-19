@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)damage.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -49,6 +50,7 @@ static char sccsid[] = "@(#)damage.c	5.4 (Berkeley) 6/1/90";
 **	that the dock() and undock() have to reschedule the event.
 */
 
+void
 damage(dev1, dam)
 int	dev1;		/*  device index */
 double	dam;		/* time to repair */

@@ -22,6 +22,9 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
    Algorithmica Vol. 1 No. 2, 1986, p 251.  */
 
 #include "diff.h"
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 int read_files ();
 void finish_output ();

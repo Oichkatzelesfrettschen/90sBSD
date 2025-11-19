@@ -133,6 +133,7 @@ main(argc, argv)
 }
 
 #define	ATOI2(ar)	((ar)[0] - '0') * 10 + ((ar)[1] - '0'); (ar) += 2;
+void
 setthetime(p)
 	register char *p;
 {
@@ -214,12 +215,14 @@ setthetime(p)
 	}
 }
 
+void
 badformat(void)
 {
 	(void)fprintf(stderr, "date: illegal time format.\n");
 	usage();
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr,

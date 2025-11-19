@@ -13,6 +13,7 @@ extern struct monst *makemon();
 char wizapp[] = "@DNPTUVXcemntx";
 
 /* If he has found the Amulet, make the wizard appear after some time */
+void
 amulet(){
 	register struct obj *otmp;
 	register struct monst *mtmp;

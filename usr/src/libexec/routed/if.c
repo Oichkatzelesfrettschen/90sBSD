@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)if.c	5.6 (Berkeley) 6/1/90";
  * Routing Table Management Daemon
  */
 #include "defs.h"
+#include <string.h>
 
 extern	struct interface *ifnet;
 

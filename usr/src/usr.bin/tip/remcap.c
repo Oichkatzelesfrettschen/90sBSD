@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)remcap.c	5.5 (Berkeley) 2/2/91";
 #include <fcntl.h>
 #include <ctype.h>
 #include "pathnames.h"
+#include <string.h>
+#include <unistd.h>
 
 #ifndef BUFSIZ
 #define	BUFSIZ		1024
@@ -89,6 +91,7 @@ static	char *remotefile;
  * from the termcap file.  Parse is very rudimentary;
  * we just notice escaped newlines.
  */
+int
 tgetent(bp, name)
 	char *bp, *name;
 {
@@ -122,6 +125,7 @@ tgetent(bp, name)
 	}
 }
 
+int
 getent(bp, name, cp)
 	char *bp, *name, *cp;
 {
@@ -198,6 +202,7 @@ getent(bp, name, cp)
  * entries to say "like an HP2621 but doesn't turn on the labels".
  * Note that this works because of the left to right scan.
  */
+int
 tnchktc()
 {
 	register char *p, *q;

@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)game.c	5.4 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+int
 maxturns(ship, af)
 register struct ship *ship;
 char *af;
@@ -52,6 +53,7 @@ char *af;
 	return turns;
 }
 
+int
 maxmove(ship, dir, fs)
 register struct ship *ship;
 int dir, fs;

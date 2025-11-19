@@ -19,12 +19,16 @@
 #include "config.h"
 #include <setjmp.h>
 #include "vi.h"
+#include <string.h>
+#include <signal.h>
 
+void
 extern		trapint(); /* defined below */
 extern char	*getenv();
 jmp_buf		jmpenv;
 
 #ifndef NO_DIGRAPH
+void
 static init_digraphs();
 #endif
 

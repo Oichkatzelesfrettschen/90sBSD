@@ -24,6 +24,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "struc-symbol.h"
 #include "symbols.h"
 #include "frags.h"
+#include <string.h>
 
 #ifndef WORKING_DOT_WORD
 extern int new_broken_words;
@@ -161,6 +162,7 @@ local_colon (n)
  */
 
 symbolS *
+int
 symbol_new (name, type, other, desc, value, frag)
      char *		name;	/* We copy this: OK to alter your copy. */
      unsigned char	type;	/* As in <a.out.h>. */
@@ -241,7 +243,9 @@ colon (sym_name)		/* just seen "x:" - rattle symbols & frags */
     int possible_bytes;
     fragS *frag_tmp;
     char *frag_opcode;
+void
     extern md_short_jump_size;
+void
     extern md_long_jump_size;
 
     possible_bytes=md_short_jump_size+new_broken_words*md_long_jump_size;

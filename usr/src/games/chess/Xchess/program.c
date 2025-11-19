@@ -32,6 +32,8 @@ and this notice must be preserved on all copies.  */
 #include "xchess.h"
 #include <signal.h>
 #include <sys/time.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 static int pid;
 static FILE *from;

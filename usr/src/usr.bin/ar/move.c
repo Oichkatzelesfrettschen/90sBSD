@@ -60,6 +60,7 @@ extern char *tname;                     /* temporary file "name" */
  *	option selected members go after 'posname'.  If no options, members
  *	are moved to end of archive.
  */
+int
 move(argv)
 	char **argv;
 {

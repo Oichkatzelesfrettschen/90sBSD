@@ -43,6 +43,8 @@ static char sccsid[] = "@(#)fmt.c	5.10 (Berkeley) 6/1/90";
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
  * fmt -- format the concatenation of input files or standard input
@@ -131,6 +133,7 @@ main(argc, argv)
  * doing ^H processing, expanding tabs, stripping trailing blanks,
  * and sending each line down for analysis.
  */
+void
 fmt(fi)
 	FILE *fi;
 {
@@ -206,6 +209,7 @@ fmt(fi)
  * Finally, if the line minus the prefix is a mail header, try to keep
  * it on a line by itself.
  */
+void
 prefix(line)
 	char line[];
 {
@@ -253,6 +257,7 @@ prefix(line)
  * attached at the end.  Pass these words along to the output
  * line packer.
  */
+void
 split(line)
 	char line[];
 {

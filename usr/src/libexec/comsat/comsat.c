@@ -59,6 +59,8 @@ static char sccsid[] = "@(#)comsat.c	5.24 (Berkeley) 2/25/91";
 #include <ctype.h>
 #include <string.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int	debug = 0;
 #define	dsyslog	if (debug) syslog
@@ -161,6 +163,7 @@ onalrm()
 	}
 }
 
+void
 mailfor(name)
 	char *name;
 {

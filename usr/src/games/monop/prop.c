@@ -43,6 +43,7 @@ extern char *calloc();
  *	This routine deals with buying property, setting all the
  * appropriate flags.
  */
+void
 buy(player, sqrp)
 reg int		player;
 reg SQUARE	*sqrp; {
@@ -54,6 +55,7 @@ reg SQUARE	*sqrp; {
 /*
  *	This routine adds an item to the list.
  */
+void
 add_list(plr, head, op_sqr)
 int	plr;
 OWN	**head;
@@ -86,6 +88,7 @@ int	op_sqr; {
 /*
  *	This routine deletes property from the list.
  */
+void
 del_list(plr, head, op_sqr)
 int	plr;
 OWN	**head;
@@ -122,6 +125,7 @@ shrt	op_sqr; {
  *	This routine calculates the value for sorting of the
  * given square.
  */
+int
 value(sqp)
 reg SQUARE	*sqp; {
 
@@ -148,6 +152,7 @@ reg SQUARE	*sqp; {
  *	This routine accepts bids for the current peice
  * of property.
  */
+void
 bid() {
 
 	static bool	in[MAX_PL];
@@ -194,6 +199,7 @@ bid() {
  *	This routine calculates the value of the property
  * of given player.
  */
+int
 prop_worth(plp)
 reg PLAY	*plp; {
 

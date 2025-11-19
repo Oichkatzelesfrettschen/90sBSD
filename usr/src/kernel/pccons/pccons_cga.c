@@ -38,6 +38,7 @@
 
 #include "sys/param.h"
 #include "machine/inline/io.h"
+#include <string.h>
 
 #define	COL		80
 #define	ROW		25
@@ -51,6 +52,7 @@ static u_char	att = 0x7 ;
 u_char *Crtat = (u_char *)CGA_BUF;
 
 static unsigned int addr_6845 = CGA_BASE;
+void
 cursor(pos)
 int pos;
 {
@@ -60,6 +62,7 @@ int pos;
 	outb(addr_6845+1,pos&0xff);
 }
 
+void
 sput(c)
 u_char c;
 {

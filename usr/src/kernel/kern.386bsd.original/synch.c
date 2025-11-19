@@ -31,18 +31,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+void
  *	$Id: synch.c,v 1.1 94/10/20 00:03:15 bill Exp $
  */
 
 #include "sys/param.h"
 #include "sys/errno.h"
 #include "systm.h"	/* panicstr */
+void
 #include "proc.h"
 #include "vm.h"
 #include "vmspace.h"
+void
 #include "kernel.h"	/* hz, avenrunnable, lbolt */
 #include "signalvar.h"
 #include "resourcevar.h"
+void
 
 #include "machine/cpu.h"
 
@@ -69,6 +73,7 @@ fixpt_t	ccpu = 0.95122942450071400909 * FSCALE;		/* exp(-1/20) */
  * If `ccpu' is not equal to `exp(-1/20)' and you still want to use the
  * faster/more-accurate formula, you'll have to estimate CCPU_SHIFT below
  * and possibly adjust FSHIFT in "param.h" so that (FSHIFT >= CCPU_SHIFT).
+void
  * To estimate CCPU_SHIFT for exp(-1/20), the following formula was used:
  *  1 - exp(-1/20) ~= 0.0487 ~= 0.0488 == 1/(2^11), thus 11 bits of fraction
  * in a fixed point number need to be represented.

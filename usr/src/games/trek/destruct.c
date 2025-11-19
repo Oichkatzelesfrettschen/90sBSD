@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)destruct.c	5.5 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -57,6 +59,7 @@ static char sccsid[] = "@(#)destruct.c	5.5 (Berkeley) 6/1/90";
 **	Uses trace flag 41
 */
 
+int
 destruct()
 {
 	char		checkpass[15];

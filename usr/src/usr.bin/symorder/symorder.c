@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)symorder.c	5.8 (Berkeley) 4/1/91";
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define SPACE		500
 
@@ -211,6 +212,7 @@ main(argc, argv)
 	exit(OKEXIT);
 }
 
+void
 reorder(st1, st2, entries)
 	register struct nlist *st1, *st2;
 	int entries;
@@ -230,6 +232,7 @@ reorder(st1, st2, entries)
 	}
 }
 
+int
 inlist(p)
 	register struct nlist *p;
 {
@@ -254,6 +257,7 @@ inlist(p)
 	return (-1);
 }
 
+void
 badfmt(why)
 	char *why;
 {
@@ -262,6 +266,7 @@ badfmt(why)
 	exit(ERREXIT);
 }
 
+void
 error(n)
 	char *n;
 {
@@ -275,6 +280,7 @@ error(n)
 	exit(ERREXIT);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: symorder [-t] symlist file\n");

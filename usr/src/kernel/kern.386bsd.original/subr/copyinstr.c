@@ -31,16 +31,20 @@ copyinstr(struct proc *p, void *fromaddr, void *toaddr, u_int maxlength,
 		tally++;
 		*(char *)toaddr++ = (char) c;
 
+int
 		/* terminating null? */
 		if (c == 0) {
 			if(lencopied)
 				*lencopied = (u_int)tally;
 			return(0);
 		}
+int
 	}
 
 	/* consumed entire buffer contents */
+int
 	if(lencopied)
 		*lencopied = (u_int)tally;
 	return(ENAMETOOLONG);
+void
 }

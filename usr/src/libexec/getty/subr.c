@@ -51,12 +51,14 @@ extern	struct ltchars ltc;
 /*
  * Get a table entry.
  */
+void
 gettable(name, buf, area)
 	char *name, *buf, *area;
 {
 	register struct gettystrs *sp;
 	register struct gettynums *np;
 	register struct gettyflags *fp;
+void
 	register n;
 
 	hopcount = 0;		/* new lookup, start fresh */
@@ -85,6 +87,7 @@ gettable(name, buf, area)
 	}
 }
 
+void
 gendefaults()
 {
 	register struct gettystrs *sp;
@@ -104,6 +107,7 @@ gendefaults()
 			fp->defalt = fp->invrt;
 }
 
+void
 setdefaults()
 {
 	register struct gettystrs *sp;
@@ -136,6 +140,7 @@ charvars[] = {
 	&ltc.t_werasc, &ltc.t_lnextc, 0
 };
 
+void
 setchars()
 {
 	register int i;
@@ -151,6 +156,7 @@ setchars()
 }
 
 long
+int
 setflags(n)
 {
 	register long f;
@@ -270,8 +276,10 @@ struct delayval	tbdelay[] = {
 	0,		TAB2,
 };
 
+int
 delaybits()
 {
+int
 	register f;
 
 	f  = adelay(CD, crdelay);
@@ -282,7 +290,9 @@ delaybits()
 	return (f);
 }
 
+int
 adelay(ms, dp)
+int
 	register ms;
 	register struct delayval *dp;
 {
@@ -295,6 +305,7 @@ adelay(ms, dp)
 
 char	editedhost[32];
 
+void
 edithost(pat)
 	register char *pat;
 {
@@ -359,6 +370,7 @@ struct speedtab {
 	0
 };
 
+int
 speed(val)
 {
 	register struct speedtab *sp;
@@ -373,6 +385,7 @@ speed(val)
 	return (B300);		/* default in impossible cases */
 }
 
+void
 makeenv(env)
 	char *env[];
 {

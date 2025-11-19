@@ -81,6 +81,9 @@ static char saveeof,saveeol;
 
 #ifndef NOVARARGS	/* if we have varargs */
 #include <varargs.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 #else NOVARARGS	/* if we don't have varargs */
 typedef char *va_list;
 #define va_dcl int va_alist;
@@ -101,6 +104,7 @@ static char lgetwbuf[LINBUFSIZE];	/* get line (word) buffer				*/
  *
  *	Attributes off, clear screen, set scrolling region, set tty mode 
  */
+void
 setupvt100()
 	{
 	clear();  setscroll();  scbr(); /* system("stty cbreak -echo"); */
@@ -111,6 +115,7 @@ setupvt100()
  *
  *	Attributes off, clear screen, unset scrolling region, restore tty mode 
  */
+void
 clearvt100()
 	{
 	resetscroll();  clear();  sncbr(); /* system("stty -cbreak echo"); */
@@ -119,6 +124,7 @@ clearvt100()
 /*
  *	getchar() 		Routine to read in one character from the terminal
  */
+int
 getchar()
 	{
 	char byt;
@@ -135,6 +141,7 @@ getchar()
  *
  *	like: system("stty cbreak -echo")
  */
+void
 scbr()
 	{
 	gtty(0,&ttx);		doraw(ttx);		stty(0,&ttx);
@@ -145,6 +152,7 @@ scbr()
  *
  *	like: system("stty -cbreak echo")
  */
+void
 sncbr()
 	{
 	gtty(0,&ttx);		unraw(ttx);		stty(0,&ttx);
@@ -153,6 +161,7 @@ sncbr()
 /*
  *	newgame() 		Subroutine to save the initial time and seed rnd()
  */
+void
 newgame()
 	{
 	register long *p,*pe;
@@ -193,6 +202,7 @@ sprintf(str)
 	}
 #else lint
 /*VARARGS*/
+void
 lprintf(va_alist)
 va_dcl
     {

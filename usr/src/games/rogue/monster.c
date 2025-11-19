@@ -123,6 +123,7 @@ extern short blind, halluc, haste_self;
 extern boolean detect_monster, see_invisible, r_see_invisible;
 extern short stealthy;
 
+void
 put_mons()
 {
 	short i;
@@ -145,6 +146,7 @@ put_mons()
 object *
 gr_monster(monster, mn)
 register object *monster;
+int
 register mn;
 {
 	if (!monster) {
@@ -169,6 +171,7 @@ register mn;
 	return(monster);
 }
 
+void
 mv_mons()
 {
 	register object *monster, *next_monster;
@@ -214,6 +217,7 @@ NM:		monster = next_monster;
 	}
 }
 
+void
 party_monsters(rn, n)
 int rn, n;
 {

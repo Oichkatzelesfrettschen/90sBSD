@@ -32,6 +32,10 @@
  */
 
 #ifndef lint
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <string.h>
 char copyright[] =
 "@(#) Copyright (c) 1980 Regents of the University of California.\n\
  All rights reserved.\n";
@@ -76,6 +80,7 @@ reg char	*av[]; {
 /*
  *	This routine gets the names of the players
  */
+void
 getplayers() {
 
 	reg char	*sp;
@@ -120,6 +125,7 @@ over:
 /*
  *	This routine figures out who goes first
  */
+void
 init_players() {
 
 	reg int	i, rl, cur_max;

@@ -39,6 +39,7 @@ static char rcsid[] =
 #include "gencode.h"
 #include "nametoaddr.h"
 #include "extract.h"
+#include <string.h>
 
 #define JMP(c) ((c)|BPF_JMP|BPF_K)
 

@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)column.c	5.7 (Berkeley) 2/24/91";
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int termwidth = 80;		/* default terminal width */
 
@@ -122,6 +123,7 @@ main(argc, argv)
 }
 
 #define	TAB	8
+void
 c_columnate()
 {
 	register int chcnt, col, cnt, numcols;
@@ -151,6 +153,7 @@ c_columnate()
 		putchar('\n');
 }
 
+void
 r_columnate()
 {
 	register int base, chcnt, cnt, col;
@@ -178,6 +181,7 @@ r_columnate()
 	}
 }
 
+void
 print()
 {
 	register int cnt;
@@ -193,6 +197,7 @@ typedef struct _tbl {
 } TBL;
 #define	DEFCOLS	25
 
+void
 maketbl()
 {
 	register TBL *t;
@@ -238,6 +243,7 @@ maketbl()
 #define	DEFNUM		1000
 #define	MAXLINELEN	(2048 + 1)
 
+void
 input(fp)
 	register FILE *fp;
 {
@@ -285,6 +291,7 @@ emalloc(size)
 	return(p);
 }
 
+void
 nomem()
 {
 	(void)fprintf(stderr, "column: out of memory.\n");

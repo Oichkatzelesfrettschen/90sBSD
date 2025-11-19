@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)dr_5.c	5.4 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+void
 subtract(from, totalfrom, crewfrom, fromcap, pcfrom)
 struct ship *from, *fromcap;
 int pcfrom;
@@ -62,6 +63,7 @@ register int  totalfrom, crewfrom[3];
 	}
 }
 
+int
 mensent(from, to, crew, captured, pc, isdefense)
 struct ship *from, *to, **captured;
 int crew[3], *pc;

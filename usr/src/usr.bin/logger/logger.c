@@ -130,10 +130,13 @@ main(argc, argv)
 
 #define	SYSLOG_NAMES
 #include <syslog.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
  *  Decode a symbolic name to a numeric value
  */
+int
 pencode(s)
 	register char *s;
 {
@@ -164,6 +167,7 @@ pencode(s)
 	return ((lev & LOG_PRIMASK) | (fac & LOG_FACMASK));
 }
 
+int
 decode(name, codetab)
 	char *name;
 	CODE *codetab;
@@ -180,6 +184,7 @@ decode(name, codetab)
 	return (-1);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

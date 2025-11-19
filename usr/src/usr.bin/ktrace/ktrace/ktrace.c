@@ -50,6 +50,8 @@ static char sccsid[] = "@(#)ktrace.c	5.2 (Berkeley) 3/5/91";
 #include <sys/ktrace.h>
 #include <stdio.h>
 #include "ktrace.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)
@@ -144,6 +146,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 rpid(p)
 	char *p;
 {
@@ -161,6 +164,7 @@ rpid(p)
 	return(atoi(p));
 }
 
+void
 error(name)
 	char *name;
 {
@@ -168,6 +172,7 @@ error(name)
 	exit(1);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

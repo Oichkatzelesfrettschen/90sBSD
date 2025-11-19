@@ -44,6 +44,9 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define NAME "socket"
 
@@ -51,6 +54,7 @@
  * This program creates a UNIX domain datagram socket, binds a name to it,
  * then reads from the socket. 
  */
+void
 main()
 {
 	int sock, length;

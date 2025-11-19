@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)visual.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -62,6 +63,7 @@ struct xy	Visdelta[11] =
 	-1,	 1
 };
 
+void
 visual()
 {
 	register int		ix, iy;

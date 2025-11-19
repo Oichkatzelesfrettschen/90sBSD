@@ -39,9 +39,11 @@ static char sccsid[] = "@(#)odsyntax.c	5.4 (Berkeley) 3/8/91";
 #include <stdlib.h>
 #include <stdio.h>
 #include "hexdump.h"
+#include <ctype.h>
 
 int deprecated;
 
+void
 oldsyntax(argc, argvp)
 	int argc;
 	char ***argvp;
@@ -149,6 +151,7 @@ oldsyntax(argc, argvp)
 #define	ishexdigit(c) \
 	(c >= '0' && c <= '9' || c >= 'a' && c <= 'f' || c >= 'A' && c <= 'F')
 
+void
 odoffset(argc, argvp)
 	int argc;
 	char ***argvp;

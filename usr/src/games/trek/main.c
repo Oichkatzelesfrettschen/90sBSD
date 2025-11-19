@@ -32,6 +32,9 @@
  */
 
 #ifndef lint
+#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
 char copyright[] =
 "@(#) Copyright (c) 1980 Regents of the University of California.\n\
  All rights reserved.\n";

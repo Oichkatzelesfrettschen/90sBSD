@@ -81,6 +81,7 @@
 int db_symtabsize = SYMTAB_SPACE;
 char db_symtab[SYMTAB_SPACE] = { 1 };
 
+void
 X_db_sym_init(symtab, esymtab, name)
 	int *	symtab;		/* pointer to start of symbol table */
 	char *	esymtab;	/* pointer to end of string table,
@@ -226,6 +227,7 @@ X_db_line_at_pc()
 /*
  * Initialization routine for a.out files.
  */
+void
 kdb_init()
 {
 #if 0
@@ -247,6 +249,7 @@ kdb_init()
  */
 #include <boot_ufs/file_io.h>
 #include <vm/vm_kern.h>
+#include <stdio.h>
 
 read_symtab_from_file(fp, symtab_name)
 	struct file	*fp;

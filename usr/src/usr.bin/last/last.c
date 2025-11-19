@@ -52,6 +52,9 @@ static char sccsid[] = "@(#)last.c	5.18 (Berkeley) 3/1/91";
 #include <utmp.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 #define	SECDAY	(24*60*60)			/* seconds in a day */
 #define	NO	0				/* false/no */
@@ -145,6 +148,7 @@ main(argc, argv)
  * wtmp --
  *	read through the wtmp file
  */
+int
 wtmp()
 {
 	register struct utmp	*bp;		/* current structure */
@@ -251,6 +255,7 @@ wtmp()
  * want --
  *	see if want this entry
  */
+int
 want(bp, check)
 	register struct utmp *bp;
 	int check;
@@ -292,6 +297,7 @@ want(bp, check)
  * addarg --
  *	add an entry to a linked list of arguments
  */
+void
 addarg(type, arg)
 	int type;
 	char *arg;

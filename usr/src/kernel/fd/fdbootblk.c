@@ -201,6 +201,7 @@ dodisk:
 
 	/* Set read/write bytes */
 	xorl	%edx, %edx
+void
 	movb	$0x0c, %dl	# outb(0xC,0x46); outb(0xB,0x46);
 	movb	$0x46, %al
 	outb	%al, %dx

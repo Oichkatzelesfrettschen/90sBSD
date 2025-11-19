@@ -40,6 +40,9 @@ static char sccsid[] = "@(#)uucplock.c	5.5 (Berkeley) 6/1/90";
 #include <sys/dir.h>
 #include <errno.h>
 #include "pathnames.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
 
 /* 
  * uucp style locking routines
@@ -47,6 +50,7 @@ static char sccsid[] = "@(#)uucplock.c	5.5 (Berkeley) 6/1/90";
  * 	  -1 - failure
  */
 
+int
 uu_lock(ttyname)
 	char *ttyname;
 {
@@ -99,6 +103,7 @@ uu_lock(ttyname)
 	return(0);
 }
 
+int
 uu_unlock(ttyname)
 	char *ttyname;
 {

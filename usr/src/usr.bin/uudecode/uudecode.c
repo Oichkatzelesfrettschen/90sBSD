@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)uudecode.c	5.10 (Berkeley) 6/1/90";
 #include <pwd.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char *filename;
 
@@ -76,6 +77,7 @@ main(argc, argv)
 	exit(rval);
 }
 
+int
 decode()
 {
 	extern int errno;
@@ -174,6 +176,7 @@ decode()
 	return(0);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: uudecode [file ...]\n");

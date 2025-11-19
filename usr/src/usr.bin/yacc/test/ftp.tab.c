@@ -465,6 +465,7 @@ lookup(p, cmd)
 }
 
 #include <arpa/telnet.h>
+#include <string.h>
 
 /*
  * getline - a hacked up version of fgets to ignore TELNET escape codes.
@@ -753,10 +754,12 @@ yylex()
 				return (T);
 
 			}
+int
 			break;
 
 		default:
 			fatal("Unknown state in scanner.");
+int
 		}
 		yyerror((char *) 0);
 		state = CMD;
@@ -829,6 +832,7 @@ help(ctab, s)
 					break;
 				w = strlen(c->name) + 1;
 				while (w < width) {
+void
 					putchar(' ');
 					w++;
 				}

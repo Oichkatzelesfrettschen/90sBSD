@@ -74,6 +74,7 @@ static char sccsid[] = "@(#)commands.c	5.5 (Berkeley) 3/22/91";
 # endif /* vax */
 #endif /* CRAY */
 #include <netinet/ip.h>
+#include <string.h>
 
 
 #ifndef       MAXHOSTNAMELEN
@@ -93,6 +94,7 @@ extern int isprefix();
 extern char **genget();
 extern int Ambiguous();
 
+void
 static call();
 
 typedef struct {

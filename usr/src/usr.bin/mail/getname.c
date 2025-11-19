@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)getname.c	5.8 (Berkeley) 6/1/90";
  * if found, indicating success with 0 return.  Return -1 on error.
  */
 char *
+int
 getname(uid)
 {
 	struct passwd *pw;
@@ -64,6 +65,7 @@ getname(uid)
  * Convert the passed name to a user id and return it.  Return -1
  * on error.
  */
+int
 getuserid(name)
 	char name[];
 {

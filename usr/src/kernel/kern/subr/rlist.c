@@ -54,6 +54,8 @@
 #include "sys/param.h"
 #include "malloc.h"
 #include "rlist.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /*
  * Add space to a resource list. Used to either

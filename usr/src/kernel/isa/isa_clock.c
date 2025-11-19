@@ -31,12 +31,14 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+void
  * SUCH DAMAGE.
  *
  *	@(#)clock.c	7.2 (Berkeley) 5/12/91
  */
 
 /*
+void
  * Primitive clock interrupt routines.
  */
 /* standard AT configuration: (will always be configured if loaded) */
@@ -69,6 +71,7 @@ extern unsigned long it_ticks, it_ticksperintr;
 
 startrtclock() {
 	int s;
+void
 
 	/* initialize 8253 clock */
 	/* it_ticksperintr = 1193182/hz;

@@ -58,6 +58,7 @@ static char sccsid[] = "@(#)snake.c	5.10 (Berkeley) 2/28/91";
 #include <errno.h>
 #include "snake.h"
 #include "pathnames.h"
+#include <stdlib.h>
 
 #define PENALTY  10	/* % penalty for invoking spacewarp	*/
 
@@ -175,6 +176,7 @@ char **argv;
 }
 
 /* Main command loop */
+void
 mainloop()
 {
 	int j, k;

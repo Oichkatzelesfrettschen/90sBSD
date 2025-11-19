@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)abandon.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -62,6 +63,7 @@ static char sccsid[] = "@(#)abandon.c	5.4 (Berkeley) 6/1/90";
 **	Uses trace flag 40
 */
 
+int
 abandon()
 {
 	register struct quad	*q;

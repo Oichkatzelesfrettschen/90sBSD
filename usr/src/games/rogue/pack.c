@@ -57,6 +57,7 @@ char *curse_message = "you can't, it appears to be cursed";
 extern short levitate;
 
 object *
+int
 add_to_pack(obj, pack, condense)
 object *obj, *pack;
 {
@@ -84,6 +85,7 @@ object *obj, *pack;
 	return(obj);
 }
 
+void
 take_from_pack(obj, pack)
 object *obj, *pack;
 {
@@ -98,6 +100,7 @@ object *obj, *pack;
  */
 
 object *
+int
 pick_up(row, col, status)
 short *status;
 {
@@ -144,6 +147,7 @@ short *status;
 	return(obj);
 }
 
+void
 drop()
 {
 	object *obj, *new;

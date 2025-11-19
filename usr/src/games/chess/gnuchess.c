@@ -41,6 +41,7 @@
 #endif MSDOS
 
 #include "move.h"
+#include <string.h>
 
 #define neutral 2
 #define white 0

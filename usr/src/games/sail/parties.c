@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)parties.c	5.4 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+int
 meleeing(from, to)
 struct ship *from;
 register struct ship *to;
@@ -50,6 +51,7 @@ register struct ship *to;
 	return 0;
 }
 
+int
 boarding(from, isdefense)
 register struct ship *from;
 char isdefense;
@@ -63,11 +65,13 @@ char isdefense;
 	return 0;
 }
 
+void
 unboard(ship, to, isdefense)
 register struct ship *ship, *to;
 register char isdefense;
 {
 	register struct BP *p = isdefense ? ship->file->DBP : ship->file->OBP;
+void
 	register n;
 
 	for (n = 0; n < NBP; p++, n++)

@@ -167,8 +167,10 @@ mfs_mount(mp, path, data, ndp, p)
 }
 
 int	mfs_pri = PWAIT | PCATCH;		/* XXX prob. temp */
+int
 
 /*
+int
  * Used to grab the process and keep it in the kernel to service
  * memory filesystem I/O requests.
  *

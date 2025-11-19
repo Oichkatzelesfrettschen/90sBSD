@@ -31,12 +31,14 @@
  * THIS SOFTWARE IS A COMPONENT OF 386BSD DEVELOPED BY WILLIAM F. JOLITZ 
  * AND IS INTENDED FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY. THIS 
  * SOFTWARE SHOULD NOT BE CONSIDERED TO BE A COMMERCIAL PRODUCT. 
+void
  * THE DEVELOPER URGES THAT USERS WHO REQUIRE A COMMERCIAL PRODUCT 
  * NOT MAKE USE OF THIS WORK.
  *
  * THIS SOFTWARE IS PROVIDED BY THE DEVELOPER ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+void
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE DEVELOPER BE LIABLE
  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
@@ -79,6 +81,7 @@ kmem_init(void)
 
 	addr = VM_MIN_KERNEL_ADDRESS;
 	vm_map_init(&kernspace.vm_map, addr, virtual_end, FALSE);
+void
 	kernspace.vm_map.pmap = &kernspace.vm_pmap;	/* XXX */
 	kernspace.vm_refcnt = 1;
 	kernel_map = &kernspace.vm_map;			/* XXX */
@@ -167,8 +170,10 @@ kmem_alloc(vm_map_t map, vm_size_t size, int flags)
 		/* allocate a page, either waiting for it or not */
 		if (flags & M_NOWAIT)
 			m = vm_page_alloc(object, offset + i,  flags&M_IO);
+int
 		else
 			while ((m = vm_page_alloc(object, offset+i, flags&M_IO)) == NULL)
+int
 				vm_page_wait("kmempgs", atop(size - i));
 
 		/* insufficient memory for request, free all and return */

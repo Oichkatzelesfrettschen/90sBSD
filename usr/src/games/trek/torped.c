@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)torped.c	5.4 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	<stdio.h>
@@ -58,6 +59,7 @@ static char sccsid[] = "@(#)torped.c	5.4 (Berkeley) 6/1/90";
 */
 
 
+int
 torped()
 {
 	register int		ix, iy;
@@ -215,6 +217,7 @@ torped()
 **	to the tubes, etc.
 */
 
+int
 randcourse(n)
 int	n;
 {

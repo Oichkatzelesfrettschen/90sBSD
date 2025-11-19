@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)candidate.c	2.7 (Berkeley) 3/2/91";
 
 #include "globals.h"
 #include <protocols/timed.h>
+#include <stdlib.h>
 
 #define ELECTIONWAIT	3	/* seconds */
 
@@ -47,6 +48,7 @@ static char sccsid[] = "@(#)candidate.c	2.7 (Berkeley) 3/2/91";
  * candidate sends an election request, the candidature is withdrawn.
  */
 
+int
 election(net)
 struct netinfo *net;
 {

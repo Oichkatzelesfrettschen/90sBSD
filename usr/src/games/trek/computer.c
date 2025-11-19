@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)computer.c	4.8 (Berkeley) 6/1/90";
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -98,6 +99,7 @@ struct cvntab	Cputab[] =
 	0
 };
 
+void
 computer()
 {
 	int			ix, iy;
@@ -305,6 +307,7 @@ computer()
 **	sqx,sqy/ssx,ssy to tqx,tqy/tsx,tsy.
 */
 
+int
 kalc(tqx, tqy, tsx, tsy, dist)
 int	tqx;
 int	tqy;
@@ -335,6 +338,7 @@ double	*dist;
 }
 
 
+void
 prkalc(course, dist)
 int	course;
 double	dist;

@@ -63,6 +63,7 @@
 #include        <sys/param.h>
 #include        <sys/stat.h>
 #include        <sys/dir.h>
+#include <unistd.h>
 #define dot     "."
 #define dotdot  ".."
 
@@ -80,6 +81,7 @@ char * curdir()
 
         int rdev, rino;
         int off;
+int
         register i,j;
 
         cwd[off= 0] = '/';

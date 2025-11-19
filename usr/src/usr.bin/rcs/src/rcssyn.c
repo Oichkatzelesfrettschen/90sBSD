@@ -115,7 +115,9 @@ extern char * getid();
 extern struct hshentry * getnum();
 extern int    getkey();
 extern int    getlex();
+void
 extern        readstring();
+void
 extern        savestring();
 
 /* forward */
@@ -158,6 +160,7 @@ int               TotalDeltas;
 
 
 
+void
 getadmin()
 /* Function: Reads an <admin> and initializes the globals
  * AccessList, LastAccess, Symbols, LastSymbol,
@@ -274,6 +277,7 @@ getadmin()
 
 
 
+int
 getdelta()
 /* Function: reads a delta block.
  * returns false if the current block does not start with a number.
@@ -328,6 +332,7 @@ getdelta()
 }
 
 
+void
 gettree()
 /* Function: Reads in the delta tree with getdelta(), then
  * updates the lockedby fields.
@@ -342,6 +347,7 @@ gettree()
 }
 
 
+void
 getdesc(prdesc)
 int  prdesc;
 /* Function: read in descriptive text
@@ -391,6 +397,7 @@ enum tokens token; char * keyword; int optional;
 
 
 
+void
 putadmin(fout)
 register FILE * fout;
 /* Function: Print the <admin> node read with getadmin() to file fout.
@@ -441,6 +448,7 @@ register FILE * fout;
 
 
 
+void
 putdelta(node,fout)
 register struct hshentry * node;
 register FILE * fout;
@@ -472,6 +480,7 @@ register FILE * fout;
 
 
 
+void
 puttree(root,fout)
 struct hshentry * root;
 register FILE * fout;

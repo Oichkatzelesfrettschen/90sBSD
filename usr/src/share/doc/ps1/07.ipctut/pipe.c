@@ -32,6 +32,8 @@
 .\"	@(#)pipe.c	6.4 (Berkeley) 4/17/91
 .\"
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 #define DATA "Bright star, would I were steadfast as thou art . . ."
 
@@ -43,6 +45,7 @@
  * (sockets[0]), but not vice versa. 
  */
 
+void
 main()
 {
 	int sockets[2], child;

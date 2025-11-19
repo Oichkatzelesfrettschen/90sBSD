@@ -15,7 +15,9 @@ extern boolean hmon();
 	2. when teleporting
 	3. when walking out of a lit room
  */
+void
 unsee() {
+void
 	register x,y;
 	register struct rm *lev;
 
@@ -50,8 +52,10 @@ unsee() {
 	in hack.do.c:  seeoff(1) - go up or down the stairs
 	in hack.trap.c:seeoff(1) - fall through trapdoor
  */
+void
 seeoff(mode)	/* 1 to redo @, 0 to leave them */
 {	/* 1 means misc movement, 0 means blindness */
+void
 	register x,y;
 	register struct rm *lev;
 

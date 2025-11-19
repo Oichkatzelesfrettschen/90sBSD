@@ -14,6 +14,7 @@
 
 #include "config.h"
 #include "vi.h"
+#include <unistd.h>
 
 #ifndef NO_RECYCLE
 /* this whole file would have be skipped if NO_RECYCLE is defined */

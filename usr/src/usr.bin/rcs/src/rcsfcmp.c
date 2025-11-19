@@ -82,6 +82,7 @@ extern FILE * fopen();
 extern enum markers trymatch(); /* check for keywords */
 
 
+int
 rcsfcmp(xfname,uxfname,delta)
 char * xfname, *uxfname; struct hshentry *delta;
 /* Function: compares the files xfname and uxfname. Returns true

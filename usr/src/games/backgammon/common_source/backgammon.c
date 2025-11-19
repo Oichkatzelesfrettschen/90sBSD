@@ -40,6 +40,9 @@ static char sccsid[] = "@(#)backgammon.c	5.1 (Berkeley) 4/8/91";
 */
 
 #include	<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 
 #define	WHITE		0
 #define	BROWN		1
@@ -229,6 +232,7 @@ retry:
 	goto whitesmv;
 }
 
+int
 play(player,playee,pos)
 int *player,*playee,pos[];
 {
@@ -277,6 +281,7 @@ badmove:
 	}
 	return(NIL);
 }
+int
 nextmove(player,playee)
 int *player,*playee;
 {

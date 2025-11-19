@@ -41,6 +41,8 @@ static char sccsid[] = "@(#)rmjob.c	5.7 (Berkeley) 6/1/90";
 
 #include "lp.h"
 #include "pathnames.h"
+#include <unistd.h>
+#include <string.h>
 
 /*
  * Stuff for handling lprm specifications
@@ -58,6 +60,7 @@ char	current[40];		/* active control file name */
 
 int	iscf();
 
+void
 rmjob()
 {
 	register int i, nitems;

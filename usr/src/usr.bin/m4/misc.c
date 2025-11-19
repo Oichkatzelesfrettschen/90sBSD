@@ -56,6 +56,7 @@ static char sccsid[] = "@(#)misc.c	5.6 (Berkeley) 2/26/91";
  * indx - find the index of second str in the
  *        first str.
  */
+int
 indx(s1, s2)
 char *s1;
 char *s2;
@@ -77,6 +78,7 @@ char *s2;
  *  putback - push character back onto input
  *
  */
+void
 putback (c)
 char c;
 {
@@ -92,6 +94,7 @@ char c;
  *          performance.
  *
  */
+void
 pbstr(s)
 register char *s;
 {
@@ -115,6 +118,7 @@ register char *s;
  *  pbnum - convert number to string, push back on input.
  *
  */
+void
 pbnum (n)
 int n;
 {
@@ -133,6 +137,7 @@ int n;
  *  chrsave - put single char on string space
  *
  */
+void
 chrsave (c)
 char c;
 {
@@ -148,6 +153,7 @@ char c;
  * getdiv - read in a diversion file, and
  *          trash it.
  */
+void
 getdiv(ind) {
         register int c;
         register FILE *dfil;

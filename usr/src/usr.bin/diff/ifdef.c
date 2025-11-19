@@ -20,6 +20,7 @@ and this notice must be preserved on all copies.  */
 
 
 #include "diff.h"
+#include <string.h>
 
 static void format_ifdef ();
 static void print_ifdef_hunk ();

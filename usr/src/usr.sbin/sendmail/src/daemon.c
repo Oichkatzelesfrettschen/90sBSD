@@ -558,12 +558,14 @@ setdaemonoptions(p)
 					if (sp == NULL)
 						syserr("554 service \"%s\" unknown", v);
 					else
+void
 						DaemonAddr.sin.sin_port = sp->s_port;
 				}
 				break;
 #endif
 
 #ifdef NETISO
+void
 			  case AF_ISO:
 				/* assume two byte transport selector */
 				if (isascii(*v) && isdigit(*v))

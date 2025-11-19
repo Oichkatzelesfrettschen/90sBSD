@@ -59,6 +59,7 @@ extern short party_room, bear_trap;
 extern char hit_message[];
 extern boolean wizard, trap_door;
 
+void
 play_level()
 {
 	short ch;

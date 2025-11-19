@@ -42,6 +42,7 @@ void	cleanup();
 /*
  * Botch the interface to look like cu's
  */
+void
 cumain(argc, argv)
 	char *argv[];
 {

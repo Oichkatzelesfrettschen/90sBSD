@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)hash.c	5.5 (Berkeley) 12/28/90";
 
 #include "sprite.h"
 #include "hash.h"
+#include <string.h>
 
 /*
  * Forward references to local procedures that are used before they're

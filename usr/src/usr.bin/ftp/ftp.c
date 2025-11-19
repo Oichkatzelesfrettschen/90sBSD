@@ -305,6 +305,8 @@ va_dcl
 char reply_string[BUFSIZ];		/* last line of previous reply */
 
 #include <ctype.h>
+#include <string.h>
+#include <arpa/inet.h>
 
 getreply(expecteof)
 	int expecteof;

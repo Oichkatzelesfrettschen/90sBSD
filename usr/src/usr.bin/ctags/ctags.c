@@ -177,6 +177,7 @@ usage:		puts("Usage: ctags [-BFadtuwvx] [-f tagsfile] file ...");
  *	CWHITE are set to YES.  Thus, "_wht" of a char is YES if it is in
  *	the string CWHITE, else NO.
  */
+void
 init()
 {
 	register int	i;
@@ -208,6 +209,7 @@ init()
  *	this routine opens the specified file and calls the function
  *	which searches the file.
  */
+void
 find_entries(file)
 	char	*file;
 {

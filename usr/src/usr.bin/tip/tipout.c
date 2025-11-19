@@ -112,6 +112,7 @@ intSYS()
 /*
  * ****TIPOUT   TIPOUT****
  */
+void
 tipout()
 {
 	char buf[BUFSIZ];

@@ -27,6 +27,7 @@
 extern char *getenv();
 extern time_t time();
 
+void
 setrandom()
 {
  	(void) srandom((int) time ((time_t *) 0));
@@ -42,6 +43,7 @@ getlt()
 	return(localtime(&date));
 }
 
+int
 getyear()
 {
 	return(1900 + getlt()->tm_year);
@@ -60,6 +62,7 @@ getdate()
 	return(datestr);
 }
 
+int
 phase_of_the_moon()			/* 0-7, with 0: new, 4: full */
 {					/* moon period: 29.5306 days */
 					/* year: 365.2422 days */
@@ -75,6 +78,7 @@ phase_of_the_moon()			/* 0-7, with 0: new, 4: full */
 	return( (((((diy + epact) * 6) + 11) % 177) / 22) & 7 );
 }
 
+int
 night()
 {
 	register int hour = getlt()->tm_hour;
@@ -82,6 +86,7 @@ night()
 	return(hour < 6 || hour > 21);
 }
 
+int
 midnight()
 {
 	return(getlt()->tm_hour == 0);
@@ -89,6 +94,7 @@ midnight()
 
 struct stat buf, hbuf;
 
+void
 gethdate(name) char *name; {
 /* old version - for people short of space */
 /*
@@ -132,6 +138,7 @@ char filename[MAXPATHLEN+1];
 		(np = rindex(name, '/')) ? np+1 : name);
 }
 
+int
 uptodate(fd) {
 	if(fstat(fd, &buf)) {
 		pline("Cannot get status of saved level? ");
@@ -145,6 +152,7 @@ uptodate(fd) {
 }
 
 /* see whether we should throw away this xlock file */
+int
 veryold(fd) {
 	register int i;
 	time_t date;
@@ -280,6 +288,8 @@ gotlock:
  *	- Do something to the text when the scroll is enchanted or cancelled.
  */
 #include	"def.mkroom.h"
+#include <unistd.h>
+#include <signal.h>
 static struct stat omstat,nmstat;
 static char *mailbox;
 static long laststattime;

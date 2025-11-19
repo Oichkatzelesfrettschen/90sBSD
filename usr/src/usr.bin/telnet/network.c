@@ -48,6 +48,9 @@ static char sccsid[] = "@(#)network.c	5.2 (Berkeley) 3/1/91";
 #include "defines.h"
 #include "externs.h"
 #include "fdset.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 Ring		netoring, netiring;
 unsigned char	netobuf[2*BUFSIZ], netibuf[BUFSIZ];

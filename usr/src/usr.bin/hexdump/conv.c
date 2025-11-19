@@ -38,7 +38,9 @@ static char sccsid[] = "@(#)conv.c	5.4 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <ctype.h>
 #include "hexdump.h"
+#include <stdio.h>
 
+void
 conv_c(pr, p)
 	PR *pr;
 	u_char *p;
@@ -89,6 +91,7 @@ strpr:		*pr->cchar = 's';
 	}
 }
 
+void
 conv_u(pr, p)
 	PR *pr;
 	u_char *p;

@@ -37,6 +37,9 @@
 #include "move.h"
 #endif
 #include "pathnames.h"
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
 struct tms tmbuf1,tmbuf2;
 void TerminateSearch(),Die();
@@ -45,6 +48,7 @@ void TerminateSearch(),Die();
 #define printz printw
 
 
+void
 Initialize()
 {
   signal(SIGINT,Die); signal(SIGQUIT,Die);
@@ -53,6 +57,7 @@ Initialize()
 }
 
 
+void
 ExitChess()
 {
   nocrmode();
@@ -85,6 +90,7 @@ TerminateSearch()
 }
 
 
+void
 InputCommand()
 
 /*

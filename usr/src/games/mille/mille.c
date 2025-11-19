@@ -32,6 +32,8 @@
  */
 
 #ifndef lint
+#include <unistd.h>
+#include <stdlib.h>
 char copyright[] =
 "@(#) Copyright (c) 1982 Regents of the University of California.\n\
  All rights reserved.\n";
@@ -159,6 +161,7 @@ rub() {
 /*
  *	Time to go beddy-by
  */
+void
 die() {
 
 	(void)signal(SIGINT, SIG_IGN);

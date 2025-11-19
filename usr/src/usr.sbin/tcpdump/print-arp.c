@@ -33,6 +33,7 @@ static char rcsid[] =
 
 #include "interface.h"
 #include "addrtoname.h"
+#include <stdio.h>
 
 void
 arp_print(ap, length, caplen)

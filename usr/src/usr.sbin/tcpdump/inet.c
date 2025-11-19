@@ -36,6 +36,7 @@ static  char rcsid[] =
 #include <netinet/in.h>
 
 #include "interface.h"
+#include <stdlib.h>
 
 /* Not all systems have IFF_LOOPBACK */
 #ifdef IFF_LOOPBACK

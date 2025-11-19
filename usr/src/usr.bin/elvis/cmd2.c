@@ -126,12 +126,16 @@ void cmd_substitute(frommark, tomark, cmd, bang, extra)
 				msg("Subst options are p, c, and g -- not %c", opt[-1]);
 				return;
 			}
+void
 		}
 	}
+void
 
+void
 	/* if "c" or "p" flag was given, and we're in visual mode, then NEWLINE */
 	if ((optc || optp) && mode == MODE_VI)
 	{
+void
 		addch('\n');
 		exrefresh();
 	}

@@ -43,8 +43,10 @@ static char sccsid[] = "@(#)field.c	5.13 (Berkeley) 2/12/91";
 #include <ctype.h>
 #include "chpass.h"
 #include "pathnames.h"
+#include <stdlib.h>
 
 /* ARGSUSED */
+int
 p_login(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -76,6 +78,7 @@ p_login(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_passwd(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -92,6 +95,7 @@ p_passwd(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_uid(p, pw, ep)
 	register char *p;
 	struct passwd *pw;
@@ -118,6 +122,7 @@ p_uid(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_gid(p, pw, ep)
 	register char *p;
 	struct passwd *pw;
@@ -150,6 +155,7 @@ p_gid(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_class(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -166,6 +172,7 @@ p_class(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_change(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -178,6 +185,7 @@ p_change(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_expire(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -190,6 +198,7 @@ p_expire(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_gecos(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -205,6 +214,7 @@ p_gecos(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_hdir(p, pw, ep)
 	char *p;
 	struct passwd *pw;
@@ -222,6 +232,7 @@ p_hdir(p, pw, ep)
 }
 
 /* ARGSUSED */
+int
 p_shell(p, pw, ep)
 	register char *p;
 	struct passwd *pw;

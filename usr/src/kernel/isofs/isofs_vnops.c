@@ -69,6 +69,7 @@ isofs_access(vp, mode, cred, p)
 }
 
 /* ARGSUSED */
+int
 isofs_getattr(vp, vap, cred, p)
 	struct vnode *vp;
 	register struct vattr *vap;

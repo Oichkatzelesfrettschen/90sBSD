@@ -117,6 +117,7 @@ main(argc, argv)
 	exit(eval);
 }
 
+int
 store(from)
 	char *from;
 {
@@ -160,6 +161,7 @@ store(from)
 	return(fd);
 }
 
+int
 deliver(fd, name)
 	int fd;
 	char *name;

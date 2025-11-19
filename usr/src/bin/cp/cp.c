@@ -209,6 +209,7 @@ main(argc, argv)
 }
 
 /* copy file or directory at "from" to "to". */
+void
 copy(void)
 {
 	struct stat from_stat, to_stat;

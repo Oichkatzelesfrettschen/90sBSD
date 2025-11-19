@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)paste.c	5.7 (Berkeley) 10/30/90";
 #include <limits.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char *delim;
 int delimcnt;
@@ -97,6 +98,7 @@ typedef struct _list {
 	char *name;
 } LIST;
 
+void
 parallel(argv)
 	char **argv;
 {
@@ -172,6 +174,7 @@ parallel(argv)
 	}
 }
 
+void
 sequential(argv)
 	char **argv;
 {
@@ -214,6 +217,7 @@ sequential(argv)
 	}
 }
 
+int
 tr(arg)
 	char *arg;
 {
@@ -245,6 +249,7 @@ tr(arg)
 	return(cnt);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "paste: [-s] [-d delimiters] file ...\n");

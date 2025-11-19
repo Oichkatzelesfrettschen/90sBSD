@@ -320,6 +320,7 @@ main(argc, argv)
 	exit(eval);
 }
 
+void
 scanvars(void)
 {
 	register struct varent *vent;
@@ -342,6 +343,7 @@ scanvars(void)
 
 
 /* XXX - redo */
+void
 saveuser(ki)
 	KINFO *ki;
 {
@@ -375,6 +377,7 @@ saveuser(ki)
 		free(usp);
 }
 
+int
 pscomp(k1, k2)
 	KINFO *k1, *k2;
 {
@@ -460,6 +463,7 @@ kludge_oldps_options(s)
 #include <stdarg.h>
 #else
 #include <varargs.h>
+#include <ctype.h>
 #endif
 
 void
@@ -485,6 +489,7 @@ err(fmt, va_alist)
 	/* NOTREACHED */
 }
 
+void
 usage(void)
 {
 	(void) fprintf(stderr,

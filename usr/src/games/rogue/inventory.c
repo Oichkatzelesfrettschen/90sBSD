@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)inventory.c	5.4 (Berkeley) 6/1/90";
  */
 
 #include "rogue.h"
+#include <string.h>
 
 boolean is_wood[WANDS];
 char *press_space = " --press space to continue--";
@@ -210,6 +211,7 @@ struct id_com_s com_id_tab[COMS] = {
 extern boolean wizard;
 extern char *m_names[], *more;
 
+void
 inventory(pack, mask)
 object *pack;
 unsigned short mask;
@@ -265,6 +267,7 @@ unsigned short mask;
 	}
 }
 
+void
 id_com()
 {
 	int ch = 0;
@@ -341,6 +344,7 @@ MORE:
 	}
 }
 
+int
 pr_com_id(ch)
 int ch;
 {
@@ -354,6 +358,7 @@ int ch;
 	return(1);
 }
 
+int
 get_com_id(index, ch)
 int *index;
 short ch;
@@ -369,6 +374,7 @@ short ch;
 	return(0);
 }
 
+int
 pr_motion_char(ch)
 int ch;
 {

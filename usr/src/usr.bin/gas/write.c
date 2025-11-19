@@ -107,6 +107,7 @@ void
 #if defined(SPARC) || defined(I860)
 fix_new (frag, where, size, add_symbol, sub_symbol, offset, pcrel, r_type)
 #else
+void
 fix_new (frag, where, size, add_symbol, sub_symbol, offset, pcrel)
 #endif
      fragS *	frag;		/* Which frag? */

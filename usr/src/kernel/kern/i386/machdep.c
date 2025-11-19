@@ -57,6 +57,25 @@
 #include <sys/sysctl.h>
 
 #include <net/netisr.h>
+#include "sys/param.h"
+#include "sys/file.h"
+#include "sys/user.h"
+#include "sys/reboot.h"
+#include "systm.h"
+#include "kernel.h"
+#include "proc.h"
+#include "signalvar.h"
+#include "buf.h"
+#include "callout.h"
+#include "malloc.h"
+#include "mbuf.h"
+#include "msgbuf.h"
+#include "modconfig.h"
+#include "netisr.h"
+#define	__NO_INLINES
+#include "prototypes.h"
+void
+#undef	__NO_INLINES
 
 #include <vm/vm.h>
 #include <vm/vm_kern.h>

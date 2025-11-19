@@ -18,6 +18,7 @@ char *warnings[] = {
 	"white", "pink", "red", "ruby", "purple", "black"
 };
 
+void
 movemon()
 {
 	register struct monst *mtmp;

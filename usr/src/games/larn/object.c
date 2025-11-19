@@ -9,6 +9,7 @@
 	subroutine to look for an object and give the player his options
 	if an object was found.
  */
+void
 lookforobject()
 {
 register int i,j;

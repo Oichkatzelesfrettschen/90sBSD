@@ -114,9 +114,11 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 process()
 {
 	register char *cp;
+void
 	register c;
 
 	for (;;) {
@@ -138,10 +140,12 @@ process()
 	}
 }
 
+int
 match(ocp)
 	char *ocp;
 {
 	register char *cp;
+int
 	register c;
 
 	for (cp = ocp + 1; *cp; cp++) {
@@ -156,8 +160,10 @@ match(ocp)
 	return (1);
 }
 
+void
 copystr()
 {
+void
 	register c, ch;
 	char buf[512];
 	register char *cp = buf;
@@ -219,6 +225,7 @@ out:
 	printf("%d", hashit(buf, 1, NULL));
 }
 
+int
 octdigit(c)
 	char c;
 {
@@ -226,6 +233,7 @@ octdigit(c)
 	return (c >= '0' && c <= '7');
 }
 
+void
 inithash()
 {
 	char buf[512];
@@ -294,6 +302,8 @@ hashit(str, really, fakept)
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <stdlib.h>
+#include <string.h>
 
 fgetNUL(obuf, rmdr, file)
 	char *obuf;

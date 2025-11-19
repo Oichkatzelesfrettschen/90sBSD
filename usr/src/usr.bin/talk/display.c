@@ -51,6 +51,7 @@ int	curses_initialized = 0;
  * max HAS to be a function, it is called with
  * a argument of the form --foo at least once.
  */
+int
 max(a,b)
 	int a, b;
 {
@@ -62,6 +63,7 @@ max(a,b)
  * Display some text on somebody's window, processing some control
  * characters while we are at it.
  */
+void
 display(win, text, size)
 	register xwin_t *win;
 	register char *text;
@@ -151,6 +153,7 @@ display(win, text, size)
 /*
  * Read the character at the indicated position in win
  */
+int
 readwin(win, line, col)
 	WINDOW *win;
 {
@@ -168,6 +171,7 @@ readwin(win, line, col)
  * Scroll a window, blanking out the line following the current line
  * so that the current position is obvious
  */
+void
 xscroll(win, flag)
 	register xwin_t *win;
 	int flag;

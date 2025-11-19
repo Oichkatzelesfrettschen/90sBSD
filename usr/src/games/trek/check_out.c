@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)check_out.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -48,6 +49,7 @@ static char sccsid[] = "@(#)check_out.c	5.4 (Berkeley) 6/1/90";
 **	It prints appropriate messages too.
 */
 
+int
 check_out(device)
 int	device;
 {

@@ -48,9 +48,11 @@ static char sccsid[] = "@(#)tc2.c	5.3 (Berkeley) 4/12/91";
  * or n for number) and cc is the name of the capability.
  */
 #include <stdio.h>
+#include <stdlib.h>
 char buf[1024];
 char *getenv(), *tgetstr();
 
+void
 main(argc, argv) char **argv; {
 	char *p, *q;
 	int rc;

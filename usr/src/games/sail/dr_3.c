@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)dr_3.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "driver.h"
+#include <stdlib.h>
 
+void
 moveall()		/* move all comp ships */
 {
 	register struct ship *sp, *sq;		/* r11, r10 */
@@ -175,6 +177,7 @@ moveall()		/* move all comp ships */
 	}
 }
 
+int
 stillmoving(k)
 register int k;
 {
@@ -186,6 +189,7 @@ register int k;
 	return 0;
 }
 
+int
 isolated(ship)
 register struct ship *ship;
 {
@@ -198,6 +202,7 @@ register struct ship *ship;
 	return 1;
 }
 
+int
 push(from, to)
 register struct ship *from, *to;
 {

@@ -54,6 +54,7 @@ char	*decode();
  * from the termcap file.  Parse is very rudimentary;
  * we just notice escaped newlines.
  */
+int
 getent(bp, name)
 	char *bp, *name;
 {
@@ -113,6 +114,7 @@ getent(bp, name)
  * Note that this works because of the left to right scan.
  */
 #define	MAXHOP	32
+int
 nchktc()
 {
 	register char *p, *q;
@@ -160,6 +162,7 @@ nchktc()
  * against each such name.  The normal : terminator after the last
  * name (before the first field) stops us.
  */
+int
 namatch(np)
 	char *np;
 {
@@ -240,6 +243,7 @@ getnum(id)
  * of the buffer.  Return 1 if we find the option, or 0 if it is
  * not given.
  */
+int
 getflag(id)
 	char *id;
 {

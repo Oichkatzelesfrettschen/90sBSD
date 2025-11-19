@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)misc.c	5.6 (Berkeley) 6/1/90";
 #include	"mille.h"
 #ifndef	unctrl
 #include	"unctrl.h"
+#include <unistd.h>
 #endif
 
 # include	<sys/file.h>
@@ -54,6 +55,7 @@ static char sccsid[] = "@(#)misc.c	5.6 (Berkeley) 6/1/90";
 #define	NUMSAFE	4
 
 /* VARARGS1 */
+int
 error(str, arg)
 char	*str;
 {
@@ -115,6 +117,7 @@ cont:		;
 	}
 }
 
+int
 check_ext(forcomp)
 reg bool	forcomp; {
 
@@ -169,6 +172,7 @@ done:
  *	Get a yes or no answer to the given question.  Saves are
  * also allowed.  Return TRUE if the answer was yes, FALSE if no.
  */
+int
 getyn(promptno)
 register int	promptno; {
 

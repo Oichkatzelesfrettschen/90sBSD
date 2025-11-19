@@ -123,6 +123,7 @@ struct shk_nx {
 	{ 0,		shkgeneral }
 };
 
+void
 findname(nampt, let) char *nampt; char let; {
 register struct shk_nx *p = shk_nx;
 register char **q;

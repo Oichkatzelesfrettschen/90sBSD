@@ -31,6 +31,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "as.h"
 #include "read.h"
 #include "input-file.h"
+#include <string.h>
 
 /*
  * O/S independent module to supply buffers of sanitised source code

@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)attack.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -67,6 +68,7 @@ static char sccsid[] = "@(#)attack.c	5.4 (Berkeley) 6/1/90";
 **	Casualties can also occur.
 */
 
+void
 attack(resting)
 int	resting;	/* set if attack while resting */
 {

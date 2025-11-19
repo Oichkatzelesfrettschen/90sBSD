@@ -34,10 +34,12 @@ struct rectangle {
 int rscnt,rsmax;	/* 0..rscnt-1: currently under consideration */
 			/* rscnt..rsmax: discarded */
 
+void
 makelevel()
 {
 	register struct mkroom *croom, *troom;
 	register unsigned tryct;
+void
 	register x,y;
 
 	nroom = 0;

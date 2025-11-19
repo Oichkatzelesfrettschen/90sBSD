@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)cmd1.c	5.22 (Berkeley) 4/1/91";
 #endif /* not lint */
 
 #include "rcv.h"
+#include <stdio.h>
 
 /*
  * Mail -- a mail program
@@ -50,6 +51,7 @@ static char sccsid[] = "@(#)cmd1.c	5.22 (Berkeley) 4/1/91";
 
 static int screen;
 
+int
 headers(msgvec)
 	int *msgvec;
 {

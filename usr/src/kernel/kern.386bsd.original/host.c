@@ -31,15 +31,18 @@
  * SUCH DAMAGE.
  *
  * $Id: host.c,v 1.1 94/10/20 00:02:55 bill Exp $
+int
  */
 
 #include "sys/param.h"
 #include "privilege.h"
 #include "sys/errno.h"
 #include "kernel.h"	/* hostname .... */
+int
 #include "proc.h"
 #include "prototypes.h"
 
+int
 /* BSD get host id */
 gethostid(p, uap, retval)
 	struct proc *p;
@@ -69,6 +72,7 @@ sethostid(p, uap, retval)
 
 /* BSD get host name */
 gethostname(p, uap, retval)
+void
 	struct proc *p;
 	struct args {
 		char	*hostname;

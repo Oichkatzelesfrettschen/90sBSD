@@ -38,6 +38,8 @@
 #include "buf.h"
 #include "proc.h"
 #include "machine/pcb.h"
+#include <stdio.h>
+#include <unistd.h>
 
 dev_t	dumpdev = BLK_NODEV;
 unsigned	dumpmag = 0x8fca0101;	/* magic number for savecore */

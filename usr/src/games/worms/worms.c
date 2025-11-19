@@ -66,6 +66,7 @@ static char sccsid[] = "@(#)worms.c	5.9 (Berkeley) 2/28/91";
 #include <sgtty.h>
 #endif
 #include <signal.h>
+#include <stdlib.h>
 
 static struct options {
 	int nopts;
@@ -432,12 +433,14 @@ onsig()
 	exit(0);
 }
 
+void
 fputchar(c)
 	char c;
 {
 	putchar(c);
 }
 
+void
 nomem()
 {
 	(void)fprintf(stderr, "worms: not enough memory.\n");

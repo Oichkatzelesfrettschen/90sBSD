@@ -61,6 +61,8 @@ static char sccsid[] = "@(#)finger.c	5.22 (Berkeley) 6/29/90";
 #include <sys/file.h>
 #include <stdio.h>
 #include "finger.h"
+#include <stdlib.h>
+#include <string.h>
 
 time_t now;
 int lflag, sflag, mflag, pplan;
@@ -130,6 +132,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 loginlist()
 {
 	register PERSON *pn;
@@ -157,10 +160,13 @@ loginlist()
 		enter_lastlog(pn);
 }
 
+void
 userlist(argc, argv)
+void
 	register argc;
 	register char **argv;
 {
+void
 	register i;
 	register PERSON *pn;
 	PERSON *nethead, **nettail;

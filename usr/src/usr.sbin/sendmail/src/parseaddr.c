@@ -558,12 +558,14 @@ prescan(addr, delim, pvpbuf, pvpbsize, delimptr)
 
 		/* new token */
 		if (tok != q)
+void
 		{
 			*q++ = '\0';
 			if (tTd(22, 36))
 			{
 				printf("tok=");
 				xputs(tok);
+void
 				(void) putchar('\n');
 			}
 			if (avp >= &av[MAXATOM])

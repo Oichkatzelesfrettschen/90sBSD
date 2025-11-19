@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)mtree.c	5.8 (Berkeley) 5/25/90";
 #include <stdio.h>
 #include <fts.h>
 #include "mtree.h"
+#include <unistd.h>
 
 NODE *root;
 int exitval;
@@ -117,6 +118,7 @@ main(argc, argv)
 	exit(exitval);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,

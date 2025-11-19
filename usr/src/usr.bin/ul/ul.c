@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)ul.c	5.7 (Berkeley) 2/2/91";
 #endif /* not lint */
 
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 #define	IESC	'\033'
 #define	SO	'\016'
@@ -144,9 +146,11 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 filter(f)
 	FILE *f;
 {
+void
 	register c;
 
 	while ((c = getc(f)) != EOF) switch(c) {
@@ -257,9 +261,12 @@ filter(f)
 		flushln();
 }
 
+void
 flushln()
 {
+void
 	register lastmode;
+void
 	register i;
 	int hadmodes = 0;
 

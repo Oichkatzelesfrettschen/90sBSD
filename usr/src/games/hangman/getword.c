@@ -50,6 +50,7 @@ static char sccsid[] = "@(#)getword.c	5.3 (Berkeley) 6/1/90";
 void
  *	Get a valid word out of the dictionary file
  */
+void
 getword()
 {
 	register FILE		*inf;

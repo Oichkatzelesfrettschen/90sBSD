@@ -28,6 +28,7 @@ char *hu_stat[] = {
 	"Starved "
 };
 
+void
 init_uhunger(){
 	u.uhunger = 900;
 	u.uhs = NOT_HUNGRY;
@@ -48,6 +49,7 @@ static struct {
 	int usedtime, reqtime;
 } tin;
 
+int
 opentin(){
 	register int r;
 
@@ -81,14 +83,17 @@ opentin(){
 	return(0);
 }
 
+void
 Meatdone(){
 	u.usym = '@';
 	prme();
 }
 
+int
 doeat(){
 	register struct obj *otmp;
 	register struct objclass *ftmp;
+void
 	register tmp;
 
 	/* Is there some food (probably a heavy corpse) here on the ground? */

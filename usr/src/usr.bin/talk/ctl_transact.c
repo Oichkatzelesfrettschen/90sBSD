@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)ctl_transact.c	5.8 (Berkeley) 3/1/91";
 #include <protocols/talkd.h>
 #include <errno.h>
 #include "talk_ctl.h"
+#include <arpa/inet.h>
 
 #define CTL_WAIT 2	/* time to wait for a response, in seconds */
 
@@ -50,6 +51,7 @@ static char sccsid[] = "@(#)ctl_transact.c	5.8 (Berkeley) 3/1/91";
  * not recieved an acknowledgement within a reasonable amount
  * of time
  */
+void
 ctl_transact(target, msg, type, rp)
 	struct in_addr target;
 	CTL_MSG msg;

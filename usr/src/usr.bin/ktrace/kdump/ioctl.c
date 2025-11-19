@@ -8,6 +8,7 @@
 #include <sys/ioctl.h>
 
 char *
+int
 ioctlname(val)
 {
 

@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)one.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "back.h"
+#include <stdlib.h>
 
+int
 makmove (i)
 register int	i;
  
@@ -91,6 +93,7 @@ register int	i;
 	return (0);
 }
 
+void
 moverr (i)
 register int	i;
 
@@ -114,6 +117,7 @@ register int	i;
 }
 
 
+int
 checkd (d)
 register int	d;
 
@@ -123,6 +127,7 @@ register int	d;
 	return (0);
 }
 
+int
 last ()  {
 	register int	i;
 
@@ -131,6 +136,7 @@ last ()  {
 			return (abs(home-i));
 }
 
+void
 movback (i)
 register int	i;
 
@@ -141,6 +147,7 @@ register int	i;
 		backone(j);
 }
 
+void
 backone (i)
 register int	i;
 

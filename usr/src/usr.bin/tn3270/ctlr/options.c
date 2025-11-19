@@ -65,6 +65,7 @@ OptInit()
     OptWordWrap = 0;
 }
 
+int
 OptOrder(pointer, count, control)
 unsigned char *pointer;
 int count;

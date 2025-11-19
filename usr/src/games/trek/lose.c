@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)lose.c	5.6 (Berkeley) 6/26/90";
+#include <unistd.h>
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -63,6 +65,7 @@ char	*Losemsg[] =
 	"Your last crew member died",
 };
 
+void
 lose(why)
 int	why;
 {

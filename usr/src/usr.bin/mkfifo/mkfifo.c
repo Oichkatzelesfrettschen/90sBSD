@@ -46,6 +46,7 @@ static char sccsid[] = "@(#)mkfifo.c	5.3 (Berkeley) 6/1/90";
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int
 main(argc, argv)
@@ -83,6 +84,7 @@ main(argc, argv)
 	exit(exitval);
 }
 
+int
 build(path)
 	char *path;
 {
@@ -104,6 +106,7 @@ build(path)
 	return(0);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: mkfifo [-p] fifoname ...\n");

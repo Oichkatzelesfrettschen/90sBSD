@@ -55,6 +55,8 @@ static char sccsid[] = "@(#)cmds.c	5.26 (Berkeley) 3/5/91";
 
 #include "ftp_var.h"
 #include "pathnames.h"
+#include <string.h>
+#include <stdlib.h>
 
 extern	char *globerr;
 extern	char **ftpglob();
@@ -78,6 +80,7 @@ char *dotrans(), *domap();
  *
  * Returns false if no new arguments have been added.
  */
+int
 another(pargc, pargv, prompt)
 	int *pargc;
 	char ***pargv;
@@ -108,6 +111,7 @@ another(pargc, pargv, prompt)
  * Connect to peer server and
  * auto-login, if possible.
  */
+void
 setpeer(argc, argv)
 	int argc;
 	char *argv[];

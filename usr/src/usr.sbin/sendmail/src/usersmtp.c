@@ -558,12 +558,14 @@ smtpdata(m, mci, e)
 	/* terminate the message */
 	fprintf(mci->mci_out, ".%s", m->m_eol);
 	if (TrafficLogFile != NULL)
+int
 		fprintf(TrafficLogFile, "%05d >>> .\n", getpid());
 	if (Verbose)
 		nmessage(">>> .");
 
 	/* check for the results of the transaction */
 	SmtpPhase = mci->mci_phase = "client DATA 250";
+int
 	setproctitle("%s %s: %s", e->e_id, CurHostName, mci->mci_phase);
 	r = reply(m, mci, e, TimeOuts.to_datafinal, NULL);
 	if (r < 0)

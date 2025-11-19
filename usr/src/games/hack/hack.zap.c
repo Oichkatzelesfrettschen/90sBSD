@@ -18,6 +18,7 @@ char *fl[]= {
 
 /* Routines for IMMEDIATE wands. */
 /* bhitm: monster mtmp was hit by the effect of wand otmp */
+void
 bhitm(mtmp, otmp)
 register struct monst *mtmp;
 register struct obj *otmp;

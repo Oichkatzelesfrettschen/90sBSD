@@ -14,6 +14,7 @@
 
 #include "config.h"
 #include "vi.h"
+#include <unistd.h>
 
 #ifndef NBUFS
 # define NBUFS	5		/* must be at least 3 -- more is better */

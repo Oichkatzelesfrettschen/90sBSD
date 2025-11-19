@@ -880,6 +880,7 @@ Usage: %s [-c [+]N[bkm]] [-n [+]N] [-fqv] [--bytes=[+]N[bkm]] [--lines=[+]N]\n\
 
 
 #include <stdarg.h>
+#include <stdlib.h>
 #define VA_START(args, lastarg) va_start(args, lastarg)
 
 /* Print the program name and error message MESSAGE, which is a printf-style

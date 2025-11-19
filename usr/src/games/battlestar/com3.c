@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)com3.c	5.3 (Berkeley) 6/1/90";
 
 #include "externs.h"
 
+void
 dig()
 {
 	if (testbit(inven,SHOVEL)){
@@ -61,6 +62,7 @@ dig()
 		puts("You don't have a shovel.");
 }
 
+int
 jump()
 {
 	register int n;
@@ -100,6 +102,7 @@ jump()
 	return(0);
 }
 
+void
 bury()
 {
 	int value;
@@ -163,6 +166,7 @@ bury()
 		puts("You aren't holding a shovel.");
 }
 
+void
 drink()
 {
 	register int n;
@@ -183,6 +187,7 @@ drink()
 		puts("I'm not thirsty.");
 }
 
+int
 shoot()
 {
 	int firstnumber, value;

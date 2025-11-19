@@ -35,6 +35,9 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define DATA "Half a league, half a league . . ."
 
@@ -43,6 +46,7 @@
  * one line message to that socket. The form of the command line is
  * ustreamwrite pathname 
  */
+void
 main(argc, argv)
 	int argc;
 	char *argv[];

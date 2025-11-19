@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)lookup.c	5.5 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "defs.h"
+#include <string.h>
 
 	/* symbol types */
 #define VAR	1
@@ -53,6 +54,7 @@ static struct syment *hashtab[HASHSIZE];
 /*
  * Define a variable from a command line argument.
  */
+void
 define(name)
 	char *name;
 {

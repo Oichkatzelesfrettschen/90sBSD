@@ -38,11 +38,13 @@ static char sccsid[] = "@(#)fortran.c	5.5 (Berkeley) 2/26/91";
 #include <stdio.h>
 #include <string.h>
 #include "ctags.h"
+#include <ctype.h>
 
 static void takeprec();
 
 char *lbp;				/* line buffer pointer */
 
+int
 PF_funcs()
 {
 	register bool	pfcnt;		/* pascal/fortran functions found */
@@ -126,6 +128,7 @@ PF_funcs()
  * cicmp --
  *	do case-independent strcmp
  */
+int
 cicmp(cp)
 	register char	*cp;
 {

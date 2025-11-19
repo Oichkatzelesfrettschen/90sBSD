@@ -63,6 +63,7 @@
 #include "db_output.h"
 #include "db_command.h"
 #include "db_sym.h"
+#include <string.h>
 
 char	db_examine_format[TOK_STRING_SIZE] = "x";
 
@@ -89,6 +90,7 @@ db_examine_cmd(addr, have_addr, count, modif)
 	db_examine((db_addr_t) addr, db_examine_format, count);
 }
 
+void
 db_examine(addr, fmt, count)
 	register
 	db_addr_t	addr;
@@ -274,6 +276,7 @@ db_print_cmd(addr, have_addr, count, modif)
 	db_printf("\n");
 }
 
+void
 db_print_loc_and_inst(loc)
 	db_addr_t	loc;
 {
@@ -282,6 +285,7 @@ db_print_loc_and_inst(loc)
 	(void) db_disasm(loc, TRUE);
 }
 
+void
 db_strcpy(dst, src)
 	register char *dst;
 	register char *src;
@@ -358,6 +362,7 @@ db_search_cmd()
 	db_search(addr, size, value, mask, count);
 }
 
+void
 db_search(addr, size, value, mask, count)
 	register
 	db_addr_t	addr;

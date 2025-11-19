@@ -37,6 +37,7 @@ extern char sciv[SCORESIZE+1][26][2],*potionname[],*scrollname[];
 	uses the skill[] array to find level boundarys
 	uses c[EXPERIENCE]  c[LEVEL]
  */
+void
 raiselevel()
 	{
 	if (c[LEVEL] < MAXPLEVEL) raiseexperience((long)(skill[c[LEVEL]]-c[EXPERIENCE]));
@@ -50,6 +51,7 @@ raiselevel()
 
 	subroutine to lower the players character level by one
  */
+void
 loselevel()
 	{
 	if (c[LEVEL] > 1) loseexperience((long)(c[EXPERIENCE] - skill[c[LEVEL]-1] + 1));
@@ -63,6 +65,7 @@ loselevel()
 
 	subroutine to increase experience points
  */
+void
 raiseexperience(x)
 	register long x;
 	{
@@ -91,6 +94,7 @@ raiseexperience(x)
 
 	subroutine to lose experience points
  */
+void
 loseexperience(x)
 	register long x;
 	{

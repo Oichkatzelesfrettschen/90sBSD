@@ -49,6 +49,8 @@ static char sccsid[] = "@(#)worm.c	5.8 (Berkeley) 2/28/91";
 #include <ctype.h>
 #include <curses.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define newlink() (struct body *) malloc(sizeof (struct body));
 #define HEAD '@'
@@ -130,6 +132,7 @@ main(argc, argv)
 	}
 }
 
+void
 life()
 {
 	register struct body *bp, *np;
@@ -152,6 +155,7 @@ life()
 	tail->prev = NULL;
 }
 
+void
 display(pos, chr)
 struct body *pos;
 char chr;
@@ -175,6 +179,7 @@ wake()
 	process(lastch);
 }
 
+int
 rnd(range)
 {
 	return abs((rand()>>5)+(rand()>>5)) % range;

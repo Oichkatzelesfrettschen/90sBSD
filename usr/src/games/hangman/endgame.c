@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)endgame.c	5.3 (Berkeley) 6/1/90";
+#include <string.h>
 #endif /* not lint */
 
 # include	"hangman.h"
@@ -41,6 +42,7 @@ static char sccsid[] = "@(#)endgame.c	5.3 (Berkeley) 6/1/90";
  * endgame:
  *	Do what's necessary at the end of the game
  */
+void
 endgame()
 {
 	register char	ch;

@@ -62,6 +62,7 @@ static char sccsid[] = "@(#)mset.c	4.2 (Berkeley) 4/26/91";
 #include "../api/astosc.h"
 
 #include "../general/globals.h"
+#include <stdlib.h>
 
 struct regstate {
 	char *result;

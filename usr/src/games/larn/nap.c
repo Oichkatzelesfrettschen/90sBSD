@@ -12,6 +12,7 @@
 /*
  *	routine to take a nap for n milliseconds
  */
+void
 nap(x)
 	register int x;
 	{
@@ -50,6 +51,7 @@ napms(time)
 #ifdef SIGVTALRM
 /* This must be BSD 4.2!  */
 #include <sys/time.h>
+#include <unistd.h>
 #define bit(_a) (1<<((_a)-1))
 
 static  nullf()
@@ -110,6 +112,7 @@ static napms(time)
 	}
 #endif
 #else not BSD
+void
 static napms(time) int time; {}	/* do nothing, forget it */
 #endif BSD
 #endif SYSV

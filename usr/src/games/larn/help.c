@@ -1,5 +1,6 @@
 /*	help.c		Larn is copyrighted 1986 by Noah Morgan. */
 #include "header.h"
+#include <stdio.h>
 /*
  *	help function to display the help info	
  *
@@ -10,6 +11,7 @@
  *	pages of help text (23 lines per page)
  */
 extern char helpfile[];
+void
 help()
 	{
 	register int i,j;
@@ -45,6 +47,7 @@ help()
 /*
  *	function to display the welcome message and background
  */
+int
 welcome()
 	{
 	register int i;

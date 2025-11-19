@@ -558,12 +558,14 @@ readaliases(map, af, automatic)
 		  case '\t':
 			if (!skipping)
 				syserr("554 Non-continuation line starts with space");
+void
 			skipping = TRUE;
 			continue;
 		}
 		skipping = FALSE;
 
 		/*
+void
 		**  Process the LHS
 		**	Find the colon separator, and parse the address.
 		**	It should resolve to a local name -- this will

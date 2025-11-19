@@ -41,6 +41,7 @@ static char sccsid[] = "@(#)play_level.c	5.5 (Berkeley) 6/1/90";
  * play_level:
  *	Let the player play the current level
  */
+void
 play_level()
 {
 	register COORD	*cp;

@@ -48,7 +48,10 @@ static char sccsid[] = "@(#)update.c	5.5 (Berkeley) 10/30/90";
 #endif not lint
 
 #include "include.h"
+#include <stdlib.h>
+#include <string.h>
 
+void
 update()
 {
 	int	i, dir_diff, mask, unclean;
@@ -252,6 +255,7 @@ command(pp)
 }
 
 /* char */
+int
 name(p)
 	PLANE	*p;
 {
@@ -261,6 +265,7 @@ name(p)
 		return ('a' + p->plane_no);
 }
 
+int
 number(l)
 {
 	if (l < 'a' && l > 'z' && l < 'A' && l > 'Z')
@@ -271,6 +276,7 @@ number(l)
 		return (l - 'A');
 }
 
+int
 next_plane()
 {
 	static int	last_plane = -1;

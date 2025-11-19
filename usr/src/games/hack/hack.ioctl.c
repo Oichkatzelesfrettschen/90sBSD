@@ -14,6 +14,7 @@ struct ltchars ltchars, ltchars0;
 struct termio termio;
 #endif BSD
 
+void
 getioctls() {
 #ifdef BSD
 	(void) ioctl(fileno(stdin), (int) TIOCGLTC, (char *) &ltchars);
@@ -23,6 +24,7 @@ getioctls() {
 #endif BSD
 }
 
+void
 setioctls() {
 #ifdef BSD
 	(void) ioctl(fileno(stdin), (int) TIOCSLTC, (char *) &ltchars);
@@ -32,6 +34,7 @@ setioctls() {
 }
 
 #ifdef SUSPEND		/* implies BSD */
+int
 dosuspend() {
 #include	<signal.h>
 #ifdef SIGTSTP

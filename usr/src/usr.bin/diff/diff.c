@@ -24,6 +24,10 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "diff.h"
 #include "getopt.h"
 #include "fnmatch.h"
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
 #ifndef DEFAULT_WIDTH
 #define DEFAULT_WIDTH 130

@@ -71,6 +71,7 @@ extern boolean being_held;
 extern char *fruit, *you_can_move_again;
 extern boolean sustain_strength;
 
+void
 quaff()
 {
 	short ch;

@@ -31,12 +31,14 @@
  * SUCH DAMAGE.
  *
  *	$Id: $
+void
  */
 
 /* standard ISA/AT configuration: */
 static char *com_config =
 	"com 8 (0x3f8 4 -1 -1 -1 1) (0x2f8 3 -1 -1 -1 2).	# serial port driver $Revision$";
 #define	NCOM 2	/* XXX dynamic */
+void
 /* not the default console device */
 static char *com_console_config =
 	"console.	# com 1.";
@@ -69,6 +71,7 @@ static char *com_console_config =
 int comprobe(struct isa_device *dev);
 void comattach(struct isa_device *isdp);
 void comintr(int unit);
+void
 int comstop(struct tty *tp, int flag);
 
 int 	comstart(), comparam();
@@ -167,8 +170,10 @@ printf("com%d:", isdp->id_unit);
 	/* look for a NS 16550AF UART with FIFOs */
 	outb(port+com_fifo, FIFO_ENABLE|FIFO_RCV_RST|FIFO_XMT_RST|FIFO_TRIGGER_14);
 	DELAY(100);
+void
 	if ((inb(port+com_iir) & IIR_FIFO_MASK) == IIR_FIFO_MASK) {
 		com_hasfifo |= 1 << unit;
+void
 		printf(" fifo");
 	}
 

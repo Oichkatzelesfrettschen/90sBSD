@@ -50,6 +50,8 @@ static char sccsid[] = "@(#)mksyntax.c	5.2 (Berkeley) 3/8/91";
 
 #include <stdio.h>
 #include "parser.h"
+#include <stdlib.h>
+#include <string.h>
 
 
 struct synclass {
@@ -232,6 +234,7 @@ main() {
  * Clear the syntax table.
  */
 
+void
 filltable(dftval)
 	char *dftval;
 	{
@@ -246,6 +249,7 @@ filltable(dftval)
  * Initialize the syntax table with default values.
  */
 
+void
 init() {
 	filltable("CWORD");
 	syntax[0] = "CEOF";
@@ -261,6 +265,7 @@ init() {
  * Add entries to the syntax table.
  */
 
+void
 add(p, type)
 	char *p, *type;
 	{
@@ -274,6 +279,7 @@ add(p, type)
  * Output the syntax table.
  */
 
+void
 print(name)
 	char *name;
 	{
@@ -316,6 +322,7 @@ char *macro[] = {
 	NULL
 };
 
+void
 output_type_macros() {
 	char **pp;
 
@@ -335,6 +342,7 @@ output_type_macros() {
  * Output digit conversion table (if digits are not contiguous).
  */
 
+void
 digit_convert() {
 	int maxdigit;
 	static char digit[] = "0123456789";

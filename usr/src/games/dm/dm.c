@@ -51,6 +51,9 @@ static char sccsid[] = "@(#)dm.c	5.16 (Berkeley) 2/28/91";
 #include <stdio.h>
 #include <ctype.h>
 #include "pathnames.h"
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 extern int errno;
 static time_t	now;			/* current time value */
@@ -87,6 +90,7 @@ main(argc, argv)
  * play --
  *	play the game
  */
+void
 play(args)
 	char **args;
 {
@@ -106,6 +110,7 @@ play(args)
  * read_config --
  *	read through config file, looking for key words.
  */
+void
 read_config()
 {
 	FILE *cfp;
@@ -140,6 +145,7 @@ read_config()
  * c_day --
  *	if day is today, see if okay to play
  */
+void
 c_day(s_day, s_start, s_stop)
 	char *s_day, *s_start, *s_stop;
 {

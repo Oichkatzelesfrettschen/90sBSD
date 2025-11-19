@@ -50,6 +50,9 @@ static char sccsid[] = "@(#)who.c	5.11 (Berkeley) 6/1/90";
 #include <pwd.h>
 #include <utmp.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)
@@ -107,6 +110,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 output(up)
 	struct utmp *up;
 {

@@ -36,6 +36,10 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 
 #define DATA "Half a league, half a league . . ."
 
@@ -46,6 +50,7 @@
  * line is streamwrite hostname portnumber 
  */
 
+void
 main(argc, argv)
 	int argc;
 	char *argv[];

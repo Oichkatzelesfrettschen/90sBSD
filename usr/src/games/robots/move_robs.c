@@ -128,6 +128,7 @@ bool	was_sig;
  * add_score:
  *	Add a score to the overall point total
  */
+void
 add_score(add)
 int	add;
 {
@@ -140,6 +141,7 @@ int	add;
  * sign:
  *	Return the sign of the number
  */
+int
 sign(n)
 int	n;
 {

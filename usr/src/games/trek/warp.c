@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)warp.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -53,6 +55,7 @@ static char sccsid[] = "@(#)warp.c	5.4 (Berkeley) 6/1/90";
 **	case, there is code to handle time warps, etc.
 */
 
+int
 warp(fl, c, d)
 int	fl, c;
 double	d;

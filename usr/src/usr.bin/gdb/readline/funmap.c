@@ -31,6 +31,7 @@ static char *xmalloc (), *xrealloc ();
 #endif /* FILE */
 
 #include "readline.h"
+#include <stdlib.h>
 
 FUNMAP **funmap = (FUNMAP **)NULL;
 static int funmap_size = 0;
@@ -132,6 +133,7 @@ static FUNMAP default_funmap[] = {
  {(char *)NULL, (Function *)NULL }
 };
 
+void
 rl_add_funmap_entry (name, function)
      char *name;
      Function *function;
@@ -153,6 +155,7 @@ rl_add_funmap_entry (name, function)
 static int funmap_initialized = 0;
 
 /* Make the funmap contain all of the default entries. */
+void
 rl_initialize_funmap ()
 {
   register int i;
@@ -187,6 +190,7 @@ static char *
 xmalloc (bytes)
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)malloc (bytes);
 
@@ -200,6 +204,7 @@ xrealloc (pointer, bytes)
      char *pointer;
      int bytes;
 {
+int
   static memory_error_and_abort ();
   char *temp = (char *)realloc (pointer, bytes);
 

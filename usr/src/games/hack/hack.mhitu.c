@@ -8,6 +8,7 @@ extern struct monst *makemon();
  * mhitu: monster hits you
  *	  returns 1 if monster dies (e.g. 'y', 'F'), 0 otherwise
  */
+int
 mhitu(mtmp)
 register struct monst *mtmp;
 {

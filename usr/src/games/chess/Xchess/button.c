@@ -33,6 +33,7 @@ and this notice must be preserved on all copies.  */
  */
 
 #include "xchess.h"
+#include <unistd.h>
 
 typedef enum choice { NOCHOICE, DRAW, RESIGN, REPLAY, SWITCH, FORE, SAVE,
 		STOP, FLIP, RESTART, EASY } choice;

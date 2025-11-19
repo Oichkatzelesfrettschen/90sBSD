@@ -126,12 +126,16 @@ setptr(ibuf)
 					break;
 				}
 				if (*cp != c && *cp != toupper(c))
+int
 					break;
 			}
+int
 		}
+int
 		offset += count;
 		this.m_size += count;
 		this.m_lines++;
+int
 		maybe = linebuf[0] == 0;
 	}
 }

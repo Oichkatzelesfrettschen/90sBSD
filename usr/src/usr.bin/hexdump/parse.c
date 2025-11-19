@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)parse.c	5.6 (Berkeley) 3/9/91";
 
 FU *endfu;					/* format at end-of-data */
 
+void
 addfile(name)
 	char *name;
 {
@@ -72,6 +73,7 @@ addfile(name)
 	(void)fclose(fp);
 }
 
+void
 add(fmt)
 	char *fmt;
 {
@@ -147,6 +149,7 @@ add(fmt)
 }
 
 static char *spec = ".#-+ 0123456789";
+int
 size(fs)
 	FS *fs;
 {
@@ -200,6 +203,7 @@ size(fs)
 	return(cursize);
 }
 
+void
 rewrite(fs)
 	FS *fs;
 {

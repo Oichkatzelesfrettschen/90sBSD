@@ -82,6 +82,7 @@ struct cvntab	Comtab[] =
 	0
 };
 
+void
 myreset()
 {
 	extern jmp_buf env;
@@ -89,6 +90,7 @@ myreset()
 	longjmp(env, 1);
 }
 
+void
 play()
 {
 	struct cvntab		*r;

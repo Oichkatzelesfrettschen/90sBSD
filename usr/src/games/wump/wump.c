@@ -55,6 +55,7 @@ static char sccsid[] = "@(#)wump.c	4.3 (Berkeley) 6/1/90";
 #include <sys/file.h>
 #include <stdio.h>
 #include "pathnames.h"
+#include <stdlib.h>
 
 /* some defines to spec out what our wumpus cave should look like */
 
@@ -217,6 +218,7 @@ quiver holds %d custom super anti-evil Wumpus arrows.  Good luck.\n",
 	/* NOTREACHED */
 }
 
+void
 display_room_stats()
 {
 	register int i;
@@ -246,6 +248,7 @@ display_room_stats()
 	(void)printf("and %d.\n", cave[player_loc].tunnel[link_num - 1]);
 }
 
+int
 take_action()
 {
 	/*

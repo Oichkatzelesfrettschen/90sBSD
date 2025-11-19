@@ -65,11 +65,13 @@
 
 #include <setjmp.h>
 #include "systm.h" /* just for boothowto --eichin */
+#include <stdio.h>
 int	db_active = 0;
 
 /*
  * Received keyboard interrupt sequence.
  */
+void
 kdb_kbd_trap(regs)
 	struct i386_saved_state *regs;
 {
@@ -85,6 +87,7 @@ kdb_kbd_trap(regs)
 
 static jmp_buf *db_nofault = 0;
 
+int
 kdb_trap(type, code, regs)
 	int	type, code;
 	register struct i386_saved_state *regs;
@@ -172,6 +175,7 @@ asm("sahf " : : "a" (sv));
 /*
  * Print trap reason.
  */
+void
 kdbprinttrap(type, code)
 	int	type, code;
 {

@@ -39,6 +39,7 @@ static char sccsid[] = "@(#)pl_5.c	5.4 (Berkeley) 6/1/90";
 
 #define turnfirst(x) (*x == 'r' || *x == 'l')
 
+void
 acceptmove()
 {
 	int ta;
@@ -143,6 +144,7 @@ acceptmove()
 	Signal("Helm: %s.", (struct ship *)0, movebuf);
 }
 
+void
 acceptboard()
 {
 	register struct ship *sp;

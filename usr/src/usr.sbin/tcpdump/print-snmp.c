@@ -198,6 +198,7 @@ struct obj {
  * and by right shouldn't be an "include" file.
  */
 #include "mib.h"
+#include <string.h>
 
 /*
  * This defines a list of OIDs which will be abreviated on output.

@@ -112,6 +112,7 @@ main(argc, argv)
 			(void)printf("%s: nothing appropriate\n", *p);
 }
 
+void
 apropos(argv, path, buildpath)
 	char **argv, *path;
 	int buildpath;
@@ -162,6 +163,7 @@ apropos(argv, path, buildpath)
  * match --
  *	match anywhere the string appears
  */
+int
 match(bp, str)
 	register char *bp, *str;
 {
@@ -183,6 +185,7 @@ match(bp, str)
  * lowstr --
  *	convert a string to lower case
  */
+void
 lowstr(from, to)
 	register char *from, *to;
 {
@@ -197,6 +200,7 @@ lowstr(from, to)
  * usage --
  *	print usage message and die
  */
+void
 usage()
 {
 	(void)fprintf(stderr,

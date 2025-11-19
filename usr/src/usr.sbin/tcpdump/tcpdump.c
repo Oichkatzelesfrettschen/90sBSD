@@ -45,6 +45,7 @@ static  char rcsid[] =
 #include "interface.h"
 #include "savefile.h"
 #include "addrtoname.h"
+#include <stdlib.h>
 
 int fflag;			/* don't translate "foreign" IP address */
 int nflag;			/* leave addresses as numbers */

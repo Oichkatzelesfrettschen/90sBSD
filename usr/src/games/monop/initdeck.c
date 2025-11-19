@@ -32,6 +32,7 @@
  */
 
 #ifndef lint
+#include <stdlib.h>
 char copyright[] =
 "@(#) Copyright (c) 1980 Regents of the University of California.\n\
  All rights reserved.\n";
@@ -108,6 +109,7 @@ char	*av[]; {
 	exit(0);
 }
 
+void
 getargs(ac, av)
 int	ac;
 char	*av[]; {
@@ -121,6 +123,7 @@ char	*av[]; {
 /*
  * count the cards
  */
+void
 count() {
 
 	reg bool	newline;
@@ -143,6 +146,7 @@ count() {
 /*
  *	put strings in the file
  */
+void
 putem() {
 
 	reg bool	newline;

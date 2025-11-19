@@ -155,6 +155,7 @@ connect()
 	return (tried ? "call failed" : "missing phone number");
 }
 
+void
 disconnect(reason)
 	char *reason;
 {
@@ -172,6 +173,7 @@ disconnect(reason)
 }
 
 static void
+void
 acuabort(s)
 {
 	signal(s, SIG_IGN);

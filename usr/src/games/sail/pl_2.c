@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)pl_2.c	5.4 (Berkeley) 6/1/90";
 
 #include "player.h"
 
+void
 play()
 {
 	register struct ship *sp;

@@ -2,6 +2,7 @@
 /* hack.bones.c - version 1.0.3 */
 
 #include "hack.h"
+#include <unistd.h>
 extern char plname[PL_NSIZ];
 extern long somegold();
 extern struct monst *makemon();
@@ -10,7 +11,9 @@ extern struct permonst pm_ghost;
 char bones[] = "bones_xx";
 
 /* save bones and possessions of a deceased adventurer */
+void
 savebones(){
+void
 register fd;
 register struct obj *otmp;
 register struct trap *ttmp;

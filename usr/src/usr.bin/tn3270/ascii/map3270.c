@@ -117,6 +117,7 @@ static char *environPointer = 0;/* if non-zero, point to input
 static char **whichkey = 0;
 static char *keysgeneric[] = {
 #include "default.map"		/* Define the default default */
+#include <stdlib.h>
 
 	0,			/* Terminate list of entries */
 };
@@ -285,6 +286,7 @@ uncontrol(c)
 
 /* compare two strings, ignoring case */
 
+int
 ustrcmp(string1, string2)
 register char *string1;
 register char *string2;
@@ -770,6 +772,7 @@ GetEntry()
  *	KEYBD (or TERM) variable
  */
 
+int
 Position(filename, keybdPointer)
 char *filename;
 char *keybdPointer;

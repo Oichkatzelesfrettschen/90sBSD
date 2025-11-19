@@ -10,9 +10,11 @@ extern coord mazexy();
 struct permonst hell_hound =
 	{ "hell hound", 'd', 12, 14, 2, 3, 6, 0 };
 
+void
 makemaz()
 {
 	int x,y;
+void
 	register zx,zy;
 	coord mm;
 	boolean al = (dlevel >= 30 && !flags.made_amulet);

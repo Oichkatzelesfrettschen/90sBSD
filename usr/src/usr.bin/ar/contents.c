@@ -59,6 +59,7 @@ extern char *archive;			/* archive name */
  *	Handles t[v] option - opens the archive and then reads headers,
  *	skipping member contents.
  */
+int
 contents(argv)
 	register char **argv;
 {

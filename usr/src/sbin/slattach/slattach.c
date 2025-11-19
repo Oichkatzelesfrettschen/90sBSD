@@ -53,6 +53,9 @@ static char sccsid[] = "@(#)slattach.c	4.6 (Berkeley) 6/1/90";
 #include <fcntl.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define DEFAULT_BAUD	9600
 int	slipdisc = SLIPDISC;
@@ -161,6 +164,7 @@ struct sg_spds {
 	{ 0, 0 }
 };
 
+int
 findspeed(speed)
 	register int speed;
 {

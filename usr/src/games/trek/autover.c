@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)autover.c	5.5 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -55,6 +56,7 @@ static char sccsid[] = "@(#)autover.c	5.5 (Berkeley) 6/1/90";
 **	quadrants, since that is all that is needed.
 */
 
+void
 autover()
 {
 	double			dist;

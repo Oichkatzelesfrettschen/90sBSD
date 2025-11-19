@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)dumpssradio.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -41,6 +42,7 @@ static char sccsid[] = "@(#)dumpssradio.c	5.4 (Berkeley) 6/1/90";
  **	output hidden distress calls
  **/
 
+int
 dumpssradio()
 {
 	register struct event	*e;

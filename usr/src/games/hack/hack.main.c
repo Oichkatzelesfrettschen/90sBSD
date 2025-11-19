@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <signal.h>
 #include "hack.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 #ifdef QUEST
 #define	gamename	"quest"

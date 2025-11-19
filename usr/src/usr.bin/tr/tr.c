@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)tr.c	4.7 (Berkeley) 7/23/90";
 #include <sys/types.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define	NCHARS	256				/* size of u_char */
 #define	OOBCH	257				/* out of band value */
@@ -166,6 +168,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 next(s)
 	register STR *s;
 {
@@ -212,6 +215,7 @@ fail2:			s->lastch = '-';
  * Translate \-escapes.  Up to 3 octal digits => char; no digits => literal.
  * Unadorned backslash "\" is like \000.
  */
+int
 tran(s)
 	register STR *s;
 {

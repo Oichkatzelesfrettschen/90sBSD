@@ -41,6 +41,25 @@
 #include <sys/sysctl.h>
 
 struct	loadavg averunnable;		/* load average, of runnable procs */
+ *	$Id: vm_meter.c,v 1.1 94/10/19 17:37:26 bill Exp $
+void
+ */
+
+#include "sys/param.h"
+#include "sys/errno.h"
+#include "proc.h"
+#include "kernel.h"	/* time */
+void
+#include "vmmeter.h"
+
+#include "vm.h"
+void
+#include "vmspace.h"
+
+#include "prototypes.h"
+void
+
+fixpt_t	averunnable[3];		/* load average, of runnable procs */
 
 int	maxslp = MAXSLP;
 int	saferss = SAFERSS;
@@ -53,6 +72,69 @@ vmmeter()
 		loadav(&averunnable);
 	if (proc0.p_slptime > maxslp/2)
 		wakeup((caddr_t)&proc0);
+}
+
+void
+vmtotal()
+{
+	register struct proc *p;
+	int nrun = 0;
+	register struct vmspace *vms;
+
+	total.t_vm = 0;
+void
+	total.t_avm = 0;
+	total.t_rm = 0;
+	total.t_arm = 0;
+	total.t_rq = 0;
+	total.t_dw = 0;
+	total.t_pw = 0;
+	total.t_sl = 0;
+	total.t_sw = 0;
+	total.t_free = vm_page_free_count;
+	for (p = allproc; p != NULL; p = p->p_nxt) {
+		if (p->p_flag & SSYS)
+			continue;
+		vms = p->p_vmspace;
+		total.t_vm = vms->vm_tsize + vms->vm_dsize + vms->vm_ssize;
+		if (p->p_stat) {
+			if (p->p_flag & SLOAD)
+				total.t_avm = vms->vm_tsize + vms->vm_dsize
+					+ vms->vm_ssize;
+			switch (p->p_stat) {
+
+			case SSLEEP:
+				if (p->p_pri <= PUSER && p->p_slptime == 0)
+					nrun++;
+				/* fall through */
+			case SSTOP:
+				if (p->p_flag & SPAGE)
+					total.t_pw++;
+				else
+				if (p->p_flag & SLOAD) {
+					if (p->p_pri <= PUSER)
+						total.t_dw++;
+					else if (p->p_slptime < maxslp)
+						total.t_sl++;
+				} else if (p->p_slptime < maxslp)
+					total.t_sw++;
+				if (p->p_slptime < maxslp)
+					goto active;
+				break;
+
+			case SRUN:
+			case SIDL:
+				nrun++;
+				if (p->p_flag & SLOAD)
+					total.t_rq++;
+				else
+					total.t_sw++;
+active:
+				break;
+			}
+		}
+	}
+	loadav(averunnable, nrun);
 }
 
 /*

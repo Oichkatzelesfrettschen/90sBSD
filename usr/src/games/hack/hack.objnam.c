@@ -2,6 +2,7 @@
 /* hack.objnam.c - version 1.0.2 */
 
 #include	"hack.h"
+#include <stdio.h>
 #define Sprintf (void) sprintf
 #define Strcat  (void) strcat
 #define	Strcpy	(void) strcpy

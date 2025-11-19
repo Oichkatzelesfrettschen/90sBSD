@@ -41,7 +41,9 @@ static char sccsid[] = "@(#)util.c	5.8 (Berkeley) 7/22/90";
 #include <sys/types.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
+void
 prcopy(src, dest, len)
 	register char *src, *dest;
 	register int len;
@@ -65,12 +67,14 @@ char
 	return(retval);
 }
 
+void
 nomem(void)
 {
 	(void)fprintf(stderr, "ls: out of memory.\n");
 	exit(1);
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr, "usage: ls [-1ACFLRTacdfgiklqrstu] [file ...]\n");

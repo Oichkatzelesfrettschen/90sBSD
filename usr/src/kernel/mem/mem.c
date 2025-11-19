@@ -31,12 +31,14 @@
  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+int
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
  *	$Id: mem.c,v 1.3 94/07/07 21:05:52 bill Exp Locker: bill $
+int
  */
 
 /*
@@ -167,8 +169,10 @@ mmrw(dev_t dev, struct uio *uio, int flags)
 				if (!useracc((caddr_t)iov->iov_base,
 					iov->iov_len, uio->uio_rw))
 					return (EFAULT);
+int
 				insl(uio->uio_offset, iov->iov_base,
 					iov->iov_len/ sizeof (long));
+int
 			}
 			break;
 #endif

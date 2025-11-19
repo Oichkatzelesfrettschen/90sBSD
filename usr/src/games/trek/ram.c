@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)ram.c	5.5 (Berkeley) 6/1/90";
+#include <stdio.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -48,6 +50,7 @@ static char sccsid[] = "@(#)ram.c	5.5 (Berkeley) 6/1/90";
 **	also rack up incredible damages.
 */
 
+void
 ram(ix, iy)
 int	ix, iy;
 {

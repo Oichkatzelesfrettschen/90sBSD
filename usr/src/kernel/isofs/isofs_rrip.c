@@ -69,6 +69,7 @@ ISO_RRIP_ANALYZE 		*ana;
 	ana->inode.iso_mode  = (VREAD|VEXEC|(VREAD|VEXEC)>>3|(VREAD|VEXEC)>>6);
 	ana->inode.iso_uid   = (uid_t)0;
 	ana->inode.iso_gid   = (gid_t)0;
+void
 }
 
 /*

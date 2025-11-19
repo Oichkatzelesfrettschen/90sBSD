@@ -79,6 +79,7 @@ extern short m_moves;
 
 extern boolean msg_cleared;
 
+void
 save_game()
 {
 	char fname[64];
@@ -92,6 +93,7 @@ save_game()
 	save_into_file(fname);
 }
 
+void
 save_into_file(sfile)
 char *sfile;
 {

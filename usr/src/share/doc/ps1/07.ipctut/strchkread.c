@@ -37,6 +37,9 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <string.h>
 #define TRUE 1
 
 /*
@@ -44,6 +47,7 @@
  * before calling accept(). 
  */
 
+void
 main()
 {
 	int sock, length;

@@ -96,6 +96,7 @@ char prevstate [IDLENGTH];
 char prevlocker[IDLENGTH];
 char dummy[IDLENGTH];
 
+int
 getoldkeys(fname)
 char * fname;
 /* Function: Tries to read keyword values for author, date,

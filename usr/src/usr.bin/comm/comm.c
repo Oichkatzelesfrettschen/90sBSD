@@ -47,6 +47,8 @@ static char sccsid[] = "@(#)comm.c	5.7 (Berkeley) 11/1/90";
 #include <sys/file.h>
 #include <limits.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define	MAXLINELEN	(_POSIX2_LINE_MAX + 1)
 
@@ -145,6 +147,7 @@ done:	argc -= optind;
 	exit(0);
 }
 
+void
 show(fp, offset, buf)
 	FILE *fp;
 	char *offset, *buf;
@@ -169,6 +172,7 @@ file(name)
 	return(fp);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: comm [-123] [ - ] file1 file2\n");

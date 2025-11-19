@@ -24,10 +24,12 @@ static char *rip[] = {
 0
 };
 
+void
 outrip(){
 	register char **dp = rip;
 	register char *dpx;
 	char buf[BUFSZ];
+void
 	register x,y;
 
 	cls();
@@ -73,6 +75,7 @@ outrip(){
 	getret();
 }
 
+void
 center(line, text) int line; char *text; {
 register char *ip,*op;
 	ip = text;

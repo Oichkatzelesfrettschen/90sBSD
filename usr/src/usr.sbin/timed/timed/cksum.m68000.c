@@ -40,6 +40,7 @@ static char sccsid[] = "@(#)cksum.m68000.c	2.4 (Berkeley) 4/20/91";
 
 /* computes the checksum for ip packets for a Motorola 68000 base computer */
 
+int
 in_cksum(w, mlen)
 	register u_short *w;
 	register int mlen;

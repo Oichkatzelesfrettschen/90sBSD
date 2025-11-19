@@ -18,6 +18,9 @@ along with GNU DIFF; see the file COPYING.  If not, write to
 the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #include "diff.h"
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /* Use when a system call returns non-zero status.
    TEXT should normally be the file name.  */

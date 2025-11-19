@@ -232,6 +232,7 @@ main(argc, argv)
 	exit(errs);
 }
 
+void
 toremote(targ, argc, argv)
 	char *targ;
 	int argc;

@@ -39,6 +39,7 @@ and this notice must be preserved on all copies.  */
 #ifdef BSD
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <unistd.h>
 #endif BSD
 
 extern char **environ;

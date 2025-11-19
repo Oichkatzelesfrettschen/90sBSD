@@ -36,7 +36,10 @@ static char sccsid[] = "@(#)com1.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <stdlib.h>
+#include <unistd.h>
 
+int
 move(thataway, token)
 int thataway, token;
 {
@@ -60,10 +63,12 @@ int thataway, token;
 	return(1);
 }
 
+void
 convert(tothis)		/* Converts day to night and vice versa. 	    */
 int tothis;		/* Day objects are permanent.  Night objects are added*/
 {			/* at dusk, and subtracted at dawn.		*/
 	register struct objs *p;
+void
 	register i, j;
 
 	if (tothis == TONIGHT) {
@@ -83,6 +88,7 @@ int tothis;		/* Day objects are permanent.  Night objects are added*/
 	}
 }
 
+void
 news()
 {
 	register int n;
@@ -217,6 +223,7 @@ news()
 		notes[CANTMOVE] = 0;
 }
 
+void
 crash()
 {
 	int hurt1,hurt2;

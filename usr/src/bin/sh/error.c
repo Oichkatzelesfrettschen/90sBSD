@@ -54,6 +54,7 @@ static char sccsid[] = "@(#)error.c	5.1 (Berkeley) 3/7/91";
 #include <varargs.h>	
 #endif
 #include <errno.h>
+#include <stdlib.h>
 
 
 /*
@@ -236,6 +237,7 @@ STATIC const struct errname errormsg[] = {
  */
 
 char *
+int
 errmsg(e, action) {
 	struct errname const *ep;
 	static char buf[12];

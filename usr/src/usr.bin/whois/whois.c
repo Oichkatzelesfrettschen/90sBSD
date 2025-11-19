@@ -46,6 +46,9 @@ static char sccsid[] = "@(#)whois.c	5.11 (Berkeley) 3/2/91";
 #include <netinet/in.h>
 #include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define	NICHOST	"nic.ddn.mil"
 
@@ -125,6 +128,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: whois [-h hostname] name ...\n");

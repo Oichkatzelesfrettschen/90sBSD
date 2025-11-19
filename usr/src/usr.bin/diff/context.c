@@ -18,6 +18,8 @@ along with GNU DIFF; see the file COPYING.  If not, write to
 the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #include "diff.h"
+#include <time.h>
+#include <stdlib.h>
 
 static void pr_context_hunk ();
 static void pr_unidiff_hunk ();

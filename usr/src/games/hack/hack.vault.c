@@ -36,6 +36,7 @@ static int gdlevel;
 static
 restfakecorr()
 {
+void
 	register fcx,fcy,fcbeg;
 	register struct rm *crm;
 

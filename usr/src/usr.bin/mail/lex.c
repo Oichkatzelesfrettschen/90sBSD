@@ -126,12 +126,16 @@ setfile(name)
 	shudclob = 1;
 	edit = isedit;
 	strcpy(prevfile, mailname);
+void
 	if (name != mailname)
 		strcpy(mailname, name);
+void
 	mailsize = fsize(ibuf);
+void
 	if ((otf = fopen(tempMesg, "w")) == NULL) {
 		perror(tempMesg);
 		exit(1);
+void
 	}
 	if ((itf = fopen(tempMesg, "r")) == NULL) {
 		perror(tempMesg);

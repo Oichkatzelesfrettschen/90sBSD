@@ -38,6 +38,8 @@ static char sccsid[] = "@(#)score.c	5.5 (Berkeley) 6/1/90";
 #include	<stdio.h>
 #include	"deck.h"
 #include	"cribbage.h"
+#include <string.h>
+#include <stdlib.h>
 
 
 /*
@@ -99,6 +101,7 @@ static  int		pairpoints, runpoints;	/* globals from pairuns */
  *	Score the given hand of n cards and the starter card.
  *	n must be <= 4
  */
+int
 scorehand(hand, starter, n, crb, do_explain)
 register CARD		hand[];
 CARD			starter;
@@ -174,6 +177,7 @@ BOOLEAN			do_explain;	/* true if must explain this hand */
  * fifteens:
  *	Return number of fifteens in hand of n cards
  */
+int
 fifteens(hand, n)
 register CARD		hand[];
 int			n;
@@ -219,6 +223,7 @@ int			n;
  * sets the globals pairpoints and runpoints appropriately
  */
 
+int
 pairuns( h, n )
 
     CARD		h[];
@@ -294,6 +299,7 @@ pairuns( h, n )
  * the n cards in tbl during pegging
  */
 
+int
 pegscore( crd, tbl, n, sum )
 
     CARD		crd,  tbl[];
@@ -337,6 +343,7 @@ pegscore( crd, tbl, n, sum )
  * points such a crib will get.
  */
 
+int
 adjust( cb, tnv )
 
     CARD		cb[], tnv;

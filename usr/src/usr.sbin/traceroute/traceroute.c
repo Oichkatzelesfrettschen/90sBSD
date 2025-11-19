@@ -231,6 +231,7 @@ static char sccsid[] = "@(#)traceroute.c	5.4 (Berkeley) 5/15/90";
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define	MAXPACKET	65535	/* max ip packet size */
 #ifndef MAXHOSTNAMELEN

@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)shield.c	5.5 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -62,6 +63,7 @@ struct cvntab Udtab[] =
 	0
 };
 
+int
 shield(f)
 int	f;
 {

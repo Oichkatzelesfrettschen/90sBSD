@@ -16,6 +16,8 @@
 
 #include "config.h"
 #include "vi.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 #if ANY_UNIX
 # if UNIXV

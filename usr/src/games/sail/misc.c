@@ -41,9 +41,11 @@ static char sccsid[] = "@(#)misc.c	5.5 (Berkeley) 6/1/90";
 #define distance(x,y) (abs(x) >= abs(y) ? abs(x) + abs(y)/2 : abs(y) + abs(x)/2)
 
 /* XXX */
+int
 range(from, to)
 struct ship *from, *to;
 {
+int
 	register bow1r, bow1c, bow2r, bow2c;
 	int stern1r, stern1c, stern2c, stern2r;
 	register int bb, bs, sb, ss, result;
@@ -97,9 +99,12 @@ char side, anyship;
 	return closest;
 }
 
+int
 angle(dr, dc)
+int
 register dr, dc;
 {
+void
 	register i;
 
 	if (dc >= 0 && dr > 0)
@@ -124,10 +129,12 @@ register dr, dc;
 	return i % 8 + 1;
 }
 
+int
 gunsbear(from, to)		/* checks for target bow or stern */
 register struct ship *from, *to;
 {
 	int Dr, Dc, i;
+int
 	register ang;
 
 	Dr = from->file->row - to->file->row;
@@ -145,11 +152,14 @@ register struct ship *from, *to;
 	return 0;
 }
 
+int
 portside(from, on, quick)
 register struct ship *from, *on;
 int quick;			/* returns true if fromship is */
 {				/* shooting at onship's starboard side */
+void
 	register ang;
+void
 	register Dr, Dc;
 
 	Dr = from->file->row - on->file->row;
@@ -165,6 +175,7 @@ int quick;			/* returns true if fromship is */
 	return ang < 5;
 }
 
+int
 colours(sp)
 register struct ship *sp;
 {
@@ -183,6 +194,7 @@ register struct ship *sp;
 }
 
 #include <sys/file.h>
+#include <unistd.h>
 log(s)
 register struct ship *s;
 {

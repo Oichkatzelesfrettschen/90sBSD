@@ -71,6 +71,7 @@ static int	num_good,got_houses;
  * it gets the list of mortgageable property and asks which are to
  * be mortgaged.
  */
+void
 mortgage() {
 
 	reg int	prop;
@@ -99,6 +100,7 @@ mortgage() {
 /*
  *	This routine sets up the list of mortgageable property
  */
+int
 set_mlist() {
 
 	reg OWN	*op;
@@ -119,6 +121,7 @@ set_mlist() {
 /*
  *	This routine actually mortgages the property.
  */
+void
 m(prop)
 reg int	prop; {
 
@@ -134,6 +137,7 @@ reg int	prop; {
  * command.  It gets the list of mortgaged property and asks which are
  * to be unmortgaged.
  */
+void
 unmortgage() {
 
 	reg int	prop;

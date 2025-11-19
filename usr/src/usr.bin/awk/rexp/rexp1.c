@@ -28,6 +28,8 @@ the GNU General Public License, version 2, 1991.
 /*  re machine  operations  */
 
 #include  "rexp.h"
+#include <setjmp.h>
+#include <string.h>
 
 static void PROTO( new_TWO , (int, MACHINE *) ) ;
 

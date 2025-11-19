@@ -131,6 +131,7 @@ expand(list, wh)
 	return(list);
 }
 
+int
 expstr(s)
 	char *s;
 {

@@ -48,6 +48,7 @@ static char sccsid[] = "@(#)head.c	5.7 (Berkeley) 6/1/90";
  * Return true if yes.  Note the extreme pains to
  * accomodate all funny formats.
  */
+int
 ishead(linebuf)
 	char linebuf[];
 {
@@ -75,6 +76,7 @@ ishead(linebuf)
 }
 
 /*ARGSUSED*/
+void
 fail(linebuf, reason)
 	char linebuf[], reason[];
 {
@@ -92,6 +94,7 @@ fail(linebuf, reason)
  * pointers into the copied line in the passed headline
  * structure.  Actually, it scans.
  */
+void
 parse(line, hl, pbuf)
 	char line[], pbuf[];
 	register struct headline *hl;

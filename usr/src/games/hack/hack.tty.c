@@ -81,6 +81,7 @@ static char sccsid[] = "@(#)hack.tty.c	5.3 (Berkeley) 5/13/91";
 #else	/* V7 */
 
 #include	<sgtty.h>
+#include <stdlib.h>
 #define termstruct	sgttyb
 #define	kill_sym	sg_kill
 #define	erase_sym	sg_erase
@@ -106,6 +107,7 @@ struct termstruct inittyb, curttyb;
  * and switch off tab expansion if necessary.
  * Called by startup() in termcap.c and after returning from ! or ^Z
  */
+void
 gettty(){
 	if(GTTY(&inittyb) < 0)
 		perror("Hack (gettty)");
@@ -124,6 +126,7 @@ gettty(){
 }
 
 /* reset terminal to original state */
+void
 settty(s) char *s; {
 	clear_screen();
 	end_screen();
@@ -136,12 +139,14 @@ settty(s) char *s; {
 	setioctls();
 }
 
+void
 setctty(){
 	if(STTY(&curttyb) < 0)
 		perror("Hack (setctty)");
 }
 
 
+void
 setftty(){
 register int ef = 0;			/* desired value of flags & ECHO */
 register int cf = CBRKON(CBRKMASK);	/* desired value of flags & CBREAK */
@@ -173,6 +178,7 @@ register int change = 0;
 
 /* fatal error */
 /*VARARGS1*/
+void
 error(s,x,y) char *s; {
 	if(settty_needed)
 		settty((char *) 0);

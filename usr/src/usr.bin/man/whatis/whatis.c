@@ -111,6 +111,7 @@ main(argc, argv)
 			printf("%s: not found\n", *p);
 }
 
+void
 whatis(argv, path, buildpath)
 	char **argv, *path;
 	int buildpath;
@@ -156,6 +157,7 @@ whatis(argv, path, buildpath)
  * match --
  *	match a full word
  */
+int
 match(bp, str)
 	register char *bp, *str;
 {
@@ -180,6 +182,7 @@ match(bp, str)
  * dashtrunc --
  *	truncate a string at " - "
  */
+void
 dashtrunc(from, to)
 	register char *from, *to;
 {
@@ -195,6 +198,7 @@ dashtrunc(from, to)
  * usage --
  *	print usage message and die
  */
+void
 usage()
 {
 	(void)fprintf(stderr,

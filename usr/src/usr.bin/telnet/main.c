@@ -46,6 +46,9 @@ static char sccsid[] = "@(#)main.c	5.4 (Berkeley) 3/22/91";
 #include "ring.h"
 #include "externs.h"
 #include "defines.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /*
  * Initialize variables.

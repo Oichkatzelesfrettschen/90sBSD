@@ -15,6 +15,8 @@
 #include "config.h"
 #include "ctype.h"
 #include "vi.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 
 #ifndef NO_DIGRAPH

@@ -77,6 +77,7 @@ static char sccsid[] = "@(#)arithmetic.c	5.5 (Berkeley) 2/27/91";
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 char keylist[] = "+-x/";
 char defaultkeys[] = "+-";
@@ -157,6 +158,7 @@ intr()
 }
 
 /* Print score.  Original `arithmetic' had a delay after printing it. */
+void
 showstats()
 {
 	if (nright + nwrong > 0) {
@@ -177,6 +179,7 @@ showstats()
  * answer causes the numbers in the problem to be penalised, so that they are
  * more likely to appear in subsequent problems.
  */
+int
 problem()
 {
 	register char *p;
@@ -288,6 +291,7 @@ struct penalty {
  * operand number `operand' (0 or 1).  If we run out of memory, we just
  * forget about the penalty (how likely is this, anyway?).
  */
+void
 penalise(value, op, operand)
 	int value, op, operand;
 {
@@ -309,6 +313,7 @@ penalise(value, op, operand)
  * as a value, or represents a position in the penalty list.  If the latter,
  * we find the corresponding value and return that, decreasing its penalty.
  */
+int
 getrandom(maxval, op, operand)
 	int maxval, op, operand;
 {

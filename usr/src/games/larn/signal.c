@@ -1,7 +1,11 @@
 #include <signal.h>
 #include "header.h"			/* "Larn is copyrighted 1986 by Noah Morgan.\n" */
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 #define BIT(a) (1<<((a)-1))
 extern char savefilename[],wizard,predostuff,nosignal;
+void
 static s2choose()	/* text to be displayed if ^C during intro screen */
 	{
 	cursor(1,24); lprcat("Press "); setbold(); lprcat("return"); resetbold();
@@ -59,6 +63,7 @@ static void sigsegv()	{ sigpanic(SIGSEGV); }
 static void sigsys()	{ sigpanic(SIGSYS); }
 static void sigpipe()	{ sigpanic(SIGPIPE); }
 static void sigterm()	{ sigpanic(SIGTERM); }
+void
 sigsetup()
 	{
 	signal(SIGQUIT, cntlc); 		signal(SIGINT,  cntlc); 

@@ -91,6 +91,7 @@ extern boolean being_held, wizard, detect_monster;
 extern boolean see_invisible;
 extern short bear_trap, levitate, extra_hp, less_hp, cur_room;
 
+void
 make_level()
 {
 	short i, j;
@@ -188,6 +189,7 @@ make_level()
 	}
 }
 
+void
 make_room(rn, r1, r2, r3)
 short rn, r1, r2, r3;
 {

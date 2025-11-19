@@ -92,6 +92,7 @@ struct trobj Wizard[] = {
 	{ 0, 0, 0, 0, 0 }
 };
 
+void
 u_init(){
 register int i;
 char exper = 'y', pc;

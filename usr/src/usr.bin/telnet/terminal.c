@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)terminal.c	5.3 (Berkeley) 3/22/91";
 
 #include "externs.h"
 #include "types.h"
+#include <stdlib.h>
 
 Ring		ttyoring, ttyiring;
 unsigned char	ttyobuf[2*BUFSIZ], ttyibuf[BUFSIZ];

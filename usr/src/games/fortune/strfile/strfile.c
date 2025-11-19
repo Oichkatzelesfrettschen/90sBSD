@@ -35,6 +35,9 @@
  */
 
 #ifndef lint
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 char copyright[] =
 "@(#) Copyright (c) 1989 The Regents of the University of California.\n\
  All rights reserved.\n";
@@ -252,6 +255,7 @@ char	**av;
 /*
  *	This routine evaluates arguments from the command line
  */
+void
 getargs(argc, argv)
 int	argc;
 char	**argv;
@@ -305,6 +309,7 @@ char	**argv;
 	}
 }
 
+void
 usage()
 {
 	(void) fprintf(stderr,
@@ -316,6 +321,7 @@ usage()
  * add_offset:
  *	Add an offset to the list, or write it out, as appropriate.
  */
+void
 add_offset(fp, off)
 FILE	*fp;
 off_t	off;
@@ -336,6 +342,7 @@ off_t	off;
  * do_order:
  *	Order the strings alphabetically (possibly ignoring case).
  */
+void
 do_order()
 {
 	register int	i;
@@ -381,6 +388,7 @@ char c;
 	return buf;
 }
 
+int
 cmp_str(p1, p2)
 STR	*p1, *p2;
 {
@@ -432,6 +440,7 @@ STR	*p1, *p2;
  *	not to randomize across delimiter boundaries.  All
  *	randomization is done within each block.
  */
+void
 randomize()
 {
 	register int	cnt, i;

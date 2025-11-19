@@ -121,10 +121,14 @@ char *index ();
 #define exchange(x, y) {int temp = x; x = y; y = temp;}
 #endif
 
+int
 static update_line ();
 static void output_character_function ();
+int
 static delete_chars ();
+int
 static start_insert ();
+int
 static end_insert ();
 
 /* This typedef is equivalant to the one for Function; it allows us
@@ -256,6 +260,7 @@ char *
 readline (prompt)
      char *prompt;
 {
+int
   static rl_prep_terminal (), rl_deprep_terminal ();
   char *readline_internal ();
   char *value;
@@ -4429,6 +4434,7 @@ rl_yank_nth_arg (count, ignore)
 /* Vi Mode. */
 #ifdef VI_MODE
 #include "vi_mode.c"
+#include <stdlib.h>
 #endif /* VI_MODE */
 
 /* How to toggle back and forth between editing modes. */

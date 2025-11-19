@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)print.c	5.24 (Berkeley) 10/19/90";
 #include <tzfile.h>
 #include "ls.h"
 
+void
 printscol(stats, num)
 	register LS *stats;
 	register int num;
@@ -57,6 +58,7 @@ printscol(stats, num)
 	}
 }
 
+void
 printlong(stats, num)
 	LS *stats;
 	register int num;
@@ -104,6 +106,7 @@ printlong(stats, num)
 
 #define	TAB	8
 
+void
 printcol(stats, num)
 	LS *stats;
 	int num;
@@ -155,6 +158,7 @@ printcol(stats, num)
  * print [inode] [size] name
  * return # of characters printed, no trailing characters
  */
+int
 printaname(lp)
 	LS *lp;
 {
@@ -172,6 +176,7 @@ printaname(lp)
 	return(chcnt);
 }
 
+void
 printtime(ftime)
 	time_t ftime;
 {
@@ -198,6 +203,7 @@ printtime(ftime)
 	(void)putchar(' ');
 }
 
+int
 printtype(mode)
 	mode_t mode;
 {
@@ -219,6 +225,7 @@ printtype(mode)
 	return(0);
 }
 
+void
 printlink(name)
 	char *name;
 {

@@ -5,6 +5,9 @@
 extern char genocided[60];	/* defined in Decl.c */
 extern char fut_geno[60];	/* idem */
 #include <signal.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 extern char SAVEF[], nul[];
 extern char pl_character[PL_CSIZ];
@@ -12,6 +15,7 @@ extern long lseek();
 extern struct obj *restobjchn();
 extern struct monst *restmonchn();
 
+int
 dosave(){
 	if(dosave0(0)) {
 		settty("Be seeing you ...\n");
@@ -23,6 +27,7 @@ dosave(){
 }
 
 #ifndef NOSAVEONHANGUP
+void
 hangup(){
 	(void) dosave0(1);
 	exit(1);
@@ -30,7 +35,9 @@ hangup(){
 #endif NOSAVEONHANGUP
 
 /* returns 1 if save successful */
+int
 dosave0(hu) int hu; {
+int
 	register fd, ofd;
 	int tmp;		/* not register ! */
 

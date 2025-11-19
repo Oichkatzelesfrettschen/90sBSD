@@ -558,12 +558,14 @@ readcf(cfname, safe, e)
 **
 **	Returns:
 **		none.
+void
 **
 **	Side Effects:
 **		gives a syserr.
 */
 
 toomany(id, maxcnt)
+void
 	char id;
 	int maxcnt;
 {

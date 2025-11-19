@@ -558,12 +558,14 @@ setsignal(sig, handler)
 **  HOLDSIGS -- arrange to hold all signals
 **
 **	Parameters:
+void
 **		none.
 **
 **	Returns:
 **		none.
 **
 **	Side Effects:
+void
 **		Arranges that signals are held.
 */
 

@@ -49,6 +49,7 @@ static char sccsid[] = "@(#)xstr.c	5.7 (Berkeley) 2/26/91";
 #include <ctype.h>
 #include <string.h>
 #include "pathnames.h"
+#include <stdlib.h>
 
 /*
  * xstr - extract and hash strings in a C program
@@ -128,6 +129,7 @@ main(argc, argv)
 
 char linebuf[BUFSIZ];
 
+void
 process(name)
 	char *name;
 {
@@ -258,6 +260,7 @@ out:
 	return (hashit(dbuf, 1));
 }
 
+int
 octdigit(c)
 	char c;
 {
@@ -265,6 +268,7 @@ octdigit(c)
 	return (isdigit(c) && c != '8' && c != '9');
 }
 
+void
 inithash()
 {
 	char buf[BUFSIZ];
@@ -281,11 +285,13 @@ inithash()
 	ignore(fclose(mesgread));
 }
 
+int
 fgetNUL(obuf, rmdr, file)
 	char *obuf;
 	register int rmdr;
 	FILE *file;
 {
+int
 	register c;
 	register char *buf = obuf;
 
@@ -295,6 +301,7 @@ fgetNUL(obuf, rmdr, file)
 	return ((feof(file) || ferror(file)) ? NULL : 1);
 }
 
+int
 xgetc(file)
 	FILE *file;
 {
@@ -343,6 +350,7 @@ hashit(str, new)
 	return (hp->hpt);
 }
 
+void
 flushsh()
 {
 	register int i;

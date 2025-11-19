@@ -54,6 +54,7 @@ static struct nlist nl[] = {
  *  Put `nelem' samples into `loadavg' array.
  *  Return number of samples retrieved, or -1 on error.
  */
+int
 getloadavg(loadavg, nelem)
 	double loadavg[];
 	int nelem;

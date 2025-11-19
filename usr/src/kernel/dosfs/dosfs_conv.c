@@ -29,6 +29,7 @@
  *  PCFS include files.
  */
 #include "direntry.h"
+#include <stdio.h>
 
 /*
  *  Days in each month in a regular year.
@@ -69,6 +70,7 @@ unix2dostime(tvp, ddp, dtp)
 	u_long days;
 	u_long inc;
 	u_long year;
+void
 	u_long month;
 	u_short *months;
 

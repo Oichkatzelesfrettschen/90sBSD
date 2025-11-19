@@ -71,6 +71,7 @@ static char rcsid[]=
 */
 
 #include  "rcsbase.h"
+#include <stdlib.h>
 #ifdef _FSTDIO
 #undef putc
 #define putc __sputc
@@ -145,6 +146,7 @@ FILE * file;
 
 
 
+int
 match(fp)   /* group substring between two KDELIM's; then do pattern match */
 FILE *fp;
 {

@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)tty.c	5.12 (Berkeley) 4/1/91";
  */
 
 #include "rcv.h"
+#include <signal.h>
 
 static	int	c_erase;		/* Current erase char */
 static	int	c_kill;			/* Current kill char */
@@ -55,6 +56,7 @@ static	int	ttyset;			/* We must now do erase/kill */
  * Read all relevant header fields.
  */
 
+int
 grabh(hp, gflags)
 	struct header *hp;
 {

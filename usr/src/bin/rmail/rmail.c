@@ -55,6 +55,9 @@ static char sccsid[] = "@(#)rmail.c	4.15 (Berkeley) 5/31/90";
 #include <sys/stat.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 typedef char bool;
 #define TRUE	1

@@ -60,6 +60,8 @@ static char rcsid[]=
  * 
  */
 #include "rcsbase.h"
+#include <unistd.h>
+#include <stdlib.h>
 #define ERRCODE 2                   /*error code for exit status            */
 static char rcsbaseid[] = RCSBASE;
 
@@ -77,6 +79,7 @@ char *workfilename;
 char * tempfile;
 FILE * file1, * file2;              /*file descriptors for comparison       */
 
+void
 main (argc, argv)
 int argc; char **argv;
 {

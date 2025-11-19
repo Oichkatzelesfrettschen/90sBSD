@@ -10,6 +10,7 @@ static boolean far_noise;
 static long noisetime;
 
 /* hitmm returns 0 (miss), 1 (hit), or 2 (kill) */
+int
 hitmm(magr,mdef) register struct monst *magr,*mdef; {
 register struct permonst *pa = magr->data, *pd = mdef->data;
 int hit;

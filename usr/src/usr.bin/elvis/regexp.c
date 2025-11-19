@@ -164,6 +164,7 @@ static char *makeclass(text, bmap)
  * a bitmap is generated via makeclass() (if re is given), and the
  * character-class text is skipped.
  */
+int
 static int gettoken(sptr, re)
 	char	**sptr;
 	regexp	*re;

@@ -73,6 +73,7 @@ extern ndptr lookup();
  *
  */
 
+int
 eval (argv, argc, td)
 register char *argv[];
 register int argc;

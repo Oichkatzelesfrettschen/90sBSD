@@ -38,6 +38,8 @@ static char *RCSid =
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TRUE	1
 #define FALSE	0
@@ -74,6 +76,7 @@ typedef struct header
 } HEADER;
 
 
+void
 quit (fmt, args)
 char *fmt;
 {
@@ -153,6 +156,7 @@ char *old_str, *str;
     return (newstring);
 }
 
+void
 trimtail (line)
 char *line;
 {
@@ -258,6 +262,7 @@ char *sccsfile;
     return (header);
 }
 
+int
 install_userlist (userlist, rcsfile)
 register USERLIST *userlist;
 char *rcsfile;
@@ -282,6 +287,7 @@ char *rcsfile;
     return (system (command));
 }
 
+int
 initialize_rcsfile (description, rcsfile)
 char *description, *rcsfile;
 {
@@ -303,6 +309,7 @@ char *description, *rcsfile;
     return (pclose (pd));
 }
 
+int
 install_deltas (delta, sccsfile, rcsfile)
 register DELTA *delta;
 char *sccsfile, *rcsfile;
@@ -344,6 +351,7 @@ char *sccsfile, *rcsfile;
     return (0);
 }
 
+int
 finalize_rcsfile (rcsfile)
 char *rcsfile;
 {
@@ -356,6 +364,7 @@ char *rcsfile;
     return (system (command));
 }
 
+void
 build_new_rcs_file (header, sccsfile)
 HEADER *header;
 char *sccsfile;

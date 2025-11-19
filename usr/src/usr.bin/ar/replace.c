@@ -61,6 +61,7 @@ extern char *tname;                     /* temporary file "name" */
  *	the key entry, based on the a, b and i options.  If the u option
  *	is specified, modification dates select for replacement.
  */
+int
 replace(argv)
 	char **argv;
 {

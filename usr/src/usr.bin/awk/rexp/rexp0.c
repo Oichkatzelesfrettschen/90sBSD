@@ -48,6 +48,7 @@ the GNU General Public License, version 2, 1991.
 /*  lexical scanner  */
 
 #include  "rexp.h"
+#include <string.h>
 
 /* static functions */
 static int  PROTO( do_str, (int, char **, MACHINE *) ) ;
@@ -134,6 +135,7 @@ int   RE_lex( mp )
 
           switch( c )
            { case  T_ANY : 
+int
              { static plus_is_star_flag = 0 ;
 
                   if ( * ++lp == '*' )

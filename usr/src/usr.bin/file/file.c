@@ -29,6 +29,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "file.h"
+#include <string.h>
+#include <unistd.h>
 
 #define USAGE		"usage: %s [-c] [-f namefile] [-m magicfile] file...\n"
 
@@ -111,6 +113,7 @@ char *argv[];
 /*
  * unwrap -- read a file of filenames, do each one.
  */
+void
 unwrap(fn)
 char *fn;
 {
@@ -133,6 +136,7 @@ char *fn;
 /*
  * process - process input file
  */
+void
 process(inname)
 char	*inname;
 {

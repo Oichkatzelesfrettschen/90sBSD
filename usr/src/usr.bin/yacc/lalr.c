@@ -74,6 +74,7 @@ static short *VERTICES;
 static int top;
 
 
+void
 lalr()
 {
     tokensetsize = WORDSIZE(ntokens);
@@ -93,6 +94,7 @@ lalr()
 
 
 
+void
 set_state_table()
 {
     register core *sp;
@@ -104,6 +106,7 @@ set_state_table()
 
 
 
+void
 set_accessing_symbol()
 {
     register core *sp;
@@ -115,6 +118,7 @@ set_accessing_symbol()
 
 
 
+void
 set_shift_table()
 {
     register shifts *sp;
@@ -126,6 +130,7 @@ set_shift_table()
 
 
 
+void
 set_reduction_table()
 {
     register reductions *rp;
@@ -137,6 +142,7 @@ set_reduction_table()
 
 
 
+void
 set_maxrhs()
 {
   register short *itemp;
@@ -165,6 +171,7 @@ set_maxrhs()
 
 
 
+void
 initialize_LA()
 {
   register int i, j, k;
@@ -202,6 +209,7 @@ initialize_LA()
 }
 
 
+void
 set_goto_map()
 {
   register shifts *sp;

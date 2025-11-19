@@ -46,6 +46,9 @@ static char sccsid[] = "@(#)from.c	5.7 (Berkeley) 3/1/91";
 #include <pwd.h>
 #include <stdio.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 int
 main(argc, argv)
@@ -111,6 +114,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 match(line, sender)
 	register char *line, *sender;
 {

@@ -126,12 +126,16 @@ edit1(msgvec, type)
 		}
 		(void) signal(SIGINT, sigint);
 	}
+int
 	return 0;
 }
+int
 
+int
 /*
  * Run an editor on the file at "fpp" of "size" bytes,
  * and return a new file pointer.
+int
  * Signals must be handled by the caller.
  * "Type" is 'e' for _PATH_EX, 'v' for _PATH_VI.
  */

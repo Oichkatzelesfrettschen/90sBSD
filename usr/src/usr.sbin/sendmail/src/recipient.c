@@ -558,12 +558,14 @@ finduser(name, fuzzyp)
 		return NULL;
 	}
 
+void
 	/* search for a matching full name instead */
 	for (p = name; *p != '\0'; p++)
 	{
 		if (*p == (SpaceSub & 0177) || *p == '_')
 			*p = ' ';
 	}
+int
 	(void) setpwent();
 	while ((pw = getpwent()) != NULL)
 	{

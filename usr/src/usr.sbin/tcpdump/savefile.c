@@ -41,6 +41,7 @@ static char rcsid[] =
 
 #include "interface.h"
 #include "savefile.h"
+#include <stdlib.h>
 
 #define TCPDUMP_MAGIC 0xa1b2c3d4
 

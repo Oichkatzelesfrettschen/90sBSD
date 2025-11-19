@@ -29,6 +29,7 @@
  * with 'ifp' based on the truth value of 'pswitch'.  This code
  * works only with the SunOS 3.5 drivers.
  */
+int
 ifpromisc(ifp, pswitch)
 	struct ifnet *ifp;
 	int pswitch;

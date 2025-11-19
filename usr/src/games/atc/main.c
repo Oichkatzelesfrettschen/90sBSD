@@ -55,6 +55,10 @@ static char sccsid[] = "@(#)main.c	5.4 (Berkeley) 3/5/91";
 
 #include "include.h"
 #include "pathnames.h"
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 int
 main(ac, av)
@@ -219,6 +223,7 @@ main(ac, av)
 	}
 }
 
+int
 read_file(s)
 	char	*s;
 {

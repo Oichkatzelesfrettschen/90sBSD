@@ -190,6 +190,7 @@ nextfile: ;
  * getch --
  *	get next character from wherever
  */
+int
 getch()
 {
 	++foff;

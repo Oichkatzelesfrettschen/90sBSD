@@ -161,6 +161,7 @@ typedef struct _ID {
 	ino_t	inode;
 } ID;
 
+int
 linkchk(p)
 	register FTSENT *p;
 {
@@ -188,6 +189,7 @@ linkchk(p)
 	return(0);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: du [-a | -s] [-kx] [file ...]\n");

@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)save.c	5.3 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <string.h>
 
+void
 restore()
 {
 	char *getenv();
@@ -90,6 +92,7 @@ restore()
 	fread(&ego, sizeof ego, 1, fp);
 }
 
+void
 save()
 {
 	char *getenv();

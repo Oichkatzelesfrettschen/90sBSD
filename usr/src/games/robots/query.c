@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)query.c	5.4 (Berkeley) 6/1/90";
+#include <string.h>
 #endif /* not lint */
 
 # include	"robots.h"
@@ -41,6 +42,7 @@ static char sccsid[] = "@(#)query.c	5.4 (Berkeley) 6/1/90";
  * query:
  *	Ask a question and get a yes or no answer.  Default is "no".
  */
+int
 query(prompt)
 char	*prompt;
 {

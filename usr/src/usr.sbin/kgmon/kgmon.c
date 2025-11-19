@@ -48,6 +48,9 @@ static char sccsid[] = "@(#)kgmon.c	5.12 (Berkeley) 7/1/91";
 #include <nlist.h>
 #include <ctype.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 #define	PROFILING_ON	0
 #define	PROFILING_OFF	3
@@ -206,6 +209,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 dumpstate()
 {
 	extern int errno;
@@ -276,6 +280,7 @@ dumpstate()
 	close(fd);
 }
 
+void
 resetstate()
 {
 	off_t kfroms, ktos;

@@ -7,6 +7,7 @@ extern char *nomovemsg;
 extern struct monst youmonst;
 extern struct monst *makemon();
 
+int
 dodrink() {
 	register struct obj *otmp,*objs;
 	register struct monst *mtmp;

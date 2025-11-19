@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <unistd.h>
 .\" Copyright (c) 1980 The Regents of the University of California.
 .\" All rights reserved.
 .\"
@@ -56,6 +58,7 @@ char	*getenv();
 
 int	die();
 
+void
 main()
 {
 	srand(getpid());		/* initialize random sequence */
@@ -80,6 +83,7 @@ main()
  * We lie and say we used to be at the upper right corner to guarantee
  * absolute addressing.
  */
+void
 die()
 {
 	signal(SIGINT, SIG_IGN);
@@ -94,6 +98,7 @@ die()
  * calls ison() to determine if the character is on that pattern
  * or not.
  */
+void
 makeboard()
 {
 	reg int		y, x;
@@ -114,6 +119,7 @@ makeboard()
 /*
  * Return TRUE if (y, x) is on the current pattern.
  */
+int
 ison(y, x)
 reg int	y, x; {
 
@@ -134,6 +140,7 @@ reg int	y, x; {
 	/* NOTREACHED */
 }
 
+void
 puton(ch)
 reg char	ch;
 {

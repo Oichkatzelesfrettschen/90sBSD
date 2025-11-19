@@ -46,6 +46,9 @@ static char sccsid[] = "@(#)main.c	5.4 (Berkeley) 2/26/91";
 
 #include <signal.h>
 #include "defs.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 char dflag;
 char lflag;
@@ -106,6 +109,7 @@ extern char *mktemp();
 extern char *getenv();
 
 
+void
 done(k)
 int k;
 {
@@ -123,6 +127,7 @@ onintr()
 }
 
 
+void
 set_signals()
 {
 #ifdef SIGINT
@@ -140,6 +145,7 @@ set_signals()
 }
 
 
+void
 usage()
 {
     fprintf(stderr, "usage: %s [-dlrtv] [-b file_prefix] filename\n", myname);
@@ -147,6 +153,7 @@ usage()
 }
 
 
+void
 getargs(argc, argv)
 int argc;
 char *argv[];
@@ -259,6 +266,7 @@ unsigned n;
 }
 
 
+void
 create_file_names()
 {
     int i, len;
@@ -342,6 +350,7 @@ create_file_names()
 }
 
 
+void
 open_files()
 {
     create_file_names();

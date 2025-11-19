@@ -69,6 +69,7 @@ char *bpf_config = "bpf 50.";
 
 /*
  * The default read buffer size is patchable.
+int
  */
 int bpf_bufsize = MCLBYTES;
 

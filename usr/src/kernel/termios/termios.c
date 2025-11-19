@@ -69,6 +69,7 @@ static void ttyoutstr(char *cp, struct tty *tp);
 #define	CCLASS(c)	(partab[c] & CCLASSMASK)
 extern char partab[];
 int nullioctl(struct tty *tp, int cmd, char *data, int flags, struct proc *p);
+int
 
 /*
  * Is 'c' a line delimiter ("break" character)?

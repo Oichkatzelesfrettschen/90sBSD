@@ -51,6 +51,7 @@ static char sccsid[] = "@(#)fish.c	5.4 (Berkeley) 1/18/91";
 #include <stdlib.h>
 #include <string.h>
 #include "pathnames.h"
+#include <time.h>
 
 #define	RANKS		13
 #define	HANDSIZE	7
@@ -122,6 +123,7 @@ istart:		for (;;) {
 	/* NOTREACHED */
 }
 
+int
 usermove()
 {
 	register int n;
@@ -176,6 +178,7 @@ usermove()
 	/* NOTREACHED */
 }
 
+int
 compmove()
 {
 	static int lmove;

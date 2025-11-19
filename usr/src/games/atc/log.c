@@ -49,7 +49,13 @@ static char sccsid[] = "@(#)log.c	5.7 (Berkeley) 10/30/90";
 
 #include "include.h"
 #include "pathnames.h"
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
 
+int
 compar(a, b)
 	SCORE	*a, *b;
 {
@@ -70,6 +76,7 @@ compar(a, b)
 #define SEC(t)		((t) % SECAMIN)
 
 char	*
+int
 timestr(t)
 {
 	static char	s[80];
@@ -88,6 +95,7 @@ timestr(t)
 	return (s);
 }
 
+int
 log_score(list_em)
 {
 	register int	i, fd, num_scores = 0, good, changed = 0, found = 0;

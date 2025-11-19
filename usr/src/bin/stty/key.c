@@ -89,6 +89,7 @@ static struct key {
 	"tty",		f_tty,		0,
 };
 
+int
 ksearch(argvp, ip)
 	char ***argvp;
 	struct info *ip;

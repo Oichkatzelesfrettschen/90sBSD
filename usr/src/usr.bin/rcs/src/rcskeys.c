@@ -72,6 +72,7 @@ struct { char * keyword; enum markers marker;} markertable[] =
 
 
 
+int
 enum markers trymatch(string,onlyvdelim)
 char * string;
 /* function: Checks whether string starts with a keyword followed

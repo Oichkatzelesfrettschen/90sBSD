@@ -69,6 +69,7 @@ static struct	pt_ioctl {
 	int	pt_flags;
 	pid_t	pt_selr, pt_selw;
 	u_char	pt_send;
+void
 	u_char	pt_ucntl;
 } *pt_ioctl;
 static int	npty;
@@ -167,8 +168,10 @@ again:
 			goto again;
 		}
 
+void
 		while (RB_LEN(&tp->t_can) > 1 && uio->uio_resid > 0)
 		{
+void
 			unsigned ch = getc(&tp->t_can);
 
 			if (error = copyout_(uio->uio_procp, &ch, uio_base(uio), 1))

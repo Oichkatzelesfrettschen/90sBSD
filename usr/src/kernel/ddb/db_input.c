@@ -272,12 +272,14 @@ db_check_interrupt()
 	}
 }
 
+int
 cnmaygetc ()
 {
 	return (-1);
 }
 
 /* called from kdb_trap in db_interface.c */
+void
 cnpollc (flag)
 {
 }	

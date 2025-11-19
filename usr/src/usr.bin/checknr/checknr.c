@@ -50,6 +50,8 @@ static char sccsid[] = "@(#)checknr.c	5.4 (Berkeley) 6/1/90";
  */
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
 
 #define MAXSTK	100	/* Stack size */
 #define MAXBR	100	/* Max number of bracket pairs known */
@@ -254,12 +256,14 @@ char **argv;
 	exit(0);
 }
 
+void
 usage()
 {
 	printf("Usage: checknr -s -f -a.xx.yy.xx.yy... -c.xx.xx.xx...\n");
 	exit(1);
 }
 
+void
 process(f)
 FILE *f;
 {

@@ -50,6 +50,9 @@ static char sccsid[] = "@(#)reboot.c	5.11 (Berkeley) 2/27/91";
 #include <pwd.h>
 #include <stdio.h>
 #include <errno.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int
 main(argc, argv)
@@ -58,8 +61,11 @@ main(argc, argv)
 {
 	int howto;
 	register char *argp;
+void
 	register i;
+void
 	register ok = 0;
+void
 	register qflag = 0;
 	int needlog = 1;
 	char *user, *getlogin();
@@ -139,6 +145,7 @@ dingdong()
 	/* RRRIIINNNGGG RRRIIINNNGGG */
 }
 
+void
 setalarm(n)
 	int n;
 {

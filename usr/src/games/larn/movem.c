@@ -19,6 +19,7 @@
  */
 static short w1[9],w1x[9],w1y[9];
 static int tmp1,tmp2,tmp3,tmp4,distance;
+void
 movemonst()
 	{
 	register int i,j;
@@ -91,6 +92,7 @@ movemonst()
  *	Returns no value.
  */
 static int tmpitem,xl,xh,yl,yh;
+void
 movemt(i,j)
 	int i,j;
 	{
@@ -188,6 +190,7 @@ out:  if (tmp<distance) /* did find connectivity */
  *	Enter with the from coordinates in (x,y) and the destination coordinates
  *	in (xd,yd).
  */
+void
 mmove(aa,bb,cc,dd)
 	int aa,bb,cc,dd;
 	{

@@ -31,6 +31,8 @@ static char sccsid[] = "@(#)environ.c	6.3 (Berkeley) 5/8/91";
 #define max(a, b) ((a) > (b) ? (a) : (b))
 
 #include "environ.h"
+#include <stdlib.h>
+#include <string.h>
 
 /* Return a new environment object.  */
 

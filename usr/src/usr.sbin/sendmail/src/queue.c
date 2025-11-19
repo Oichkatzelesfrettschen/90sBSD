@@ -558,12 +558,14 @@ runqueue(forkflag)
 		/*
 		**  Ignore jobs that are too expensive for the moment.
 		*/
+void
 
 		if (shouldqueue(w->w_pri, w->w_ctime))
 		{
 			if (Verbose)
 				printf("\nSkipping %s\n", w->w_name + 2);
 		}
+void
 		else
 		{
 			pid_t pid;

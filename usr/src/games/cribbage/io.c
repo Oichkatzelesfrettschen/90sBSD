@@ -33,6 +33,8 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)io.c	5.8 (Berkeley) 2/28/91";
+#include <string.h>
+#include <stdlib.h>
 #endif /* not lint */
 
 # include	<curses.h>
@@ -76,6 +78,7 @@ char            *suitchar[ SUITS ]      = { "S", "H", "D", "C" };
  * msgcard:
  *	Call msgcrd in one of two forms
  */
+int
 msgcard(c, brief)
 CARD		c;
 BOOLEAN		brief;
@@ -92,6 +95,7 @@ BOOLEAN		brief;
  * msgcrd:
  *	Print the value of a card in ascii
  */
+int
 msgcrd(c, brfrank, mid, brfsuit)
 CARD		c;
 char		*mid;
@@ -116,6 +120,7 @@ BOOLEAN		brfrank,  brfsuit;
  * printcard:
  *	Print out a card.
  */
+void
 printcard(win, cardno, c, blank)
 WINDOW		*win;
 int		cardno;
@@ -129,6 +134,7 @@ BOOLEAN		blank;
  * prcard:
  *	Print out a card on the window at the specified location
  */
+void
 prcard(win, y, x, c, blank)
 WINDOW		*win;
 int		y, x;
@@ -154,6 +160,7 @@ BOOLEAN		blank;
  * prhand:
  *	Print a hand of n cards
  */
+void
 prhand(h, n, win, blank)
 CARD		h[];
 int		n;
@@ -175,6 +182,7 @@ BOOLEAN		blank;
  *	reads a card, supposedly in hand, accepting unambigous brief
  *	input, returns the index of the card found...
  */
+int
 infrom(hand, n, prompt)
 CARD		hand[];
 int		n;
@@ -234,6 +242,7 @@ char		*prompt;
  *	Inputs a card in any format.  It reads a line ending with a CR
  *	and then parses it.
  */
+int
 incard(crd)
 CARD		*crd;
 {
@@ -310,6 +319,7 @@ gotit:
  * getuchar:
  *	Reads and converts to upper case
  */
+int
 getuchar()
 {
 	register int		c;

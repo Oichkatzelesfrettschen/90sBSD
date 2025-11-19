@@ -55,6 +55,8 @@ static char sccsid[] = "@(#)wall.c	5.14 (Berkeley) 3/2/91";
 #include <stdio.h>
 #include <stdlib.h>
 #include <paths.h>
+#include <unistd.h>
+#include <string.h>
 
 #define	IGNOREUSER	"sleeper"
 
@@ -112,6 +114,7 @@ usage:
 	exit(0);
 }
 
+void
 makemsg(fname)
 	char *fname;
 {

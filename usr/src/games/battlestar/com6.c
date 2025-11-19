@@ -38,6 +38,7 @@ static char sccsid[] = "@(#)com6.c	5.5 (Berkeley) 6/1/90";
 #include "externs.h"
 #include "pathnames.h"
 
+int
 launch()
 {
 	if (testbit(location[position].objects,VIPER) && !notes[CANTLAUNCH]){
@@ -59,6 +60,7 @@ launch()
 	 return(0);
 }
 
+int
 land()
 {
 	if (notes[LAUNCHED] && testbit(location[position].objects,LAND) && location[position].down){
@@ -75,6 +77,7 @@ land()
 	return(0);
 }
 
+void
 die() 		/* endgame */
 {
 	printf("bye.\nYour rating was %s.\n", rate());
@@ -82,6 +85,7 @@ die() 		/* endgame */
 	exit(0);
 }
 
+void
 live()
 {
 	puts("\nYou win!");
@@ -95,8 +99,10 @@ live()
  */
 #define KERNEL
 #include <sys/time.h>
+#include <stdlib.h>
 #undef KERNEL
 
+void
 post(ch)
 char ch;
 {
@@ -158,6 +164,7 @@ rate()
 	}
 }
 
+int
 drive()
 {
 	if (testbit(location[position].objects,CAR)){
@@ -175,6 +182,7 @@ drive()
 	return(-1);
 }
 
+int
 ride()
 {
 	if (testbit(location[position].objects,HORSE)){
@@ -197,6 +205,7 @@ ride()
 	return(-1);
 }
 
+void
 light()		/* synonyms = {strike, smoke} */
 {		/* for matches, cigars */
 	if (testbit(inven,MATCHES) && matchcount){

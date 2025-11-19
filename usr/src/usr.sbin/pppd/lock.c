@@ -14,6 +14,8 @@ static char rcsid[] = "$Id: lock.c,v 1.1 1994/04/18 23:41:52 paulus Exp $";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <syslog.h>
+#include <unistd.h>
+#include <signal.h>
 
 #ifdef sun
 # if defined(SUNOS) && SUNOS >= 41
@@ -111,6 +113,7 @@ lock(dev)
 /*
  *	Remove our lockfile
  */
+void
 unlock()
 {
     if (lock_file) {

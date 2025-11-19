@@ -36,7 +36,9 @@ static char sccsid[] = "@(#)com4.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "externs.h"
+#include <string.h>
 
+int
 take(from)
 unsigned int from[];
 {
@@ -181,6 +183,7 @@ unsigned int from[];
 	return(firstnumber);
 }
 
+int
 throw(name)
 	char *name;
 {
@@ -261,6 +264,7 @@ throw(name)
 	return(first);
 }
 
+int
 drop(name)
 char *name;
 {
@@ -312,18 +316,21 @@ char *name;
 	return(-1);
 }
 
+int
 takeoff()
 {
 	wordnumber = take(wear);
 	return(drop("Dropped"));
 }
 
+int
 puton()
 {
 	wordnumber = take(location[position].objects);
 	return(wearit());
 }
 
+int
 eat()
 {
 	int firstnumber, value;

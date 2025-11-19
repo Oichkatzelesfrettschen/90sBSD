@@ -6,6 +6,8 @@
  */
 
 #include   "DviChar.h"
+#include <string.h>
+#include <stdlib.h>
 
 extern char *xmalloc();
 
@@ -21,6 +23,7 @@ static struct map_list	*world;
 static int	standard_maps_loaded = 0;
 static void	load_standard_maps ();
 static int	hash_name ();
+int
 static		dispose_hash(), compute_hash();
 
 DviCharNameMap *

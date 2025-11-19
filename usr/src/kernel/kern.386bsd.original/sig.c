@@ -69,6 +69,7 @@ extern inline
 int cansignal(struct proc *p, struct proc *q, int signo)
 {
 	struct pcred *pc = p->p_cred, *qc = q->p_cred;
+int
 
 	if (pc->pc_ucred->cr_uid == 0 ||
 	    pc->p_ruid == qc->p_ruid ||

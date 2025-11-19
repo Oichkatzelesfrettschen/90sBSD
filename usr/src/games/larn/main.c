@@ -2,6 +2,10 @@
 #include <sys/types.h>
 #include "header.h"
 #include <pwd.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 static char copyright[]="\nLarn is copyrighted 1986 by Noah Morgan.\n";
 int srcount=0;	/* line counter for showstr()	*/
 int dropflag=0; /* if 1 then don't lookforobject() next round */

@@ -39,12 +39,18 @@ static char sccsid[] = "@(#)local_passwd.c	5.5 (Berkeley) 5/6/91";
 #include <pwd.h>
 #include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
 
 uid_t uid;
 
 char *progname = "passwd";
 char *tempname;
 
+void
 local_passwd(uname)
 	char *uname;
 {

@@ -36,6 +36,9 @@ static char sccsid[] = "@(#)temp.c	5.15 (Berkeley) 2/3/91";
 #endif /* not lint */
 
 #include "rcv.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Mail -- a mail program
@@ -49,6 +52,7 @@ char	tempEdit[24];
 char	tempResid[24];
 char	tempMesg[24];
 
+void
 tinit()
 {
 	register char *cp;

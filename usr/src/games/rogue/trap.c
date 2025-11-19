@@ -78,7 +78,9 @@ extern short ring_exp;
 extern boolean sustain_strength;
 extern short blind;
 
+int
 trap_at(row, col)
+int
 register row, col;
 {
 	short i;
@@ -91,6 +93,7 @@ register row, col;
 	return(NO_TRAP);
 }
 
+void
 trap_player(row, col)
 short row, col;
 {
@@ -143,6 +146,7 @@ short row, col;
 	}
 }
 
+void
 add_traps()
 {
 	short i, n, tries = 0;

@@ -52,6 +52,8 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include "as.h"
 #include "struc-symbol.h"
 #include "write.h"
+#include <string.h>
+#include <stdlib.h>
 		/* Warning!  This may have some slightly strange side effects
 		   if you try to compile two or more assemblers in the same
 		   directory!
@@ -257,6 +259,7 @@ char	**argv;
  * Note the un*x semantics: there is only 1 logical input file, but it
  * may be a catenation of many 'physical' input files.
  */
+void
 perform_an_assembly_pass (argc, argv)
 int	argc;
 char **	argv;
@@ -306,6 +309,7 @@ char *	str;
 	return (retval);
 }
 
+void
 lose()
 {
 	as_fatal( "%s: 2nd pass not implemented - get your code from random(3)",myname );
@@ -315,6 +319,7 @@ SIGTY
 got_sig(sig)
 int sig;
 {
+void
 	static here_before = 0;
 
 	as_bad("Interrupted by signal %d",sig);

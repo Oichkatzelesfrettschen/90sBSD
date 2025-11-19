@@ -135,6 +135,7 @@ static char rcsid[]=
 #include <sys/stat.h>
 #include "rcsbase.h"
 #include <paths.h>
+#include <stdlib.h>
 #ifndef lint
 static char rcsbaseid[] = RCSBASE;
 #endif
@@ -155,6 +156,7 @@ extern struct hshentry   * genrevs();
 extern char * checkid();                /* check an identifier              */
 extern char * getfullRCSname();         /* get full path name of RCS file   */
 extern char * mktempfile();             /* temporary file name generator    */
+void
 extern free();
 extern void catchints();
 extern void ignoreints();
@@ -222,6 +224,7 @@ int     delaccessflag;
 enum    stringwork {copy, edit, empty}; /* expand and edit_expand not needed */
 
 
+void
 main (argc, argv)
 int argc;
 char * argv[];

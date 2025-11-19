@@ -52,6 +52,7 @@ static char sccsid[] = "@(#)init.c	5.4 (Berkeley) 2/28/91";
 
 #include <stdio.h>
 #include "rogue.h"
+#include <string.h>
 
 char login_name[MAX_OPT_LEN];
 char *nick_name = (char *) 0;
@@ -72,6 +73,7 @@ extern char *save_file;
 extern short party_room;
 extern boolean jump;
 
+int
 init(argc, argv)
 int argc;
 char *argv[];
@@ -123,6 +125,7 @@ char *argv[];
 	return(0);
 }
 
+void
 player_init()
 {
 	object *obj;

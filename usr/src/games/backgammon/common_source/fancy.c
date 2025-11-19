@@ -36,6 +36,7 @@ static char sccsid[] = "@(#)fancy.c	5.5 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "back.h"
+#include <stdlib.h>
 
 char	PC;			/* padding character */
 char	*BC;			/* backspace sequence */
@@ -80,6 +81,7 @@ int	realc;
 
 void	addbuf();
 
+void
 fboard ()  {
 	register int	i, j, l;
 
@@ -188,6 +190,7 @@ fboard ()  {
  * differently.
  */
 
+void
 bsect (b,rpos,cpos,cnext)
 int	b;					/* contents of position */
 int	rpos;					/* row of position */
@@ -248,6 +251,7 @@ int	cnext;					/* direction of position */
 	}
 }
 
+int
 refresh()  {
 	register int	i, r, c;
 

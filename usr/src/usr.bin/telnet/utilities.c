@@ -53,6 +53,8 @@ static char sccsid[] = "@(#)utilities.c	5.3 (Berkeley) 3/22/91";
 #include "defines.h"
 
 #include "externs.h"
+#include <stdio.h>
+#include <string.h>
 
 FILE	*NetTrace = 0;		/* Not in bss, since needs to stay */
 int	prettydump;
@@ -134,6 +136,7 @@ Dump(direction, buffer, length)
 #   define min(x,y)	((x<y)? x:y)
     unsigned char *pThis;
     int offset;
+void
     extern pettydump;
 
     offset = 0;

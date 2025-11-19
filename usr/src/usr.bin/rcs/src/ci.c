@@ -144,10 +144,12 @@ static char rcsbaseid[] = RCSBASE;
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "time.h"
+#include <unistd.h>
 
 extern int    rename();                /*rename files                       */
 extern char * getcaller();             /*login of caller                    */
 extern struct hshentry * genrevs();    /*generate delta numbers             */
+int
 extern quietflag;                      /*suppresses diagnostics if true     */
 extern int  nerror;                    /*counter for errors                 */
 extern char * buildrevision();         /*constructs desired revision        */
@@ -202,6 +204,7 @@ struct hshentry newdelta;             /* new delta to be inserted           */
 struct branchhead newbranch;          /* new branch to be inserted          */
 char   logmsg[logsize];               /* buffer for log message             */
 
+int
 main (argc, argv)
 int argc;
 char * argv[];

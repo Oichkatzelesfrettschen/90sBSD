@@ -47,6 +47,7 @@
 #include "tty.h"
 #include "malloc.h"
 
+void
 #include "vnode.h"
 #include "modconfig.h"
 

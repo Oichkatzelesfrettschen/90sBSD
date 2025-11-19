@@ -8,6 +8,7 @@ struct obj *mkobj(), *mksobj();
 
 struct obj *
 mkobj_at(let,x,y)
+int
 register let,x,y;
 {
 	register struct obj *otmp = mkobj(let);
@@ -18,7 +19,9 @@ register let,x,y;
 	return(otmp);
 }
 
+void
 mksobj_at(otyp,x,y)
+void
 register otyp,x,y;
 {
 	register struct obj *otmp = mksobj(otyp);
@@ -29,6 +32,7 @@ register otyp,x,y;
 }
 
 struct obj *
+int
 mkobj(let) {
 	if(!let)
 		let = mkobjstr[rn2(sizeof(mkobjstr) - 1)];

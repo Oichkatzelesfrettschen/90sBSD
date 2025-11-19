@@ -44,6 +44,7 @@ static char sccsid[] = "@(#)move.c	5.4 (Berkeley) 6/1/90";
  * get_move:
  *	Get and execute a move from the player
  */
+void
 get_move()
 {
 	register int	c;
@@ -192,6 +193,7 @@ ret:
  *	Must I teleport; i.e., is there anywhere I can move without
  * being eaten?
  */
+int
 must_telep()
 {
 	register int	x, y;
@@ -223,6 +225,7 @@ must_telep()
  * do_move:
  *	Execute a move
  */
+int
 do_move(dy, dx)
 int	dy, dx;
 {
@@ -259,6 +262,7 @@ int	dy, dx;
  * eaten:
  *	Player would get eaten at this place
  */
+int
 eaten(pos)
 register COORD	*pos;
 {
@@ -281,6 +285,7 @@ register COORD	*pos;
  * reset_count:
  *	Reset the count variables
  */
+void
 reset_count()
 {
 	Count = 0;
@@ -293,6 +298,7 @@ reset_count()
  * jumping:
  *	See if we are jumping, i.e., we should not refresh.
  */
+int
 jumping()
 {
 	return (Jump && (Count || Running || Waiting));

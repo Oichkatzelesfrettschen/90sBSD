@@ -42,6 +42,7 @@ static char sccsid[] = "@(#)verbose.c	5.3 (Berkeley) 1/20/91";
 
 static short *null_rules;
 
+void
 verbose()
 {
     register int i;
@@ -66,6 +67,7 @@ verbose()
 }
 
 
+void
 log_unused()
 {
     register int i;
@@ -85,6 +87,7 @@ log_unused()
 }
 
 
+void
 log_conflicts()
 {
     register int i;
@@ -113,6 +116,7 @@ log_conflicts()
 }
 
 
+void
 print_state(state)
 int state;
 {
@@ -127,6 +131,7 @@ int state;
 }
 
 
+void
 print_conflicts(state)
 int state;
 {
@@ -175,6 +180,7 @@ int state;
 }
 
 
+void
 print_core(state)
 int state;
 {
@@ -211,6 +217,7 @@ int state;
 }
 
 
+void
 print_nulls(state)
 int state;
 {
@@ -255,6 +262,7 @@ int state;
 }
 
 
+void
 print_actions(stateno)
 int stateno;
 {

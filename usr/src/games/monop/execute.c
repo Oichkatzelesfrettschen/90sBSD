@@ -33,6 +33,9 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)execute.c	5.5 (Berkeley) 2/28/91";
+#include <fcntl.h>
+#include <string.h>
+#include <unistd.h>
 #endif /* not lint */
 
 # include	"monop.ext"
@@ -56,6 +59,7 @@ static bool	new_play;	/* set if move on to new player		*/
 /*
  *	This routine executes the given command by index number
  */
+void
 execute(com_num)
 reg int	com_num; {
 
@@ -71,6 +75,7 @@ reg int	com_num; {
 /*
  *	This routine moves a piece around.
  */
+void
 do_move() {
 
 	reg int		r1, r2;
@@ -102,6 +107,7 @@ ret:
 /*
  *	This routine moves a normal move
  */
+void
 move(rl)
 reg int	rl; {
 
@@ -118,6 +124,7 @@ reg int	rl; {
 /*
  *	This routine shows the results of a move
  */
+void
 show_move() {
 
 	reg SQUARE	*sqp;
@@ -159,6 +166,7 @@ show_move() {
 /*
  *	This routine saves the current game for use at a later date
  */
+void
 save() {
 
 	reg char	*sp;

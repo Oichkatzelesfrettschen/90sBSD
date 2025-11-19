@@ -37,6 +37,7 @@ static char sccsid[] = "@(#)cmd2.c	5.14 (Berkeley) 6/25/90";
 
 #include "rcv.h"
 #include <sys/wait.h>
+#include <stdio.h>
 
 /*
  * Mail -- a mail program
@@ -50,6 +51,7 @@ static char sccsid[] = "@(#)cmd2.c	5.14 (Berkeley) 6/25/90";
  * If given as first command with no arguments, print first message.
  */
 
+int
 next(msgvec)
 	int *msgvec;
 {

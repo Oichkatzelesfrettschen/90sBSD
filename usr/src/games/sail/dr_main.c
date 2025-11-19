@@ -36,7 +36,10 @@ static char sccsid[] = "@(#)dr_main.c	5.5 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "driver.h"
+#include <unistd.h>
+#include <stdlib.h>
 
+int
 dr_main()
 {
 	register int n;

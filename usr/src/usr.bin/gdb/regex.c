@@ -1602,6 +1602,8 @@ re_exec (s)
 #ifdef test
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 /* Indexed by a character, gives the upper case equivalent of the character */
 

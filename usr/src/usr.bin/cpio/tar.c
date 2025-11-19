@@ -25,6 +25,7 @@
 #include "extern.h"
 #include "rmt.h"
 #include "tarhdr.h"
+#include <string.h>
 
 static void to_oct ();
 static char *stash_tar_linkname ();

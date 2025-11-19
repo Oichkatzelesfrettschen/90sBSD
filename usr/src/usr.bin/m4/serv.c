@@ -60,6 +60,7 @@ char *dumpfmt = "`%s'\t`%s'\n"; /* format string for dumpdef   */
  * expand - user-defined macro expansion
  *
  */
+void
 expand(argv, argc)
 register char *argv[];
 register int argc;
@@ -119,6 +120,7 @@ register int argc;
  * dodefine - install definition in the table
  *
  */
+void
 dodefine(name, defn)
 register char *name;
 register char *defn;
@@ -145,6 +147,7 @@ register char *defn;
  *      the given name.
  */
  
+void
 dodefn(name)
 char *name;
 {
@@ -164,6 +167,7 @@ char *name;
  *      hash bucket, it hides a previous definition from
  *      lookup.
  */
+void
 dopushdef(name, defn)
 register char *name;
 register char *defn;
@@ -188,6 +192,7 @@ register char *defn;
  *      hash table is dumped.
  *
  */
+void
 dodump(argv, argc)
 register char *argv[];
 register int argc;

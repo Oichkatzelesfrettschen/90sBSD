@@ -158,6 +158,7 @@ extern short party_room;
 extern char *error_file;
 extern boolean is_wood[];
 
+void
 put_objects()
 {
 	short i, n;
@@ -180,6 +181,7 @@ put_objects()
 	put_gold();
 }
 
+void
 put_gold()
 {
 	short i, j;
@@ -209,6 +211,7 @@ put_gold()
 	}
 }
 
+void
 plant_gold(row, col, is_maze)
 short row, col;
 boolean is_maze;
@@ -226,6 +229,7 @@ boolean is_maze;
 	(void) add_to_pack(obj, &level_objects, 0);
 }
 
+void
 place_at(obj, row, col)
 object *obj;
 {
@@ -256,6 +260,7 @@ short row, col;
 }
 
 object *
+int
 get_letter_object(ch)
 {
 	object *obj;

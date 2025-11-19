@@ -35,6 +35,9 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define NAME "socket"
 
@@ -45,6 +48,7 @@
  * connection breaks, or a termination message comes through, the program
  * accepts a new connection. 
  */
+void
 main()
 {
 	int sock, msgsock, rval;

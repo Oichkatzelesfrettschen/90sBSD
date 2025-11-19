@@ -33,6 +33,8 @@ and this notice must be preserved on all copies.  */
 
 #include <signal.h>
 #include "xchess.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 bool debug = false;
 bool oneboard = false;

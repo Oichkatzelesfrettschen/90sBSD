@@ -43,9 +43,12 @@ static char sccsid[] = "@(#)sprint.c	5.8 (Berkeley) 12/4/90";
 #include <tzfile.h>
 #include <stdio.h>
 #include "finger.h"
+#include <stdlib.h>
+#include <string.h>
 
 extern int entries;
 
+void
 sflag_print()
 {
 	extern time_t now;
@@ -133,12 +136,14 @@ sort()
 	return(list);
 }
 
+int
 psort(p, t)
 	PERSON **p, **t;
 {
 	return(strcmp((*p)->name, (*t)->name));
 }
 
+void
 stimeprint(w)
 	WHERE *w;
 {

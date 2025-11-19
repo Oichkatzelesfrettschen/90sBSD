@@ -99,7 +99,9 @@ static char rcsid[]= "$Id: rcsgen.c,v 3.8 89/08/15 21:38:51 bostic Exp $ Purdue 
 
 extern struct hshentry * getnum();
 extern FILE * fopen();
+void
 extern savestring();
+void
 extern editstring();
 
 extern int nextc;          /* next character from lexical analyzer          */
@@ -181,6 +183,7 @@ char * dir; int expandflag;
 
 
 
+void
 scandeltatext(delta,func)
 struct hshentry * delta; enum stringwork func;
 /* Function: Scans delta text nodes up to and including the one given

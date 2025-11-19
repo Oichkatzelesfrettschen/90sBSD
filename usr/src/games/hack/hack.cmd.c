@@ -89,11 +89,13 @@ struct ext_func_tab extcmdlist[] = {
 
 extern char *parse(), lowc(), unctrl(), quitchars[];
 
+void
 rhack(cmd)
 register char *cmd;
 {
 	register struct func_tab *tlist = cmdlist;
 	boolean firsttime = FALSE;
+void
 	register res;
 
 	if(!cmd) {

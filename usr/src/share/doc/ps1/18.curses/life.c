@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <string.h>
 .\" Copyright (c) 1980 The Regents of the University of California.
 .\" All rights reserved.
 .\"
@@ -48,6 +50,7 @@ LIST	*Head;			/* head of linked list */
 
 int	die();
 
+void
 main(ac, av)
 int	ac;
 char	*av[];
@@ -72,6 +75,7 @@ char	*av[];
  * It resets the tty stats to their original values.  This
  * is the normal way of leaving the program.
  */
+void
 die()
 {
 	signal(SIGINT, SIG_IGN);		/* ignore rubouts */
@@ -88,6 +92,7 @@ die()
  * The input can also be from a file.  The list is built after the
  * board setup is ready.
  */
+void
 getstart()
 {
 	reg char	c;
@@ -145,6 +150,7 @@ getstart()
 /*
  * Print out the current board position from the linked list
  */
+void
 prboard() {
 
 	reg LIST	*hp;

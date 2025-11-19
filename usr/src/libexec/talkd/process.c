@@ -57,6 +57,7 @@ static char sccsid[] = "@(#)process.c	5.10 (Berkeley) 2/26/91";
 CTL_MSG *find_request();
 CTL_MSG *find_match();
 
+void
 process_request(mp, rp)
 	register CTL_MSG *mp;
 	register CTL_RESPONSE *rp;

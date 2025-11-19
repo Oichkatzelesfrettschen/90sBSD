@@ -40,10 +40,12 @@ static char sccsid[] = "@(#)input.c	5.22 (Berkeley) 6/1/90";
  */
 #include "defs.h"
 #include <sys/syslog.h>
+#include <string.h>
 
 /*
  * Process a newly received packet.
  */
+void
 rip_input(from, rip, size)
 	struct sockaddr *from;
 	register struct rip *rip;

@@ -558,12 +558,14 @@ eatfrom(fm, e)
 		for (dt = MonthList; *dt != NULL; dt++)
 			if (strncmp(*dt, &p[4], 3) == 0)
 				break;
+void
 		if (*dt != NULL)
 			break;
 	}
 
 	if (*p != '\0')
 	{
+void
 		char *q;
 		extern char *arpadate();
 

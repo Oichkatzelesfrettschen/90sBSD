@@ -53,6 +53,8 @@ the GNU General Public License, version 2, 1991.
 /*  test a string against a machine   */
 
 #include "rexp.h"
+#include <stdlib.h>
+#include <string.h>
 
 #define  STACKGROWTH    16
 

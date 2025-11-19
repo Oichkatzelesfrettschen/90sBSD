@@ -36,6 +36,8 @@ the GNU General Public License, version 2, 1991.
 /*  op precedence  parser for regular expressions  */
 
 #include  "rexp.h"
+#include <setjmp.h>
+#include <stdlib.h>
 
 
 /*  DATA   */

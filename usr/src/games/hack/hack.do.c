@@ -4,6 +4,7 @@
 /* Contains code for 'd', 'D' (drop), '>', '<' (up, down) and 't' (throw) */
 
 #include "hack.h"
+#include <stdlib.h>
 
 extern struct obj *splitobj(), *addinv();
 extern boolean hmon();
@@ -14,6 +15,7 @@ extern char *nomovemsg;
 
 static int drop();
 
+int
 dodrop() {
 	return(drop(getobj("0$#", "drop")));
 }
@@ -52,6 +54,7 @@ drop(obj) register struct obj *obj; {
 }
 
 /* Called in several places - should not produce texts */
+void
 dropx(obj)
 register struct obj *obj;
 {

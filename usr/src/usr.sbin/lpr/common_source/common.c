@@ -40,6 +40,8 @@ static char sccsid[] = "@(#)common.c	5.7 (Berkeley) 3/2/91";
  */
 
 #include "lp.h"
+#include <string.h>
+#include <unistd.h>
 
 int	DU;		/* daeomon user-id */
 int	MX;		/* maximum number of blocks to copy */
@@ -94,6 +96,7 @@ int	sendtorem;	/* are we sending to a remote? */
  * Create a connection to the remote printer server.
  * Most of this code comes from rcmd.c.
  */
+int
 getport(rhost)
 	char *rhost;
 {
@@ -149,11 +152,13 @@ retry:
  *  new-line to null and leaves it in line.
  * Returns 0 at EOF or the number of characters read.
  */
+int
 getline(cfp)
 	FILE *cfp;
 {
 	register int linel = 0;
 	register char *lp = line;
+int
 	register c;
 
 	while ((c = getc(cfp)) != '\n') {

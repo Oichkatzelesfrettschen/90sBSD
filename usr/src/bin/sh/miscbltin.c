@@ -49,6 +49,8 @@ static char sccsid[] = "@(#)miscbltin.c	5.2 (Berkeley) 3/13/91";
 #include "memalloc.h"
 #include "error.h"
 #include "mystring.h"
+#include <unistd.h>
+#include <sys/stat.h>
 
 #undef eflag
 
@@ -62,6 +64,7 @@ extern char **argptr;		/* argument list for builtin command */
  * This uses unbuffered input, which may be avoidable in some cases.
  */
 
+int
 readcmd(argc, argv)  char **argv; {
 	char **ap;
 	int backslash;
@@ -142,6 +145,7 @@ readcmd(argc, argv)  char **argv; {
 
 
 
+int
 umaskcmd(argc, argv)  char **argv; {
 	int mask;
 	char *p;

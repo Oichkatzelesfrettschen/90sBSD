@@ -142,6 +142,7 @@ int linecorr;  /*contains #adds - #deletes in each edit run.                */
                /*used to correct editline in case file is not rewound after */
                /* applying one delta                                        */
 
+void
 initeditfiles(dir)
 char * dir;
 /* Function: Initializes resultfile and editfile with temporary filenames
@@ -159,6 +160,7 @@ char * dir;
 }
 
 
+void
 swapeditfiles(tostdout)
 /* Function: swaps resultfile and editfile, assigns fedit=fcopy,
  * rewinds fedit for reading, and opens resultfile for reading and
@@ -179,6 +181,7 @@ swapeditfiles(tostdout)
 }
 
 
+void
 finishedit(delta)
 struct hshentry * delta;
 /* copy the rest of the edit file and close it (if it exists).
@@ -200,6 +203,7 @@ struct hshentry * delta;
 }
 
 
+void
 copylines(line,delta)
 register int line; struct hshentry * delta;
 /* Function: copies input lines editline..line-1 from fedit to fcopy.
@@ -225,6 +229,7 @@ register int line; struct hshentry * delta;
 
 
 
+void
 xpandstring(delta)
 struct hshentry * delta;
 /* Function: Reads a string terminated by SDELIM from finptr and writes it
@@ -240,6 +245,7 @@ struct hshentry * delta;
 }
 
 
+void
 copystring()
 /* Function: copies a string terminated with a single SDELIM from finptr to
  * fcopy, replacing all double SDELIM with a single SDELIM.
@@ -247,8 +253,10 @@ copystring()
  * editline is set to (number of lines copied)+1.
  * Assumption: next character read is first string character.
  */
+void
 {	register c;
 	register FILE *fin, *frew, *fcop;
+void
 	register write;
 
 	fin=finptr; frew=frewrite; fcop=fcopy;

@@ -42,6 +42,8 @@ static char sccsid[] = "@(#)termcap.c	5.5 (Berkeley) 6/1/90";
 
 #include <ctype.h>
 #include "pathnames.h"
+#include <string.h>
+#include <unistd.h>
 
 /*
  * termcap - routines for dealing with the terminal capability data base
@@ -70,6 +72,7 @@ char	*getenv();
 /*
  * Get an entry for terminal name in buffer bp from the termcap file.
  */
+int
 tgetent(bp, name)
 	char *bp, *name;
 {
@@ -145,6 +148,7 @@ tgetent(bp, name)
  * variable pvec.  Terminal entries may not be broken across files.  Parse is
  * very rudimentary; we just notice escaped newlines.
  */
+int
 tfindent(bp, name)
 	char *bp, *name;
 {
@@ -208,6 +212,7 @@ nextfile:
  * entries to say "like an HP2621 but doesn't turn on the labels".
  * Note that this works because of the left to right scan.
  */
+int
 tnchktc(void)
 {
 	register char *p, *q;

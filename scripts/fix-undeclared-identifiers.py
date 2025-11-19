@@ -102,7 +102,7 @@ def main():
         print("Usage: fix-undeclared-identifiers.py <file_list>")
         sys.exit(1)
 
-    with open('logs/analysis/c17-compliance-post-day14-fixed/c17-database.json') as f:
+    with open('logs/analysis/c17-compliance/c17-database.json') as f:
         c17_data = json.load(f)
 
     print("=" * 80)

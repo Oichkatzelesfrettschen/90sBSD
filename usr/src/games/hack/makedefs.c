@@ -2,6 +2,9 @@
 /* makedefs.c - version 1.0.2 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 /* construct definitions of object constants */
 #define	LINSZ	1000
@@ -58,6 +61,7 @@ register char *sp;
 char line[LINSZ], *lp = line, *lp0 = line, *lpe = line;
 int eof;
 
+void
 readline(){
 register int n = read(fd, lp0, (line+LINSZ)-lp0);
 	if(n < 0){
@@ -77,6 +81,7 @@ nextchar(){
 	return((lp == lpe) ? 0 : *lp++);
 }
 
+int
 skipuntil(s) char *s; {
 register char *sp0, *sp1;
 loop:
@@ -109,6 +114,7 @@ loop:
 	goto loop;
 }
 
+int
 getentry(){
 int inbraces = 0, inparens = 0, stringseen = 0, commaseen = 0;
 int prefix = 0;
@@ -211,15 +217,18 @@ char identif[NSZ], *ip;
 	}
 }
 
+void
 capitalize(sp) register char *sp; {
 	if('a' <= *sp && *sp <= 'z') *sp += 'A'-'a';
 }
 
+int
 letter(ch) register char ch; {
 	return( ('a' <= ch && ch <= 'z') ||
 		('A' <= ch && ch <= 'Z') );
 }
 
+int
 digit(ch) register char ch; {
 	return( '0' <= ch && ch <= '9' );
 }

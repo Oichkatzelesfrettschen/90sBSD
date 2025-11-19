@@ -18,6 +18,7 @@ along with GAS; see the file COPYING.  If not, write to
 the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #include "flonum.h"
+#include <string.h>
 #ifdef USG
 #define bzero(s,n) memset(s,0,n)
 #define bcopy(from,to,n) memcpy(to,from,n)

@@ -50,6 +50,9 @@ static char sccsid[] = "@(#)xinstall.c	5.24 (Berkeley) 7/1/90";
 #include <ctype.h>
 #include <paths.h>
 #include "pathnames.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 static struct passwd *pp;
 static struct group *gp;
@@ -144,6 +147,7 @@ main(argc, argv)
  * install --
  *	build a path name and install the file
  */
+void
 install(from_name, to_name, isdir)
 	char *from_name, *to_name;
 	int isdir;

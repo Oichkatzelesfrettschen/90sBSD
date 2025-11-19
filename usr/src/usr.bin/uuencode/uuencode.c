@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)uuencode.c	5.9 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int
 main(argc, argv)
@@ -96,6 +97,7 @@ main(argc, argv)
 /*
  * copy from in to out, encoding as you go along.
  */
+void
 encode()
 {
 	register int ch, n;
@@ -136,6 +138,7 @@ encode()
 	(void)putchar('\n');
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr,"usage: uuencode [infile] remotefile\n");

@@ -47,6 +47,8 @@ static char sccsid[] = "@(#)wc.c	5.7 (Berkeley) 3/2/91";
 #include <sys/stat.h>
 #include <sys/file.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define DEL	0177			/* del char */
 #define NL	012			/* newline char */
@@ -119,6 +121,7 @@ main(argc, argv)
 	exit(0);
 }
 
+void
 cnt(file)
 	char *file;
 {

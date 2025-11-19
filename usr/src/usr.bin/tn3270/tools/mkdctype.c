@@ -43,6 +43,7 @@ static char sccsid[] = "@(#)mkdctype.c	4.2 (Berkeley) 4/26/91";
 
 #include "../api/ebc_disp.h"
 #include "ectype.h"
+#include <stdio.h>
 
 
 extern unsigned char ectype[256];

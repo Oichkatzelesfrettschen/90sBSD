@@ -59,6 +59,7 @@ extern int retval;
  * notifies the master that a correction is needed.
  * Returns 0 on success.  Returns > 0 on failure, setting retval to 2;
  */
+int
 netsettime(tval)
 	time_t tval;
 {

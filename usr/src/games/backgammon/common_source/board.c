@@ -36,10 +36,12 @@ static char sccsid[] = "@(#)board.c	5.4 (Berkeley) 6/1/90";
 #endif /* not lint */
 
 #include "back.h"
+#include <string.h>
 
 static int	i, j, k;
 static char	ln[60];
 
+void
 wrboard ()  {
 	register int	l;
 	static char	bl[] =
@@ -156,6 +158,7 @@ lastline:
 	fixtty(raw);
 }
 
+void
 wrbsub () {
 	register int	m;
 	register char	d;

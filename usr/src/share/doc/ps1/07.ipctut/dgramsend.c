@@ -36,6 +36,10 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 
 #define DATA "The sea is calm tonight, the tide is full . . ."
 
@@ -45,6 +49,7 @@
  * portnumber 
  */
 
+void
 main(argc, argv)
 	int argc;
 	char *argv[];

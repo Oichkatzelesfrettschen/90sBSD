@@ -45,6 +45,7 @@ static char sccsid[] = "@(#)tree.c	5.5 (Berkeley) 2/26/91";
  * pfnote --
  *	enter a new node in the tree
  */
+void
 pfnote(name,ln)
 	char	*name;
 	int	ln;
@@ -94,6 +95,7 @@ pfnote(name,ln)
 		add_node(np,head);
 }
 
+void
 add_node(node,cur_node)
 	register NODE	*node,
 			*cur_node;
@@ -124,6 +126,7 @@ add_node(node,cur_node)
 		cur_node->right = node;
 }
 
+void
 free_tree(node)
 	register NODE	*node;
 {

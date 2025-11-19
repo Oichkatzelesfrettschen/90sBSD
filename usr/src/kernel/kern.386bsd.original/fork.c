@@ -69,6 +69,7 @@ fork1(struct proc *p1, int isvfork, int *retval)
 {
 	struct proc *p2;
 	struct pstats *ps;
+int
 	int mypid, haspriv = 0;
 	volatile static int nextpid, pidchecked = 0;
 

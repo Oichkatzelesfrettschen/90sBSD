@@ -8,6 +8,7 @@
  *	ofountain()
  */
 #include "header.h"
+#include <stdio.h>
 
 static void ohear();
 
@@ -18,6 +19,7 @@ static void ohear();
  *
  *	subroutine to process an altar object
  */
+void
 oaltar()
 	{
 	unsigned long k;

@@ -69,6 +69,7 @@ boolean maintain_armor;
 extern char *curse_message;
 extern boolean wizard;
 
+void
 put_on_ring()
 {
 	short ch;

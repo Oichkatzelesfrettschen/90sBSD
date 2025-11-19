@@ -126,12 +126,16 @@ collect(hp, printheaders)
 	else
 		escape = ESCAPE;
 	eofcount = 0;
+void
 	hadintr = 0;
 
+void
 	if (!setjmp(colljmp)) {
+void
 		if (getsub)
 			grabh(hp, GSUBJECT);
 	} else {
+void
 		/*
 		 * Come here for printing the after-signal message.
 		 * Duplicate messages won't be printed because

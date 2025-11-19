@@ -44,6 +44,8 @@ static char sccsid[] = "@(#)tput.c	5.7 (Berkeley) 6/7/90";
 #include <sys/termios.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
 int
 main(argc, argv)
@@ -107,6 +109,7 @@ main(argc, argv)
 	exit(exitval);
 }
 
+void
 prlongname(buf)
 	char *buf;
 {
@@ -121,6 +124,7 @@ prlongname(buf)
 	*savep = savech;
 }
 
+void
 setospeed()
 {
 	extern int errno, ospeed;
@@ -133,12 +137,14 @@ setospeed()
 		ospeed = cfgetospeed(&t);
 }
 
+void
 outc(c)
 	int c;
 {
 	putchar(c);
 }
 
+void
 usage()
 {
 	(void)fprintf(stderr, "usage: tput [-T term] attribute ...\n");

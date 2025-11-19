@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)kill.c	5.4 (Berkeley) 6/1/90";
+#include <stdio.h>
 #endif /* not lint */
 
 # include	"trek.h"
@@ -53,6 +54,7 @@ static char sccsid[] = "@(#)kill.c	5.4 (Berkeley) 6/1/90";
 **	and the game is won if that was the last klingon.
 */
 
+void
 killk(ix, iy)
 int	ix, iy;
 {
@@ -93,6 +95,7 @@ int	ix, iy;
 **  handle a starbase's death
 */
 
+void
 killb(qx, qy)
 int	qx, qy;
 {
@@ -140,6 +143,7 @@ int	qx, qy;
  **	kill an inhabited starsystem
  **/
 
+void
 kills(x, y, f)
 int	x, y;	/* quad coords if f == 0, else sector coords */
 int	f;	/* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
@@ -184,6 +188,7 @@ int	f;	/* f != 0 -- this quad;  f < 0 -- Enterprise's fault */
  **	"kill" a distress call
  **/
 
+void
 killd(x, y, f)
 int	x, y;		/* quadrant coordinates */
 int	f;		/* set if user is to be informed */

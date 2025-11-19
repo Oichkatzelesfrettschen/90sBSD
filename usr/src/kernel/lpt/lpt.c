@@ -31,6 +31,7 @@
  * JUNE 1991 "UNIX MAGAZIN", GERMANY) BY WILLIAM F. JOLITZ AND 
  * LYNNE GREER JOLITZ, AS WELL AS OTHER BOOKS ON UNIX AND THE 
  * ON-LINE 386BSD USER MANUAL BEFORE USE. A BOOK DISCUSSING THE INTERNALS 
+void
  * OF 386BSD ENTITLED "386BSD FROM THE INSIDE OUT" WILL BE AVAILABLE LATE 1992.
  *
  * THIS SOFTWARE IS PROVIDED BY THE DEVELOPER ``AS IS'' AND
@@ -69,6 +70,7 @@ static char *lpt_config =
 #include "modconfig.h"
 
 #include "prototypes.h"
+void
 #include "machine/inline/io.h"
 #include "isa_driver.h"
 #include "lptreg.h"
@@ -169,6 +171,7 @@ printf("lpt%d ", isdp->id_unit);
  */
 int
 lptopen(dev_t dev, int flag, int mode, struct proc *p)
+int
 {
 	struct lpt_softc *sc = lpt_sc + LPTUNIT(minor(dev));
 	int s;

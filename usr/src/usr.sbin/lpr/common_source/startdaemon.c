@@ -45,7 +45,10 @@ static char sccsid[] = "@(#)startdaemon.c	5.7 (Berkeley) 3/2/91";
 #include <stdio.h>
 #include "lp.local.h"
 #include "pathnames.h"
+#include <string.h>
+#include <unistd.h>
 
+int
 startdaemon(printer)
 	char *printer;
 {

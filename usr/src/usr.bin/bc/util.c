@@ -35,6 +35,7 @@
 #endif
 #include "global.h"
 #include "proto.h"
+#include <stdlib.h>
 
 
 /* strcopyof mallocs new memory and copies a string to to the new
@@ -80,6 +81,7 @@ static char *arglist1 = NULL, *arglist2 = NULL;
    characters needed.  1 char is the minimum needed. COMMAS tells
    if each number should be seperated by commas.*/
 
+int
 _PROTOTYPE (static char *make_arg_str, (arg_list *args, int len, int commas));
 
 static char *

@@ -788,6 +788,7 @@ discard_dg(s, sep)		/* Discard service -- ignore data */
 }
 
 #include <ctype.h>
+#include <stdlib.h>
 #define LINESIZ 72
 char ring[128];
 char *endring;

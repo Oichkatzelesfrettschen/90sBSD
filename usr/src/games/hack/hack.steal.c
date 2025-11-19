@@ -9,6 +9,7 @@ somegold(){
 		(u.ugold > 10000) ? rnd(10000) : rnd((int) u.ugold) );
 }
 
+void
 stealgold(mtmp)  register struct monst *mtmp; {
 register struct gold *gold = g_at(u.ux, u.uy);
 register long tmp;

@@ -19,6 +19,8 @@
 #include "defs.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
 
 extern char *xmalloc ();
 

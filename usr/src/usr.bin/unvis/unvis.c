@@ -81,6 +81,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 process(fp, filename)
 	FILE *fp;
 	char *filename;
@@ -116,12 +117,15 @@ process(fp, filename)
 }
 
 #include <varargs.h>
+#include <stdlib.h>
 
+void
 error(va_alist)
 	va_dcl
 {
 	char *fmt;
 	va_list ap;
+void
 	extern errno;
 
 	fprintf(stderr, "%s: ", Program);
@@ -132,11 +136,13 @@ error(va_alist)
 	fprintf(stderr, "\n");
 }
 
+void
 syserror(va_alist)
 	va_dcl
 {
 	char *fmt;
 	va_list ap;
+void
 	extern errno;
 
 	fprintf(stderr, "%s: ", Program);

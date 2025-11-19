@@ -121,6 +121,7 @@ main(argc, argv)
 	exit(errors);
 }
 
+void
 nosig(name)
 	char *name;
 {
@@ -130,6 +131,7 @@ nosig(name)
 	exit(1);
 }
 
+void
 printsig(fp)
 	FILE *fp;
 {
@@ -143,6 +145,7 @@ printsig(fp)
 	(void)fprintf(fp, "\n");
 }
 
+void
 usage(void)
 {
 	(void)fprintf(stderr, "usage: kill [-l] [-sig] pid ...\n");

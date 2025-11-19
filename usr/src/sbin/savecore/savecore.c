@@ -51,6 +51,8 @@ static char sccsid[] = "@(#)savecore.c	5.26 (Berkeley) 4/8/91";
 #include <stdio.h>
 #include <nlist.h>
 #include <paths.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define	DAY	(60L*60L*24L)
 #define	LEEWAY	(3*DAY)
@@ -192,6 +194,7 @@ main(argc, argv)
 	exit(0);
 }
 
+int
 dump_exists()
 {
 	int word;
@@ -203,6 +206,7 @@ dump_exists()
 	return (word == dumpmag);
 }
 
+void
 clear_dump()
 {
 	int zero = 0;

@@ -9,7 +9,9 @@ struct wseg *wsegs[32];	/* linked list, tail first */
 struct wseg *wheads[32];
 long wgrowtime[32];
 
+int
 getwn(mtmp) struct monst *mtmp; {
+int
 register tmp;
 	for(tmp=1; tmp<32; tmp++) if(!wsegs[tmp]) {
 		mtmp->wormno = tmp;
@@ -19,8 +21,10 @@ register tmp;
 }
 
 /* called to initialize a worm unless cut in half */
+void
 initworm(mtmp) struct monst *mtmp; {
 register struct wseg *wtmp;
+void
 register tmp = mtmp->wormno;
 	if(!tmp) return;
 	wheads[tmp] = wsegs[tmp] = wtmp = newseg();
@@ -31,8 +35,10 @@ register tmp = mtmp->wormno;
 	wtmp->nseg = 0;
 }
 
+void
 worm_move(mtmp) struct monst *mtmp; {
 register struct wseg *wtmp, *whd;
+void
 register tmp = mtmp->wormno;
 	wtmp = newseg();
 	wtmp->wx = mtmp->mx;

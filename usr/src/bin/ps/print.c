@@ -60,8 +60,10 @@ static char sccsid[] = "@(#)print.c	5.9 (Berkeley) 7/1/91";
 #include <machine/pte.h>
 #include <sys/vmparam.h>
 #include <sys/vm.h>
+#include <stdio.h>
 #endif
 
+void
 printheader(void)
 {
 	register VAR *v;
@@ -82,6 +84,7 @@ printheader(void)
 	(void) putchar('\n');
 }
 
+void
 command(k, v, next)
 	KINFO *k;
 	VAR *v;
@@ -106,6 +109,7 @@ command(k, v, next)
 
 }
 
+void
 ucomm(k, v)
 	KINFO *k;
 	VAR *v;
@@ -113,6 +117,7 @@ ucomm(k, v)
 	(void) printf("%-*s", v->width, k->ki_p->p_comm);
 }
 
+void
 logname(k, v)
 	KINFO *k;
 	VAR *v;
@@ -120,6 +125,7 @@ logname(k, v)
 	(void) printf("%-*s", v->width, k->ki_e->e_login);
 }
 
+void
 state(k, v)
 	KINFO *k;
 	VAR *v;
@@ -127,6 +133,7 @@ state(k, v)
 	char buf[16];
 	register char *cp = buf;
 	register struct proc *p = k->ki_p;
+void
 	register flag = p->p_flag;
 
 	switch (p->p_stat) {
@@ -188,6 +195,7 @@ state(k, v)
 	(void) printf("%-*s", v->width, buf);
 }
 
+void
 pri(k, v)
 	KINFO *k;
 	VAR *v;
@@ -196,6 +204,7 @@ pri(k, v)
 	(void) printf("%*d", v->width, k->ki_p->p_pri - PZERO);
 }
 
+void
 uname(k, v)
 	KINFO *k;
 	VAR *v;
@@ -204,6 +213,7 @@ uname(k, v)
 		user_from_uid(k->ki_e->e_ucred.cr_uid, 0));
 }
 
+void
 runame(k, v)
 	KINFO *k;
 	VAR *v;
@@ -212,6 +222,7 @@ runame(k, v)
 		user_from_uid(k->ki_e->e_pcred.p_ruid, 0));
 }
 
+void
 tdev(k, v)
 	KINFO *k;
 	VAR *v;
@@ -228,6 +239,7 @@ tdev(k, v)
 	}
 }
 
+void
 tname(k, v)
 	KINFO *k;
 	VAR *v;

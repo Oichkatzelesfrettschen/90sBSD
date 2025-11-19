@@ -315,6 +315,7 @@ struct ltchars defltc;
 struct tchars notc = { -1, -1, -1, -1, -1, -1 };
 struct ltchars noltc = { -1, -1, -1, -1, -1, -1 };
 
+void
 doit(omask)
 	long omask;
 {

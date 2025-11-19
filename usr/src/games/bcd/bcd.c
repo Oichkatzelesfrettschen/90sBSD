@@ -65,6 +65,8 @@ static char sccsid[] = "@(#)bcd.c	4.4 (Berkeley) 6/1/90";
 #include <sys/types.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
 
 u_short holes[256] = {
     0x0,	 0x0,	  0x0,	   0x0,	    0x0,     0x0,     0x0,     0x0,
@@ -129,6 +131,7 @@ main(argc, argv)
 
 #define	COLUMNS	48
 
+void
 printcard(str)
 	register char *str;
 {

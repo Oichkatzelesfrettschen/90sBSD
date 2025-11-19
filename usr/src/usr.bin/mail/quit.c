@@ -126,12 +126,16 @@ quit()
 		Fclose(rbuf);
 		if ((rbuf = Fopen(tempResid, "r")) == NULL)
 			goto newmail;
+void
 		rm(tempResid);
 	}
+void
 
+void
 	/*
 	 * Adjust the message flags in each message.
 	 */
+void
 
 	anystat = 0;
 	autohold = value("hold") != NOSTR;

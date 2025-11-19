@@ -47,6 +47,7 @@ static char sccsid[] = "@(#)io.c	5.6 (Berkeley) 3/1/91";
 #include <errno.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <unistd.h>
 
 #define A_LONG_TIME 10000000
 #define STDIN_MASK (1<<fileno(stdin))	/* the bit mask for standard
@@ -55,6 +56,7 @@ static char sccsid[] = "@(#)io.c	5.6 (Berkeley) 3/1/91";
 /*
  * The routine to do the actual talking
  */
+void
 talk()
 {
 	register int read_template, sockt_mask;
@@ -115,6 +117,7 @@ extern	int sys_nerr;
  * p_error prints the system error message on the standard location
  * on the screen and then exits. (i.e. a curses version of perror)
  */
+void
 p_error(string) 
 	char *string;
 {
@@ -130,6 +133,7 @@ p_error(string)
 /*
  * Display string in the standard location
  */
+void
 message(string)
 	char *string;
 {

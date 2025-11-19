@@ -38,7 +38,11 @@ static char sccsid[] = "@(#)init.c	5.5 (Berkeley) 2/27/91";
 #include <sys/types.h>
 #include "externs.h"
 #include <pwd.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
+void
 initialize(startup)
 	char startup;
 {
@@ -68,6 +72,7 @@ initialize(startup)
 	signal(SIGINT, die);
 }
 
+void
 getutmp(uname)
 	char *uname;
 {
@@ -95,6 +100,7 @@ char *badguys[] = {
 	0
 };
 
+int
 wizard(uname)
 	char *uname;
 {
@@ -105,6 +111,7 @@ wizard(uname)
 	return flag;
 }
 
+int
 checkout(uname)
 	register char *uname;
 {
