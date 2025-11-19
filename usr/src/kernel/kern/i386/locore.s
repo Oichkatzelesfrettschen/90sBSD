@@ -1719,10 +1719,25 @@ ENTRY(ntohs)
 	.set	ntohl, _ntohl
 	.set	htons, _htons
 	.set	ntohs, _ntohs
+	.globl	savectx, tlbflush
+	.set	savectx, _savectx
+	.set	tlbflush, _tlbflush
 
 /* memmove alias */
 	.globl	memmove
 	.set	memmove, _memmove
 
 /* PMD_ONFAULT offset for profiling */
-	.equ	PMD_ONFAULT, 0
+	.equ	PMD_ONFAULT, 200  /* Estimated offset to pcb_onfault - stub value */
+
+/* Aliases for C symbols that assembly expects with underscores */
+	.globl	_boothowto, _bootdev, _main, _panic, _init386, _curpcb
+	.globl	__ucodesel, __udatasel, _Crtat
+	.set	_boothowto, boothowto
+	.set	_bootdev, bootdev
+	.set	_main, main
+	.set	_panic, panic
+	.set	_init386, init386
+	.set	_curpcb, curpcb
+	.set	__ucodesel, _ucodesel
+	.set	__udatasel, _udatasel

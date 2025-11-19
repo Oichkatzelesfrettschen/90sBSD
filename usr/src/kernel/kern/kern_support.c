@@ -207,3 +207,104 @@ void *phys_map = NULL;
 /* Current process */
 struct proc *curproc = NULL;
 void *_curproc = NULL;  /* Assembly expects underscore version */
+
+/* Final undefined symbols */
+
+/* VM meter statistics */
+#include <sys/vmmeter.h>
+struct vmmeter cnt = {0};
+
+/* NPX (FPU) process ownership */
+struct proc *npxproc = NULL;
+
+/* VM maps */
+void *kernel_map = NULL;
+
+/* Page table map */
+void *PTmap = NULL;  /* Page table map stub */
+
+
+/* Additional kernel functions */
+
+/* Process scheduling */
+void setrunqueue(struct proc *p) { /* Stub */ }
+
+/* User profiling - use assembly version if working, else stub */
+extern void _addupc(int pc, struct uprof *up, int ticks);
+void addupc(int pc, struct uprof *up, int ticks) {
+	/* Stub - profiling disabled */
+}
+
+/* Memory copy - bcopy */
+extern void *memmove(void *, const void *, size_t);
+void bcopy(const void *src, void *dst, size_t len) {
+	memmove(dst, src, len);
+}
+
+/* Move ESP - stub */
+int mvesp(void) { return 0; }
+
+
+/* Low-level kernel globals and functions */
+
+/* Physical-to-virtual table */
+void *pv_table = NULL;
+
+/* Page table directory */
+void *PTD = NULL;
+
+/* System state */
+int cold = 1;  /* System is still cold-starting */
+int cpl = 0;  /* Current priority level */
+
+/* Fetch word from user space */
+int fuword(void *addr) { return -1; /* Stub */ }
+
+/* Read CR2 register (page fault address) */
+unsigned long rcr2(void) { return 0; }
+
+/* AST off function */
+void astoff(void) { /* Stub */ }
+
+/* NPX DNA (Device Not Available) handler */
+void npxdna(void) { /* Stub */ }
+
+
+/* Pmap-related globals */
+void *PTDpde = NULL;
+void *APTDpde = NULL;
+void *APTmap = NULL;
+void *IdlePTD = NULL;
+
+/* Memory operations */
+void bzero(void *s, size_t n) {
+	char *p = s;
+	while (n--) *p++ = 0;
+}
+
+void blkclr(void *s, size_t n) {
+	bzero(s, n);
+}
+
+/* Load CR3 register */
+void load_cr3(unsigned long val) {
+	asm volatile("movl %0, %%cr3" : : "r"(val));
+}
+
+
+/* Boot-time globals */
+extern int boothowto;  /* Already declared elsewhere */
+int bootdev = 0;  /* Boot device */
+void *curpcb = NULL;  /* Current PCB */
+
+/* init386 - i386 initialization */
+void init386(void) { /* Stub */ }
+
+/* Segment selectors */
+int _ucodesel = 0x08;  /* User code selector */
+int _udatasel = 0x10;  /* User data selector */
+
+/* Console display memory */
+void *Crtat = (void *)0xb8000;  /* CRT attribute/character */
+void *_Crtat = (void *)0xb8000;
+
