@@ -76,7 +76,6 @@ compar(a, b)
 #define SEC(t)		((t) % SECAMIN)
 
 char	*
-int
 timestr(t)
 {
 	static char	s[80];
