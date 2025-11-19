@@ -12,7 +12,7 @@ SRCS+=	bcmp.s bcopy.s bzero.s ffs.s index.s memchr.c memcmp.c memset.c \
 	strncat.c strncmp.s strncpy.s strpbrk.c strsep.c \
 	strspn.c strstr.c
 .elif (${MACHINE} == "i386")
-SRCS+=	bcmp.c bcopy.c bzero.s ffs.c index.c memchr.c memcmp.c memset.c \
+SRCS+=	bcmp.c bcopy.c bzero.c ffs.c index.c memchr.c memcmp.c memset.c \
 	rindex.c strcat.c strcmp.c strcpy.c strcspn.c strlen.c \
 	strncat.c strncmp.c strncpy.c strpbrk.c strsep.c \
 	strspn.c strstr.c
