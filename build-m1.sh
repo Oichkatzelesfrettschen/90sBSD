@@ -87,31 +87,34 @@ clean_build() {
 build_native() {
     echo -e "${BLUE}Building with native macOS toolchain...${NC}"
     echo -e "${YELLOW}Architecture: ARM64 → i386 cross-compilation${NC}"
-
-    mkdir -p "$BUILD_DIR"
+    echo -e "${YELLOW}Using BSD Makefile infrastructure${NC}"
 
     local start_time=$(date +%s)
 
-    # Compile a test file (kernel_main.c is known to work)
-    clang -m32 -march=i386 -target i386-pc-none-elf \
-        -ffreestanding -fno-builtin -fno-stack-protector \
-        -I./$KERNEL_DIR/include \
-        -I./$KERNEL_DIR/include/sys \
-        -I./$KERNEL_DIR \
-        -I./$KERNEL_DIR/vm \
-        -DKERNEL -Di386 \
-        $KERNEL_DIR/boot/kernel_main.c -c -o $BUILD_DIR/kernel_main.o
+    # Build using the BSD kernel build system
+    cd usr/src/kernel
+    export S=$(pwd)
+    export MACHINE=i386
+
+    # Use stock configuration
+    bmake -f config/stock.mk clean 2>/dev/null || true
+    bmake -f config/stock.mk
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
-    echo -e "${GREEN}✓ Native build complete in ${duration}s${NC}"
-    ls -lh $BUILD_DIR/kernel_main.o
+    cd ../../..
+    echo -e "${GREEN}✓ Native BSD kernel build complete in ${duration}s${NC}"
+    if [ -f usr/src/kernel/386bsd ]; then
+        ls -lh usr/src/kernel/386bsd
+        file usr/src/kernel/386bsd
+    fi
 }
 
 build_rosetta() {
     echo -e "${BLUE}Building with Docker + Rosetta 2...${NC}"
     echo -e "${YELLOW}Platform: linux/amd64 (Rosetta 2 accelerated)${NC}"
+    echo -e "${YELLOW}Using BSD Makefile infrastructure${NC}"
 
     # Check if Rosetta is available
     if docker info 2>/dev/null | grep -q "rosetta"; then
@@ -130,26 +133,29 @@ build_rosetta() {
         docker build -f .devcontainer/Dockerfile.rosetta -t $IMAGE_NAME .
     fi
 
-    # Run build
+    # Run BSD kernel build in Docker
     docker run --rm --platform linux/amd64 \
         -v "$(pwd):/workspace" \
-        -w /workspace \
+        -w /workspace/usr/src/kernel \
         $IMAGE_NAME \
         bash -c "
-            gcc -m32 -march=i386 \
-                -ffreestanding -fno-builtin -fno-stack-protector \
-                -I./$KERNEL_DIR/include \
-                -I./$KERNEL_DIR \
-                -DKERNEL -Di386 \
-                $KERNEL_DIR/boot/kernel_main.c -c -o /tmp/kernel_main.o && \
-                ls -lh /tmp/kernel_main.o && \
-                readelf -h /tmp/kernel_main.o | grep -E '(Class|Machine)'
+            export S=\$(pwd)
+            export MACHINE=i386
+            bmake -f config/stock.mk clean 2>/dev/null || make -f config/stock.mk clean 2>/dev/null || true
+            bmake -f config/stock.mk || make -f config/stock.mk
+            if [ -f 386bsd ]; then
+                ls -lh 386bsd
+                file 386bsd
+            fi
         "
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
-    echo -e "${GREEN}✓ Rosetta build complete in ${duration}s${NC}"
+    echo -e "${GREEN}✓ Rosetta BSD kernel build complete in ${duration}s${NC}"
+    if [ -f usr/src/kernel/386bsd ]; then
+        ls -lh usr/src/kernel/386bsd
+    fi
 }
 
 build_docker_qemu() {
@@ -180,20 +186,24 @@ build_docker_qemu() {
 }
 
 test_kernel() {
-    echo -e "${BLUE}Testing kernel in QEMU...${NC}"
+    echo -e "${BLUE}Testing BSD kernel in QEMU...${NC}"
 
-    if [ ! -f "build/kernel.elf" ]; then
-        echo -e "${RED}Error: build/kernel.elf not found${NC}"
+    if [ ! -f "usr/src/kernel/386bsd" ]; then
+        echo -e "${RED}Error: usr/src/kernel/386bsd not found${NC}"
         echo "Build the kernel first with: $0 rosetta"
         exit 1
     fi
 
+    echo -e "${YELLOW}Kernel info:${NC}"
+    file usr/src/kernel/386bsd
+    ls -lh usr/src/kernel/386bsd
+
     echo -e "${YELLOW}Launching QEMU (Ctrl+C to exit)...${NC}"
     qemu-system-i386 \
-        -kernel build/kernel.elf \
+        -kernel usr/src/kernel/386bsd \
         -m 128M \
         -serial stdio \
-        -display none
+        -nographic
 }
 
 benchmark_all() {
