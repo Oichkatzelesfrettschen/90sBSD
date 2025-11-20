@@ -75,9 +75,6 @@ kernel-build-analysis.log.*
 
 # Modernization logs and metrics
 logs/
-.build-metrics/*.log
-.build-metrics/*.txt
-.build-cache/cache/
 !logs/.gitkeep
 
 # Analysis outputs
@@ -99,3 +96,9 @@ tags       # ctags/etags index files
 !sysroots/
 !sysroots/386bsd-elf/
 !sysroots/386bsd-elf/.gitkeep
+
+# Build optimization tools (keep infrastructure, ignore runtime data)
+tools/build-optimization/cache/cache/
+tools/build-optimization/metrics/*.log
+tools/build-optimization/metrics/*.txt
+tools/build-optimization/metrics/*.json

@@ -8,8 +8,8 @@ set -euo pipefail
 
 # Configuration
 KERNEL_DIR="usr/src/kernel"
-BUILD_CACHE_DIR=".build-cache"
-BUILD_METRICS_DIR=".build-metrics"
+BUILD_CACHE_DIR="tools/build-optimization/cache"
+BUILD_METRICS_DIR="tools/build-optimization/metrics"
 PARALLEL_JOBS=${PARALLEL_JOBS:-$(nproc)}
 
 # Colors for output
