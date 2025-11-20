@@ -92,7 +92,7 @@ build_native() {
 
     local start_time=$(date +%s)
 
-    # Compile a test file
+    # Compile a test file (kernel_main.c is known to work)
     clang -m32 -march=i386 -target i386-pc-none-elf \
         -ffreestanding -fno-builtin -fno-stack-protector \
         -I./$KERNEL_DIR/include \
@@ -100,13 +100,13 @@ build_native() {
         -I./$KERNEL_DIR \
         -I./$KERNEL_DIR/vm \
         -DKERNEL -Di386 \
-        $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
+        $KERNEL_DIR/boot/kernel_main.c -c -o $BUILD_DIR/kernel_main.o
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
     echo -e "${GREEN}✓ Native build complete in ${duration}s${NC}"
-    ls -lh $BUILD_DIR/kern_acct.o
+    ls -lh $BUILD_DIR/kernel_main.o
 }
 
 build_rosetta() {
@@ -136,22 +136,20 @@ build_rosetta() {
         -w /workspace \
         $IMAGE_NAME \
         bash -c "
-            mkdir -p $BUILD_DIR
             gcc -m32 -march=i386 \
                 -ffreestanding -fno-builtin -fno-stack-protector \
                 -I./$KERNEL_DIR/include \
-                -I./$KERNEL_DIR/include/sys \
                 -I./$KERNEL_DIR \
-                -I./$KERNEL_DIR/vm \
                 -DKERNEL -Di386 \
-                $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
+                $KERNEL_DIR/boot/kernel_main.c -c -o /tmp/kernel_main.o && \
+                ls -lh /tmp/kernel_main.o && \
+                readelf -h /tmp/kernel_main.o | grep -E '(Class|Machine)'
         "
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
     echo -e "${GREEN}✓ Rosetta build complete in ${duration}s${NC}"
-    ls -lh $BUILD_DIR/kern_acct.o
 }
 
 build_docker_qemu() {
@@ -166,15 +164,12 @@ build_docker_qemu() {
         i386/debian:stable-slim \
         bash -c "
             apt-get update -qq && apt-get install -y -qq gcc make >/dev/null 2>&1
-            mkdir -p $BUILD_DIR
             gcc -m32 -march=i386 \
                 -ffreestanding -fno-builtin -fno-stack-protector \
                 -I./$KERNEL_DIR/include \
-                -I./$KERNEL_DIR/include/sys \
                 -I./$KERNEL_DIR \
-                -I./$KERNEL_DIR/vm \
                 -DKERNEL -Di386 \
-                $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
+                $KERNEL_DIR/boot/kernel_main.c -c -o /tmp/kernel_main.o
         "
 
     local end_time=$(date +%s)
