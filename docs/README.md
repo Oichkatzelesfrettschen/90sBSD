@@ -27,15 +27,11 @@
 - [**Tooling Report**](tooling-report.md) - Development tools overview
 - [**Sysroot Documentation**](sysroot.md) - Cross-compilation sysroot
 
-### 🗂️ Legacy Documents
-- [**CONTRIB.TXT**](legacy/CONTRIB.TXT) - Historical contributors
-- [**COPYRGHT.TXT**](legacy/COPYRGHT.TXT) - Copyright information
-- [**INFO.TXT**](legacy/INFO.TXT) - Historical project info
-- [**RELEASE.TXT**](legacy/RELEASE.TXT) - Historical release notes
-- [**SOFTSUB.TXT**](legacy/SOFTSUB.TXT) - Software submissions
+### 🗂️ Legacy & Historical Archives
+- [**Legacy Documents**](legacy/) - Original documents from 386BSD
+- [**Historical Archives**](history/) - Detailed progress reports from the modernization project
 
 ### 📖 Guides and How-Tos
-- [**Phase 4 Complete**](guides/PHASE_4_COMPLETE.md) - Phase 4 achievements
 - [**Repository Hygiene**](guides/REPOSITORY_HYGIENE.md) - Repository maintenance
 - [**Reproducible Build**](reproducible-build.md) - Build reproducibility
 
@@ -65,7 +61,6 @@ docs/
 │   └── (Doxygen output - generated)
 │
 ├── guides/                      ← User guides and how-tos
-│   ├── PHASE_4_COMPLETE.md
 │   └── REPOSITORY_HYGIENE.md
 │
 ├── legacy/                      ← Historical documents
@@ -103,7 +98,6 @@ docs/
 ### For Project Managers
 1. [Comprehensive Audit](standards/COMPREHENSIVE_AUDIT_REPORT.md) - Current state
 2. [C17/SUSv4 Roadmap](standards/C17_SUSV4_ROADMAP.md) - Implementation timeline
-3. [Phase 4 Complete](guides/PHASE_4_COMPLETE.md) - Recent achievements
 
 ### For Researchers
 1. [Alternate History Evolution](standards/ALTERNATE_HISTORY_EVOLUTION.md) - Theoretical framework

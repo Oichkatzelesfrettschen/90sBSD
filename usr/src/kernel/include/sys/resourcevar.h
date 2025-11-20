@@ -36,6 +36,8 @@
 #ifndef	_SYS_RESOURCEVAR_H_
 #define	_SYS_RESOURCEVAR_H_
 
+#include <sys/resource.h>
+
 /*
  * Kernel per-process accounting / statistics
  * (not necessarily resident except when running).

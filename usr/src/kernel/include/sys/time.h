@@ -1,13 +1,6 @@
 /*
  * Copyright (c) 1982, 1986, 1993
- *	The Regents of the University of California.  All rights reserved. *
- * Include guard added by add-header-guards.sh
- * Date: 2025-11-19
- */
-
-#ifndef _KERNEL_INCLUDE_SYS_TIME_H_
-#define _KERNEL_INCLUDE_SYS_TIME_H_
-
+ * 	The Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -19,8 +12,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ * 	This product includes software developed by the University of
+ * 	California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -37,7 +30,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)time.h	8.5 (Berkeley) 5/4/95
+ * 	@(#)time.h	8.5 (Berkeley) 5/4/95
  */
 
 #ifndef _SYS_TIME_H_
@@ -50,7 +43,7 @@
  * and used in other calls.
  */
 struct timeval {
-	long	tv_sec;		/* seconds */
+	long	tv_sec; 	/* seconds */
 	long	tv_usec;	/* and microseconds */
 };
 
@@ -58,21 +51,21 @@ struct timeval {
  * Structure defined by POSIX.4 to be like a timeval.
  */
 struct timespec {
-	time_t	ts_sec;		/* seconds */
+	time_t	ts_sec; 	/* seconds */
 	long	ts_nsec;	/* and nanoseconds */
 };
 
-#define	TIMEVAL_TO_TIMESPEC(tv, ts) {					\
-	(ts)->ts_sec = (tv)->tv_sec;					\
-	(ts)->ts_nsec = (tv)->tv_usec * 1000;				\
+#define	TIMEVAL_TO_TIMESPEC(tv, ts) {\
+	(ts)->ts_sec = (tv)->tv_sec;\
+	(ts)->ts_nsec = (tv)->tv_usec * 1000;\
 }
-#define	TIMESPEC_TO_TIMEVAL(tv, ts) {					\
-	(tv)->tv_sec = (ts)->ts_sec;					\
-	(tv)->tv_usec = (ts)->ts_nsec / 1000;				\
+#define	TIMESPEC_TO_TIMEVAL(tv, ts) {\
+	(tv)->tv_sec = (ts)->ts_sec;\
+	(tv)->tv_usec = (ts)->ts_nsec / 1000;\
 }
 
 struct timezone {
-	int	tz_minuteswest;	/* minutes west of Greenwich */
+	int	tz_minuteswest; 	/* minutes west of Greenwich */
 	int	tz_dsttime;	/* type of dst correction */
 };
 #define	DST_NONE	0	/* not on dst */
@@ -86,9 +79,9 @@ struct timezone {
 /* Operations on timevals. */
 #define	timerclear(tvp)		(tvp)->tv_sec = (tvp)->tv_usec = 0
 #define	timerisset(tvp)		((tvp)->tv_sec || (tvp)->tv_usec)
-#define	timercmp(tvp, uvp, cmp)						\
-	(((tvp)->tv_sec == (uvp)->tv_sec) ?				\
-	    ((tvp)->tv_usec cmp (uvp)->tv_usec) :			\
+#define	timercmp(tvp, uvp, cmp) \
+	(( (tvp)->tv_sec == (uvp)->tv_sec) ? \
+	    ((tvp)->tv_usec cmp (uvp)->tv_usec) : \
 	    ((tvp)->tv_sec cmp (uvp)->tv_sec))
 
 /*
@@ -100,7 +93,7 @@ struct timezone {
 #define	ITIMER_PROF	2
 
 struct	itimerval {
-	struct	timeval it_interval;	/* timer interval */
+	struct	timeval it_interval; 	/* timer interval */
 	struct	timeval it_value;	/* current value */
 };
 
@@ -108,10 +101,10 @@ struct	itimerval {
  * Getkerninfo clock information structure
  */
 struct clockinfo {
-	int	hz;		/* clock frequency */
+	int	hz; 		/* clock frequency */
 	int	tick;		/* micro-seconds per hz tick */
-	int	stathz;		/* statistics clock frequency */
-	int	profhz;		/* profiling clock frequency */
+	int	stathz;	/* statistics clock frequency */
+	int	profhz;	/* profiling clock frequency */
 };
 
 #ifdef KERNEL
@@ -137,5 +130,3 @@ __END_DECLS
 #endif /* !KERNEL */
 
 #endif /* !_SYS_TIME_H_ */
-
-#endif /* _KERNEL_INCLUDE_SYS_TIME_H_ */

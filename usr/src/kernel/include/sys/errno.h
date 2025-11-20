@@ -1,3 +1,5 @@
+#ifndef _SYS_ERRNO_H_
+#define _SYS_ERRNO_H_
 /*
  * Copyright (c) 1982, 1986, 1989, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -5,14 +7,7 @@
  * All or some portions of this file are derived from material licensed
  * to the University of California by American Telephone and Telegraph
  * Co. or Unix System Laboratories, Inc. and are reproduced herein with
- * the permission of UNIX System Laboratories, Inc. *
- * Include guard added by add-header-guards.sh
- * Date: 2025-11-19
- */
-
-#ifndef _KERNEL_INCLUDE_SYS_ERRNO_H_
-#define _KERNEL_INCLUDE_SYS_ERRNO_H_
-
+ * the permission of UNIX System Laboratories, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -168,5 +163,4 @@ extern int errno;			/* global error number */
 #define	ERESTART	-1		/* restart syscall */
 #define	EJUSTRETURN	-2		/* don't modify regs, just return */
 #endif
-
-#endif /* _KERNEL_INCLUDE_SYS_ERRNO_H_ */
+#endif /* _SYS_ERRNO_H_ */

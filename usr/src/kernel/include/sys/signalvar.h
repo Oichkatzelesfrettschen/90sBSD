@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 1991, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *\tThe Regents of the University of California.  All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -12,8 +12,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *\tThis product includes software developed by the University of
+ *\tCalifornia, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -30,19 +30,18 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)signalvar.h	8.6 (Berkeley) 2/19/95
- *
- * Include guard added by add-header-guards.sh
- * Date: 2025-11-19
+ *\t@(#)signalvar.h\t8.6 (Berkeley) 2/19/95
  */
 
-#ifndef _KERNEL_INCLUDE_SIGNALVAR_H_
-#define _KERNEL_INCLUDE_SIGNALVAR_H_
+#ifndef _SYS_SIGNALVAR_H_
+#define _SYS_SIGNALVAR_H_
 
 /*
  * Kernel signal definitions and data structures,
  * not exported to user programs.
  */
+
+typedef void (*sig_t) __P((int));	/* type of signal function */
 
 /*
  * Process signal actions and state, needed only within the process
@@ -55,7 +54,11 @@ struct	sigacts {
 	sigset_t ps_sigintr;		/* signals that interrupt syscalls */
 	sigset_t ps_oldmask;		/* saved mask from before sigpause */
 	int	ps_flags;		/* signal flags, below */
-	struct	sigaltstack ps_sigstk;	/* sp & on stack state variable */
+	struct	sigaltstack {
+		char	*ss_sp;
+		int	ss_size;
+		int	ss_flags;
+	} ps_sigstk;		/* sp & on stack state variable */
 	int	ps_sig;			/* for core dump/debugger XXX */
 	long	ps_code;		/* for core dump/debugger XXX */
 	long	ps_addr;		/* for core dump/debugger XXX */
@@ -63,12 +66,12 @@ struct	sigacts {
 };
 
 /* signal flags */
-#define	SAS_OLDMASK	0x01		/* need to restore mask before pause */
-#define	SAS_ALTSTACK	0x02		/* have alternate signal stack */
+#define SAS_OLDMASK	0x01		/* need to restore mask before pause */
+#define SAS_ALTSTACK	0x02		/* have alternate signal stack */
 
 /* additional signal action values, used only temporarily/internally */
-#define	SIG_CATCH	(void (*)())2
-#define	SIG_HOLD	(void (*)())3
+#define SIG_CATCH	(void (*)())2
+#define SIG_HOLD	(void (*)())3
 
 /*
  * get signal action for process and signal; currently only for current process
@@ -80,16 +83,16 @@ struct	sigacts {
  * process, 0 if none.  If there is a pending stop signal with default
  * action, the process stops in issignal().
  */
-#define	CURSIG(p)							\
-	(((p)->p_siglist == 0 ||					\
-	    ((p)->p_flag & P_TRACED) == 0 &&				\
-	    ((p)->p_siglist & ~(p)->p_sigmask) == 0) ?			\
+#define CURSIG(p) \
+	(((p)->p_siglist == 0 || \
+	    ((p)->p_flag & P_TRACED) == 0 && \
+	    ((p)->p_siglist & ~(p)->p_sigmask) == 0) ? \
 	    0 : issignal(p))
 
 /*
  * Clear a pending signal from a process.
  */
-#define	CLRSIG(p, sig)	{ (p)->p_siglist &= ~sigmask(sig); }
+#define CLRSIG(p, sig)	{ (p)->p_siglist &= ~sigmask(sig); }
 
 /*
  * Signal properties and actions.
@@ -141,7 +144,7 @@ int sigprop[NSIG + 1] = {
 };
 
 #define	contsigmask	(sigmask(SIGCONT))
-#define	stopsigmask	(sigmask(SIGSTOP) | sigmask(SIGTSTP) | \
+#define	stopsigmask	(sigmask(SIGSTOP) |	sigmask(SIGTSTP) | \
 			    sigmask(SIGTTIN) | sigmask(SIGTTOU))
 
 #endif /* SIGPROP */
@@ -170,4 +173,4 @@ void	trapsignal __P((struct proc *p, int sig, u_long code));
 void	sendsig __P((sig_t action, int sig, int returnmask, u_long code));
 #endif	/* KERNEL */
 
-#endif /* _KERNEL_INCLUDE_SIGNALVAR_H_ */
+#endif /* !_SYS_SIGNALVAR_H_ */

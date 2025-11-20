@@ -1,52 +1,12 @@
-/*-
- * Copyright (c) 1989, 1990 William F. Jolitz
- * Copyright (c) 1990, 1993
- *	The Regents of the University of California.  All rights reserved.
- *
- * This code is derived from software contributed to Berkeley by
- * William Jolitz.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. All advertising materials mentioning features or use of this software
- *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
- * 4. Neither the name of the University nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- *
- *	@(#)segments.h	8.1 (Berkeley) 6/11/93
- *
- * Include guard added by add-header-guards.sh
- * Date: 2025-11-19
- */
-
-#ifndef _KERNEL_KERN_I386_SEGMENTS_H_
-#define _KERNEL_KERN_I386_SEGMENTS_H_
+#ifndef _MACHINE_SEGMENTS_H_
+#define _MACHINE_SEGMENTS_H_
 
 /*
  * 386 Segmentation Data Structures and definitions
  *	William F. Jolitz (william@ernie.berkeley.edu) 6/20/1989
  */
+
+typedef unsigned short sel_t;
 
 /*
  * Selectors
@@ -221,7 +181,7 @@ void expanddesctable(void);
  * Allocate a global descriptor to the kernel. If no free descriptors,
  * expand the table.
  */
-extern inline struct segment_descriptor *
+static inline struct segment_descriptor *
 allocdesc(void)
 {
 	struct segment_descriptor *sdp;
@@ -243,6 +203,7 @@ tryagain:
 		goto tryagain;
 	}
 
+#include <sys/systm.h>
 #ifdef DIAGNOSTIC
 	if(sdp->sd_p)
 		panic("allocdesc: no free descriptor");
@@ -264,7 +225,7 @@ tryagain:
 /*
  * Return a Global descriptor to free status, so it may be reused.
  */
-extern inline void
+static inline void
 freedesc(struct segment_descriptor *sdp)
 {
 	sdp->sd_p = 0;		/* will generate an invalid tss if used */
@@ -285,7 +246,7 @@ freedesc(struct segment_descriptor *sdp)
  * Allocate a TSS descriptor to a kernel thread, in the course of
  * creating a new thread. Special version of allocdesc().
  */
-extern inline
+static inline
 alloctss(struct proc *p) {
 	struct segment_descriptor *sdp = allocdesc();
 	sdp->sd_lolimit = sizeof(struct i386tss) - 1;
@@ -302,7 +263,9 @@ alloctss(struct proc *p) {
  * Return to the free pool the TSS descriptor of a thread being
  * deallocated. Special case of freedesc().
  */
-extern inline void
+static void ltr(sel_t sel);
+
+static inline void
 freetss(sel_t tss_sel) {
 
 	/*
@@ -313,6 +276,12 @@ freetss(sel_t tss_sel) {
 		ltr(_exit_tss_sel); /* busy until final ljmp */
 
 	freedesc(&gdt[IDXSEL(tss_sel)].sd);
+}
+
+inline void
+ltr(sel_t sel)
+{
+	__asm__ volatile("ltr %0" : : "r" (sel));
 }
 
 #endif /* _KERNEL_KERN_I386_SEGMENTS_H_ */

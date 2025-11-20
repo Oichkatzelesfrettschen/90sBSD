@@ -213,7 +213,37 @@ simple_unlock(lkp)
 
 	lkp->lock_data = 0;
 }
-#endif /* NCPUS > 1 */
+#else
+/*
+ * For a single-processor system, the simple lock functions are no-ops.
+ */
+static __inline void
+simple_lock_init(struct simplelock *lkp)
+{
+	lkp->lock_data = 0;
+}
+
+static __inline void
+simple_lock(struct simplelock *lkp)
+{
+	lkp->lock_data = 1;
+}
+
+static __inline int
+simple_lock_try(struct simplelock *lkp)
+{
+	if (lkp->lock_data)
+		return (0);
+	lkp->lock_data = 1;
+	return (1);
+}
+
+static __inline void
+simple_unlock(struct simplelock *lkp)
+{
+	lkp->lock_data = 0;
+}
+#endif /* !defined(DEBUG) && NCPUS > 1 */
 #endif /* !_SIMPLELOCK_H_ */
 
 #endif /* _KERNEL_INCLUDE_I386_PARAM_H_ */

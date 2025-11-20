@@ -8,9 +8,9 @@
 
 TOUCH?=	touch -f -c
 LD?=	/usr/bin/ld
-CC?=	cc 
+CC?=	cc
+AS?=	clang --target=i386-unknown-elf
 CPP?=	cpp
-
 # XXX overkill, revise include scheme
 INCLUDES= -I$S/include
 
@@ -18,6 +18,9 @@ COPTS+=	${INCLUDES} ${IDENT} -DKERNEL -Di386 -DDIAGNOSTIC
 DEPEND= depend_mk
 
 ASFLAGS= ${DEBUG}
+
+.s.o:
+	${AS} ${ASFLAGS} ${.IMPSRC} -o ${.TARGET}
 .if defined(GDB)
 # CFLAGS=	-m486 -O ${COPTS} -g
 CFLAGS=	-O ${COPTS} -g -fno-builtin -fno-stack-protector -fno-pic -Wno-implicit-int
@@ -81,7 +84,7 @@ ${KERNEL}: Makefile symbols.sort ${FIRSTOBJ} ${OBJS}
 	@echo loading $@
 	@rm -f $@
 	@$S/config/newvers.sh
-	@${CC} -c ${CFLAGS} ${PROF} ${DEBUG} vers.c
+	${CC} -c ${CFLAGS} ${PROF} ${DEBUG} vers.c
 .if defined(DEBUGSYM)
 	@${LD} -z -Ttext=0x${KERNBASE} -o $@ -X ${FIRSTOBJ} ${OBJS} vers.o
 .else

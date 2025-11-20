@@ -1,3 +1,5 @@
+#ifndef _SYS_SYSTM_H_
+#define _SYS_SYSTM_H_
 /*-
  * Copyright (c) 1982, 1988, 1991, 1993
  *	The Regents of the University of California.  All rights reserved.
@@ -91,11 +93,11 @@ extern struct vnode *rootvp;	/* vnode equivalent to above */
 extern dev_t swapdev;		/* swapping device */
 extern struct vnode *swapdev_vp;/* vnode equivalent to above */
 
-extern struct sysent {		/* system call table */
-	short	sy_narg;	/* number of args */
-	short	sy_argsize;	/* total size of arguments */
-	int	(*sy_call)();	/* implementing function */
-} sysent[];
+/*extern struct sysent {
+	short	sy_narg;
+	short	sy_argsize;
+	int	(*sy_call)();
+} sysent[];*/
 extern int nsysent;
 #define	SCARG(p,k)	((p)->k.datum)	/* get arg from args pointer */
 
@@ -156,10 +158,10 @@ void	timeout __P((void (*func)(void *), void *arg, int ticks));
 void	untimeout __P((void (*func)(void *), void *arg));
 void	realitexpire __P((void *));
 
-struct clockframe;
+/*struct clockframe;
 void	hardclock __P((struct clockframe *frame));
 void	softclock __P((void));
-void	statclock __P((struct clockframe *frame));
+void	statclock __P((struct clockframe *frame));*/
 
 void	initclocks __P((void));
 
@@ -168,3 +170,4 @@ void	stopprofclock __P((struct proc *));
 void	setstatclockrate __P((int hzrate));
 
 #include <libkern/libkern.h>
+#endif /* _SYS_SYSTM_H_ */

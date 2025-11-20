@@ -55,7 +55,10 @@ static char sccsid[] = "@(#)genassym.c	8.2 (Berkeley) 9/23/93";
 #include <sys/syscall.h>
 #include <vm/vm.h>
 #include <sys/user.h>
+#include <stdlib.h>
+#include <machine/pcb.h>
 
+int
 main()
 {
 	struct proc *p = (struct proc *)0;
