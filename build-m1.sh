@@ -100,13 +100,13 @@ build_native() {
         -I./$KERNEL_DIR \
         -I./$KERNEL_DIR/vm \
         -DKERNEL -Di386 \
-        $KERNEL_DIR/kern/config.c -c -o $BUILD_DIR/config.o
+        $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
     echo -e "${GREEN}✓ Native build complete in ${duration}s${NC}"
-    ls -lh $BUILD_DIR/config.o
+    ls -lh $BUILD_DIR/kern_acct.o
 }
 
 build_rosetta() {
@@ -144,14 +144,14 @@ build_rosetta() {
                 -I./$KERNEL_DIR \
                 -I./$KERNEL_DIR/vm \
                 -DKERNEL -Di386 \
-                $KERNEL_DIR/kern/config.c -c -o $BUILD_DIR/config.o
+                $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
         "
 
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
 
     echo -e "${GREEN}✓ Rosetta build complete in ${duration}s${NC}"
-    ls -lh $BUILD_DIR/config.o
+    ls -lh $BUILD_DIR/kern_acct.o
 }
 
 build_docker_qemu() {
@@ -174,7 +174,7 @@ build_docker_qemu() {
                 -I./$KERNEL_DIR \
                 -I./$KERNEL_DIR/vm \
                 -DKERNEL -Di386 \
-                $KERNEL_DIR/kern/config.c -c -o $BUILD_DIR/config.o
+                $KERNEL_DIR/kern/kern_acct.c -c -o $BUILD_DIR/kern_acct.o
         "
 
     local end_time=$(date +%s)
