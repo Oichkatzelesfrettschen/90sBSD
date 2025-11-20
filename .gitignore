@@ -38,8 +38,11 @@ a.out
 # Intermediate build directories
 obj/
 build/
-build-*/
 */obj/
+
+# Exception: tools/build-optimization/ is infrastructure, not build artifacts
+!tools/
+!tools/build-optimization/
 
 # Exception: docs/build/ is documentation, not build artifacts
 !docs/build/
@@ -102,3 +105,4 @@ tools/build-optimization/cache/cache/
 tools/build-optimization/metrics/*.log
 tools/build-optimization/metrics/*.txt
 tools/build-optimization/metrics/*.json
+!tools/build-optimization/README.md
